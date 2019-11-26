@@ -11,6 +11,9 @@ This repository is here to help you bootstrap your own OpenFisca [extension](htt
 
 > We recommend that you [use a virtualenv](https://github.com/openfisca/country-template/blob/master/README.md#setting-up-a-virtual-environment-with-pew) to install OpenFisca. If you don't, you may need to add `--user` at the end of all commands starting by `pip`.
 
+```sh
+pew new openfisca --python=python3.8
+```
 To install your extension, run:
 
 ```sh
