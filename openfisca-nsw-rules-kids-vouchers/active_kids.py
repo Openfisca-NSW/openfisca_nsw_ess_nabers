@@ -10,8 +10,8 @@ from openfisca_core.model_api import *
 from openfisca_nsw.entities import *
 
 
-from nsw.people.education import *
-from nsw.people.demographics import age_in_months
+# from nsw.people.education import *
+# from nsw.people.demographics import age_in_months
 
 
 class active_kids__already_issued_in_calendar_year(Variable):

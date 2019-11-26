@@ -37,4 +37,4 @@ check-style:
 	flake8 `git ls-files | grep "\.py$$"`
 
 test: clean check-syntax-errors check-style
-	openfisca test openfisca_extension_template/tests --country-package openfisca_country_template --extensions openfisca_extension_template
+	openfisca test openfisca-nsw-rules-kids-vouchers/tests --country-package openfisca_country_template --extensions openfisca-nsw-rules-kids-vouchers

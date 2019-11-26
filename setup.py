@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="OpenFisca-Extension-Template",
+    name="openfisca-nsw-rules-kids-vouchers",
     version="1.3.2",
     author="OpenFisca Team",
     author_email = 'contact@openfisca.org',
@@ -16,10 +16,10 @@ setup(
     description="An OpenFisca extension that adds some variables to an already-existing tax and benefit system",
     keywords = 'benefit microsimulation social tax',
     license="http://www.fsf.org/licensing/licenses/agpl-3.0.html",
-    url = "https://github.com/openfisca/extension-template",
+    url = "https://github.com/digitalnsw/openfisca-nsw-rules-kids-vouchers",
     include_package_data = True,  # Will read MANIFEST.in
     data_files = [
-        ("share/openfisca/openfisca-extension-template", ["CHANGELOG.md", "LICENSE", "README.md"]),
+        ("share/openfisca/openfisca-nsw-rules-kids-vouchers", ["CHANGELOG.md", "LICENSE", "README.md"]),
         ],
     install_requires = [
         "OpenFisca-Country-Template >= 3.8.0,  < 4",
