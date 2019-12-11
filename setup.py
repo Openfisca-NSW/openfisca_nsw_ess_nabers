@@ -23,6 +23,8 @@ setup(
         ],
     install_requires = [
         "OpenFisca-Country-Template >= 3.8.0,  < 4",
+        "OpenFisca-nsw-people >=0.1.0",
+
         ],
     extras_require = {
         "dev": [
