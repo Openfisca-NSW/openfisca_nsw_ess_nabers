@@ -22,8 +22,8 @@ setup(
         ("share/openfisca/openfisca-nsw-rules-kids-vouchers", ["CHANGELOG.md", "LICENSE", "README.md"]),
         ],
     install_requires = [
-        "OpenFisca-Country-Template >= 3.8.0,  < 4",
-        "OpenFisca-nsw-people >=0.4.0",
+        'OpenFisca-Core >= 25.3, < 35',
+        'OpenFisca-France >= 34.8.0, < 49'
 
         ],
     extras_require = {

@@ -15,7 +15,7 @@ install: deps
 	@# `make install` installs the editable version of OpenFisca-France.
 	@# This allows contributors to test as they code.
 	pip install --editable .[dev] --upgrade
-
+	python -m pip install --editable ../openfisca_nsw_base --user
 build: clean deps
 	@# Install OpenFisca-Extension-Template for deployment and publishing.
 	@# `make build` allows us to be be sure tests are run against the packaged version
@@ -37,4 +37,4 @@ check-style:
 	flake8 `git ls-files | grep "\.py$$"`
 
 test: clean check-syntax-errors check-style
-	openfisca test openfisca-nsw-rules-kids-vouchers/tests --country-package openfisca_country_template --extensions openfisca-nsw-people
+	openfisca test openfisca-nsw-rules-kids-vouchers/tests --country-package openfisca_nsw_base --extensions openfisca-nsw-rules-kids-vouchers
