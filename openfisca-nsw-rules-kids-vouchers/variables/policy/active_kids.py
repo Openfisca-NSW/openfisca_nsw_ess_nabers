@@ -10,10 +10,6 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 
 
-# from nsw.people.education import *
-# from nsw.people.demographics import age_in_months
-
-
 class active_kids__already_issued_in_calendar_year(Variable):
     value_type = bool
     entity = Person
