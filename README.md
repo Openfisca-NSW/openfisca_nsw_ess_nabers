@@ -8,9 +8,9 @@ These are the rules for NSW Cost of Living measures, including the active kids a
 > We recommend that you [use a virtualenv](https://github.com/openfisca/country-template/blob/master/README.md#setting-up-a-virtual-environment-with-pew) to install OpenFisca. If you don't, you may need to add `--user` at the end of all commands starting by `pip`.
 
 ```sh
-python -m venv openfisca 
+python -m venv ess 
 deactive
-source openfisca/bin/activate
+source ess/bin/activate
 
 ```
 To install your extension, run:
