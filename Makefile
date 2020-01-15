@@ -5,6 +5,7 @@ uninstall:
 
 clean:
 	rm -rf build dist
+	py3clean .
 	find . -name '*.pyc' -exec rm \{\} \;
 
 deps:
@@ -15,7 +16,7 @@ install: deps
 	@# `make install` installs the editable version of OpenFisca-France.
 	@# This allows contributors to test as they code.
 	pip install --editable .[dev] --upgrade
-	python -m pip install --editable ../openfisca_nsw_base --user
+
 build: clean deps
 	@# Install OpenFisca-Extension-Template for deployment and publishing.
 	@# `make build` allows us to be be sure tests are run against the packaged version
@@ -36,5 +37,15 @@ check-style:
 	@# `make` needs `$$` to output `$`. Ref: http://stackoverflow.com/questions/2382764.
 	flake8 `git ls-files | grep "\.py$$"`
 
-test: clean check-syntax-errors check-style
+test: build check-syntax-errors check-style
+	openfisca test openfisca-nsw-rules-kids-vouchers/tests --country-package openfisca_nsw --extensions openfisca-nsw-people
+
+venv:
+	python3.7 -m venv kids
+	source kids/bin/activate
+
+extension: build
+	python -m pip install ../openfisca_nsw_base/
+	pip install -e .
 	openfisca test openfisca-nsw-rules-kids-vouchers/tests --country-package openfisca_nsw_base --extensions openfisca-nsw-rules-kids-vouchers
+
