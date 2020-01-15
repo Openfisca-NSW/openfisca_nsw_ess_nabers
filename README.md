@@ -9,7 +9,7 @@ These are the rules for NSW Cost of Living measures, including the active kids a
 
 ```sh
 python -m venv ess 
-deactive
+deactivate
 source ess/bin/activate
 make extension
 
