@@ -11,6 +11,7 @@ These are the rules for NSW Cost of Living measures, including the active kids a
 python -m venv ess 
 deactive
 source ess/bin/activate
+make extension
 
 ```
 To install your extension, run:
