@@ -67,6 +67,7 @@ class year_three_forward_created_electricity_savings(Variable):
         forward_created_electricity_savings = (benchmark_elec_consumption - measured_electricity_consumption) * regional_network_factor
         return forward_created_electricity_savings
 
+
 class year_one_forward_created_gas_savings(Variable):
     value_type = float
     entity = Building
@@ -104,3 +105,29 @@ class year_three_forward_created_gas_savings(Variable):
         measured_gas_consumption = buildings('measured_gas_consumption', period)
         gas_savings = benchmark_gas_consumption - measured_gas_consumption
         return gas_savings  # Year based calculations are missing from this formula. Need to be added
+
+
+class total_forward_created_electricity_savings(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = "sum of total forward created electricity savings"
+
+    def formula(buildings, period, parameters):
+        return select(
+            [years_of_forward_creation == 1, years_of_forward_creation == 2, years_of_forward_creation == 3],
+            [year_one_forward_created_electricity_savings, year_one_forward_created_electricity_savings + year_two_forward_created_electricity_savings, year_one_forward_created_electricity_savings + year_two_forward_created_electricity_savings + year_three_forward_created_electricity_savings]
+            )
+
+
+class total_forward_created_gas_savings(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = "sum of total forward created gas savings"
+
+    def formula(buildings, period, parameters):
+        return select(
+            [years_of_forward_creation == 1, years_of_forward_creation == 2, years_of_forward_creation == 3],
+            [year_one_forward_created_gas_savings, year_one_forward_created_gas_savings + year_two_forward_created_gas_savings, year_one_forward_created_gas_savings + year_two_forward_created_gas_savings + year_three_forward_created_gas_savings]
+            )
