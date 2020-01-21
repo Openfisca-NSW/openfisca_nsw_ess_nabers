@@ -87,7 +87,13 @@ class end_date_of_historical_nabers_rating_period(Variable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
-    label = "The date on which the historical rating period ends. The Rating Period is the time over which measurements were taken to establish the NABERS Rating or the Historical Baseline NABERS Rating for the NABERS Building"
+    label = 'The date on which the historical rating period ends. The Rating' \
+            ' Period is the time over which measurements were taken to' \
+            ' establish the NABERS Rating or the Historical Baseline ' \
+            ' NABERS Rating for the NABERS Building. '
+
+
+
 
 
 class current_rating_year(Variable):
@@ -126,17 +132,17 @@ class time_between_historical_and_current_ratings_within_range(Variable):
 
     def formula(buildings, period, parameters):
         return (
-            buildings('diff_as_months', period) <=
+            buildings('cur_his_diff_as_months', period) <=
             parameters(period).energy_saving_scheme.diff_historical_current_rating_forward_creation
         )
 
 
-class diff_as_months(Variable):
+class cur_his_diff_as_months(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
     label = 'Calculates the difference in months between the historical NABERS' \
-            ' rating period and the current NABERS rating period, for testing'
+            ' rating period and the current NABERS rating period, for testing' \
             ' against time_between_historical_and_current_ratings_within_range.'
 
     def formula(buildings, period, parameters):
@@ -146,6 +152,39 @@ class diff_as_months(Variable):
             'end_date_of_historical_nabers_rating_period', period
             )
         return cur.astype('datetime64[M]') - hist.astype('datetime64[M]')
+
+
+class time_between_current_ratings_and_ESC_date_within_range(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Tests the distance between the end of the current rating period' \
+            ' and the date of Energy Savings Certificates against the maximum' \
+            ' allowable distance between end of rating and ESC creation date.' \
+            ' In accordance with clause 8.8.8.'
+
+    def formula(buildings, period, parameters):
+        return (
+            buildings('cur_ESC_diff_as_months', period) <=
+            parameters(period).energy_saving_scheme.diff_current_rating_esc_creation_date
+        )
+
+
+class cur_ESC_diff_as_months(Variable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Calculates the difference in months between the current NABERS' \
+            ' period and the ESC creation date, for testing against' \
+            ' time_between_current_ratings_and_ESC_date_within_range. '
+
+    def formula(buildings, period, parameters):
+        cur = buildings(
+            'end_date_of_current_nabers_rating_period', period)
+        ESC = buildings(
+            'ESC_creation_date', period
+            )
+        return cur.astype('datetime64[M]') - ESC.astype('datetime64[M]')
 
 
 class benchmark_nabers_rating(Variable):

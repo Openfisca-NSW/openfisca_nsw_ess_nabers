@@ -4,6 +4,15 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 
 
+class ESC_creation_date(Variable):
+    value_type = date
+    entity = Building
+    definition_period = ETERNITY
+    label = 'The date on which ESCs are registered and created, following review' \
+            ' of the evidence of the created Energy Savings.' \
+            ' need to find prescription date for this.'
+
+
 class includes_GreenPower(Variable):
     value_type = bool
     entity = Building
@@ -55,7 +64,35 @@ class historical_baseline_rating_meets_similar_configuration_criteria(Variable):
     definition_period = YEAR
     label = "the Historical Baseline NABERS Rating must meet the ‘similar" \
             " configuration criteria that has been determined by the Scheme " \
-            " Administrator which is listed in the NABERS Baseline Method Guide. "
+            ' Administrator which is listed in the NABERS Baseline Method Guide.' \
+            ' In accordance with Clause 8.8.4 (c).'
+
+
+class implementation_date(Variable):
+    value_type = float
+    entity = Building
+    definition_period = YEAR
+    label = 'Implementation Date equals the end date of the Current Rating Period.' \
+            ' The Implementation Date is the end date of the first Rating Period' \
+            ' for which Energy Savings will be calculated under clause 8.8.7.' \
+            ' In accordance with Clause 8.8.5.' \
+            ' IPART NABERS method guide requires NABERS report to specify the' \
+            ' end date of the rating period.'
+
+    def formula(buildings, period, parameters):
+        return buildings('end_date_of_current_nabers_rating_period', period)
+
+
+class energy_saver(Variable):
+    value_type = str
+    entity = Building
+    definition_period = YEAR
+    label = 'Name of person on NABERS certificate, or building owner or manager' \
+            ' of building owner or manager of buildings identified on NABERS' \
+            ' Rating certificate if the person’s name is not identified on ' \
+            ' the NABERS Rating certificate, as issued by the NABERS National' \
+            ' Administrator, in respect of the NABERS Rating.' \
+            ' In accordance with Clause 8.8.6.'
 
 
 class maximum_years_of_forward_creation(Variable):
