@@ -29,9 +29,8 @@ class is_current_NABERS_rating(Variable):
     value_type = bool
     entity = Building
     definition_period = YEAR
-    label = "NABERS rating must be current NABERS rating" \
-        " in accordance to clause 8.8.2(a)" \
-        " energy savings must be calculated from current rating"
+    label = "NABERS rating used to calculate ESCs must be current NABERS rating" \
+        " In accordance to clause 8.8.2(a)." \
 
 
 class historical_baseline_no_more_than_7_years_before_current_rating(Variable):
@@ -93,6 +92,20 @@ class energy_saver(Variable):
             ' the NABERS Rating certificate, as issued by the NABERS National' \
             ' Administrator, in respect of the NABERS Rating.' \
             ' In accordance with Clause 8.8.6.'
+
+
+class implementation_date(Variable):
+    value_type = float
+    entity = Building
+    definition_period = YEAR
+    label = 'Note identical to end date of Current NABERS Period.' \
+            ' For the purposes of section 131 of the Act, Energy Savings are' \
+            ' taken to occur on the date that the Scheme Administrator ' \
+            ' determines that the relevant NABERS Rating was completed. ' \
+            ' In accordance with Clause 8.8.7.'
+
+    def formula(buildings, period, parameters):
+        return buildings('end_date_of_current_nabers_rating_period', period)
 
 
 class maximum_years_of_forward_creation(Variable):

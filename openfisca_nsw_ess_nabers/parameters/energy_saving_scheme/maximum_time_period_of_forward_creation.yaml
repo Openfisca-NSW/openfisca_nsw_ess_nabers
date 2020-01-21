@@ -1,0 +1,6 @@
+description: Maximum number of years allowable for the forward creation of Energy
+  Savings Certificates within Calculation Method 2 of the NABERS method of the ESS.
+reference: Clause 8.8.10 (a) of the ESS Rule 2020
+values:
+  2020-01-01:
+    value: 15

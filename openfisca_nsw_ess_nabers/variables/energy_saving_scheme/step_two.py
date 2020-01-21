@@ -76,11 +76,33 @@ class built_after_nov_2006(Variable):
     label = "Benchmark NABERS Rating calculated using Calculation Method 2 (Step 2) of the NABERS Baseline Method (Method 4) in the ESS Rules"
 
 
+class start_date_of_current_nabers_rating_period(Variable):
+    value_type = date
+    entity = Building
+    definition_period = ETERNITY
+    label = 'The date on which the current rating period begins. The Rating' \
+            ' Period is the time over which measurements were taken to' \
+            ' establish the NABERS Rating or the Historical Baseline NABERS' \
+            ' Rating for the NABERS Building' \
+            ' As published within the NABERS Rating Report.'
+
+
 class end_date_of_current_nabers_rating_period(Variable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
     label = "The date on which the current rating period ends. The Rating Period is the time over which measurements were taken to establish the NABERS Rating or the Historical Baseline NABERS Rating for the NABERS Building"
+
+
+class start_date_of_historical_nabers_rating_period(Variable):
+    value_type = date
+    entity = Building
+    definition_period = ETERNITY
+    label = 'The date on which the historical rating period begins. The Rating' \
+            ' Period is the time over which measurements were taken to' \
+            ' establish the NABERS Rating or the Historical Baseline NABERS' \
+            ' Rating for the NABERS Building' \
+            ' As published within the NABERS Rating Report.'
 
 
 class end_date_of_historical_nabers_rating_period(Variable):
@@ -93,7 +115,46 @@ class end_date_of_historical_nabers_rating_period(Variable):
             ' NABERS Rating for the NABERS Building. '
 
 
+class current_rating_period_length(Variable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Calculates the length of the current rating period, based on the' \
+            ' difference between the start date of the current rating period' \
+            ' and the end date of the current rating period.' \
+            ' the Rating Period is the time over which measurements were' \
+            ' taken to establish the NABERS Rating or the Historical Baseline' \
+            ' NABERS Rating for the NABERS Building; ' \
+            ' In accordance with clause 8.8.2 (c).'
 
+    def formula(buildings, period, parameters):
+        end = buildings(
+            'end_date_of_current_nabers_rating_period', period)
+        start = buildings(
+            'start_date_of_current_nabers_rating_period', period
+            )
+        return end.astype('datetime64[M]') - start.astype('datetime64[M]')
+
+
+class historical_rating_period_length(Variable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Calculates the length of the historical rating period, based on the' \
+            ' difference between the start date of the current rating period' \
+            ' and the end date of the historical rating period.' \
+            ' the Rating Period is the time over which measurements were' \
+            ' taken to establish the NABERS Rating or the Historical Baseline' \
+            ' NABERS Rating for the NABERS Building; ' \
+            ' In accordance with clause 8.8.2 (c).'
+
+    def formula(buildings, period, parameters):
+        end = buildings(
+            'end_date_of_historical_nabers_rating_period', period)
+        start = buildings(
+            'start_date_of_historical_nabers_rating_period', period
+            )
+        return end.astype('datetime64[M]') - start.astype('datetime64[M]')
 
 
 class current_rating_year(Variable):
