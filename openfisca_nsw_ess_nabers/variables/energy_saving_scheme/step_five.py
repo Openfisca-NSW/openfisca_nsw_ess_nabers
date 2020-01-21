@@ -4,17 +4,6 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 
 
-class years_of_forward_creation(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    label = "user input for amount of time to forward create for - maximum 3 years"
-
-    def formula(buildings, period, parameters):
-        condition_forward_creation = building('years_of_forward_creation', period) > 3
-        return where(condition_forward_creation, 3 + "maximum number of years for forward creation is 3", 'years_of_forward_creation')
-
-
 class forward_creation_maximum_length(Variable):
     value_type = float
     entity = Building

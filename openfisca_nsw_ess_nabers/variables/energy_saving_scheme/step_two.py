@@ -2,6 +2,10 @@
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
+import time
+import numpy as np
+
+epoch = time.gmtime(0).tm_year
 
 
 class method_one(Variable):
@@ -12,6 +16,25 @@ class method_one(Variable):
 
     def formula(buildings, period, parameters):
         current_rating_year = buildings('current_rating_year', period)
+        rating_year_string = where(current_rating_year > parameters(period).energy_saving_scheme.table_a20.max_year, parameters(period).energy_saving_scheme.table_a20.max_year, buildings('current_rating_year', period).astype('str'))
+        building_type = buildings("building_type", period)
+        built_before_or_after_nov_2006 = where(buildings('built_after_nov_2006', period), "built_after_nov_2006", "built_before_nov_2006")
+        if (current_rating_year >= parameters(period).energy_saving_scheme.table_a20.min_year):
+            year_count = parameters(period).energy_saving_scheme.table_a20.min_year - 1
+            while (year_count < current_rating_year):
+                year_count += 1
+                return parameters(period).energy_saving_scheme.table_a20.ratings.by_year[rating_year_string][building_type][built_before_or_after_nov_2006]
+
+
+class method_two(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'The year in which the Rating Period ends for the NABERS Rating'\
+            ' and is the year for which Energy Savings Certificates will be created'
+
+    def formula(buildings, period, parameters):
+        historical_baseline_NABERS_rating = buildings('historical_rating_year', period)
         rating_year_string = where(current_rating_year > parameters(period).energy_saving_scheme.table_a20.max_year, parameters(period).energy_saving_scheme.table_a20.max_year, buildings('current_rating_year', period).astype('str'))
         building_type = buildings("building_type", period)
         built_before_or_after_nov_2006 = where(buildings('built_after_nov_2006', period), "built_after_nov_2006", "built_before_nov_2006")
@@ -53,23 +76,76 @@ class built_after_nov_2006(Variable):
     label = "Benchmark NABERS Rating calculated using Calculation Method 2 (Step 2) of the NABERS Baseline Method (Method 4) in the ESS Rules"
 
 
-class end_date_of_nabers_rating_period(Variable):
+class end_date_of_current_nabers_rating_period(Variable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
-    label = "The date on which the rating period ends. The Rating Period is the time over which measurements were taken to establish the NABERS Rating or the Historical Baseline NABERS Rating for the NABERS Building"
+    label = "The date on which the current rating period ends. The Rating Period is the time over which measurements were taken to establish the NABERS Rating or the Historical Baseline NABERS Rating for the NABERS Building"
+
+
+class end_date_of_historical_nabers_rating_period(Variable):
+    value_type = date
+    entity = Building
+    definition_period = ETERNITY
+    label = "The date on which the historical rating period ends. The Rating Period is the time over which measurements were taken to establish the NABERS Rating or the Historical Baseline NABERS Rating for the NABERS Building"
 
 
 class current_rating_year(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
-    label = "The year in which the Rating Period ends for the NABERS Rating and is the year for which Energy Savings Certificates will be created"
+    label = "The year in which the Rating Period ends for the NABERS Rating"
+    "and is the year for which Energy Savings Certificates will be created"
 
     def formula(buildings, period, parameters):
-        end_date_of_nabers_rating_period = buildings('end_date_of_nabers_rating_period', period)
-        current_rating_year = (end_date_of_nabers_rating_period.astype('datetime64[Y]') + 1970)
+        end_date_of_current_nabers_rating_period = buildings('end_date_of_current_nabers_rating_period', period)
+        current_rating_year = end_date_of_current_nabers_rating_period.astype('datetime64[Y]') + epoch  # need to check if this works on Windows
         return current_rating_year
+
+
+class historical_rating_year(Variable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    label = 'The year in which the Rating Period ends for the Historical NABERS' \
+            ' Rating, used for defining the Historical NABERS Rating Period'
+
+    def formula(buildings, period, parameters):
+        end_date_of_historical_nabers_rating_period = buildings('end_date_of_historical_nabers_rating_period', period)
+        historical_rating_year = end_date_of_historical_nabers_rating_period.astype('datetime64[Y]') + epoch
+        return historical_rating_year
+
+
+class time_between_historical_and_current_ratings_within_range(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Tests the distance between historical and current ratings against' \
+            ' the maximum allowable distance, for forward creation within' \
+            ' Method 2. In accordance with Clause 8.8.10 (b).'
+
+    def formula(buildings, period, parameters):
+        return (
+            buildings('diff_as_months', period) <=
+            parameters(period).energy_saving_scheme.diff_historical_current_rating_forward_creation
+        )
+
+
+class diff_as_months(Variable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Calculates the difference in months between the historical NABERS' \
+            ' rating period and the current NABERS rating period, for testing'
+            ' against time_between_historical_and_current_ratings_within_range.'
+
+    def formula(buildings, period, parameters):
+        cur = buildings(
+            'end_date_of_current_nabers_rating_period', period)
+        hist = buildings(
+            'end_date_of_historical_nabers_rating_period', period
+            )
+        return cur.astype('datetime64[M]') - hist.astype('datetime64[M]')
 
 
 class benchmark_nabers_rating(Variable):
