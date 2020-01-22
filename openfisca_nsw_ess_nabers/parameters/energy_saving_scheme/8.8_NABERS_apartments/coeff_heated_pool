@@ -1,0 +1,6 @@
+description: Coefficient to be applied when an heated pool is present at the
+NABERS rated apartment building.
+reference: NABERS Reverse Calculator for Apartments, v. 1.1, October 2019.
+values:
+  2020-01-01:
+    value: 1040.58055956421

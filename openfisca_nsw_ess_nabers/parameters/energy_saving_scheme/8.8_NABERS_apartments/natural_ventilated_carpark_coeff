@@ -1,0 +1,6 @@
+description: Coefficient to be applied to naturally ventilated car spaces
+at the NABERS rated apartment building.
+reference: NABERS Reverse Calculator for Apartments, v. 1.1, October 2019.
+values:
+  2020-01-01:
+    value: 652.656294725587
