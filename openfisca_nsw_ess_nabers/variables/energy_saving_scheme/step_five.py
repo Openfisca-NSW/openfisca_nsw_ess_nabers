@@ -4,15 +4,29 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 
 
-class forward_creation_maximum_length(Variable):
-    value_type = float
+class years_of_forward_creation(Variable):
+    value_type = int
     entity = Building
     definition_period = ETERNITY
-    label = "defines the length of forward creation process - maximum three years"
+    label = 'defines the amount of years to be forward created within Step 5' \
+            ' maximum allowable number of forward created years is 3.' \
+            ' In accordance with clause 8.8.10 (a).'
+
+
+class within_maximum_years_of_forward_creation(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Tests the distance between the end of the current rating period' \
+            ' and the date of Energy Savings Certificates against the maximum' \
+            ' allowable distance between end of rating and ESC creation date.' \
+            ' In accordance with clause 8.8.8.'
 
     def formula(buildings, period, parameters):
-        condition_forward_creation = building('years_of_forward_creation', period) > 3
-        return where(condition_forward_creation, 3 + "maximum number of years for forward creation is 3", 'years_of_forward_creation')
+        return (
+            buildings('years_of_forward_creation', period) <=
+            parameters(period).energy_saving_scheme.maximum_time_period_of_forward_creation
+        )
 
 
 class year_one_forward_created_electricity_savings(Variable):

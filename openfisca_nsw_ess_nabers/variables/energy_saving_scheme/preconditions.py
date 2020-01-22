@@ -108,18 +108,6 @@ class implementation_date(Variable):
         return buildings('end_date_of_current_nabers_rating_period', period)
 
 
-class maximum_years_of_forward_creation(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    label = "maximum allowable time to forward create for, maximum 3 years" \
-            " the maximum time period for "
-
-    def formula(buildings, period, parameters):
-        condition_forward_creation = building('years_of_forward_creation', period) > 3
-        return where(condition_forward_creation, 3 + "maximum number of years for forward creation is 3", 'years_of_forward_creation')
-
-
 class nabers_value_previously_used__to_set_historical_NABERS_rating(Variable):
     value_type = bool
     entity = Building
