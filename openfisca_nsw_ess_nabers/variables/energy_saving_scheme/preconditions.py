@@ -94,7 +94,7 @@ class energy_saver(Variable):
             ' In accordance with Clause 8.8.6.'
 
 
-class implementation_date(Variable):
+class energy_savings_date(Variable):
     value_type = float
     entity = Building
     definition_period = YEAR
@@ -114,4 +114,13 @@ class nabers_value_previously_used__to_set_historical_NABERS_rating(Variable):
     definition_period = ETERNITY
     label = 'NABERS Rating of the same value can only be used once to set'\
             ' a fixed Historical Baseline NABERS Rating for a NABERS Building.'\
+            ' according to clause 8.8.10 (c).'
+
+
+class nabers_value_lower_than_previous_historical_NABERS_value(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'A NABERS rating cannot be lower than a previous NABERS rating used' \
+            ' to create a historical NABERS rating.'\
             ' according to clause 8.8.10 (c).'

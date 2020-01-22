@@ -6,13 +6,15 @@ import time
 import numpy as np
 
 epoch = time.gmtime(0).tm_year
+t = time.time()
+current_time = time.strftime('%Y-%m-%d %H:%M %Z', time.localtime(t))
 
 
 class method_one(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = "Benchmark NABERS Rating calculated using Calculation Method 1 (Step 2) of the NABERS Baseline Method (Method 4) in the ESS Rules"
+    label = "Benchmark NABERS Star Rating calculated using Calculation Method 1 (Step 2) of the NABERS Baseline Method (Method 4) in the ESS Rules"
 
     def formula(buildings, period, parameters):
         current_rating_year = buildings('current_rating_year', period)
@@ -30,19 +32,17 @@ class method_two(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'The year in which the Rating Period ends for the NABERS Rating'\
-            ' and is the year for which Energy Savings Certificates will be created'
+    label = 'Benchmark NABERS Star Rating calculated using Calculation Method 2' \
+            ' (Step 2) of the NABERS Baseline Method (Method 4)'\
+            ' As prescribed in Method 4 of the ESS Rule 2020.'  # need some help with this one referring to parameters
 
     def formula(buildings, period, parameters):
-        historical_baseline_NABERS_rating = buildings('historical_rating_year', period)
-        rating_year_string = where(current_rating_year > parameters(period).energy_saving_scheme.table_a20.max_year, parameters(period).energy_saving_scheme.table_a20.max_year, buildings('current_rating_year', period).astype('str'))
-        building_type = buildings("building_type", period)
-        built_before_or_after_nov_2006 = where(buildings('built_after_nov_2006', period), "built_after_nov_2006", "built_before_nov_2006")
-        if (current_rating_year >= parameters(period).energy_saving_scheme.table_a20.min_year):
-            year_count = parameters(period).energy_saving_scheme.table_a20.min_year - 1
-            while (year_count < current_rating_year):
-                year_count += 1
-                return parameters(period).energy_saving_scheme.table_a20.ratings.by_year[rating_year_string][building_type][built_before_or_after_nov_2006]
+        hist_rating = buildings('historical_NABERS_star_rating', period)
+        rating_adjustment = parameters(period).energy_saving_scheme.table_a21
+        cur_year = buildings('current_rating_year', period)
+        hist_year = buildings('historical_rating_year', period)
+        benchmark = hist_rating
+
 
 
 class first_nabers_rating(Variable):
@@ -94,6 +94,28 @@ class end_date_of_current_nabers_rating_period(Variable):
     label = "The date on which the current rating period ends. The Rating Period is the time over which measurements were taken to establish the NABERS Rating or the Historical Baseline NABERS Rating for the NABERS Building"
 
 
+class current_NABERS_star_rating(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'The star rating associated with the current NABERS rating, used to' \
+            ' test eligibility as being above the Benchmark NABERS rating as' \
+            ' defined in Clauses 8.8.3 (A) and 8.8.3 (B).'
+
+
+class current_star_rating_is_above_benchmark(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Tests where the current NABERS star rating is above the benchmark' \
+            ' NABERS ratings defined in Calculation Method 1 and Calculation' \
+            ' Method 2.' \
+            ' In accordance with Clause 8.8.3.'
+
+    def formula(buildings, period, parameters):
+        cur_star_rating = buildings('current_NABERS_star_rating', period)
+
+
 class start_date_of_historical_nabers_rating_period(Variable):
     value_type = date
     entity = Building
@@ -113,6 +135,14 @@ class end_date_of_historical_nabers_rating_period(Variable):
             ' Period is the time over which measurements were taken to' \
             ' establish the NABERS Rating or the Historical Baseline ' \
             ' NABERS Rating for the NABERS Building. '
+
+
+class historical_NABERS_star_rating(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'The star rating associated with the historical rating used to' \
+            ' calculate Benchmark NABERS Rating within Calculation Method 2.'
 
 
 class current_rating_period_length(Variable):
@@ -157,6 +187,20 @@ class historical_rating_period_length(Variable):
         return end.astype('datetime64[M]') - start.astype('datetime64[M]')
 
 
+class historical_rating_age(Variable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Calculates the age of a Historical NABERS rating, to determine' \
+            ' which Annual Ratings Adjustment to use in Calculation Method 2'
+
+    def formula(buildings, period, parameters):
+        cur_time = time.time() + epoch
+        hist_rating_date = buildings(
+            'end_date_of_historical_nabers_rating_period', period
+        )
+
+
 class current_rating_year(Variable):
     value_type = int
     entity = Building
@@ -195,7 +239,7 @@ class time_between_historical_and_current_ratings_within_range(Variable):
         return (
             buildings('cur_his_diff_as_months', period) <=
             parameters(period).energy_saving_scheme.diff_historical_current_rating_forward_creation
-        )
+            )
 
 
 class cur_his_diff_as_months(Variable):
