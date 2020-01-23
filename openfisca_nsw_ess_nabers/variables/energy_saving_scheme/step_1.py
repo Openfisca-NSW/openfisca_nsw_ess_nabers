@@ -14,6 +14,16 @@ class measured_electricity_consumption(Variable):
         return (buildings('nabers_electricity', period) + buildings('onsite_unaccounted_electricity', period))
 
 
+class measured_gas_consumption(Variable):
+    value_type = float
+    entity = Building
+    definition_period = YEAR
+    label = "Measured Electricity Consumption (MWh)"
+
+    def formula(buildings, period, parameters):
+        return buildings('nabers_gas', period)
+
+
 class nabers_electricity(Variable):
     value_type = float
     entity = Building

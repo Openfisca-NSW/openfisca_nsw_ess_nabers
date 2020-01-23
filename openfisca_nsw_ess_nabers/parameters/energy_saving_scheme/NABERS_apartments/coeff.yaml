@@ -1,6 +1,5 @@
-description: Electricity greenhouse gas emissions coefficient for NABERS
-  apartment building ratings. REQUIRES HIDDEN
+description: A central AC coefficient (need to check with NABERS as to what this actually is)
 reference: NABERS Reverse Calculator for Apartments, v. 1.1, October 2019.
 values:
   2020-01-01:
-    value: 652.656294725587
+    value: 39.3267003

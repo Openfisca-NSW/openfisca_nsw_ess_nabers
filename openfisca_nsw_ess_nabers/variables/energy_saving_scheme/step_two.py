@@ -14,7 +14,8 @@ class method_one(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = "Benchmark NABERS Star Rating calculated using Calculation Method 1 (Step 2) of the NABERS Baseline Method (Method 4) in the ESS Rules"
+    label = 'Benchmark NABERS Star Rating calculated using Calculation Method 1' \
+            '(Step 2) of the NABERS Baseline Method (Method 4) in the ESS Rules'
 
     def formula(buildings, period, parameters):
         current_rating_year = buildings('current_rating_year', period)
@@ -38,11 +39,9 @@ class method_two(Variable):
 
     def formula(buildings, period, parameters):
         hist_rating = buildings('historical_NABERS_star_rating', period)
-        rating_adjustment = parameters(period).energy_saving_scheme.table_a21
         cur_year = buildings('current_rating_year', period)
         hist_year = buildings('historical_rating_year', period)
-        benchmark = hist_rating
-
+        rating_adjustment = parameters(period).energy_saving_scheme.table_a21
 
 
 class first_nabers_rating(Variable):
@@ -92,28 +91,6 @@ class end_date_of_current_nabers_rating_period(Variable):
     entity = Building
     definition_period = ETERNITY
     label = "The date on which the current rating period ends. The Rating Period is the time over which measurements were taken to establish the NABERS Rating or the Historical Baseline NABERS Rating for the NABERS Building"
-
-
-class current_NABERS_star_rating(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    label = 'The star rating associated with the current NABERS rating, used to' \
-            ' test eligibility as being above the Benchmark NABERS rating as' \
-            ' defined in Clauses 8.8.3 (A) and 8.8.3 (B).'
-
-
-class current_star_rating_is_above_benchmark(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-    label = 'Tests where the current NABERS star rating is above the benchmark' \
-            ' NABERS ratings defined in Calculation Method 1 and Calculation' \
-            ' Method 2.' \
-            ' In accordance with Clause 8.8.3.'
-
-    def formula(buildings, period, parameters):
-        cur_star_rating = buildings('current_NABERS_star_rating', period)
 
 
 class start_date_of_historical_nabers_rating_period(Variable):
@@ -198,7 +175,7 @@ class historical_rating_age(Variable):
         cur_time = time.time() + epoch
         hist_rating_date = buildings(
             'end_date_of_historical_nabers_rating_period', period
-        )
+            )
 
 
 class current_rating_year(Variable):

@@ -1,0 +1,40 @@
+- name: test of method one
+  period: 2020
+  input:
+    current_NABERS_star_rating: 6
+    is_office: True
+    built_after_nov_2006: True
+    current_rating_year: 2019
+  output:
+    star_rating_exceeds_benchmark_rating: True
+    method_one: 5.5
+- name: test of method one
+  period: 2020
+  input:
+    current_NABERS_star_rating: 5.5
+    is_office: True
+    built_after_nov_2006: True
+    current_rating_year: 2019
+  output:
+    star_rating_exceeds_benchmark_rating: False
+    method_one: 5.5
+- name: test of method one
+  period: 2020
+  input:
+    current_NABERS_star_rating: 6
+    is_apartment_building: True
+    built_after_nov_2006: True
+    current_rating_year: 2019
+  output:
+    star_rating_exceeds_benchmark_rating: True
+    method_one: 4.5
+- name: test of method one
+  period: 2020
+  input:
+    current_NABERS_star_rating: 2
+    is_apartment_building: True
+    built_after_nov_2006: True
+    current_rating_year: 2019
+  output:
+    star_rating_exceeds_benchmark_rating: False
+    method_one: 4.5

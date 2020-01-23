@@ -4,6 +4,15 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 
 
+class current_NABERS_star_rating(Variable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    label = 'The date on which ESCs are registered and created, following review' \
+            ' of the evidence of the created Energy Savings.' \
+            ' need to find prescription date for this.'
+
+
 class ESC_creation_date(Variable):
     value_type = date
     entity = Building
@@ -11,6 +20,20 @@ class ESC_creation_date(Variable):
     label = 'The date on which ESCs are registered and created, following review' \
             ' of the evidence of the created Energy Savings.' \
             ' need to find prescription date for this.'
+
+
+class star_rating_exceeds_benchmark_rating(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = YEAR
+    label = 'Checks whether the star rating input by the user exceeds the' \
+            ' benchmark rating defined in Table A20 by at least 0.5 stars.' \
+            ' In accordance with Clause 8.8.3.'
+
+    def formula(buildings, period, parameters):
+        current = buildings('current_NABERS_star_rating', period)
+        benchmark = buildings('method_one', period)
+        return where(current - benchmark >= 0.5, 1, 0)
 
 
 class includes_GreenPower(Variable):

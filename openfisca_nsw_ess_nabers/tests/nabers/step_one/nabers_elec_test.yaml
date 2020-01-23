@@ -5,3 +5,17 @@
     onsite_unaccounted_electricity: 25000
   output:
     measured_electricity_consumption: 75000
+- name: test 2 of NABERS electricity
+  period: 2020
+  input:
+    nabers_electricity: 100000
+    onsite_unaccounted_electricity: 25000
+  output:
+    measured_electricity_consumption: 125000
+- name: test 3 of NABERS electricity
+  period: 2020
+  input:
+    nabers_electricity: 200
+    onsite_unaccounted_electricity: 250000
+  output:
+    measured_electricity_consumption: 250200
