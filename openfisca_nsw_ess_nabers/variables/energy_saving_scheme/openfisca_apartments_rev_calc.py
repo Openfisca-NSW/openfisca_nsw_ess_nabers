@@ -101,15 +101,15 @@ class central_AC(Variable):
             ' apartments.'
 
     def formula(buildings, period, parameters):
-        AC_coeff = parameters(period).energy_saving_scheme.NABERS_apartments.elec_coeff
+        AC_coeff = parameters(period).energy_saving_scheme.NABERS_apartments.AC_coeff
         number_of_AC_apart = buildings('number_of_central_ac_apartments', period)
         number_of_apart = buildings('number_of_apartments', period)
         central_AC = ((number_of_AC_apart * AC_coeff) / number_of_apart)
         return central_AC
 
 
-class car_park_variable(Variable):
-    value_type = int
+class car_park(Variable):
+    value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'Weighting of the number of mechanically ventilated carpark spaces' \
@@ -122,7 +122,7 @@ class car_park_variable(Variable):
         mvcp_coeff = parameters(period).energy_saving_scheme.NABERS_apartments.mech_ventilated_carpark_coeff
         nvcp_coeff = parameters(period).energy_saving_scheme.NABERS_apartments.natural_ventilated_carpark_coeff
         no_mech_vent_parking_spaces = buildings('number_of_mechanically_ventilated_parking_spaces', period)
-        no_nat_vent_parking_spaces = buildings('number_of_mechanically_ventilated_parking_spaces', period)
+        no_nat_vent_parking_spaces = buildings('number_of_naturally_ventilated_parking_spaces', period)
         number_of_apart = buildings('number_of_apartments', period)
         car_park = ((no_mech_vent_parking_spaces * mvcp_coeff) + (no_nat_vent_parking_spaces * nvcp_coeff * mvcp_coeff)) / number_of_apart
         return car_park

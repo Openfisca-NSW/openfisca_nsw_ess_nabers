@@ -1,0 +1,7 @@
+- name: test of NABERS Electricity
+  period: 2020
+  input:
+    nabers_electricity: 50000
+    onsite_unaccounted_electricity: 25000
+  output:
+    measured_electricity_consumption: 75000

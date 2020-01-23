@@ -1,0 +1,8 @@
+- name: test of Central AC apartments values
+  period: 2020
+  input:
+    number_of_naturally_ventilated_parking_spaces: 10
+    number_of_mechanically_ventilated_parking_spaces: 20
+    number_of_apartments: 100
+  output:
+    car_park: 146.537734082
