@@ -101,7 +101,7 @@ class central_AC(Variable):
             ' apartments.'
 
     def formula(buildings, period, parameters):
-        AC_coeff = parameters(period).energy_saving_scheme.NABERS_apartments.central_ac_coeff
+        AC_coeff = parameters(period).energy_saving_scheme.NABERS_apartments.elec_coeff
         number_of_AC_apart = buildings('number_of_central_ac_apartments', period)
         number_of_apart = buildings('number_of_apartments', period)
         central_AC = ((number_of_AC_apart * AC_coeff) / number_of_apart)

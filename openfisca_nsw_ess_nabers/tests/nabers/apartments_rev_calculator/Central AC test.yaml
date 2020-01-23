@@ -1,0 +1,7 @@
+- name: test of Central AC apartments values
+  period: 2020
+  input:
+    number_of_central_ac_apartments: 2000
+    number_of_apartments: 4000
+  output:
+    central_AC: 1520.24688576
