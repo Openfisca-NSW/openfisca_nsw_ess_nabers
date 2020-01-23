@@ -1,5 +1,5 @@
 description: Gas greenhouse gas emissions coefficient for NABERS
-apartment building ratings.
+  apartment building ratings.
 reference: NABERS Reverse Calculator for Apartments, v. 1.1, October 2019.
 values:
   2020-01-01:

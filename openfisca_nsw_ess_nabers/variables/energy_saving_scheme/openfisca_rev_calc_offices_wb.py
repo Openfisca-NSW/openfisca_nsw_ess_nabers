@@ -445,7 +445,7 @@ class GE_50_percent_reduction(Variable):
         return GE_5star_original_rating * 0.5
 
 
-class maximum_electricity_consumption(Variable):
+class office_maximum_electricity_consumption(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -458,7 +458,7 @@ class maximum_electricity_consumption(Variable):
             )
 
 
-class maximum_gas_consumption(Variable):
+class office_maximum_gas_consumption(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

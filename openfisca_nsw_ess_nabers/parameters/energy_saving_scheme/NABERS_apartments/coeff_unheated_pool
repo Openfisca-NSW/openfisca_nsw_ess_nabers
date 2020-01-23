@@ -1,5 +1,5 @@
 description: Coefficient to be applied when an unheated pool is present at the
-NABERS rated apartment building.
+  NABERS rated apartment building.
 reference: NABERS Reverse Calculator for Apartments, v. 1.1, October 2019.
 values:
   2020-01-01:

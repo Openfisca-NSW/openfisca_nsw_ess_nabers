@@ -92,17 +92,37 @@ class number_of_mechanically_ventilated_parking_spaces(Variable):
             ' NABERS rated apartment building.'
 
 
-class apartment_elec_kWh(Variable):
+class central_AC(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'The electricity consumption of the building, in kWh, as detailed' \
-            'on the NABERS report'
+    label = 'Weighting of the central AC coefficient against the number of' \
+            ' apartments with Central AC divided by the number of total' \
+            ' apartments.'
+
+    def formula(buildings, period, parameters):
+        AC_coeff = parameters(period).energy_saving_scheme.NABERS_apartments.central_ac_coeff
+        number_of_AC_apart = buildings('number_of_central_ac_apartments', period)
+        number_of_apart = buildings('number_of_apartments', period)
+        central_AC = ((number_of_AC_apart * AC_coeff) / number_of_apart)
+        return central_AC
 
 
-class apartment_gas_MJ(Variable):
-    value_type = float
+class car_park_variable(Variable):
+    value_type = int
     entity = Building
     definition_period = ETERNITY
-    label = 'The gas consumption of the building, in kWh, as detailed on the' \
-            'NABERS report'
+    label = 'Weighting of the number of mechanically ventilated carpark spaces' \
+            ' against the mechanically ventilated coefficient, plus the' \
+            ' number of naturally ventilated carpark spaces weighted against' \
+            ' naturally ventilated carpark coefficient, divided by the total' \
+            ' number of apartments.'
+
+    def formula(buildings, period, parameters):
+        mvcp_coeff = parameters(period).energy_saving_scheme.NABERS_apartments.mech_ventilated_carpark_coeff
+        nvcp_coeff = parameters(period).energy_saving_scheme.NABERS_apartments.natural_ventilated_carpark_coeff
+        no_mech_vent_parking_spaces = buildings('number_of_mechanically_ventilated_parking_spaces', period)
+        no_nat_vent_parking_spaces = buildings('number_of_mechanically_ventilated_parking_spaces', period)
+        number_of_apart = buildings('number_of_apartments', period)
+        car_park = ((no_mech_vent_parking_spaces * mvcp_coeff) + (no_nat_vent_parking_spaces * nvcp_coeff * mvcp_coeff)) / number_of_apart
+        return car_park
