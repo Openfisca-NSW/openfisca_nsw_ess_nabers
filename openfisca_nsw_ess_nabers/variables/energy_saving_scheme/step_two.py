@@ -4,10 +4,11 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 import time
 import numpy as np
+import datetime
 
 epoch = time.gmtime(0).tm_year
-t = time.time()
-current_time = time.strftime('%Y-%m-%d %H:%M %Z', time.localtime(t))
+today_date_and_time = np.datetime64(datetime.datetime.now())
+today = today_date_and_time.astype('datetime64[D]')
 
 
 class method_one(Variable):
@@ -42,7 +43,11 @@ class method_two(Variable):
         cur_year = buildings('current_rating_year', period)
         hist_year = buildings('historical_rating_year', period)
         rating_adjustment = parameters(period).energy_saving_scheme.table_a21
-
+        building_type = buildings("building_type", period)
+        hist_rating_age = buildings('age_of_historical_rating', period)
+        adjustment_year_string = where(hist_rating_age > 1, "two_to_seven_year_old", "one_year_old")
+        annual_rating_adj = parameters(period).energy_saving_scheme.table_a21.building_category[building_type][adjustment_year_string]
+        return hist_rating + annual_rating_adj * (cur_year - hist_year)
 
 class first_nabers_rating(Variable):
     value_type = bool
@@ -164,20 +169,6 @@ class historical_rating_period_length(Variable):
         return end.astype('datetime64[M]') - start.astype('datetime64[M]')
 
 
-class historical_rating_age(Variable):
-    value_type = int
-    entity = Building
-    definition_period = ETERNITY
-    label = 'Calculates the age of a Historical NABERS rating, to determine' \
-            ' which Annual Ratings Adjustment to use in Calculation Method 2'
-
-    def formula(buildings, period, parameters):
-        cur_time = time.time() + epoch
-        hist_rating_date = buildings(
-            'end_date_of_historical_nabers_rating_period', period
-            )
-
-
 class current_rating_year(Variable):
     value_type = int
     entity = Building
@@ -234,6 +225,33 @@ class cur_his_diff_as_months(Variable):
             'end_date_of_historical_nabers_rating_period', period
             )
         return cur.astype('datetime64[M]') - hist.astype('datetime64[M]')
+
+
+class today_date(Variable):
+    value_type = date
+    entity = Building
+    definition_period = ETERNITY
+    label = 'today date'
+
+    def formula(buildings, period, parameters):
+        return today
+
+
+class age_of_historical_rating(Variable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Calculate the age of the historical rating, for use in determining' \
+            ' Annual Rating Adjustment from Table A21.'
+
+    def formula(buildings, period, parameters):
+        today = buildings(
+            'today_date', period)
+        hist = buildings(
+            'end_date_of_historical_nabers_rating_period', period
+            )
+        age_in_days = (today.astype('datetime64[D]') - hist.astype('datetime64[D]')).astype('datetime64[D]')
+        return age_in_days.astype('datetime64[Y]')
 
 
 class time_between_current_ratings_and_ESC_date_within_range(Variable):

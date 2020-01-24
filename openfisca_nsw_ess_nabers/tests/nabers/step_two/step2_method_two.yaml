@@ -1,0 +1,50 @@
+- name: Building is shopping centre, with a historical NABERS rating of 4 stars concluding 1st
+    January 2019
+  period: 2020
+  input:
+    historical_NABERS_star_rating: 4
+    end_date_of_current_nabers_rating_period: 2020-01-04
+    end_date_of_historical_nabers_rating_period: 2019-01-01
+    is_shopping_centre: True
+  output:
+    method_two: 4
+- name: Building is shoping centre, with a historical NABERS rating of 4 stars concluding 1st
+    January 2018
+  period: 2020
+  input:
+    historical_NABERS_star_rating: 4
+    end_date_of_current_nabers_rating_period: 2020-01-04
+    end_date_of_historical_nabers_rating_period: 2018-01-01
+    is_shopping_centre: True
+  output:
+    method_two: 4.26
+- name: Building is shopping centre, with a historical NABERS rating of 4 stars concluding 1st
+    January 2017
+  period: 2020
+  input:
+    historical_NABERS_star_rating: 4
+    end_date_of_current_nabers_rating_period: 2020-01-04
+    end_date_of_historical_nabers_rating_period: 2017-01-01
+    is_shopping_centre: True
+  output:
+    method_two: 4.39
+- name: Building is shoping centre, with a historical NABERS rating of 4 stars concluding 1st
+    January 2016
+  period: 2020
+  input:
+    historical_NABERS_star_rating: 4
+    end_date_of_current_nabers_rating_period: 2020-01-04
+    end_date_of_historical_nabers_rating_period: 2016-01-01
+    is_shopping_centre: True
+  output:
+    method_two: 4.52
+- name: Building is shoping centre, with a historical NABERS rating of 4 stars concluding 1st
+    January 2015
+  period: 2020
+  input:
+    historical_NABERS_star_rating: 4
+    end_date_of_current_nabers_rating_period: 2020-01-04
+    end_date_of_historical_nabers_rating_period: 2015-01-01
+    is_shopping_centre: True
+  output:
+    method_two: 4.65
