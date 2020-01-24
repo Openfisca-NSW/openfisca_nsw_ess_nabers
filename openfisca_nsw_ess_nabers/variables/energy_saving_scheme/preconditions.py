@@ -8,7 +8,8 @@ class current_NABERS_star_rating(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
-    label = 'The date on which ESCs are registered and created, following review' \
+    label = 'The star rating associated with the current NABERS rating' \
+            ' for which ESCs are registered and created, following review' \
             ' of the evidence of the created Energy Savings.' \
             ' need to find prescription date for this.'
 

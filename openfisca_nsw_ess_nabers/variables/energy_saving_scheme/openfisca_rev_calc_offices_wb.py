@@ -27,8 +27,17 @@ df2.index = df2.Climate_id
 
 # add from filename import function to init.py
 
-postcode = 2042
 
+class offices_WB_postcode:
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    label = 'The postcode for the relevant NABERS building.'
+
+    def formula(buildings, period, parameters):
+        return (buildings('postcode', period))
+
+postcode = 2042
 climate_zone_value = df1.loc[df1['Postcode'] == postcode, 'Climate_zone'].values[0]
 hdd = df2.loc[df2['Climate_id'] == climate_zone_value, 'Hdd'].values[0]
 cdd = df2.loc[df2['Climate_id'] == climate_zone_value, 'Cdd'].values[0]
@@ -58,8 +67,13 @@ class benchmark_star_rating(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY  # need to check whether these inputs, on the NABERS reports, should all be year
-    label = "The star rating for which the benchmark electricity and gas consumption is calculated against - what NABERS rating the building aims to achieve"
+    label = 'The star rating for which the benchmark electricity and gas' \
+            'consumption is calculated against - what NABERS rating the' \
+            ' building aims to achieve.'
 
+    def formula(buildings, period, parameters):
+        benchmark_rating = buildings('method one')
+        return benchmark_rating
 
 class number_of_computers(Variable):
     value_type = float
@@ -99,19 +113,27 @@ class gas_kWh(Variable):
     definition_period = ETERNITY
     label = "The gas consumption of the building, in kWh, as detailed on the NABERS report"
 
+    def formula(buildings, period, parameters):
+        return('gas_MJ_to_KWh', period)
 
-class oil_kWh(Variable):
+
+class diesel_kWh(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     label = "The oil consumption of the building, in kWh, as detailed on the NABERS report"
 
+    def formula(buildings, period, parameters):
+        return('diesel_litres_to_KWh', period)
 
 class coal_kWh (Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     label = "The coal consumption of the building, in kWh, as detailed on the NABERS report"
+
+    def formula(buildings, period, parameters):
+        return('coal_KG_to_kWh', period)
 
 
 class total_energy_kwh(Variable):
@@ -391,7 +413,7 @@ class NGEmax (Variable):
     label = "Normalised greenhouse emissions for relevant NABERS whole building - only applicable under 5 stars"
 
     def formula(buildings, period, parameters):
-        return ('benchmark_star_rating' - 0.499999 - 'coefficient_A') / 'coefficient_B'
+        return (buildings('benchmark_star_rating', period) - 0.499999 - buildings('coefficient_A', period) / buildings('coefficient_B', period))
 
 
 class GEwholemax (Variable):
@@ -402,7 +424,7 @@ class GEwholemax (Variable):
 
     def formula(buildings, period, parameters):
         condition_GEwholemax_star_rating = buildings('benchmark_star_rating', period) >= 5
-        return where(condition_GEwholemax_star_rating, (NGEmax - f_base_building * GEclimcorr - f_tenancy * GEClimcorr_tenancy) * 2 / (f_base_building / f_tenancy), "not applicable")
+        return where(condition_GEwholemax_star_rating, (buildings('NGEmax', period) - buildings('f_base_building', period) * buildings('GEclimcorr', period) - buildings('f_tenancy', period) * buildings('GEClimcorr_tenancy', period)) * 2 / (buildings('f_base_building', period) / buildings('f_tenancy', period)), "not applicable")
 
 
 class NGE_5star_original_rating (Variable):
@@ -412,7 +434,7 @@ class NGE_5star_original_rating (Variable):
     label = "original normalised greenhouse emissions at 5 star for use for > 5 star ratings"
 
     def formula(buildings, period, parameters):
-        return(5 - coefficient_A - 0.499999) / coefficient_B
+        return(5 - buildings('coefficient_A', period) - 0.499999) / buildings('coefficient_B', period)
 
 
 class GE_5star_original_rating(Variable):
@@ -422,7 +444,7 @@ class GE_5star_original_rating(Variable):
     label = "original required maximum greenhouse emissions at 5 star rating"
 
     def formula(buildings, period, parameters):
-        return (NGEmax - f_base_building * GEclimcorr - f_tenancy * GEClimcorr_tenancy) * 2 / (f_base_building / f_tenancy)
+        return (buildings('NGEmax', period) - buildings('f_base_building', period) * buildings('GEclimcorr', period) - buildings('f_tenancy', period) * buildings('GEClimcorr_tenancy', period)) * 2 / (buildings('f_base_building', period) / buildings('f_tenancy', period))
 
 
 class GE_25_percent_reduction(Variable):
@@ -432,7 +454,7 @@ class GE_25_percent_reduction(Variable):
     label = "25% reduction of required maximum greenhouse emissions for use in 5.5 star rating following original rating system"
 
     def formula(buildings, period, parameters):
-        return GE_5star_original_rating * 0.75
+        return buildings('GE_5star_original_rating', period) * 0.75
 
 
 class GE_50_percent_reduction(Variable):
@@ -442,7 +464,7 @@ class GE_50_percent_reduction(Variable):
     label = "50% reduction of required maximum greenhouse emissions for use in 6 star rating following original rating system"
 
     def formula(buildings, period, parameters):
-        return GE_5star_original_rating * 0.5
+        return buildings('GE_5star_original_rating', period) * 0.5
 
 
 class office_maximum_electricity_consumption(Variable):
@@ -453,8 +475,8 @@ class office_maximum_electricity_consumption(Variable):
 
     def formula(buildings, period, parameters):
         return select(
-            [benchmark_star_rating <= 5, benchmark_star_rating == 5.5, benchmark_star_rating == 6],
-            [(GEwholemax * net_lettable_area) / (SGEelec + (perc_gas_kwh / perc_elec_kwh * SGEgas) + (perc_coal_kwh / perc_elec_kwh * SGEcoal) + (perc_diesel_kwh / perc_elec_kwh * SGEoil)), (GE_25_percent_reduction * net_lettable_area) / (SGE_elec + (perc_gas_kwh / perc_elec_kwh * SGEgas) + (perc_coal_kwh / perc_elec_kwh * SGEcoal) + (perc_diesel_kwh / perc_elec_kwh * SGEoil)), (GE_50_percent_reduction * net_lettable_area) / (SGE_elec + (perc_gas_kwh / perc_elec_kwh * SGEgas) + (perc_coal_kwh / perc_elec_kwh * SGEcoal) + (perc_diesel_kwh / perc_elec_kwh * SGEoil))]
+            [benchmark_star_rating == 5, benchmark_star_rating == 5.5, benchmark_star_rating == 6],
+            [buildings('GE_50_percent_reduction', period), buildings('GE_25_percent_reduction', period), buildings('GEwholemax', period)]
             )
 
 
@@ -465,4 +487,4 @@ class office_maximum_gas_consumption(Variable):
     label = "output of the NABERS whole building reverse calculator - the maximum electricity consumption allowable for the relevant NABERS rated building"
 
     def formula(buildings, period, parameters):
-        return (perc_gas_kwh / perc_elec_kwh * maximum_electricity_consumption * 3.6)
+        return (buildings('perc_gas_kwh', period) / buildings('perc_elec_kwh', period) * buildings('maximum_electricity_consumption', buildings) * 3.6)

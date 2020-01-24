@@ -77,7 +77,9 @@ class built_after_nov_2006(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = "Benchmark NABERS Rating calculated using Calculation Method 2 (Step 2) of the NABERS Baseline Method (Method 4) in the ESS Rules"
+    label = 'Determines whether the building was built after November 2006,' \
+            ' in order to determine the appropriate benchmark rating to use' \
+            ' within Calculation Method 1 of the NABERS method.'
 
 
 class start_date_of_current_nabers_rating_period(Variable):
