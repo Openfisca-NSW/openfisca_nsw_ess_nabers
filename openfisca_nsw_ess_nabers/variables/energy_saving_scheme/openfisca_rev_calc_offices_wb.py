@@ -37,7 +37,7 @@ class offices_WB_postcode:
     def formula(buildings, period, parameters):
         return (buildings('postcode', period))
 
-postcode = 2300
+postcode = 2000
 climate_zone_value = df1.loc[df1['Postcode'] == postcode, 'Climate_zone'].values[0]
 hdd = df2.loc[df2['Climate_id'] == climate_zone_value, 'Hdd'].values[0]
 cdd = df2.loc[df2['Climate_id'] == climate_zone_value, 'Cdd'].values[0]
@@ -50,7 +50,7 @@ class HDD_18(Variable):
     label = "The relevant heating days for this building, based on postcode and then climate zone"
 
     def formula(buildings, period, parameters):
-        return 642
+        return hdd
 
 
 class CDD_15(Variable):
@@ -60,7 +60,7 @@ class CDD_15(Variable):
     label = "The relevant cooling days for this building, based on postcode and then climate zone"
 
     def formula(buildings, period, parameters):
-        return 541
+        return cdd
 
 
 class benchmark_star_rating(Variable):

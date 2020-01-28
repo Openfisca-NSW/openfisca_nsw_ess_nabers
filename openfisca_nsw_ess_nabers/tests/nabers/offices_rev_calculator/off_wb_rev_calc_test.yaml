@@ -1,19 +1,152 @@
-- name: Test reverse calculator
+- name: Test outputs of elec consumption perc formulas, only kWh input
   period: 2020
   input:
-    end_date_of_current_nabers_rating_period: 2020-01-20
-    is_office: True
-    postcode: 2313
-    hours_per_week_with_20_percent_occupancy: 58.3
-    number_of_computers: 0
-    net_lettable_area: 50435.1
-    building_state_location: NSW
-    built_after_nov_2006: True
-    method_one_can_be_used: True
-    gas_in_MJ: 2585137
-    elec_kWh: 3421164
+    gas_in_MJ: 0
+    elec_kWh: 10000
     coal_in_KG: 0
-    diesel_in_litres: 1362
+    diesel_in_litres: 0
   output:
-    office_maximum_electricity_consumption: 6166538.5
-    office_maximum_gas_consumption: 4659626.5
+    perc_gas_kwh: 0
+    perc_elec_kwh: 100
+    perc_coal_kwh: 0
+    perc_diesel_kwh: 0
+- name: Test outputs of elec consumption perc formulas, only MJ input
+  period: 2020
+  input:
+    gas_in_MJ: 10000
+    elec_kWh: 0
+    coal_in_KG: 0
+    diesel_in_litres: 0
+  output:
+    perc_gas_kwh: 100
+    perc_elec_kwh: 0
+    perc_coal_kwh: 0
+    perc_diesel_kwh: 0
+- name: Test outputs of elec consumption perc formulas, only MJ input
+  period: 2020
+  input:
+    gas_in_MJ: 0
+    elec_kWh: 0
+    coal_in_KG: 10000
+    diesel_in_litres: 0
+  output:
+    perc_gas_kwh: 0
+    perc_elec_kwh: 0
+    perc_coal_kwh: 100
+    perc_diesel_kwh: 0
+- name: Test outputs of elec consumption perc formulas, only MJ input
+  period: 2020
+  input:
+    gas_in_MJ: 0
+    elec_kWh: 0
+    coal_in_KG: 0
+    diesel_in_litres: 10000
+  output:
+    perc_gas_kwh: 0
+    perc_elec_kwh: 0
+    perc_coal_kwh: 0
+    perc_diesel_kwh: 100
+- name: Test outputs of elec consumption perc formulas, equal amounts gas in
+    MJ and elec in kWh
+  period: 2020
+  input:
+    gas_in_MJ: 10000
+    elec_kWh: 10000
+    coal_in_KG: 0
+    diesel_in_litres: 0
+  output:
+    perc_gas_kwh: 21.739132
+    perc_elec_kwh: 78.26087
+- name: Test outputs of elec consumption perc formulas, equal amounts gas in
+    MJ and coal in KG
+  period: 2020
+  input:
+    gas_in_MJ: 10000
+    elec_kWh: 0
+    coal_in_KG: 10000
+    diesel_in_litres: 0
+  output:
+    perc_gas_kwh: 4.3290043
+    perc_coal_kwh: 95.671
+- name: Test outputs of elec consumption perc formulas, equal amounts gas in
+    MJ and diesel in L
+  period: 2020
+  input:
+    gas_in_MJ: 10000
+    elec_kWh: 0
+    coal_in_KG: 0
+    diesel_in_litres: 10000
+  output:
+    perc_gas_kwh: 2.5252526
+    perc_diesel_kwh: 97.47474
+- name: Test outputs of elec consumption perc formulas, equal amounts elec in
+    kWh and coal in KG
+  period: 2020
+  input:
+    gas_in_MJ: 0
+    elec_kWh: 10000
+    coal_in_KG: 10000
+    diesel_in_litres: 0
+  output:
+    perc_elec_kwh: 14.007781
+    perc_coal_kwh: 85.99222
+- name: Test outputs of elec consumption perc formulas, equal amounts elec in
+    kWh and diesel in L
+  period: 2020
+  input:
+    gas_in_MJ: 0
+    elec_kWh: 10000
+    coal_in_KG: 0
+    diesel_in_litres: 10000
+  output:
+    perc_elec_kwh: 8.530806
+    perc_diesel_kwh: 91.46919
+- name: Test outputs of elec consumption perc formulas, equal amounts gas in MJ, elec in
+    kWh and coal in KG
+  period: 2020
+  input:
+    gas_in_MJ: 10000
+    elec_kWh: 10000
+    coal_in_KG: 10000
+    diesel_in_litres: 0
+  output:
+    perc_gas_kwh: 3.7453182
+    perc_elec_kwh: 13.483146
+    perc_coal_kwh: 82.77153
+- name: Test outputs of elec consumption perc formulas, equal amounts gas in MJ, elec in
+    kWh and diesel in L
+  period: 2020
+  input:
+    gas_in_MJ: 10000
+    elec_kWh: 10000
+    coal_in_KG: 0
+    diesel_in_litres: 10000
+  output:
+    perc_gas_kwh: 2.314815
+    perc_elec_kwh: 8.333334
+    perc_diesel_kwh: 89.35186
+- name: Test outputs of elec consumption perc formulas, equal amounts elec in
+    kWh. coal in KG and diesel in L
+  period: 2020
+  input:
+    gas_in_MJ: 0
+    elec_kWh: 10000
+    coal_in_KG: 10000
+    diesel_in_litres: 10000
+  output:
+    perc_elec_kwh: 5.5987554
+    perc_coal_kwh: 34.37014
+    perc_diesel_kwh: 60.031105
+- name: Test outputs of elec consumption perc formulas, equal amounts gas in MJ, elec in
+    kWh. gas in MJ and diesel in L
+  period: 2020
+  input:
+    gas_in_MJ: 10000
+    elec_kWh: 10000
+    coal_in_KG: 10000
+    diesel_in_litres: 10000
+  output:
+    perc_gas_kwh: 1.5313934
+    perc_elec_kwh: 5.513016
+    perc_diesel_kwh: 59.111786
+    perc_coal_kwh: 33.843796

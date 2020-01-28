@@ -49,11 +49,28 @@ class counted_gas_savings(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = "Total Electricity Savings for which Energy Savings Certificates have previously been created for the Implementation for the Current Rating Year"
+    label = 'Total Gas Savings for which Energy Savings Certificates have' \
+            'previously been created for the Implementation for the Current' \
+            'Rating Year'
 
 
 class counted_elec_savings(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = "Total Gas Savings for which Energy Savings Certificates have previously been created for the Implementation for the Current Rating Year"
+    label = 'Total Electricity Savings for which Energy Savings Certificates have' \
+            'previously been created for the Implementation for the Current' \
+            'Rating Year'
+
+
+class counted_energy_savings(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'The total Energy Savings for which ESCs have previously been' \
+            'created for the Implementation for the Current Rating Year'
+
+    def formula(buildings, period, parameters):
+        cg_savings = buildings('counted_gas_savings', period)
+        ce_savings = buildings('counted_elec_savings', period)
+        return count_elec_savings + count_gas_savings

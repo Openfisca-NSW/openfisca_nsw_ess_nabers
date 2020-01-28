@@ -29,6 +29,22 @@ class within_maximum_years_of_forward_creation(Variable):
         )
 
 
+class historical_rating_previously_used_for_forward_creation(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Tests if a rating has been used for a previous Historical Baseline' \
+            ' NABERS Rating for a NABERS Building. Clause 8.8.10 (c) prohibits' \
+            ' the use of using a NABERS Rating of the same value more than once' \
+            ' to set a fixed Historical NABERS Baseline Rating.'
+
+    def formula(buildings, period, parameters):
+        return (
+            buildings('years_of_forward_creation', period) <=
+            parameters(period).energy_saving_scheme.maximum_time_period_of_forward_creation
+        )
+
+
 class year_one_forward_created_electricity_savings(Variable):
     value_type = float
     entity = Building
