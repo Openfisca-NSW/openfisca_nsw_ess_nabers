@@ -41,8 +41,7 @@ class method_two(Variable):
     def formula(buildings, period, parameters):
         hist_rating = buildings('historical_NABERS_star_rating', period)
         cur_year = buildings('current_rating_year', period)
-        hist_year = buildings('historical_rating_year', period)
-        rating_adjustment = parameters(period).energy_saving_scheme.table_a21
+        hist_year = buildings('baseline_rating_year', period)
         building_type = buildings("building_type", period)
         hist_rating_age = buildings('age_of_historical_rating', period)
         adjustment_year_string = where(hist_rating_age > 1, "two_to_seven_year_old", "one_year_old")
@@ -53,14 +52,20 @@ class first_nabers_rating(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = "Is this the first NABERS rating for the NABERS Building?"
+    label = "Tests whether the NABERS rating used in Calculation Method 1" \
+        ' is the first NABERS Rating for the building.' \
+        ' in accordance with clause 8.8.3 (a) (ii).'
 
 
 class rating_not_obt_for_legal_requirement(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = "Is the rating not being obtained in order to comply with any mandatory legal requirement imposed through a statutory or regulatory instrument of any jurisdiction, including, but not limited to, the Commercial Building Disclosure Program"
+    label = 'Is the rating not being obtained in order to comply with any' \
+            ' mandatory legal requirement imposed through a statutory or ' \
+            ' regulatory instrument of any jurisdiction, including, but not' \
+            ' limited to, the Commercial Building Disclosure Program.' \
+            ' In accordance with clause 8.8.3 (a) (iii).'
 
 
 class method_one_can_be_used(Variable):
@@ -90,14 +95,20 @@ class start_date_of_current_nabers_rating_period(Variable):
             ' Period is the time over which measurements were taken to' \
             ' establish the NABERS Rating or the Historical Baseline NABERS' \
             ' Rating for the NABERS Building' \
-            ' As published within the NABERS Rating Report.'
+            ' As published within the NABERS Rating Report.' \
+            ' As defined in Clause 8.8.2 (a).'
 
 
 class end_date_of_current_nabers_rating_period(Variable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
-    label = "The date on which the current rating period ends. The Rating Period is the time over which measurements were taken to establish the NABERS Rating or the Historical Baseline NABERS Rating for the NABERS Building"
+    label = 'The date on which the current rating period ends. The Rating' \
+            ' Period is the time over which measurements were taken to' \
+            ' establish the NABERS Rating or the Historical Baseline NABERS' \
+            ' Rating for the NABERS Building.' \
+            ' As published within the NABERS Report.' \
+            ' As defined in Clause 8.8.2 (a).'
 
 
 class start_date_of_historical_nabers_rating_period(Variable):
@@ -108,7 +119,8 @@ class start_date_of_historical_nabers_rating_period(Variable):
             ' Period is the time over which measurements were taken to' \
             ' establish the NABERS Rating or the Historical Baseline NABERS' \
             ' Rating for the NABERS Building' \
-            ' As published within the NABERS Rating Report.'
+            ' As published within the NABERS Rating Report.' \
+            ' As defined in Clause 8.8.2 (b).'
 
 
 class end_date_of_historical_nabers_rating_period(Variable):
@@ -118,7 +130,8 @@ class end_date_of_historical_nabers_rating_period(Variable):
     label = 'The date on which the historical rating period ends. The Rating' \
             ' Period is the time over which measurements were taken to' \
             ' establish the NABERS Rating or the Historical Baseline ' \
-            ' NABERS Rating for the NABERS Building. '
+            ' NABERS Rating for the NABERS Building.' \
+            ' As defined in Clause 8.8.2 (b).'
 
 
 class historical_NABERS_star_rating(Variable):
@@ -147,7 +160,7 @@ class current_rating_period_length(Variable):
         start = buildings(
             'start_date_of_current_nabers_rating_period', period
             )
-        return end.astype('datetime64[M]') - start.astype('datetime64[M]')
+        return end.astype('datetime64[M]') - start.astype('datetime64[M]')  #should this be days or years?
 
 
 class historical_rating_period_length(Variable):
@@ -175,8 +188,9 @@ class current_rating_year(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
-    label = "The year in which the Rating Period ends for the NABERS Rating"
-    "and is the year for which Energy Savings Certificates will be created"
+    label = 'The year in which the Rating Period ends for the NABERS Rating' \
+    'and is the year for which Energy Savings Certificates will be created' \
+    ' As defined in Clause 8.8.2 (d).'
 
     def formula(buildings, period, parameters):
         end_date_of_current_nabers_rating_period = buildings('end_date_of_current_nabers_rating_period', period)
@@ -184,17 +198,18 @@ class current_rating_year(Variable):
         return current_rating_year
 
 
-class historical_rating_year(Variable):
+class baseline_rating_year(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
     label = 'The year in which the Rating Period ends for the Historical NABERS' \
-            ' Rating, used for defining the Historical NABERS Rating Period'
+            ' Rating, used for defining the Historical NABERS Rating Period' \
+            ' As defined in Clause 8.8.2 (e).'
 
     def formula(buildings, period, parameters):
         end_date_of_historical_nabers_rating_period = buildings('end_date_of_historical_nabers_rating_period', period)
-        historical_rating_year = end_date_of_historical_nabers_rating_period.astype('datetime64[Y]') + epoch
-        return historical_rating_year
+        baseline_rating_year = end_date_of_historical_nabers_rating_period.astype('datetime64[Y]') + epoch
+        return baseline_rating_year
 
 
 class time_between_historical_and_current_ratings_within_range(Variable):
@@ -229,6 +244,22 @@ class cur_his_diff_as_months(Variable):
         return cur.astype('datetime64[M]') - hist.astype('datetime64[M]')
 
 
+class time_between_current_ratings_and_ESC_date_within_range(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Tests the distance between the end of the current rating period' \
+            ' and the date of Energy Savings Certificates against the maximum' \
+            ' allowable distance between end of rating and ESC creation date.' \
+            ' In accordance with clause 8.8.8.'
+
+    def formula(buildings, period, parameters):
+        return (
+            buildings('cur_ESC_diff_as_months', period) <=
+            parameters(period).energy_saving_scheme.diff_current_rating_esc_creation_date
+        )
+
+
 class today_date(Variable):
     value_type = date
     entity = Building
@@ -244,7 +275,7 @@ class age_of_historical_rating(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Calculate the age of the historical rating, for use in determining' \
-            ' Annual Rating Adjustment from Table A21.'
+            ' Annual Rating Adjustment from Table A21.' # need to determine what unit is used to determine the age of the historical rating.
 
     def formula(buildings, period, parameters):
         today = buildings(
@@ -254,22 +285,6 @@ class age_of_historical_rating(Variable):
             )
         age_in_days = (today.astype('datetime64[D]') - hist.astype('datetime64[D]')).astype('datetime64[D]')
         return age_in_days.astype('datetime64[Y]')
-
-
-class time_between_current_ratings_and_ESC_date_within_range(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-    label = 'Tests the distance between the end of the current rating period' \
-            ' and the date of Energy Savings Certificates against the maximum' \
-            ' allowable distance between end of rating and ESC creation date.' \
-            ' In accordance with clause 8.8.8.'
-
-    def formula(buildings, period, parameters):
-        return (
-            buildings('cur_ESC_diff_as_months', period) <=
-            parameters(period).energy_saving_scheme.diff_current_rating_esc_creation_date
-        )
 
 
 class cur_ESC_diff_as_months(Variable):

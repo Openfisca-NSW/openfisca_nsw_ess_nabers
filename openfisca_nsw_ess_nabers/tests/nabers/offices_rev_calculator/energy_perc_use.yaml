@@ -15,5 +15,5 @@
     coal_in_KG: 0
     diesel_in_litres: 1362
   output:
-    office_maximum_electricity_consumption: 6166538.5
-    office_maximum_gas_consumption: 4659626.5
+    office_maximum_electricity_consumption: 5882245
+    office_maximum_gas_consumption: 4444805.5

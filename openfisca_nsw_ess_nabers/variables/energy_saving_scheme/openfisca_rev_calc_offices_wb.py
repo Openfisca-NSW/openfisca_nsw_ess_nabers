@@ -29,7 +29,7 @@ df2.index = df2.Climate_id
 
 
 class offices_WB_postcode:
-    value_type = int
+    value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'The postcode for the relevant NABERS building.'
@@ -37,10 +37,22 @@ class offices_WB_postcode:
     def formula(buildings, period, parameters):
         return (buildings('postcode', period))
 
-postcode = 2000
+postcode = 6000
 climate_zone_value = df1.loc[df1['Postcode'] == postcode, 'Climate_zone'].values[0]
 hdd = df2.loc[df2['Climate_id'] == climate_zone_value, 'Hdd'].values[0]
 cdd = df2.loc[df2['Climate_id'] == climate_zone_value, 'Cdd'].values[0]
+
+
+class HDD(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'HDD value for the relevant climate zone, determined by the' \
+            ' the relevant postcode.'
+
+    def formula(buildings, period, parameters):
+        postcode = buildings('postcode', period)
+        return parameters(period).energy_saving_scheme.test_output_hdd[postcode]  # This is a built in OpenFisca function that is used to calculate a single value for regional network factor based on a zipcode provided
 
 
 class HDD_18(Variable):
@@ -72,8 +84,8 @@ class benchmark_star_rating(Variable):
             ' building aims to achieve.'
 
     def formula(buildings, period, parameters):
-        benchmark_rating = buildings('method_one', period)
-        return benchmark_rating
+        return buildings('method_one', period)
+
 
 class number_of_computers(Variable):
     value_type = float

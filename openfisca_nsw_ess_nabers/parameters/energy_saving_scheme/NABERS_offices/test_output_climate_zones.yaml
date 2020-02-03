@@ -1,0 +1,12 @@
+description: Climate zone values as called by buildings(postcode). Sourced from NABERS Offices WB rev calc, August 2013.
+brackets:
+  - amount:
+      2020-01-01:
+        value: 63
+    threshold:
+      2020-01-01:
+        value: 2148 # zero and above postcodes have a RNF of 1.0
+metadata:
+  type: single_amount
+  threshold unit: postcode
+  amount_unit: 1

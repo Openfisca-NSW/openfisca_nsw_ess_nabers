@@ -23,20 +23,6 @@ class ESC_creation_date(Variable):
             ' need to find prescription date for this.'
 
 
-class star_rating_exceeds_benchmark_rating(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = YEAR
-    label = 'Checks whether the star rating input by the user exceeds the' \
-            ' benchmark rating defined in Table A20 by at least 0.5 stars.' \
-            ' In accordance with Clause 8.8.3.'
-
-    def formula(buildings, period, parameters):
-        current = buildings('current_NABERS_star_rating', period)
-        benchmark = buildings('method_one', period)
-        return where(current - benchmark >= 0.5, 1, 0)
-
-
 class includes_GreenPower(Variable):
     value_type = bool
     entity = Building
@@ -57,6 +43,35 @@ class is_current_NABERS_rating(Variable):
         " In accordance to clause 8.8.2(a)." \
 
 
+class star_rating_exceeds_method_one_benchmark_rating(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = YEAR
+    label = 'Checks whether the star rating input by the user exceeds the' \
+            ' benchmark rating defined in Table A20 by at least 0.5 stars.' \
+            ' In accordance with Clause 8.8.3 (a) (i).'
+
+    def formula(buildings, period, parameters):
+        current = buildings('current_NABERS_star_rating', period)
+        benchmark = buildings('method_one', period)
+        return where(current - benchmark >= 0.5, True, False)
+
+
+class star_rating_exceeds_method_two_benchmark_rating(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = YEAR
+    label = 'Checks whether the star rating input by the user exceeds the' \
+            ' Historical Benchmark NABERS Rating used in Calculation Method 2' \
+            ' by at least 0.5 stars.' \
+            ' In accordance with Clause 8.8.3 (b) (i).'
+
+    def formula(buildings, period, parameters):
+        current = buildings('current_NABERS_star_rating', period)
+        benchmark = buildings('method_two', period)
+        return where(current - benchmark >= 0.5, True, False)
+
+
 class historical_baseline_no_more_than_7_years_before_current_rating(Variable):
     value_type = bool
     entity = Building
@@ -66,7 +81,15 @@ class historical_baseline_no_more_than_7_years_before_current_rating(Variable):
         " in accordance with clause 8.8.4 (a)"
 
     def formula(building, period, parameters):
-        return (current_rating_year - historical_rating_year) <= 7
+        current = buildings(
+            'end_date_of_current_nabers_rating_period', period)
+        hist = buildings(
+            'end_date_of_historical_nabers_rating_period', period
+            )
+        distance_between_current_and_historical_baseline = (
+            current.astype('datetime64[D]') - hist.astype('datetime64[D]')).astype('datetime64[D]')
+        distance_in_years = distance_between_current_and_historical_baseline.astype('datetime64[Y]')
+        return distance_in_years <= 7
 
 
 class calculation_used_for_additional_savings(Variable):
@@ -126,7 +149,7 @@ class energy_savings_date(Variable):
             ' For the purposes of section 131 of the Act, Energy Savings are' \
             ' taken to occur on the date that the Scheme Administrator ' \
             ' determines that the relevant NABERS Rating was completed. ' \
-            ' In accordance with Clause 8.8.7.'
+            ' In accordance with Clause 8.8.7.'  # need to read guidance material.
 
     def formula(buildings, period, parameters):
         return buildings('end_date_of_current_nabers_rating_period', period)

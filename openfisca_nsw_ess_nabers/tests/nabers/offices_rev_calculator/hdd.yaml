@@ -1,0 +1,12 @@
+- name: Test outputs of HDD value, postcode 2148
+  period: 2020
+  input:
+    postcode: 2148
+  output:
+    HDD: 642
+- name: Test outputs of HDD value, postcode 3169
+  period: 2020
+  input:
+    postcode: 3169
+  output:
+    HDD: 1590

@@ -63,12 +63,15 @@ class counted_elec_savings(Variable):
             'Rating Year'
 
 
+
+
 class counted_energy_savings(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'The total Energy Savings for which ESCs have previously been' \
-            'created for the Implementation for the Current Rating Year'
+            'created for the Implementation for the Current Rating Year.' \
+            ' As defined in Clause 8.8.12.'
 
     def formula(buildings, period, parameters):
         cg_savings = buildings('counted_gas_savings', period)
