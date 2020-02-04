@@ -3,22 +3,22 @@
   input:
     postcode: 2000
   output:
-    HDD_18: 642
+    CDD_15: 541
 - name: Test outputs of HDD value, postcode 2148
   period: 2020
   input:
     postcode: 2148
   output:
-    HDD_18: 642
+    CDD_15: 541
 - name: Test outputs of HDD value, postcode 3169
   period: 2020
   input:
     postcode: 3169
   output:
-    HDD_18: 1590
+    CDD_15: 100
 - name: Test outputs of HDD value, postcode 3169
   period: 2020
   input:
     postcode: 6436
   output:
-    HDD_18: 899
+    CDD_15: 243

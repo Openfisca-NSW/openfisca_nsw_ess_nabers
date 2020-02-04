@@ -37,13 +37,20 @@ class offices_WB_postcode:
     def formula(buildings, period, parameters):
         return (buildings('postcode', period))
 
-postcode = 6000
-climate_zone_value = df1.loc[df1['Postcode'] == postcode, 'Climate_zone'].values[0]
-hdd = df2.loc[df2['Climate_id'] == climate_zone_value, 'Hdd'].values[0]
-cdd = df2.loc[df2['Climate_id'] == climate_zone_value, 'Cdd'].values[0]
+
+class climate_zone(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'HDD value for the relevant climate zone, determined by the' \
+            ' the relevant postcode.'
+
+    def formula(buildings, period, parameters):
+        postcode = buildings('postcode', period)
+        return parameters(period).energy_saving_scheme.test_output_climate_zones[postcode]  # This is a built in OpenFisca function that is used to calculate a single value for regional network factor based on a zipcode provided
 
 
-class HDD(Variable):
+class HDD_18(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -55,16 +62,6 @@ class HDD(Variable):
         return parameters(period).energy_saving_scheme.test_output_hdd[postcode]  # This is a built in OpenFisca function that is used to calculate a single value for regional network factor based on a zipcode provided
 
 
-class HDD_18(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    label = "The relevant heating days for this building, based on postcode and then climate zone"
-
-    def formula(buildings, period, parameters):
-        return hdd
-
-
 class CDD_15(Variable):
     value_type = float
     entity = Building
@@ -72,7 +69,8 @@ class CDD_15(Variable):
     label = "The relevant cooling days for this building, based on postcode and then climate zone"
 
     def formula(buildings, period, parameters):
-        return cdd
+        postcode = buildings('postcode', period)
+        return parameters(period).energy_saving_scheme.test_output_cdd[postcode]  # This is a built in OpenFisca function that is used to calculate a single value for regional network factor based on a zipcode provided
 
 
 class benchmark_star_rating(Variable):
