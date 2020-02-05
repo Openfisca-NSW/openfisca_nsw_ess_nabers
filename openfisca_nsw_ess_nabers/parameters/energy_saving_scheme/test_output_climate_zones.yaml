@@ -19,6 +19,11 @@ description: Climate zone as called by buildings(postcode). Sourced from NABERS 
   values:
     2020-01-01:
       value: 18
+6017:
+  description:
+  values:
+    2020-01-01:
+      value: 7
 metadata:
   type: single_amount
   threshold unit: postcode

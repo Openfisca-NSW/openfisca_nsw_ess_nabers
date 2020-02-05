@@ -1,19 +1,19 @@
-- name: Test reverse calculator from report N54674
+- name: Test reverse calculator from report N56558
   period: 2020
   input:
-    end_date_of_current_nabers_rating_period: 2020-01-20
+    end_date_of_current_nabers_rating_period: 2019-10-31
     is_office: True
-    postcode: 2000
-    hours_per_week_with_20_percent_occupancy: 58.3
+    postcode: 6017
+    hours_per_week_with_20_percent_occupancy: 48.0
     number_of_computers: 0
-    net_lettable_area: 50435.1
-    building_state_location: NSW
+    net_lettable_area: 13339.0
+    building_state_location: WA
     built_after_nov_2006: True
     method_one_can_be_used: True
-    gas_in_MJ: 2585137
-    elec_kWh: 3421164
+    gas_in_MJ: 662382
+    elec_kWh: 1243776.6
     coal_in_KG: 0
-    diesel_in_litres: 1362
+    diesel_in_litres: 5500
   output:
-    office_maximum_electricity_consumption: 5882245
-    office_maximum_gas_consumption: 4444805.5
+    office_maximum_electricity_consumption: 0
+    office_maximum_gas_consumption: 0

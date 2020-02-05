@@ -1,0 +1,28 @@
+- name: Test Dequip from report N56558
+  period: 2020
+  input:
+    end_date_of_current_nabers_rating_period: 2019-10-31
+    is_office: True
+    postcode: 6017
+    hours_per_week_with_20_percent_occupancy: 48.0
+    building_state_location: WA
+    net_lettable_area: 13339
+    number_of_computers: 808
+  output:
+    nabers_adjusted_hours: 58
+    f_base_building: 0.94984806
+    f_tenancy: 1.0111223
+    climate_zone: 7
+    SGEgas: 0.22
+    SGEelec: 0.92
+    SGEcoal: 0.32
+    SGEoil: 0.27
+    HDD_18: 680
+    CDD_15: 340
+    term_1: 0.90639997
+    term_2: 40.112
+    term_3: 1.040695652
+    term_4: 30.2817
+    term_5: 0
+    GEclimcorr: 9.696003
+    GEClimcorr_tenancy: -15.14265237

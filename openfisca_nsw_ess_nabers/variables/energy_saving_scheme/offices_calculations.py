@@ -3,13 +3,6 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 
-from pandas import pandas as pd
-
-xlsx = r'/Users/liammccann/DPIE/Energy Savings Scheme - 02_Rule as Code/01_ESS/01. 8.8 NABERS/1. Data/climate_zones_postcodes.xlsx'
-df1 = pd.read_excel(xlsx, "postcodes")
-df2 = pd.read_excel(xlsx, "climate_zone")
-df1.index = df1.Postcode
-df2.index = df2.Climate_id
 # measured_electricity_consumption input at Step 1
 # measured_gas_consumption input at Step 1
 # onsite_unaccounted_electricity input at Step 1
@@ -74,7 +67,7 @@ class CDD_15(Variable):
 
 
 class benchmark_star_rating(Variable):
-    value_type = int
+    value_type = str
     entity = Building
     definition_period = ETERNITY  # need to check whether these inputs, on the NABERS reports, should all be year
     label = 'The star rating for which the benchmark electricity and gas' \
@@ -83,13 +76,6 @@ class benchmark_star_rating(Variable):
 
     def formula(buildings, period, parameters):
         return buildings('method_one', period)
-
-
-class number_of_computers(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    label = "The number of computers registered as used within the NABERS rating"
 
 
 class building_state_location(Variable):
@@ -219,17 +205,6 @@ class f_base_building(Variable):
         return (1 / (0.38 + 0.0116 * adjusted_hours))
 
 
-class f_tenancy(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    label = "factor for tenancy NABERS calculation"
-
-    def formula(buildings, period, parameters):
-        adjusted_hours = buildings('maximum_nabers_adjusted_hours', period)
-        return (1 / (0.38 + 0.0105 * adjusted_hours))
-
-
 class SGEgas(Variable):
     value_type = float
     entity = Building
@@ -340,7 +315,9 @@ class term_5 (Variable):
     def formula(buildings, period, parameters):
         SGEelec = buildings('SGEelec', period)
         CDD15wb = buildings('CDD_15', period)
-        return (0.062 * SGEelec * (CDD15wb - 400) / 0.94)  # 0.94 is likely SGEelec but need to check
+        term_5_working = (0.062 * SGEelec * (CDD15wb - 400) / 0.94)  # 0.94 is likely SGEelec but need to check
+        condition_term_5 = term_5_working >= 0
+        return where(condition_term_5, term_5_working, 0)
 
 
 class SGE_tenancy(Variable):
@@ -360,7 +337,7 @@ class Dequip (Variable):
     label = "Dequip value used to weigh impact of number of computers"
 
     def formula(buildings, period, parameters):
-        return buildings('number_of_computers', period) * 0.2 / buildings('net_lettable_area', period)  # need to define no_of_computer and NLA here?
+        return buildings('number_of_computers', period) * 0.2 / buildings('net_lettable_area', period)
 
 
 class GEclimcorr (Variable):
@@ -412,7 +389,7 @@ class coefficient_B (Variable):
         state = buildings('building_state_location', period)
         return select(
             [state == "ACT", state == "NSW", state == "NT", state == "QLD", state == "SA", state == "TAS", state == "VIC", state == "WA"],
-            [-0.0168067, -0.0168067, -0.03323, -0.02, -0.0166656, -0.0341818, -0.0444444, -0.05]
+            [-0.0168067, -0.0168067, -0.03323, -0.02, -0.0166656, -0.0151039, -0.0148, -0.02381]
             )
 
 
@@ -434,7 +411,7 @@ class GEwholemax (Variable):
 
     def formula(buildings, period, parameters):
         condition_GEwholemax_star_rating = buildings('benchmark_star_rating', period) > 5
-        return where(condition_GEwholemax_star_rating, "not applicable", (buildings('NGEmax', period) - buildings('f_base_building', period) * buildings('GEclimcorr', period) - buildings('f_tenancy', period) * buildings('GEClimcorr_tenancy', period)) * 2 / (buildings('f_base_building', period) + buildings('f_tenancy', period)))
+        return where(condition_GEwholemax_star_rating, 0, (buildings('NGEmax', period) - buildings('f_base_building', period) * buildings('GEclimcorr', period) - buildings('f_tenancy', period) * buildings('GEClimcorr_tenancy', period)) * 2 / (buildings('f_base_building', period) + buildings('f_tenancy', period)))
 
 
 class NGE_5star_original_rating (Variable):
@@ -448,37 +425,39 @@ class NGE_5star_original_rating (Variable):
 
 
 class GE_5star_original_rating(Variable):
-    value_type = int
+    value_type = float
     entity = Building
     definition_period = ETERNITY
     label = "original required maximum greenhouse emissions at 5 star rating"
 
     def formula(buildings, period, parameters):
-        return (buildings('NGEmax', period) - buildings('f_base_building', period) * buildings('GEclimcorr', period) - buildings('f_tenancy', period) * buildings('GEClimcorr_tenancy', period)) * 2 / (buildings('f_base_building', period) / buildings('f_tenancy', period))
+        return (buildings('NGE_5star_original_rating', period) - buildings('f_base_building', period) * buildings('GEclimcorr', period) - buildings('f_tenancy', period) * buildings('GEClimcorr_tenancy', period)) * 2 / (buildings('f_base_building', period) + buildings('f_tenancy', period))
 
 
 class GE_25_percent_reduction(Variable):
-    value_type = int
+    value_type = float
     entity = Building
     definition_period = ETERNITY
     label = "25% reduction of required maximum greenhouse emissions for use in 5.5 star rating following original rating system"
 
     def formula(buildings, period, parameters):
-        return 6
+        GE_5_stars = buildings('GE_5star_original_rating', period)
+        return GE_5_stars * 0.75
 
 
 class GE_50_percent_reduction(Variable):
-    value_type = int
+    value_type = float
     entity = Building
     definition_period = ETERNITY
     label = "50% reduction of required maximum greenhouse emissions for use in 6 star rating following original rating system"
 
     def formula(buildings, period, parameters):
-        return 5
+        GE_5_stars = buildings('GE_5star_original_rating', period)
+        return GE_5_stars * 0.5
 
 
 class office_maximum_electricity_consumption(Variable):
-    value_type = float
+    value_type = int
     entity = Building
     definition_period = ETERNITY
     label = "output of the NABERS whole building reverse calculator - the maximum electricity consumption allowable for the relevant NABERS rated building"  # need to figure out how to round this to an integer
@@ -491,6 +470,8 @@ class office_maximum_electricity_consumption(Variable):
         SGEcoal = buildings('SGEcoal', period)
         SGEoil = buildings('SGEoil', period)
         GEwholemax = buildings('GEwholemax', period)
+        GE_25_perc = buildings('GE_25_percent_reduction', period)
+        GE_50_perc = buildings('GE_50_percent_reduction', period)
         perc_gas = buildings('perc_gas_kwh', period)
         perc_elec = buildings('perc_elec_kwh', period)
         perc_coal = buildings('perc_coal_kwh', period)
@@ -498,7 +479,8 @@ class office_maximum_electricity_consumption(Variable):
         return select(
             [benchmark <= 5, benchmark == 5.5, benchmark == 6],
             [(GEwholemax * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)
-             , buildings('GE_25_percent_reduction', period), buildings('GEwholemax', period)]
+             , (GE_25_perc * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)
+             , (GE_50_perc * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)]
             )
 
 
