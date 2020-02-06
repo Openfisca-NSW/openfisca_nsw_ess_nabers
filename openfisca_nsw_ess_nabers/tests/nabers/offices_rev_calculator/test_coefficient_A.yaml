@@ -1,0 +1,336 @@
+- name: Test coefficient_A in whole_building in ACT
+  period: 2020
+  input:
+    rating_type: whole_building
+    building_state_location: ACT
+  output:
+    coefficient_A: 6.7605
+- name: Test coefficient_A in tenancy in ACT
+  period: 2020
+  input:
+    rating_type: tenancy
+    building_state_location: ACT
+  output:
+    coefficient_A: 6.7727
+- name: Test coefficient_A in base building in ACT
+  period: 2020
+  input:
+    rating_type: base_building
+    building_state_location: ACT
+  output:
+    coefficient_A: 6.75
+- name: Test coefficient_A in whole_building in NSW
+  period: 2020
+  input:
+    rating_type: whole_building
+    building_state_location: NSW
+  output:
+    coefficient_A: 6.7605
+- name: Test coefficient_A in tenancy in NSW
+  period: 2020
+  input:
+    rating_type: tenancy
+    building_state_location: NSW
+  output:
+    coefficient_A: 6.7727
+- name: Test coefficient_A in base building in NSW
+  period: 2020
+  input:
+    rating_type: base_building
+    building_state_location: NSW
+  output:
+    coefficient_A: 6.75
+- name: Test coefficient_A in whole_building in NT
+  period: 2020
+  input:
+    rating_type: whole_building
+    building_state_location: NT
+  output:
+    coefficient_A: 6.422206
+- name: Test coefficient_A in tenancy in NT
+  period: 2020
+  input:
+    rating_type: tenancy
+    building_state_location: NT
+  output:
+    coefficient_A: 6.413814
+- name: Test coefficient_A in base building in NT
+  period: 2020
+  input:
+    rating_type: base_building
+    building_state_location: NT
+  output:
+    coefficient_A: 6.42932
+- name: Test coefficient_A in whole_building in QLD
+  period: 2020
+  input:
+    rating_type: whole_building
+    building_state_location: QLD
+  output:
+    coefficient_A: 7.1
+- name: Test coefficient_A in tenancy in QLD
+  period: 2020
+  input:
+    rating_type: tenancy
+    building_state_location: QLD
+  output:
+    coefficient_A: 6.2667
+- name: Test coefficient_A in base building in QLD
+  period: 2020
+  input:
+    rating_type: base_building
+    building_state_location: QLD
+  output:
+    coefficient_A: 8.35
+- name: Test coefficient_A in whole_building in SA
+  period: 2020
+  input:
+    rating_type: whole_building
+    building_state_location: SA
+  output:
+    coefficient_A: 6.5247
+- name: Test coefficient_A in tenancy in SA
+  period: 2020
+  input:
+    rating_type: tenancy
+    building_state_location: SA
+  output:
+    coefficient_A: 6.2636
+- name: Test coefficient_A in base building in SA
+  period: 2020
+  input:
+    rating_type: base_building
+    building_state_location: SA
+  output:
+    coefficient_A: 6.75
+- name: Test coefficient_A in whole_building in TAS
+  period: 2020
+  input:
+    rating_type: whole_building
+    building_state_location: TAS
+  output:
+    coefficient_A: 6.5351
+- name: Test coefficient_A in tenancy in TAS
+  period: 2020
+  input:
+    rating_type: tenancy
+    building_state_location: TAS
+  output:
+    coefficient_A: 6.2636
+- name: Test coefficient_A in base building in TAS
+  period: 2020
+  input:
+    rating_type: base_building
+    building_state_location: TAS
+  output:
+    coefficient_A: 6.75
+- name: Test coefficient_A in whole_building in VIC
+  period: 2020
+  input:
+    rating_type: whole_building
+    building_state_location: VIC
+  output:
+    coefficient_A: 7.0114
+- name: Test coefficient_A in tenancy in VIC
+  period: 2020
+  input:
+    rating_type: tenancy
+    building_state_location: VIC
+  output:
+    coefficient_A: 7.5889
+- name: Test coefficient_A in base building in VIC
+  period: 2020
+  input:
+    rating_type: base_building
+    building_state_location: VIC
+  output:
+    coefficient_A: 6.7544
+- name: Test coefficient_A in whole_building in WA
+  period: 2020
+  input:
+    rating_type: whole_building
+    building_state_location: WA
+  output:
+    coefficient_A: 7.2857
+- name: Test coefficient_A in tenancy in WA
+  period: 2020
+  input:
+    rating_type: tenancy
+    building_state_location: WA
+  output:
+    coefficient_A: 6.85
+- name: Test coefficient_A in base building in WA
+  period: 2020
+  input:
+    rating_type: base_building
+    building_state_location: WA
+  output:
+    coefficient_A: 7.6818
+- name: Test coefficient_B in whole_building in ACT
+  period: 2020
+  input:
+    rating_type: whole_building
+    building_state_location: ACT
+  output:
+    coefficient_B: -0.0168067
+- name: Test coefficient_B in tenancy in ACT
+  period: 2020
+  input:
+    rating_type: tenancy
+    building_state_location: ACT
+  output:
+    coefficient_B: -0.036364
+- name: Test coefficient_B in base building in ACT
+  period: 2020
+  input:
+    rating_type: base_building
+    building_state_location: ACT
+  output:
+    coefficient_B: -0.03125
+- name: Test coefficient_B in whole_building in NSW
+  period: 2020
+  input:
+    rating_type: whole_building
+    building_state_location: NSW
+  output:
+    coefficient_B: -0.0168067
+- name: Test coefficient_B in tenancy in NSW
+  period: 2020
+  input:
+    rating_type: tenancy
+    building_state_location: NSW
+  output:
+    coefficient_B: -0.036364
+- name: Test coefficient_B in base building in NSW
+  period: 2020
+  input:
+    rating_type: base_building
+    building_state_location: NSW
+  output:
+    coefficient_B: -0.03125
+- name: Test coefficient_B in whole_building in NT
+  period: 2020
+  input:
+    rating_type: whole_building
+    building_state_location: NT
+  output:
+    coefficient_B: -0.03323
+- name: Test coefficient_B in tenancy in NT
+  period: 2020
+  input:
+    rating_type: tenancy
+    building_state_location: NT
+  output:
+    coefficient_B: -0.07242
+- name: Test coefficient_B in base building in NT
+  period: 2020
+  input:
+    rating_type: base_building
+    building_state_location: NT
+  output:
+    coefficient_B: -0.0614
+- name: Test coefficient_B in whole_building in QLD
+  period: 2020
+  input:
+    rating_type: whole_building
+    building_state_location: QLD
+  output:
+    coefficient_B: -0.02
+- name: Test coefficient_B in tenancy in QLD
+  period: 2020
+  input:
+    rating_type: tenancy
+    building_state_location: QLD
+  output:
+    coefficient_B: -0.0333
+- name: Test coefficient_B in base building in QLD
+  period: 2020
+  input:
+    rating_type: base_building
+    building_state_location: QLD
+  output:
+    coefficient_B: -0.05
+- name: Test coefficient_B in whole_building in SA
+  period: 2020
+  input:
+    rating_type: whole_building
+    building_state_location: SA
+  output:
+    coefficient_B: -0.0166656
+- name: Test coefficient_B in tenancy in SA
+  period: 2020
+  input:
+    rating_type: tenancy
+    building_state_location: SA
+  output:
+    coefficient_B: -0.0359809
+- name: Test coefficient_B in base building in SA
+  period: 2020
+  input:
+    rating_type: base_building
+    building_state_location: SA
+  output:
+    coefficient_B: -0.0310451
+- name: Test coefficient_B in whole_building in TAS
+  period: 2020
+  input:
+    rating_type: whole_building
+    building_state_location: TAS
+  output:
+    coefficient_B: -0.0151039
+- name: Test coefficient_B in tenancy in TAS
+  period: 2020
+  input:
+    rating_type: tenancy
+    building_state_location: TAS
+  output:
+    coefficient_B: -0.0341818
+- name: Test coefficient_B in base building in TAS
+  period: 2020
+  input:
+    rating_type: base_building
+    building_state_location: TAS
+  output:
+    coefficient_B: -0.0270617
+- name: Test coefficient_B in whole_building in VIC
+  period: 2020
+  input:
+    rating_type: whole_building
+    building_state_location: VIC
+  output:
+    coefficient_B: -0.0148
+- name: Test coefficient_B in tenancy in VIC
+  period: 2020
+  input:
+    rating_type: tenancy
+    building_state_location: VIC
+  output:
+    coefficient_B: -0.0444444
+- name: Test coefficient_B in base building in VIC
+  period: 2020
+  input:
+    rating_type: base_building
+    building_state_location: VIC
+  output:
+    coefficient_B: -0.0223
+- name: Test coefficient_B in whole_building in WA
+  period: 2020
+  input:
+    rating_type: whole_building
+    building_state_location: WA
+  output:
+    coefficient_B: -0.02381
+- name: Test coefficient_B in tenancy in WA
+  period: 2020
+  input:
+    rating_type: tenancy
+    building_state_location: WA
+  output:
+    coefficient_B: -0.05
+- name: Test coefficient_B in base building in WA
+  period: 2020
+  input:
+    rating_type: base_building
+    building_state_location: WA
+  output:
+    coefficient_B: -0.04545

@@ -20,10 +20,136 @@ from openfisca_nsw_base.entities import *
 
 # add from filename import function to init.py
 
-# note that this file is used to store variables which are IDENTICAL across NABERS office reverse calculators.
+# note that this file is used to store user inputs. Everything in this file
+# should be input by the user and is publicly accessible.
+
+
+class offices_postcode:
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'The postcode for the relevant NABERS building.'
+
+    def formula(buildings, period, parameters):
+        return (buildings('postcode', period))
+
 
 class number_of_computers(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     label = "The number of computers registered as used within the NABERS rating"
+
+
+class rating_type(Variable):
+    value_type = str
+    entity = Building
+    definition_period = ETERNITY
+    label = 'The type of building rated within the NABERS Office suite. Also' \
+            ' used to determine which reverse calculator is used.'
+
+
+class benchmark_star_rating(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY  # need to check whether these inputs, on the NABERS reports, should all be year
+    label = 'The star rating for which the benchmark electricity and gas' \
+            'consumption is calculated against - what NABERS rating the' \
+            ' building aims to achieve.'
+
+    def formula(buildings, period, parameters):
+        return buildings('method_one', period)
+
+
+class building_state_location(Variable):
+    value_type = str
+    entity = Building
+    definition_period = ETERNITY
+    label = "State within which the relevant NABERS rated building is located."
+
+
+class elec_kWh(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = "The electricity consumption of the building, in kWh, as detailed on the NABERS report"
+
+
+class gas_kWh(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = "The gas consumption of the building, in kWh, as detailed on the NABERS report"
+
+    def formula(buildings, period, parameters):
+        return buildings('gas_MJ_to_KWh', period)
+
+
+class diesel_kWh(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = "The oil consumption of the building, in kWh, as detailed on the NABERS report"
+
+    def formula(buildings, period, parameters):
+        return buildings('diesel_litres_to_KWh', period)
+
+
+class coal_kWh (Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = "The coal consumption of the building, in kWh, as detailed on the NABERS report"
+
+    def formula(buildings, period, parameters):
+        return buildings('coal_KG_to_KWh', period)
+
+
+class total_energy_kwh(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = "The total kWh consumption of the building, summing electricity, gas, oil and diesel, expressed in kWh"
+
+    def formula(buildings, period, parameters):
+        return buildings('elec_kWh', period) + buildings('gas_kWh', period) + buildings('coal_kWh', period) + buildings('diesel_kWh', period)
+
+
+class perc_elec_kwh(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = "The percentage of a building's energy consumption that is derived from its electricity consumption, expressed as a percentage of total energy use to 2 decimal places"
+
+    def formula(buildings, period, parameters):
+        return buildings('elec_kWh', period) / buildings('total_energy_kwh', period) * 100  # need to learn how to express this as a percentage
+
+
+class perc_gas_kwh(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = "The percentage of a building's energy consumption that is derived from its electricity consumption, expressed as a percentage of total energy use to 2 decimal places"
+
+    def formula(buildings, period, parameters):
+        return buildings('gas_kWh', period) / buildings('total_energy_kwh', period) * 100  # need to learn how to express this as a percentage
+
+
+class perc_diesel_kwh(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = "The percentage of a building's energy consumption that is derived from its diesel consumption, expressed as a percentage of total energy use to 2 decimal places"
+
+    def formula(buildings, period, parameters):
+        return buildings('diesel_kWh', period) / buildings('total_energy_kwh', period) * 100  # need to learn how to express this as a percentage
+
+
+class perc_coal_kwh(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = "The percentage of a building's energy consumption that is derived from its oil consumption, expressed as a percentage of total energy use to 2 decimal places"
+
+    def formula(buildings, period, parameters):
+        return buildings('coal_kWh', period) / buildings('total_energy_kwh', period) * 100  # need to learn how to express this as a percentage

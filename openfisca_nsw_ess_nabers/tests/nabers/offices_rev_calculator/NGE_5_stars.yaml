@@ -4,6 +4,7 @@
     end_date_of_current_nabers_rating_period: 2019-10-31
     is_office: True
     postcode: 6017
+    rating_type: whole_building
     hours_per_week_with_20_percent_occupancy: 48.0
     building_state_location: WA
     net_lettable_area: 13339
@@ -19,16 +20,16 @@
     SGEoil: 0.27
     HDD_18: 680
     CDD_15: 340
-    term_1: 0.90639997
+    term_1: 0.9064
     term_2: 40.112
     term_3: 1.040695652
     term_4: 30.2817
     term_5: 0
     GEclimcorr: 9.696003
-    GEClimcorr_tenancy: -15.14265237
+    GEClimcorr_tenancy: -15.142646
     coefficient_A: 7.2857
     coefficient_B: -0.02381
     NGE_5star_original_rating: 116.99702
-    GE_5star_original_rating: 125.54841
-    GE_25_percent_reduction: 94.16131
-    GE_50_percent_reduction: 62.774204
+    GE_5star_original_rating: 125.5484
+    GE_25_percent_reduction: 94.1613
+    GE_50_percent_reduction: 62.7742

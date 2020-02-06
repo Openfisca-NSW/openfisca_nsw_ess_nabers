@@ -19,10 +19,10 @@
     SGEoil: 0.27
     HDD_18: 680
     CDD_15: 340
-    term_1: 0.90639997
+    term_1: 0.9064
     term_2: 40.112
     term_3: 1.040695652
     term_4: 30.2817
     term_5: 0
     GEclimcorr: 9.696003
-    GEClimcorr_tenancy: -15.14265237
+    GEClimcorr_tenancy: -15.142646

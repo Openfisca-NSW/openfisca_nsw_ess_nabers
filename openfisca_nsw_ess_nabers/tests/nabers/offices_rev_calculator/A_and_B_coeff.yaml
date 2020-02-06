@@ -3,6 +3,7 @@
   input:
     end_date_of_current_nabers_rating_period: 2019-10-31
     is_office: True
+    rating_type: whole_building
     postcode: 6017
     hours_per_week_with_20_percent_occupancy: 48.0
     building_state_location: WA
@@ -19,12 +20,12 @@
     SGEoil: 0.27
     HDD_18: 680
     CDD_15: 340
-    term_1: 0.90639997
+    term_1: 0.9064
     term_2: 40.112
     term_3: 1.040695652
     term_4: 30.2817
     term_5: 0
     GEclimcorr: 9.696003
-    GEClimcorr_tenancy: -15.14265237
+    GEClimcorr_tenancy: -15.142646
     coefficient_A: 7.2857
     coefficient_B: -0.02381
