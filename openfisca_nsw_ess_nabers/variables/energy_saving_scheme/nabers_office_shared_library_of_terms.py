@@ -206,6 +206,7 @@ class term_3 (Variable):
         HDD = buildings('HDD_18', period)
         return (0.0016 * SGEgas * HDD / 0.23)
 
+
 class term_4 (Variable):
     value_type = float
     entity = Building
