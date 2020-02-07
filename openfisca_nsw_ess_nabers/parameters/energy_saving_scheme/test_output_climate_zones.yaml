@@ -19,6 +19,16 @@ description: Climate zone as called by buildings(postcode). Sourced from NABERS 
   values:
     2020-01-01:
       value: 18
+4000:
+  description:
+  values:
+    2020-01-01:
+      value: 51
+4006:
+  description:
+  values:
+    2020-01-01:
+      value: 51
 6017:
   description:
   values:

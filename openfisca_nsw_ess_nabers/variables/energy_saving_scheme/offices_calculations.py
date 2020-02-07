@@ -3,6 +3,7 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 import numpy as np
+import math
 # measured_electricity_consumption input at Step 1
 # measured_gas_consumption input at Step 1
 # onsite_unaccounted_electricity input at Step 1
@@ -129,6 +130,35 @@ class GE_50_percent_reduction(Variable):
         return GE_5_stars * 0.5
 
 
+class bb_GEmax_nla(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = "first sub-term used to calculate maximum electricity consumption"
+
+    def formula(buildings, period, parameters):
+        return buildings('base_building_GEmax', period) * buildings('net_lettable_area', period)
+
+
+class weighted_energy(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'calculates the weighting of different energy inputs for' \
+            ' calculating Maximum Electricity Consumption.'
+
+    def formula(buildings, period, parameters):
+        perc_gas = buildings('perc_gas_kwh', period)
+        perc_elec = buildings('perc_elec_kwh', period)
+        perc_coal = buildings('perc_coal_kwh', period)
+        perc_diesel = buildings('perc_diesel_kwh', period)
+        SGEelec = buildings('SGEelec', period)
+        SGEgas = buildings('SGEgas', period)
+        SGEcoal = buildings('SGEcoal', period)
+        SGEoil = buildings('SGEoil', period)
+        return np.round((SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil), 16)
+
+
 class office_maximum_electricity_consumption(Variable):
     value_type = float
     entity = Building
@@ -152,6 +182,9 @@ class office_maximum_electricity_consumption(Variable):
         perc_coal = buildings('perc_coal_kwh', period)
         perc_diesel = buildings('perc_diesel_kwh', period)
         rating_type = buildings('rating_type', period)
+        bb_GEmax_nla =  buildings('bb_GEmax_nla', period)
+        weighted_energy = buildings('weighted_energy', period)
+
         return select(
             [benchmark <= 5 and rating_type == "whole_building"
             , benchmark <= 5 and rating_type == "base_building"
@@ -163,7 +196,7 @@ class office_maximum_electricity_consumption(Variable):
             , benchmark == 6 and rating_type == "base_building"
             , benchmark == 6 and rating_type == "tenancy"],
             [(GEwholemax * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)
-             , (bb_GEmax * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)
+             , bb_GEmax_nla / weighted_energy
              , (ten_GEmax * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)
              , (GE_25_perc * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)
              , (GE_25_perc * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)
@@ -172,7 +205,6 @@ class office_maximum_electricity_consumption(Variable):
              , (GE_50_perc * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)
              , (GE_50_perc * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)]
             )
-
 
 class office_maximum_gas_consumption(Variable):
     value_type = float

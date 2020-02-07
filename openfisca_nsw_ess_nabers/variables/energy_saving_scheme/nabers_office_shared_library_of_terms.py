@@ -117,7 +117,7 @@ class SGEgas(Variable):
         return select(
             [state == "ACT", state == "NSW", state == "NT", state == 'SA',
              state == "QLD", state == "TAS", state == "VIC", state == "WA"],
-            [0.23, 0.23, 0.20, 0.20, 0.21, 0.75, 0.21, 0.22]  # need to check these numbers, don't think they're right
+            [0.23, 0.23, 0.20, 0.21, 0.20, 0.75, 0.21, 0.22]  # need to check these numbers, don't think they're right
             )
 
 class SGEelec(Variable):
