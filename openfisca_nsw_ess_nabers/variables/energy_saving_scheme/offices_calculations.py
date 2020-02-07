@@ -156,7 +156,7 @@ class weighted_energy(Variable):
         SGEgas = buildings('SGEgas', period)
         SGEcoal = buildings('SGEcoal', period)
         SGEoil = buildings('SGEoil', period)
-        return np.round((SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil), 16)
+        return SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil
 
 
 class office_maximum_electricity_consumption(Variable):
