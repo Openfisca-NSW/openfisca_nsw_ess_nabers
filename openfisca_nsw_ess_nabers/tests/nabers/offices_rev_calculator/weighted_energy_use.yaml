@@ -1,6 +1,6 @@
 - name: test end formula for BASE BUILDING report - modelled, 10000 NLA, 10000 kWh, no gas, no diesel
   period: 2020
-  absolute_error_margin: 0.00001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -17,7 +17,7 @@
     coal_in_KG: 0
     built_after_nov_2006: False
   output:
-    weighted_energy: 3.9152989449
+    weighted_energy: 3.9152
     office_maximum_electricity_consumption: 277118
 - name: test end formula for BASE BUILDING report - modelled, 10000 NLA, 10000 kWh, 10000MJ gas, no diesel
   period: 2020

@@ -4,12 +4,15 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 
 from pandas import pandas as pd
+import numpy as np
+float_formatter = "{:.9f}".format
+np.set_printoptions(formatter={'float_kind':float_formatter})
 
-xlsx = r'/Users/liammccann/DPIE/Energy Savings Scheme - 02_Rule as Code/01_ESS/01. 8.8 NABERS/1. Data/climate_zones_postcodes.xlsx'
-df1 = pd.read_excel(xlsx, "postcodes")
-df2 = pd.read_excel(xlsx, "climate_zone")
-df1.index = df1.Postcode
-df2.index = df2.Climate_id
+# xlsx = r'/Users/liammccann/DPIE/Energy Savings Scheme - 02_Rule as Code/01_ESS/01. 8.8 NABERS/1. Data/climate_zones_postcodes.xlsx'
+# df1 = pd.read_excel(xlsx, "postcodes")
+# df2 = pd.read_excel(xlsx, "climate_zone")
+# df1.index = df1.Postcode
+# df2.index = df2.Climate_id
 # measured_electricity_consumption input at Step 1
 # measured_gas_consumption input at Step 1
 # onsite_unaccounted_electricity input at Step 1
@@ -27,11 +30,11 @@ df2.index = df2.Climate_id
 
 # add from filename import function to init.py
 
-postcode = 2042
-
-climate_zone_value = df1.loc[df1['Postcode'] == postcode, 'Climate_zone'].values[0]
-hdd = df2.loc[df2['Climate_id'] == climate_zone_value, 'Hdd'].values[0]
-cdd = df2.loc[df2['Climate_id'] == climate_zone_value, 'Cdd'].values[0]
+# postcode = 2042
+#
+# climate_zone_value = df1.loc[df1['Postcode'] == postcode, 'Climate_zone'].values[0]
+# hdd = df2.loc[df2['Climate_id'] == climate_zone_value, 'Hdd'].values[0]
+# cdd = df2.loc[df2['Climate_id'] == climate_zone_value, 'Cdd'].values[0]
 
 # %% user inputs
 

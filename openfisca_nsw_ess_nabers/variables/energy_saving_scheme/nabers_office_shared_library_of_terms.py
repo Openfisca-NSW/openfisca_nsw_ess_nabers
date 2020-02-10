@@ -181,7 +181,7 @@ class term_1 (Variable):
 
     def formula(buildings, period, parameters):
         SGEgas = buildings('SGEgas', period)
-        return np.round((4.12 * SGEgas), 4)
+        return (4.12 * SGEgas)
 
 
 class term_2 (Variable):
@@ -250,7 +250,7 @@ class Dequip (Variable):
     label = "Dequip value used to weigh impact of number of computers"
 
     def formula(buildings, period, parameters):
-        return np.round(buildings('number_of_computers', period) * 0.20 / buildings('net_lettable_area', period), 8)
+        return buildings('number_of_computers', period) * 0.20 / buildings('net_lettable_area', period)
 
 
 class GEclimcorr (Variable):
