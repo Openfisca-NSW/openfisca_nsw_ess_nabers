@@ -1,4 +1,4 @@
-- name: test end formula for N56530 - tenancy, only electricity - benchmark rating
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
   absolute_error_margin: 0.0000001
   input:
@@ -19,7 +19,7 @@
   output:
     method_one: 4.5
     benchmark_star_rating: 4.5
-- name: test end formula for N56530 - tenancy, only electricity - benchmark rating
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
   absolute_error_margin: 0.0000001
   input:
@@ -39,7 +39,7 @@
     built_after_nov_2006: False
   output:
     nabers_adjusted_hours: 56.5
-- name: test end formula for N56530 - tenancy, only electricity - benchmark rating
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
   absolute_error_margin: 0.0000001
   input:
@@ -59,7 +59,7 @@
     built_after_nov_2006: False
   output:
     f_base_building: 0.965810315
-- name: test end formula for N56530 - tenancy, only electricity - benchmark rating
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
   absolute_error_margin: 0.0000001
   input:
@@ -79,7 +79,7 @@
     built_after_nov_2006: False
   output:
     f_tenancy: 1.02748523
-- name: test end formula for N56530 - tenancy, only electricity - benchmark rating
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
   absolute_error_margin: 0.0000001
   input:
@@ -99,7 +99,7 @@
     built_after_nov_2006: False
   output:
     climate_zone: 64
-- name: test end formula for N56530 - tenancy, only electricity - benchmark rating
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
   absolute_error_margin: 0.0000001
   input:
@@ -123,7 +123,7 @@
     SGEcoal: 0.32
     SGEoil: 0.27
     SGEtenancy: 0.94
-- name: test end formula for N56530 - tenancy, only electricity - benchmark rating
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
   absolute_error_margin: 0.0000001
   input:
@@ -144,7 +144,7 @@
   output:
     HDD_18: 2186
     CDD_15: 80
-- name: test end formula for N56530 - tenancy, only electricity - benchmark rating
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
   absolute_error_margin: 0.0000001
   input:
@@ -164,7 +164,7 @@
     built_after_nov_2006: False
   output:
     term_1: 0.9476
-- name: test end formula for N56530 - tenancy, only electricity - benchmark rating
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
   absolute_error_margin: 0.0000001
   input:
@@ -184,7 +184,7 @@
     built_after_nov_2006: False
   output:
     term_2: 40.984
-- name: test end formula for N56530 - tenancy, only electricity - benchmark rating
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
   absolute_error_margin: 0.0000001
   input:
@@ -204,7 +204,7 @@
     built_after_nov_2006: False
   output:
     term_3: 3.4976
-- name: test end formula for N56530 - tenancy, only electricity - benchmark rating
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
   absolute_error_margin: 0.0000001
   input:
@@ -224,7 +224,7 @@
     built_after_nov_2006: False
   output:
     term_4: 7.28
-- name: test end formula for N56530 - tenancy, only electricity - benchmark rating
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
   absolute_error_margin: 0.0000001
   input:
@@ -244,7 +244,7 @@
     built_after_nov_2006: False
   output:
     term_5: 0
-- name: test end formula for N56530 - tenancy, only electricity - benchmark rating
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
   absolute_error_margin: 0.0000001
   input:
@@ -264,7 +264,7 @@
     built_after_nov_2006: False
   output:
     Dequip: 0.009297409
-- name: test end formula for N56530 - tenancy, only electricity - benchmark rating
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
   absolute_error_margin: 0.0000001
   input:
@@ -284,7 +284,7 @@
     built_after_nov_2006: False
   output:
     GEClimcorr_tenancy: -4.878259525
-- name: test end formula for N56530 - tenancy, only electricity - benchmark rating
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
   absolute_error_margin: 0.0000001
   input:
@@ -305,7 +305,7 @@
   output:
     coefficient_A: 6.7605
     coefficient_B: -0.0168067
-- name: test end formula for N56530 - tenancy, only electricity - benchmark rating
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
   absolute_error_margin: 0.0000001
   input:
@@ -325,7 +325,7 @@
     built_after_nov_2006: False
   output:
     NGEmax: 164.2499122
-- name: test end formula for N56530 - tenancy, only electricity - benchmark rating
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
   absolute_error_margin: 0.0000001
   input:
@@ -345,7 +345,7 @@
     built_after_nov_2006: False
   output:
     tenancy_GEmax: 139.6415074
-- name: test end formula for N56530 - tenancy, only electricity - benchmark rating
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
   absolute_error_margin: 0.0000001
   input:
@@ -365,7 +365,7 @@
     built_after_nov_2006: False
   output:
     ten_GEmax_nla: 1172904.9842909
-- name: test end formula for N56530 - tenancy, only electricity - benchmark rating
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
   absolute_error_margin: 0.0000001
   input:
@@ -385,7 +385,7 @@
     built_after_nov_2006: False
   output:
     weighted_energy: 1.00704249
-- name: test end formula for N56530 - tenancy, only electricity - benchmark rating
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
   absolute_error_margin: 0.0000001
   input:
@@ -405,7 +405,7 @@
     built_after_nov_2006: False
   output:
     office_maximum_electricity_consumption: 1416864
-- name: test end formula for N56530 - tenancy, only electricity - benchmark rating
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
   absolute_error_margin: 0.0000001
   input:
