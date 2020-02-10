@@ -288,7 +288,7 @@
     base_building_GEmax: 108.500035
     office_maximum_electricity_consumption: 1063725
     office_maximum_gas_consumption: 0
-- name: test end formula for BASE BUILDING report - modelled, 10000 NLA, 10000 kWh, no gas, no diesel
+- name: test end formula for BASE BUILDING report - modelled, 10000 NLA, 10000 kWh, 10000MJ gas, no diesel
   period: 2020
   absolute_error_margin: 0.0001
   input:
@@ -330,7 +330,7 @@
     base_building_GEmax: 108.500035
     office_maximum_electricity_consumption: 1008778
     office_maximum_gas_consumption: 0
-- name: test end formula for BASE BUILDING report - modelled, 10000 NLA, 10000 kWh, no gas, no diesel
+- name: test end formula for BASE BUILDING report - modelled, 10000 NLA, 10000 kWh, no gas, 10000L diesel
   period: 2020
   absolute_error_margin: 0.0001
   input:
@@ -370,7 +370,7 @@
     coefficient_B: -0.05
     NGEmax: 86.99998
     base_building_GEmax: 108.500035
-    GEmax_nla: 1085000
+    bb_GEmax_nla: 1085000
     weighted_energy: 3.16466
     office_maximum_electricity_consumption: 342848
     office_maximum_gas_consumption: 0

@@ -14,6 +14,11 @@ description: Climate zone as called by buildings(postcode). Sourced from NABERS 
   values:
     2020-01-01:
       value: 63
+2601:
+  description: climate zone for postcode 2601
+  values:
+    2020-01-01:
+      value: 64
 3000:
   description:
   values:
@@ -29,6 +34,11 @@ description: Climate zone as called by buildings(postcode). Sourced from NABERS 
   values:
     2020-01-01:
       value: 51
+6000:
+  description:
+  values:
+    2020-01-01:
+      value: 7
 6017:
   description:
   values:
