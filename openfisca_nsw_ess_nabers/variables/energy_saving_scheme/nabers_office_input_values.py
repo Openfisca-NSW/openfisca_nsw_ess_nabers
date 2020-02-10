@@ -122,7 +122,7 @@ class perc_elec_kwh(Variable):
     label = "The percentage of a building's energy consumption that is derived from its electricity consumption, expressed as a percentage of total energy use to 2 decimal places"
 
     def formula(buildings, period, parameters):
-        return buildings('elec_kWh', period) / buildings('total_energy_kwh', period) * 100  # need to learn how to express this as a percentage
+        return buildings('elec_kWh', period) / buildings('total_energy_kwh', period) * 100 # need to learn how to express this as a percentage
 
 
 class perc_gas_kwh(Variable):
@@ -142,7 +142,7 @@ class perc_diesel_kwh(Variable):
     label = "The percentage of a building's energy consumption that is derived from its diesel consumption, expressed as a percentage of total energy use to 2 decimal places"
 
     def formula(buildings, period, parameters):
-        return buildings('diesel_kWh', period) / buildings('total_energy_kwh', period) * 100  # need to learn how to express this as a percentage
+        return buildings('diesel_kWh', period) / buildings('total_energy_kwh', period) * 100 # need to learn how to express this as a percentage
 
 
 class perc_coal_kwh(Variable):

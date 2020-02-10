@@ -370,7 +370,7 @@
     coefficient_B: -0.05
     NGEmax: 86.99998
     base_building_GEmax: 108.500035
-    GEmax_nla: 1085000
+    bb_GEmax_nla: 1085000
     weighted_energy: 3.16466
     office_maximum_electricity_consumption: 342848
     office_maximum_gas_consumption: 0

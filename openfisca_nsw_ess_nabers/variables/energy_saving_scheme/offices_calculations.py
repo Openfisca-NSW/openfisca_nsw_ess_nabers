@@ -3,7 +3,11 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 import numpy as np
-import math
+from decimal import *
+getcontext().prec = 9
+Context(prec=28, rounding=ROUND_HALF_EVEN, Emin=-999999999, Emax=999999999,
+        capitals=1, flags=[], traps=[Overflow, DivisionByZero,
+        InvalidOperation])
 # measured_electricity_consumption input at Step 1
 # measured_gas_consumption input at Step 1
 # onsite_unaccounted_electricity input at Step 1
@@ -156,7 +160,7 @@ class weighted_energy(Variable):
         SGEgas = buildings('SGEgas', period)
         SGEcoal = buildings('SGEcoal', period)
         SGEoil = buildings('SGEoil', period)
-        return SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil
+        return (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)
 
 
 class office_maximum_electricity_consumption(Variable):
@@ -195,16 +199,17 @@ class office_maximum_electricity_consumption(Variable):
             , benchmark == 6 and rating_type == "whole_building"
             , benchmark == 6 and rating_type == "base_building"
             , benchmark == 6 and rating_type == "tenancy"],
-            [(GEwholemax * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)
-             , bb_GEmax_nla / weighted_energy
-             , (ten_GEmax * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)
-             , (GE_25_perc * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)
-             , (GE_25_perc * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)
-             , (GE_25_perc * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)
-             , (GE_50_perc * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)
-             , (GE_50_perc * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)
-             , (GE_50_perc * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)]
+            [np.trunc(GEwholemax * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)
+             , np.trunc(bb_GEmax_nla / weighted_energy)
+             , np.trunc(ten_GEmax * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)
+             , np.trunc(GE_25_perc * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)
+             , np.trunc(GE_25_perc * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)
+             , np.trunc(GE_25_perc * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)
+             , np.trunc(GE_50_perc * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)
+             , np.trunc(GE_50_perc * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil)
+             , 9]
             )
+
 
 class office_maximum_gas_consumption(Variable):
     value_type = float
