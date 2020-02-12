@@ -15,4 +15,4 @@
   input:
     pool_input: heated_pool
   output:
-    pool_parameter_coefficient: 1040.58
+    pool_parameter_coefficient: 1040.58055956421

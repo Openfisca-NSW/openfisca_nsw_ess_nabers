@@ -44,8 +44,11 @@ class apartments_benchmark(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Benchmark star rating for the relevant NABERS rated apartment' \
-            ' building.'
+            ' building.' # need to write in condition for method one
 
+    def formula (buildings, period, parameters):
+        method_one_benchmark = buildings('method_one', period)
+        return method_one_benchmark
 
 class apartments_postcode(Variable):
     value_type = float
@@ -83,7 +86,10 @@ class number_of_lift_serviced_apartments(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Number of lift serviced apartments located in the NABERS rated' \
-            ' apartment building.' # col G
+            ' apartment building.' # col G. note in Claudia's working, this is identical to total number of apartments - this may not always be true :()
+
+    def formula(buildings, period, parameters):
+        return buildings('number_of_apartments', period)
 
 
 class pool_input(Variable):
@@ -156,11 +162,11 @@ class apartments_total_kWh_usage(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'total energy use in kWh for the relevant NABERS rated apartment' \
-            ' complex entered by the user.' # col L + col M
+            ' complex entered by the user.' # col L + col M. need to check if this is only elec + diesel
 
     def formula(buildings, period, paramters):
         elec_kWh = buildings('apartments_elec_usage', period)
-        gas_kWh = buildings('apartments_gas_kWh_usage, period')
+        gas_kWh = buildings('apartments_gas_kWh_usage', period)
         return elec_kWh + gas_kWh
 
 
@@ -173,8 +179,8 @@ class elec_perc_kWh_usage(Variable):
 
     def formula(buildings, period, parameters):
         elec_kWh = buildings('apartments_elec_usage', period)
-        total_kWh = buildings('apartments_total_kWh_usage, period')
-        return elec_kWh / total_kWh * 100
+        total_kWh = buildings('apartments_total_kWh_usage', period)
+        return np.round((elec_kWh / total_kWh), 2)
 
 
 class apartments_not_air_con_serviced(Variable):
@@ -209,7 +215,6 @@ class interceptor(Variable):
     label = 'returns interceptor coefficient' # col AN
 
     def formula(buildings, period, parameters):
-        has_gym = buildings('apartment_has_gym', period)
         return parameters(period).energy_saving_scheme.NABERS_apartments.intercept
 
 
@@ -236,7 +241,7 @@ class condenser_water(Variable):
     label = 'Value for condenser water serviced apartments, found by' \
             ' multiplying condenser water coefficient by no. of condenser' \
             ' water serviced apartments, then dividing by total number' \
-            ' of apartments.' # col AP
+            ' of apartments.' # col AP. Claudia's sheet has this value to 5dp.
 
     def formula(buildings, period, parameters):
         CW_coeff = parameters(period).energy_saving_scheme.NABERS_apartments.condenser_water_coeff
@@ -254,7 +259,7 @@ class lifts(Variable):
             ' in the relevant NABERS rated building.' # col AR
 
     def formula(buildings, period, parameters):
-        lift_coeff = parameters(period).energ_saving_scheme.NABERS_apartments.lift_coeff
+        lift_coeff = parameters(period).energy_saving_scheme.NABERS_apartments.lift_coeff
         number_of_lift_apart = buildings('number_of_lift_serviced_apartments', period)
         number_of_apart = buildings('number_of_apartments', period)
         lifts = (number_of_lift_apart * lift_coeff / number_of_apart)
@@ -301,13 +306,15 @@ class predicted_energy_emissions(Variable):
             ' Condenser Water, Lifts, Pools, Gyms and Car Parks values together.'
 
     def formula(buildings, period, parameters):
-        intercept = buildings('intercept', period)
+        pool = buildings('pool_parameter_coefficient', period)
+        has_gym = buildings('apartment_has_gym', period)
+        intercept = buildings('interceptor', period)
         central_AC = buildings('central_AC', period)
         condenser_water = buildings('condenser_water', period)
         lifts = buildings('lifts', period)
-        gyms = buildings('gym_parameter_coefficient', period)
+        gyms = parameters(period).energy_saving_scheme.NABERS_apartments.gym_coeff[has_gym]
         car_park = buildings('car_park', period)
-        predicted_emissions = intercept + central_AC + condenser_water + lifts + gyms + car_park
+        predicted_emissions = intercept + pool + central_AC + condenser_water + lifts + gyms + car_park
         return predicted_emissions
 
 class emissions_ratio(Variable):
@@ -368,7 +375,7 @@ class actual_GHG_KG_CO2 (Variable):
     label = 'Calculates the actual greenhouse emissions in KG of CO2,' \
             ' produced from the electricity consumption of the building.'
 
-    def formula(building, period, parameters):
+    def formula(buildings, period, parameters):
         actual_GHG = buildings('actual_GHG_per_apartment', period)
         number_of_apartments = buildings('number_of_apartments', period)
         return actual_GHG * number_of_apartments
@@ -381,7 +388,7 @@ class actual_GHG_KG_CO2_elec (Variable):
     label = 'Calculates the actual greenhouse emissions in KG of CO2,' \
             ' produced from the electricity consumption of the building.'
 
-    def formula(building, period, parameters):
+    def formula(buildings, period, parameters):
         actual_GHG_KG_CO2 = buildings('actual_GHG_KG_CO2', period)
         elec_perc_kWh_usage = buildings('elec_perc_kWh_usage', period)
         return actual_GHG_KG_CO2 * elec_perc_kWh_usage
@@ -394,7 +401,7 @@ class actual_GHG_KG_CO2_gas(Variable):
     label = 'Calculates the actual greenhouse emissions in KG of CO2,' \
             ' produced from the electricity consumption of the building.'
 
-    def formula(building, period, parameters):
+    def formula(buildings, period, parameters):
         actual_GHG_KG_CO2 = buildings('actual_GHG_KG_CO2', period)
         elec_perc_kWh_usage = buildings('elec_perc_kWh_usage', period)
         return actual_GHG_KG_CO2 * (1 - elec_perc_kWh_usage)
@@ -406,9 +413,9 @@ class predicted_electricity_kWh(Variable):
     definition_period = ETERNITY
     label = 'The predicted electricity consumption of the relevant NABERS' \
             ' rated apartment building, in kWh. also known as the benchmark' \
-            ' rating.' # need to code in condition - if less than zero, = 0.
+            ' rating.' # need to code in condition - if less than zero, = 0. Note that this is identical to the benchmark figure, and to the Maximum Energy Consumption within the offices calculator.
 
-    def formula(building, period, parameters):
+    def formula(buildings, period, parameters):
         actual_GHG_KG_CO2_elec = buildings('actual_GHG_KG_CO2_elec', period)
         apartment_elec_GHG_coeff = parameters(period).energy_saving_scheme.NABERS_apartments.elec_ghg_coeff
         return actual_GHG_KG_CO2_elec / apartment_elec_GHG_coeff
@@ -422,7 +429,7 @@ class predicted_gas_MJ(Variable):
             ' rated apartment building, in MJ. also known as the benchmark' \
             ' rating.' # need to code in condition - if less than zero, = 0.
 
-    def formula(building, period, parameters):
+    def formula(buildings, period, parameters):
         actual_GHG_KG_CO2_gas = buildings('actual_GHG_KG_CO2_gas', period)
         apartment_gas_GHG_coeff = parameters(period).energy_saving_scheme.NABERS_apartments.gas_ghg_coeff
         return actual_GHG_KG_CO2_gas / apartment_gas_GHG_coeff

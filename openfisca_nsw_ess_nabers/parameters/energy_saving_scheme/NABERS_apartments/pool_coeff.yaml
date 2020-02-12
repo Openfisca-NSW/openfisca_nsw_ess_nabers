@@ -12,4 +12,4 @@ heated_pool:
   description: coefficient introduced if apartment complex has heated pool
   values:
     2020-01-01:
-      value: 1040.58
+      value: 1040.58055956421
