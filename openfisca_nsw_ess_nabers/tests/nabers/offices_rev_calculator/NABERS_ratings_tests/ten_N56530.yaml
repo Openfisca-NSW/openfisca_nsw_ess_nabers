@@ -225,46 +225,6 @@
     built_after_nov_2006: False
   output:
     tenancy_GEmax: 95.15698396
-- name: test end formula for N56530 - tenancy, only electricity - ten_GEmax_nla
-  period: 2020
-  absolute_error_margin: 0.0000001
-  input:
-    end_date_of_current_nabers_rating_period: 2019-12-31
-    is_office: True
-    rating_type: tenancy
-    postcode: 2601
-    hours_per_week_with_20_percent_occupancy: 49.5
-    building_state_location: ACT
-    net_lettable_area: 12325.5
-    number_of_computers: 797
-    method_one_can_be_used: True
-    elec_kWh: 861452.5
-    gas_in_MJ: 0
-    diesel_in_litres: 0
-    coal_in_KG: 0
-    built_after_nov_2006: False
-  output:
-    ten_GEmax_nla: 1172904.9842909
-- name: test end formula for N56530 - tenancy, only electricity - weighted_energy
-  period: 2020
-  absolute_error_margin: 0.0000001
-  input:
-    end_date_of_current_nabers_rating_period: 2019-12-31
-    is_office: True
-    rating_type: tenancy
-    postcode: 2601
-    hours_per_week_with_20_percent_occupancy: 49.5
-    building_state_location: ACT
-    net_lettable_area: 12325.5
-    number_of_computers: 797
-    method_one_can_be_used: True
-    elec_kWh: 861452.5
-    gas_in_MJ: 0
-    diesel_in_litres: 0
-    coal_in_KG: 0
-    built_after_nov_2006: False
-  output:
-    weighted_energy: 0.94
 - name: test end formula for N56530 - tenancy, only electricity - office_maximum_electricity_consumption
   period: 2020
   absolute_error_margin: 0.0000001

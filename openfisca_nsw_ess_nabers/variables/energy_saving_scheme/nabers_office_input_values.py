@@ -124,7 +124,7 @@ class perc_elec_kwh(Variable):
 
     def formula(buildings, period, parameters):
         elec_percent = buildings('elec_kWh', period) / buildings('total_energy_kwh', period) * 100
-        return np.round(elec_percent, 3)
+        return np.round(elec_percent, 2)
 
 
 class perc_gas_kwh(Variable):
@@ -135,7 +135,7 @@ class perc_gas_kwh(Variable):
 
     def formula(buildings, period, parameters):
         gas_percent = buildings('gas_kWh', period) / buildings('total_energy_kwh', period) * 100
-        return np.round(gas_percent, 3)
+        return np.round(gas_percent, 2)
 
 
 class perc_diesel_kwh(Variable):
@@ -146,7 +146,7 @@ class perc_diesel_kwh(Variable):
 
     def formula(buildings, period, parameters):
         diesel_percent = buildings('diesel_kWh', period) / buildings('total_energy_kwh', period) * 100
-        return np.round(diesel_percent, 3)
+        return np.round(diesel_percent, 2)
 
 
 class perc_coal_kwh(Variable):
@@ -157,4 +157,4 @@ class perc_coal_kwh(Variable):
 
     def formula(buildings, period, parameters):
         coal_percent = buildings('coal_kWh', period) / buildings('total_energy_kwh', period) * 100
-        return np.round(coal_percent, 3)
+        return np.round(coal_percent, 2)

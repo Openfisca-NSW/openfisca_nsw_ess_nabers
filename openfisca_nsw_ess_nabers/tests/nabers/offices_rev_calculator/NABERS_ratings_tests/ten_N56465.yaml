@@ -225,46 +225,6 @@
     built_after_nov_2006: False
   output:
     tenancy_GEmax: 93.66249729
-- name: test end formula for N56465 - tenancy, only electricity - ten_GEmax_nla
-  period: 2020
-  absolute_error_margin: 0.0000001
-  input:
-    end_date_of_current_nabers_rating_period: 2019-12-31
-    is_office: True
-    rating_type: tenancy
-    postcode: 2016
-    hours_per_week_with_20_percent_occupancy: 45.8
-    building_state_location: NSW
-    net_lettable_area: 4473.5
-    number_of_computers: 298
-    method_one_can_be_used: True
-    elec_kWh: 323245.8
-    gas_in_MJ: 0
-    diesel_in_litres: 0
-    coal_in_KG: 0
-    built_after_nov_2006: False
-  output:
-    ten_GEmax_nla: 418999.18162681
-- name: test end formula for N56465 - tenancy, only electricity - weighted_energy
-  period: 2020
-  absolute_error_margin: 0.0000001
-  input:
-    end_date_of_current_nabers_rating_period: 2019-12-31
-    is_office: True
-    rating_type: tenancy
-    postcode: 2016
-    hours_per_week_with_20_percent_occupancy: 45.8
-    building_state_location: NSW
-    net_lettable_area: 4473.5
-    number_of_computers: 298
-    method_one_can_be_used: True
-    elec_kWh: 323245.8
-    gas_in_MJ: 0
-    diesel_in_litres: 0
-    coal_in_KG: 0
-    built_after_nov_2006: False
-  output:
-    weighted_energy: 0.94
 - name: test end formula for N56465 - tenancy, only electricity - office_maximum_electricity_consumption
   period: 2020
   absolute_error_margin: 0.0000001

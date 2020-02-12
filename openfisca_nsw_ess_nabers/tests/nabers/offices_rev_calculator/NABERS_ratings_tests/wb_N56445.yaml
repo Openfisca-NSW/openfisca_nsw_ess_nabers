@@ -38,6 +38,86 @@
     coal_in_KG: 0
     built_after_nov_2006: False
   output:
+    perc_elec_kwh: 77.43
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
+  period: 2020
+  absolute_error_margin: 0.0000001
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 2601
+    hours_per_week_with_20_percent_occupancy: 46.5
+    building_state_location: ACT
+    net_lettable_area: 10217.9
+    number_of_computers: 475
+    method_one_can_be_used: True
+    elec_kWh: 1109868.1
+    gas_in_MJ: 1164417.6
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    perc_gas_kwh: 22.57
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
+  period: 2020
+  absolute_error_margin: 0.0000001
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 2601
+    hours_per_week_with_20_percent_occupancy: 46.5
+    building_state_location: ACT
+    net_lettable_area: 10217.9
+    number_of_computers: 475
+    method_one_can_be_used: True
+    elec_kWh: 1109868.1
+    gas_in_MJ: 1164417.6
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    perc_coal_kwh: 0
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
+  period: 2020
+  absolute_error_margin: 0.0000001
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 2601
+    hours_per_week_with_20_percent_occupancy: 46.5
+    building_state_location: ACT
+    net_lettable_area: 10217.9
+    number_of_computers: 475
+    method_one_can_be_used: True
+    elec_kWh: 1109868.1
+    gas_in_MJ: 1164417.6
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    perc_diesel_kwh: 0
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
+  period: 2020
+  absolute_error_margin: 0.0000001
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 2601
+    hours_per_week_with_20_percent_occupancy: 46.5
+    building_state_location: ACT
+    net_lettable_area: 10217.9
+    number_of_computers: 475
+    method_one_can_be_used: True
+    elec_kWh: 1109868.1
+    gas_in_MJ: 1164417.6
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
     nabers_adjusted_hours: 56.5
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
@@ -344,47 +424,7 @@
     coal_in_KG: 0
     built_after_nov_2006: False
   output:
-    tenancy_GEmax: 139.6415074
-- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
-  period: 2020
-  absolute_error_margin: 0.0000001
-  input:
-    end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
-    rating_type: whole_building
-    postcode: 2601
-    hours_per_week_with_20_percent_occupancy: 46.5
-    building_state_location: ACT
-    net_lettable_area: 10217.9
-    number_of_computers: 475
-    method_one_can_be_used: True
-    elec_kWh: 1109868.1
-    gas_in_MJ: 1164417.6
-    diesel_in_litres: 0
-    coal_in_KG: 0
-    built_after_nov_2006: False
-  output:
-    ten_GEmax_nla: 1172904.9842909
-- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
-  period: 2020
-  absolute_error_margin: 0.0000001
-  input:
-    end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
-    rating_type: whole_building
-    postcode: 2601
-    hours_per_week_with_20_percent_occupancy: 46.5
-    building_state_location: ACT
-    net_lettable_area: 10217.9
-    number_of_computers: 475
-    method_one_can_be_used: True
-    elec_kWh: 1109868.1
-    gas_in_MJ: 1164417.6
-    diesel_in_litres: 0
-    coal_in_KG: 0
-    built_after_nov_2006: False
-  output:
-    weighted_energy: 1.00704249
+    GEwholemax: 139.6415074
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
   absolute_error_margin: 0.0000001
