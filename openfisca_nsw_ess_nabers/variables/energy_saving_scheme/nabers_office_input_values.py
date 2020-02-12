@@ -2,6 +2,7 @@
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
+import numpy as np
 
 # measured_electricity_consumption input at Step 1
 # measured_gas_consumption input at Step 1
@@ -122,7 +123,8 @@ class perc_elec_kwh(Variable):
     label = "The percentage of a building's energy consumption that is derived from its electricity consumption, expressed as a percentage of total energy use to 2 decimal places"
 
     def formula(buildings, period, parameters):
-        return buildings('elec_kWh', period) / buildings('total_energy_kwh', period) * 1000000  # need to learn how to express this as a percentage
+        elec_percent = buildings('elec_kWh', period) / buildings('total_energy_kwh', period) * 100
+        return np.round(elec_percent, 3)
 
 
 class perc_gas_kwh(Variable):
@@ -132,7 +134,8 @@ class perc_gas_kwh(Variable):
     label = "The percentage of a building's energy consumption that is derived from its electricity consumption, expressed as a percentage of total energy use to 2 decimal places"
 
     def formula(buildings, period, parameters):
-        return buildings('gas_kWh', period) / buildings('total_energy_kwh', period) * 1000000  # need to learn how to express this as a percentage
+        gas_percent = buildings('gas_kWh', period) / buildings('total_energy_kwh', period) * 100
+        return np.round(gas_percent, 3)
 
 
 class perc_diesel_kwh(Variable):
@@ -142,7 +145,8 @@ class perc_diesel_kwh(Variable):
     label = "The percentage of a building's energy consumption that is derived from its diesel consumption, expressed as a percentage of total energy use to 2 decimal places"
 
     def formula(buildings, period, parameters):
-        return buildings('diesel_kWh', period) / buildings('total_energy_kwh', period) * 1000000  # need to learn how to express this as a percentage
+        diesel_percent = buildings('diesel_kWh', period) / buildings('total_energy_kwh', period) * 100
+        return np.round(diesel_percent, 3)
 
 
 class perc_coal_kwh(Variable):
@@ -152,4 +156,5 @@ class perc_coal_kwh(Variable):
     label = "The percentage of a building's energy consumption that is derived from its oil consumption, expressed as a percentage of total energy use to 2 decimal places"
 
     def formula(buildings, period, parameters):
-        return buildings('coal_kWh', period) / buildings('total_energy_kwh', period) * 1000000  # need to learn how to express this as a percentage
+        coal_percent = buildings('coal_kWh', period) / buildings('total_energy_kwh', period) * 100
+        return np.round(coal_percent, 3)

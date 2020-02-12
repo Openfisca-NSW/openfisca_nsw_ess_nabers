@@ -211,7 +211,7 @@ class office_maximum_electricity_consumption(Variable):
             , benchmark == 6 and rating_type == "whole_building"
             , benchmark == 6 and rating_type == "base_building"
             , benchmark == 6 and rating_type == "tenancy"],
-            [bb_GEmax_nla / weighted_energy
+             [consumption(bb_GEmax)
              , consumption(GEwholemax)
              , consumption(ten_GEmax)
              , consumption(GE_25_perc)
