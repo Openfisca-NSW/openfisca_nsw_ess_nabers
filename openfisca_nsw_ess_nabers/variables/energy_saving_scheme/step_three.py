@@ -33,7 +33,7 @@ class benchmark_elec_consumption(Variable):
 
     def formula(buildings, period, parameters):
         return select([buildings('is_office', period), buildings('is_apartment_building', period)],
-        [buildings('office_maximum_electricity_consumption'), buildings('apartment_maximum_electricity_consumption')]
+        [buildings('office_maximum_electricity_consumption', period), buildings('predicted_electricity_kWh', period)]
             )
 
 

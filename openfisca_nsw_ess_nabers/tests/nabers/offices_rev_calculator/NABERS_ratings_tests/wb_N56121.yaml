@@ -384,26 +384,6 @@
     coal_in_KG: 0
     built_after_nov_2006: False
   output:
-    weighted_energy: 1.02
-- name: test end formula for N56121 - whole building, electricity only - benchmark rating
-  period: 2020
-  absolute_error_margin: 0.0000001
-  input:
-    end_date_of_current_nabers_rating_period: 2019-08-30
-    is_office: True
-    rating_type: whole_building
-    postcode: 4405
-    hours_per_week_with_20_percent_occupancy: 45.2
-    building_state_location: QLD
-    net_lettable_area: 682.8
-    number_of_computers: 20
-    method_one_can_be_used: True
-    elec_kWh: 83583.9
-    gas_in_MJ: 0
-    diesel_in_litres: 0
-    coal_in_KG: 0
-    built_after_nov_2006: False
-  output:
     office_maximum_electricity_consumption: 103144
 - name: test end formula for N56121 - whole building, electricity only - benchmark rating
   period: 2020

@@ -108,12 +108,35 @@ class apartment_has_gym(Variable):
             ' gym or a gym.'  # col I
 
 
-class number_of_naturally_ventilated_parking_spaces(Variable):
+class input_number_of_naturally_ventilated_parking_spaces(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
     label = 'Number of naturally ventilated parking spaces located in the' \
             ' NABERS rated apartment building.' # col J
+
+
+class input_number_of_mechanically_ventilated_parking_spaces(Variable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Number of mechanically ventilated parking spaces located in the' \
+            ' NABERS rated apartment building.' # col K
+
+
+class number_of_naturally_ventilated_parking_spaces(Variable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Number of mechanically ventilated parking spaces located in the' \
+            ' NABERS rated apartment building.' # col K
+
+    def formula (buildings, period, parameters):
+        nat_spaces = buildings('input_number_of_naturally_ventilated_parking_spaces', period)
+        number_of_apartments = buildings('number_of_apartments', period)
+        mech_spaces = buildings('number_of_mechanically_ventilated_parking_spaces', period)
+        condition_nat_parking = nat_spaces < (2 * number_of_apartments - mech_spaces)
+        return where(condition_nat_parking, nat_spaces, (number_of_apartments * 2 - mech_spaces))
 
 
 class number_of_mechanically_ventilated_parking_spaces(Variable):
@@ -122,6 +145,12 @@ class number_of_mechanically_ventilated_parking_spaces(Variable):
     definition_period = ETERNITY
     label = 'Number of mechanically ventilated parking spaces located in the' \
             ' NABERS rated apartment building.' # col K
+
+    def formula (buildings, period, parameters):
+        mech_spaces = buildings('input_number_of_mechanically_ventilated_parking_spaces', period)
+        number_of_apartments = buildings('number_of_apartments', period)
+        condition_mech_parking = mech_spaces < (number_of_apartments * 2)
+        return where(condition_mech_parking, mech_spaces, (number_of_apartments * 2))
 
 
 class apartments_elec_usage(Variable):
@@ -432,4 +461,4 @@ class predicted_gas_MJ(Variable):
     def formula(buildings, period, parameters):
         actual_GHG_KG_CO2_gas = buildings('actual_GHG_KG_CO2_gas', period)
         apartment_gas_GHG_coeff = parameters(period).energy_saving_scheme.NABERS_apartments.gas_ghg_coeff
-        return actual_GHG_KG_CO2_gas / apartment_gas_GHG_coeff
+        return (actual_GHG_KG_CO2_gas / (apartment_gas_GHG_coeff / 3.6))

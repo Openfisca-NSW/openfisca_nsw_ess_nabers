@@ -304,46 +304,6 @@
     built_after_nov_2006: False
   output:
     base_building_GEmax: 77.56222904
-- name: test end formula for N56511 - base building, only electricity - bb_GEmax + nla
-  period: 2020
-  absolute_error_margin: 0.0000001
-  input:
-    end_date_of_current_nabers_rating_period: 2019-11-30
-    is_office: True
-    rating_type: base_building
-    postcode: 6000
-    hours_per_week_with_20_percent_occupancy: 50.1
-    building_state_location: WA
-    net_lettable_area: 8732.9
-    number_of_computers: 0
-    method_one_can_be_used: True
-    elec_kWh: 746387.6
-    gas_in_MJ: 0
-    diesel_in_litres: 0
-    coal_in_KG: 0
-    built_after_nov_2006: False
-  output:
-    bb_GEmax_nla: 677343.1899341
-- name: test end formula for N56511 - base building, only electricity - weighted_energy
-  period: 2020
-  absolute_error_margin: 0.0000001
-  input:
-    end_date_of_current_nabers_rating_period: 2019-11-30
-    is_office: True
-    rating_type: base_building
-    postcode: 6000
-    hours_per_week_with_20_percent_occupancy: 50.1
-    building_state_location: WA
-    net_lettable_area: 8732.9
-    number_of_computers: 0
-    method_one_can_be_used: True
-    elec_kWh: 746387.6
-    gas_in_MJ: 0
-    diesel_in_litres: 0
-    coal_in_KG: 0
-    built_after_nov_2006: False
-  output:
-    weighted_energy: 0.92
 - name: test end formula for N56511 - base building, only electricity - maximum energy consumption
   period: 2020
   absolute_error_margin: 0.0000001

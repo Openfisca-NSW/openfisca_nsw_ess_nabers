@@ -133,45 +133,6 @@ class GE_50_percent_reduction(Variable):
         return GE_5_stars * 0.5
 
 
-class bb_GEmax_nla(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    label = "first sub-term used to calculate maximum electricity consumption"
-
-    def formula(buildings, period, parameters):
-        return buildings('base_building_GEmax', period) * buildings('net_lettable_area', period)
-
-
-class ten_GEmax_nla(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    label = "first sub-term used to calculate maximum electricity consumption"
-
-    def formula(buildings, period, parameters):
-        return buildings('tenancy_GEmax', period) * buildings('net_lettable_area', period)
-
-
-class weighted_energy(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    label = 'calculates the weighting of different energy inputs for' \
-            ' calculating Maximum Electricity Consumption.'
-
-    def formula(buildings, period, parameters):
-        perc_gas = buildings('perc_gas_kwh', period)
-        perc_elec = buildings('perc_elec_kwh', period)
-        perc_coal = buildings('perc_coal_kwh', period)
-        perc_diesel = buildings('perc_diesel_kwh', period)
-        SGEelec = buildings('SGEelec', period)
-        SGEgas = buildings('SGEgas', period)
-        SGEcoal = buildings('SGEcoal', period)
-        SGEoil = buildings('SGEoil', period)
-        return np.round(SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil, 3)
-
-
 class office_maximum_electricity_consumption(Variable):
     value_type = float
     entity = Building
@@ -195,8 +156,6 @@ class office_maximum_electricity_consumption(Variable):
         perc_coal = buildings('perc_coal_kwh', period)
         perc_diesel = buildings('perc_diesel_kwh', period)
         rating_type = buildings('rating_type', period)
-        bb_GEmax_nla =  buildings('bb_GEmax_nla', period)
-        weighted_energy = buildings('weighted_energy', period)
 
         def consumption(numerator):
             return np.round((numerator * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil), 9)
