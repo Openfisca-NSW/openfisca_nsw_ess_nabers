@@ -297,6 +297,7 @@
 - name: test of apartments reverse calculator w. rating AB1100 - predicted electricity kWh
   period: 2020
   input:
+    is_office: False
     is_apartment_building: True
     end_date_of_current_nabers_rating_period: 2019-04-30
     apartments_postcode: 2061
