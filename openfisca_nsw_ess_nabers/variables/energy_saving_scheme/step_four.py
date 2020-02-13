@@ -75,3 +75,14 @@ class counted_energy_savings(Variable):
         cg_savings = buildings('counted_gas_savings', period)
         ce_savings = buildings('counted_elec_savings', period)
         return count_elec_savings + count_gas_savings
+
+
+class ESCs_generated (Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'The total number of ESCs generated as a result of this NABERS' \
+            ' rating, as defined in section 6.5 of the ESS Rule.'
+
+    def formula(buildings, period, parameters):
+        electricity_savings

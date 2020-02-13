@@ -3,6 +3,7 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 import numpy as np
+import math
 
 # measured_electricity_consumption input at Step 1
 # measured_gas_consumption input at Step 1
@@ -59,8 +60,10 @@ class benchmark_star_rating(Variable):
             ' building aims to achieve.'
 
     def formula(buildings, period, parameters):
-        return buildings('method_one', period)
-
+        method_one = buildings('method_one', period)
+        method_two = buildings('method_two', period)
+        condition_method_one = buildings('method_one_can_be_used', period) == True
+        return where (condition_method_one, method_one, method_two)
 
 class building_state_location(Variable):
     value_type = str
@@ -158,3 +161,20 @@ class perc_coal_kwh(Variable):
     def formula(buildings, period, parameters):
         coal_percent = buildings('coal_kWh', period) / buildings('total_energy_kwh', period) * 100
         return np.round(coal_percent, 2)
+
+
+class offices_benchmark_star_rating(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'The benchmark star rating used for calculating Benchmark' \
+            ' Electricity and Benchmark Gas consumption. Note that as the' \
+            ' Offices Reverse Calculator can only calculate to the nearest ' \
+            ' half star, this is rounded down to the nearest half star, as' \
+            ' prescribed in Step 3 of Calculation Method 4.'
+
+    def formula(buildings, period, parameters):
+        input_star_rating = buildings('benchmark_star_rating', period)
+        rounded_to_whole_star = np.floor(input_star_rating)
+        condition_half_star = (input_star_rating - rounded_to_whole_star) <= 0.5
+        return where(condition_half_star, rounded_to_whole_star, (rounded_to_whole_star + 0.5))

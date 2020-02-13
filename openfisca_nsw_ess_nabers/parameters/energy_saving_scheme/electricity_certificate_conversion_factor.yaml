@@ -1,0 +1,8 @@
+description: The Electricity Certificate Conversion Factor, applied to the Electricity Savings
+  created through any Recognised Energy Savings Activity.
+reference: Equation 1 of the ESS Rule 2020, located in Clause 6.5 of the Energy
+  Savings Scheme Rule of 2009. Refers to the Section 130(1) of the Electricity
+  Supply Act 1995.
+values:
+  2020-01-01:
+    value: 1.06

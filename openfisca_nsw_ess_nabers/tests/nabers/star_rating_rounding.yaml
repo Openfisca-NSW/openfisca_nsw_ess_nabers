@@ -1,0 +1,42 @@
+- name: 1.2 input star rating rounds to 1.0
+  period: 2020
+  input:
+    benchmark_star_rating: 1.2
+  output:
+    offices_benchmark_star_rating: 1.0
+- name: 1.9 input star rating rounds to 1.5
+  period: 2020
+  input:
+    benchmark_star_rating: 1.9
+  output:
+    offices_benchmark_star_rating: 1.5
+- name: 2.49 input star rating rounds to 2.0
+  period: 2020
+  input:
+    benchmark_star_rating: 2.49
+  output:
+    offices_benchmark_star_rating: 2.0
+- name: 2.51 input star rating rounds to 2.5
+  period: 2020
+  input:
+    benchmark_star_rating: 2.51
+  output:
+    offices_benchmark_star_rating: 2.5
+- name: 4.6 input star rating rounds to 4.5
+  period: 2020
+  input:
+    benchmark_star_rating: 4.6
+  output:
+    offices_benchmark_star_rating: 4.5
+- name: 4.4 input star rating rounds to 4.0
+  period: 2020
+  input:
+    benchmark_star_rating: 4.4
+  output:
+    offices_benchmark_star_rating: 4.0
+- name: 4.6 input star rating rounds to 4.5
+  period: 2020
+  input:
+    benchmark_star_rating: 4.6
+  output:
+    offices_benchmark_star_rating: 4.5

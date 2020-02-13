@@ -85,6 +85,17 @@ class benchmark_elec_consumption(Variable):
             )
 
 
+class benchmark_elec_consumption_mWh(Variable):
+    value_type = float
+    entity = Building
+    definition_period = YEAR
+    label = 'Benchmark electricity consumption in mWh, as required by Step 3' \
+            ' of ESS NABERS Method.'
+
+    def formula(buildings, period, parameters):
+        return buildings('benchmark_elec_consumption', period) / 1000
+
+
 class benchmark_gas_consumption(Variable):
     value_type = float
     entity = Building
