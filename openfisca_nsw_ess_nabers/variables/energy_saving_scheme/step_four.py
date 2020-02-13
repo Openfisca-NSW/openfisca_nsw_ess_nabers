@@ -63,8 +63,6 @@ class counted_elec_savings(Variable):
             'Rating Year'
 
 
-
-
 class counted_energy_savings(Variable):
     value_type = float
     entity = Building

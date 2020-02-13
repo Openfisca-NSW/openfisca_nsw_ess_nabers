@@ -180,6 +180,7 @@ class office_maximum_electricity_consumption(Variable):
              , consumption(GE_50_perc)
              , consumption(GE_50_perc)])
 
+
 class office_maximum_gas_consumption(Variable):
     value_type = float
     entity = Building

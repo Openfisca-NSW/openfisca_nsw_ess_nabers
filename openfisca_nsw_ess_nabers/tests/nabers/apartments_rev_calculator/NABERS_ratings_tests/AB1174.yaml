@@ -224,3 +224,60 @@
     diesel_in_litres: 75
   output:
     predicted_electricity_kWh: 843539
+- name: test of apartments reverse calculator w. rating AB1174 - predicted electricity kWh
+  period: 2020
+  input:
+    is_apartment_building: True
+    is_office: False
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    apartments_postcode: 2010
+    number_of_apartments: 164
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 164
+    pool_input: heated_pool
+    apartment_has_gym: has_gym
+    number_of_naturally_ventilated_parking_spaces: 0
+    number_of_mechanically_ventilated_parking_spaces: 84
+    elec_kWh: 505097.0
+    gas_in_MJ: 0.0
+    diesel_in_litres: 75
+  output:
+    offices_benchmark_elec_consumption: 1416864
+- name: test of apartments reverse calculator w. rating AB1174 - predicted electricity kWh
+  period: 2020
+  input:
+    is_apartment_building: True
+    is_office: False
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    apartments_postcode: 2010
+    number_of_apartments: 164
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 164
+    pool_input: heated_pool
+    apartment_has_gym: has_gym
+    number_of_naturally_ventilated_parking_spaces: 0
+    number_of_mechanically_ventilated_parking_spaces: 84
+    elec_kWh: 505097.0
+    gas_in_MJ: 0.0
+    diesel_in_litres: 75
+  output:
+    apartments_benchmark_elec_consumption: 843539
+- name: test of apartments reverse calculator w. rating AB1174 - predicted electricity kWh
+  period: 2020
+  input:
+    is_apartment_building: True
+    is_office: False
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    apartments_postcode: 2010
+    number_of_apartments: 164
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 164
+    pool_input: heated_pool
+    apartment_has_gym: has_gym
+    number_of_naturally_ventilated_parking_spaces: 0
+    number_of_mechanically_ventilated_parking_spaces: 84
+    elec_kWh: 505097.0
+    gas_in_MJ: 0.0
+    diesel_in_litres: 75
+  output:
+    benchmark_elec_consumption: 843539

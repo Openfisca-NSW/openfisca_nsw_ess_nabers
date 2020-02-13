@@ -1,3 +1,8 @@
+0:
+  description: coefficient introduced if apartment complex has no pool
+  values:
+    2020-01-01:
+      value: 0
 no_pool:
   description: coefficient introduced if apartment complex has no pool
   values:

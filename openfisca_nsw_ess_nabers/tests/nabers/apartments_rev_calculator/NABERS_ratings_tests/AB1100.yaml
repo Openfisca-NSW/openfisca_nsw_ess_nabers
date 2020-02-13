@@ -280,6 +280,7 @@
   period: 2020
   input:
     is_apartment_building: True
+    is_office: False
     end_date_of_current_nabers_rating_period: 2019-04-30
     apartments_postcode: 2061
     number_of_apartments: 33
@@ -297,8 +298,8 @@
 - name: test of apartments reverse calculator w. rating AB1100 - predicted electricity kWh
   period: 2020
   input:
-    is_office: False
     is_apartment_building: True
+    is_office: False
     end_date_of_current_nabers_rating_period: 2019-04-30
     apartments_postcode: 2061
     number_of_apartments: 33
@@ -311,6 +312,5 @@
     elec_kWh: 100473.0
     gas_in_MJ: 4353.0
     diesel_in_litres: 27
-    benchmark_star_rating: 3.5
   output:
-    benchmark_elec_consumption: 150827
+    benchmark_gas_consumption: 22654

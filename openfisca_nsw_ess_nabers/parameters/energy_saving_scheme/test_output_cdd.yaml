@@ -1,4 +1,9 @@
-description: Climate zone values as called by buildings(postcode). Sourced from NABERS Off WB rev calc, August 2013. 
+description: Climate zone values as called by buildings(postcode). Sourced from NABERS Off WB rev calc, August 2013.
+0:
+  description:
+  values:
+    2020-01-01:
+      value: 0
 200:
   description:
   values:
@@ -18219,7 +18224,7 @@ description: Climate zone values as called by buildings(postcode). Sourced from 
   values:
     2020-01-01:
       value: 25
-metadata: 
+metadata:
   type: single_amount
   threshold unit: postcode
   amount_unit: 1

@@ -465,3 +465,23 @@
     built_after_nov_2006: False
   output:
     office_maximum_gas_consumption: 1486801
+- name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
+  period: 2020
+  absolute_error_margin: 0.0000001
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 2601
+    hours_per_week_with_20_percent_occupancy: 46.5
+    building_state_location: ACT
+    net_lettable_area: 10217.9
+    number_of_computers: 475
+    method_one_can_be_used: True
+    elec_kWh: 1109868.1
+    gas_in_MJ: 1164417.6
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    offices_benchmark_elec_consumption: 1416864
