@@ -1,0 +1,8 @@
+- name: Test Clause 8.8.4(a) - end date of Historical Baseline less than 7
+    years before end of current rating year
+  period: 2020
+  input:
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    end_date_of_historical_nabers_rating_period: 2016-12-31
+  output:
+    historical_baseline_no_more_than_7_years_before_current_rating: 1

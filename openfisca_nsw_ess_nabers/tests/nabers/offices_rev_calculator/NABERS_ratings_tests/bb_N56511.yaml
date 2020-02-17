@@ -1,6 +1,6 @@
 - name: test end formula for N56511 - base building, only electricity - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
     is_office: True
@@ -21,7 +21,7 @@
     benchmark_star_rating: 4.5
 - name: test end formula for N56511 - base building, only electricity - nabers adjusted hours
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
     is_office: True
@@ -41,7 +41,7 @@
     nabers_adjusted_hours: 60.1
 - name: test end formula for N56511 - base building, only electricity - f_base_building
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
     is_office: True
@@ -61,7 +61,7 @@
     f_base_building: 0.928367188
 - name: test end formula for N56511 - base building, only electricity - climate zone
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
     is_office: True
@@ -81,7 +81,7 @@
     climate_zone: 7
 - name: test end formula for N56511 - base building, only electricity - SGE values
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
     is_office: True
@@ -104,7 +104,7 @@
     SGEoil: 0.27
 - name: test end formula for N56511 - base building, only electricity - HDD and CDD
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
     is_office: True
@@ -125,7 +125,7 @@
     CDD_15: 340
 - name: test end formula for N56511 - base building, only electricity - term 1
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
     is_office: True
@@ -145,7 +145,7 @@
     term_1: 0.9064
 - name: test end formula for N56511 - base building, only electricity - term 2
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
     is_office: True
@@ -165,7 +165,7 @@
     term_2: 40.112
 - name: test end formula for N56511 - base building, only electricity - term 3
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
     is_office: True
@@ -185,7 +185,7 @@
     term_3: 1.040695652
 - name: test end formula for N56511 - base building, only electricity - term 4
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
     is_office: True
@@ -205,7 +205,7 @@
     term_4: 30.28170213
 - name: test end formula for N56511 - base building, only electricity - term 5
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
     is_office: True
@@ -225,7 +225,7 @@
     term_5: 0
 - name: test end formula for N56511 - base building, only electricity - GEclimcorr
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
     is_office: True
@@ -245,7 +245,7 @@
     GEclimcorr: 9.69600222
 - name: test end formula for N56511 - base building, only electricity - coefficient A and B
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
     is_office: True
@@ -266,7 +266,7 @@
     coefficient_B: -0.04545
 - name: test end formula for N56511 - base building, only electricity - NGEmax
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
     is_office: True
@@ -286,7 +286,7 @@
     NGEmax: 81.00767877
 - name: test end formula for N56511 - base building, only electricity - GEmax
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
     is_office: True
@@ -306,7 +306,7 @@
     base_building_GEmax: 77.56222904
 - name: test end formula for N56511 - base building, only electricity - maximum energy consumption
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
     is_office: True
@@ -326,7 +326,7 @@
     office_maximum_electricity_consumption: 736242
 - name: test end formula for N56511 - base building, only electricity - maximum gas consumption
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
     is_office: True

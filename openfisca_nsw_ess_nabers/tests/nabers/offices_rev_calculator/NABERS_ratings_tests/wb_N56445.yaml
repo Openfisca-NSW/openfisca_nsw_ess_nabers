@@ -1,6 +1,6 @@
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -21,7 +21,7 @@
     benchmark_star_rating: 4.5
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -41,7 +41,7 @@
     perc_elec_kwh: 77.43
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -61,7 +61,7 @@
     perc_gas_kwh: 22.57
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -81,7 +81,7 @@
     perc_coal_kwh: 0
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -101,7 +101,7 @@
     perc_diesel_kwh: 0
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -121,7 +121,7 @@
     nabers_adjusted_hours: 56.5
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -141,7 +141,7 @@
     f_base_building: 0.965810315
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -161,7 +161,7 @@
     f_tenancy: 1.02748523
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -181,7 +181,7 @@
     climate_zone: 64
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -205,7 +205,7 @@
     SGEtenancy: 0.94
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -226,7 +226,7 @@
     CDD_15: 80
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -246,7 +246,7 @@
     term_1: 0.9476
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -266,7 +266,7 @@
     term_2: 40.984
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -286,7 +286,7 @@
     term_3: 3.4976
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -306,7 +306,7 @@
     term_4: 7.28
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -326,7 +326,7 @@
     term_5: 0
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -346,7 +346,7 @@
     Dequip: 0.009297409
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -366,7 +366,7 @@
     GEClimcorr_tenancy: -4.878259525
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -387,7 +387,7 @@
     coefficient_B: -0.0168067
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -407,7 +407,7 @@
     NGEmax: 164.2499122
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -427,7 +427,7 @@
     GEwholemax: 139.6415074
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -447,7 +447,7 @@
     office_maximum_electricity_consumption: 1416864
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -467,7 +467,7 @@
     office_maximum_gas_consumption: 1486801
 - name: test end formula for N56445 - whole building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True

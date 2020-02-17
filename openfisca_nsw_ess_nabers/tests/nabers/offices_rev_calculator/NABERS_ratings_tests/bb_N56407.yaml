@@ -1,6 +1,6 @@
 - name: test end formula for N56407 - base building, electricity and gas - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -21,7 +21,7 @@
     benchmark_star_rating: 4.5
 - name: test end formula for N56407 - base building, electricity and gas - perc_gas_kwh
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -41,7 +41,7 @@
     perc_gas_kwh: 11.57
 - name: test end formula for N56407 - base building, electricity and gas - nabers adjusted hours
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -61,7 +61,7 @@
     nabers_adjusted_hours: 70.6
 - name: test end formula for N56407 - base building, electricity and gas - f_base_building
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -81,7 +81,7 @@
     f_base_building: 0.834056182
 - name: test end formula for N56407 - base building, electricity and gas - f_base_building
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -101,7 +101,7 @@
     perc_elec_kwh: 88.14
 - name: test end formula for N56407 - base building, electricity and gas - f_base_building
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -121,7 +121,7 @@
     perc_gas_kwh: 11.57
 - name: test end formula for N56407 - base building, electricity and gas - f_base_building
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -141,7 +141,7 @@
     perc_coal_kwh: 0
 - name: test end formula for N56407 - base building, electricity and gas - f_base_building
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -161,7 +161,7 @@
     perc_diesel_kwh: 0.28
 - name: test end formula for N56407 - base building, electricity and gas - climate zone
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -181,7 +181,7 @@
     climate_zone: 63
 - name: test end formula for N56407 - base building, electricity and gas - SGE values
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -204,7 +204,7 @@
     SGEoil: 0.27
 - name: test end formula for N56407 - base building, electricity and gas - HDD and CDD
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -225,7 +225,7 @@
     CDD_15: 541
 - name: test end formula for N56407 - base building, electricity and gas - term 1
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -245,7 +245,7 @@
     term_1: 0.9476
 - name: test end formula for N56407 - base building, electricity and gas - term 2
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -265,7 +265,7 @@
     term_2: 40.984
 - name: test end formula for N56407 - base building, electricity and gas - term 3
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -285,7 +285,7 @@
     term_3: 1.0272
 - name: test end formula for N56407 - base building, electricity and gas - term 4
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -305,7 +305,7 @@
     term_4: 49.231
 - name: test end formula for N56407 - base building, electricity and gas - term 5
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -325,7 +325,7 @@
     term_5: 8.742
 - name: test end formula for N56407 - base building, electricity and gas - GEclimcorr
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -345,7 +345,7 @@
     GEclimcorr: 0.4154
 - name: test end formula for N56407 - base building, electricity and gas - coefficient A and B
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -366,7 +366,7 @@
     coefficient_B: -0.03125
 - name: test end formula for N56407 - base building, electricity and gas - NGEmax
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -386,7 +386,7 @@
     NGEmax: 87.999968
 - name: test end formula for N56407 - base building, electricity and gas - GEmax
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -406,7 +406,7 @@
     base_building_GEmax: 105.0930416
 - name: test end formula for N56407 - base building, electricity and gas - maximum energy consumption
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -426,7 +426,7 @@
     office_maximum_electricity_consumption: 1467742
 - name: test end formula for N56407 - base building, electricity and gas - maximum gas consumption
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True

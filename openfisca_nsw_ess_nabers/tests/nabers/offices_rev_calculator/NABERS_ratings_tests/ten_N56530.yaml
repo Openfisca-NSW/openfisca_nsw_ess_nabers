@@ -1,6 +1,6 @@
 - name: test end formula for N56530 - tenancy, only electricity - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -21,7 +21,7 @@
     benchmark_star_rating: 4.5
 - name: test end formula for N56530 - tenancy, only electricity - nabers_adjusted_hours
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -41,7 +41,7 @@
     nabers_adjusted_hours: 59.5
 - name: test end formula for N56530 - tenancy, only electricity - f_tenancy
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -61,7 +61,7 @@
     f_tenancy: 0.995272456
 - name: test end formula for N56530 - tenancy, only electricity - climate_zone
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -81,7 +81,7 @@
     climate_zone: 64
 - name: test end formula for N56530 - tenancy, only electricity - SGE values
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -105,7 +105,7 @@
     SGEtenancy: 0.94
 - name: test end formula for N56530 - tenancy, only electricity - HDD and CDD
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -126,7 +126,7 @@
     CDD_15: 80
 - name: test end formula for N56530 - tenancy, only electricity - Dequip
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -146,7 +146,7 @@
     Dequip: 0.012932538
 - name: test end formula for N56530 - tenancy, only electricity - GEclimcorr tenancy
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -166,7 +166,7 @@
     GEClimcorr_tenancy: -18.54634376
 - name: test end formula for N56530 - tenancy, only electricity - coefficient_A and coefficient_B
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -187,7 +187,7 @@
     coefficient_B: -0.036364
 - name: test end formula for N56530 - tenancy, only electricity - NGEmax
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -207,7 +207,7 @@
     NGEmax: 76.24846002
 - name: test end formula for N56530 - tenancy, only electricity - tenancy_GEmax
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -227,7 +227,7 @@
     tenancy_GEmax: 95.15698396
 - name: test end formula for N56530 - tenancy, only electricity - office_maximum_electricity_consumption
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -247,7 +247,7 @@
     office_maximum_electricity_consumption: 1247721
 - name: test end formula for N56530 - tenancy, only electricity - office_maximum_gas_consumption
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True

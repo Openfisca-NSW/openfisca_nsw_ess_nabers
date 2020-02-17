@@ -11,7 +11,7 @@ class electricity_savings(Variable):
     label = "Electricity savings in MWh"
 
     def formula(buildings, period, parameters):
-        benchmark_elec_consumption = buildings('benchmark_elec_consumption', period)
+        benchmark_elec_consumption = buildings('benchmark_elec_consumption_mWh', period)
         measured_electricity_consumption = buildings('measured_electricity_consumption', period)
         counted_elec_savings = buildings('counted_elec_savings', period)
         regional_network_factor = buildings('regional_network_factor', period)

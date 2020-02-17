@@ -5,6 +5,8 @@
     end_date_of_historical_nabers_rating_period: 2019-06-05
   output:
     time_between_historical_and_current_ratings_within_range: True
+- name: Difference between historical rating and current rating is not within range
+  period: 2020
   input:
     end_date_of_current_nabers_rating_period: 2019-10-05
     end_date_of_historical_nabers_rating_period: 2018-06-05

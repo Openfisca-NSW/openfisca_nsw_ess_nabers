@@ -1,6 +1,6 @@
 - name: test end formula for N56264 - whole building, electricity only - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -21,7 +21,7 @@
     benchmark_star_rating: 4.5
 - name: test end formula for N56264 - whole building, electricity only - nabers adjusted hours
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -41,7 +41,7 @@
     nabers_adjusted_hours: 60.6
 - name: test end formula for N56396 - base building, electricity and gas - f_base_building
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -61,7 +61,7 @@
     perc_elec_kwh: 98.32
 - name: test end formula for N56396 - base building, electricity and gas - f_base_building
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -81,7 +81,7 @@
     perc_gas_kwh: 1.68
 - name: test end formula for N56396 - base building, electricity and gas - f_base_building
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -101,7 +101,7 @@
     perc_coal_kwh: 0
 - name: test end formula for N56396 - base building, electricity and gas - f_base_building
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -121,7 +121,7 @@
     perc_diesel_kwh: 0
 - name: test end formula for N56264 - whole building, electricity only - f_base_building
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -141,7 +141,7 @@
     f_base_building: 0.923395139
 - name: test end formula for N56264 - whole building, electricity only - f_tenancy
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -161,7 +161,7 @@
     f_tenancy: 0.983961429
 - name: test end formula for N56264 - whole building, electricity only - climate_zone
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -181,7 +181,7 @@
     climate_zone: 33
 - name: test end formula for N56264 - whole building, electricity only - SGE values
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -205,7 +205,7 @@
     SGEtenancy: 0.95
 - name: test end formula for N56264 - whole building, electricity only - HDD and CDD
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -226,7 +226,7 @@
     CDD_15: 132
 - name: test end formula for N56264 - whole building, electricity only - term 1
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -246,7 +246,7 @@
     term_1: 0.8652
 - name: test end formula for N56264 - whole building, electricity only - term 2
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -266,7 +266,7 @@
     term_2: 41.42
 - name: test end formula for N56264 - whole building, electricity only - term 3
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -286,7 +286,7 @@
     term_3: 2.270191304
 - name: test end formula for N56264 - whole building, electricity only - term 4
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -306,7 +306,7 @@
     term_4: 12.13978723
 - name: test end formula for N56264 - whole building, electricity only - term 5
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -326,7 +326,7 @@
     term_5: 0
 - name: test end formula for N56264 - whole building, electricity only - Dequip
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -346,7 +346,7 @@
     Dequip: 0.011369747
 - name: test end formula for N56264 - whole building, electricity only - GEclimcorr tenancy
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -366,7 +366,7 @@
     GEclimcorr: 27.87522146
 - name: test end formula for N56264 - whole building, electricity only - GEclimcorr tenancy
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -386,7 +386,7 @@
     GEClimcorr_tenancy: -12.80503956
 - name: test end formula for N56264 - whole building, electricity only - coefficients A and B
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -407,7 +407,7 @@
     coefficient_B: -0.0166656
 - name: test end formula for N56264 - whole building, electricity only - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -427,7 +427,7 @@
     NGEmax: 151.4916355
 - name: test end formula for N56264 - whole building, electricity only - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -447,7 +447,7 @@
     GEwholemax: 145.0714133
 - name: test end formula for N56264 - whole building, electricity only - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -467,7 +467,7 @@
     office_maximum_electricity_consumption: 792121
 - name: test end formula for N56264 - whole building, electricity only - benchmark rating
   period: 2020
-  absolute_error_margin: 0.0000001
+  absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True

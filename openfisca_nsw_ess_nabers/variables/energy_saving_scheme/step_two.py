@@ -54,7 +54,7 @@ class first_nabers_rating(Variable):
     definition_period = ETERNITY
     label = "Tests whether the NABERS rating used in Calculation Method 1" \
         ' is the first NABERS Rating for the building.' \
-        ' in accordance with clause 8.8.3 (a) (ii).'
+        ' in accordance with clause 8.8.3 (a) (ii).' # is there a way to match this against previous ratings, i.e.
 
 
 class rating_not_obt_for_legal_requirement(Variable):
@@ -176,11 +176,8 @@ class historical_rating_period_length(Variable):
             ' In accordance with clause 8.8.2 (c).'
 
     def formula(buildings, period, parameters):
-        end = buildings(
-            'end_date_of_historical_nabers_rating_period', period)
-        start = buildings(
-            'start_date_of_historical_nabers_rating_period', period
-            )
+        end = buildings('end_date_of_historical_nabers_rating_period', period)
+        start = buildings('start_date_of_historical_nabers_rating_period', period)
         return end.astype('datetime64[M]') - start.astype('datetime64[M]')
 
 
@@ -223,7 +220,7 @@ class time_between_historical_and_current_ratings_within_range(Variable):
     def formula(buildings, period, parameters):
         return (
             buildings('cur_his_diff_as_months', period) <=
-            parameters(period).energy_saving_scheme.diff_historical_current_rating_forward_creation
+            parameters(period).energy_saving_scheme.preconditions.historical_benchmark_age
             )
 
 
@@ -256,7 +253,7 @@ class time_between_current_ratings_and_ESC_date_within_range(Variable):
     def formula(buildings, period, parameters):
         return (
             buildings('cur_ESC_diff_as_months', period) <=
-            parameters(period).energy_saving_scheme.diff_current_rating_esc_creation_date
+            parameters(period).energy_saving_scheme.preconditions.distance_rating_end_ESCs
         )
 
 

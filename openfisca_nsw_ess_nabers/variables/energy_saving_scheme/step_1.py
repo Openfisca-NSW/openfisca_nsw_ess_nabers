@@ -30,6 +30,9 @@ class nabers_electricity(Variable):
     definition_period = YEAR
     label = "NABERS Electricity, in MWh, is the electricity purchased or imported from the Electricity Network and accounted for in the NABERS Rating, including electricity purchased as GreenPower"
 
+    def formula(buildings, period, parameters):
+        nabers_kWh = buildings('elec_kWh', period)
+        return nabers_kWh / 1000
 
 class onsite_unaccounted_electricity(Variable):
     value_type = float
@@ -43,3 +46,7 @@ class nabers_gas(Variable):
     entity = Building
     definition_period = YEAR
     label = "NABERS Gas, in MWh, is the total of the Gas accounted for in the NABERS rating"
+
+    def formula(buildings, period, parameters):
+        NABERS_gas_MJ = buildings('gas_in_MJ', period)
+        return (NABERS_gas_MJ / 3.6) / 1000

@@ -20,12 +20,12 @@ class within_maximum_years_of_forward_creation(Variable):
     label = 'Tests the distance between the end of the current rating period' \
             ' and the date of Energy Savings Certificates against the maximum' \
             ' allowable distance between end of rating and ESC creation date.' \
-            ' In accordance with clause 8.8.8.'
+            ' In accordance with clause 8.8.10 (a).'
 
     def formula(buildings, period, parameters):
         return (
             buildings('years_of_forward_creation', period) <=
-            parameters(period).energy_saving_scheme.maximum_time_period_of_forward_creation
+            parameters(period).energy_saving_scheme.preconditions.maximum_time_period_of_forward_creation
             )
 
 

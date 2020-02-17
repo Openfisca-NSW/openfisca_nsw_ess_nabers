@@ -80,15 +80,13 @@ class historical_baseline_no_more_than_7_years_before_current_rating(Variable):
         " the end date of the Current Rating Year" \
         " in accordance with clause 8.8.4 (a)"
 
-    def formula(building, period, parameters):
+    def formula(buildings, period, parameters):
         current = buildings(
             'end_date_of_current_nabers_rating_period', period)
         hist = buildings(
             'end_date_of_historical_nabers_rating_period', period
             )
-        distance_between_current_and_historical_baseline = (
-            current.astype('datetime64[D]') - hist.astype('datetime64[D]')).astype('datetime64[D]')
-        distance_in_years = distance_between_current_and_historical_baseline.astype('datetime64[Y]')
+        distance_in_years = (current - hist)
         return distance_in_years <= 7
 
 
