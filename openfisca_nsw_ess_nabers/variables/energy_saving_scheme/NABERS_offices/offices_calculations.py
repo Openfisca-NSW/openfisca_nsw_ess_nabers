@@ -4,6 +4,7 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 import numpy as np
 import math
+from openfisca_nsw_ess_nabers.variables.energy_saving_scheme.NABERS_offices import coefficient_values as c
 float_formatter = "{:.9f}".format
 np.set_printoptions(formatter={'float_kind':float_formatter})
 # measured_electricity_consumption input at Step 1

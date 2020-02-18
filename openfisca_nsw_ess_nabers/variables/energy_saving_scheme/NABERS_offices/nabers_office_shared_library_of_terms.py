@@ -3,8 +3,13 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 import numpy as np
+from openfisca_nsw_ess_nabers.variables.energy_saving_scheme.NABERS_offices import coefficient_values as c
 float_formatter = "{:.9f}".format
 np.set_printoptions(formatter={'float_kind':float_formatter})
+
+if not(c.has_real_values):
+    error =  ("real coefficients aren't used, and return values will be incorrect")
+    print (error)
 
 # measured_electricity_consumption input at Step 1
 # measured_gas_consumption input at Step 1
@@ -114,10 +119,18 @@ class SGEgas(Variable):
 
     def formula(buildings, period, parameters):
         state = buildings('building_state_location', period)
+        ACT_SGE_gas = c.SGE_coefficients["ACT_SGE_gas"]
+        NSW_SGE_gas = c.SGE_coefficients["NSW_SGE_gas"]
+        NT_SGE_gas = c.SGE_coefficients["NT_SGE_gas"]
+        QLD_SGE_gas = c.SGE_coefficients["QLD_SGE_gas"]
+        SA_SGE_gas = c.SGE_coefficients["SA_SGE_gas"]
+        TAS_SGE_gas = c.SGE_coefficients["TAS_SGE_gas"]
+        VIC_SGE_gas = c.SGE_coefficients["VIC_SGE_gas"]
+        WA_SGE_gas = c.SGE_coefficients["WA_SGE_gas"]
         return select(
-            [state == "ACT", state == "NSW", state == "NT", state == 'SA',
-             state == "QLD", state == "TAS", state == "VIC", state == "WA"],
-            [0.23, 0.23, 0.20, 0.21, 0.20, 0.75, 0.21, 0.22]  # need to check these numbers, don't think they're right
+            [state == "ACT", state == "NSW", state == "NT", state == 'QLD',
+             state == "SA", state == "TAS", state == "VIC", state == "WA"],
+            [ACT_SGE_gas, 0.23, 0.20, 0.20, 0.21, 0.75, 0.21, 0.22]  # need to check these numbers, don't think they're right
             )
 
 class SGEelec(Variable):
@@ -129,7 +142,8 @@ class SGEelec(Variable):
     def formula(buildings, period, parameters):
         state = buildings('building_state_location', period)
         return select(
-            [state == "ACT", state == "NSW", state == "NT", state == "QLD", state == "SA", state == "TAS", state == "VIC", state == "WA"],
+            [state == "ACT", state == "NSW", state == "NT", state == "QLD",
+             state == "SA", state == "TAS", state == "VIC", state == "WA"],
             [0.94, 0.94, 0.69, 1.02, 0.95, 1, 1.34, 0.92]
             )
 
@@ -143,7 +157,8 @@ class SGEcoal (Variable):
     def formula(buildings, period, parameters):
         state = buildings('building_state_location', period)
         return select(
-            [state == "ACT", state == "NSW", state == "NT", state == "QLD", state == "SA", state == "TAS", state == "VIC", state == "WA"],
+            [state == "ACT", state == "NSW", state == "NT", state == "QLD",
+             state == "SA", state == "TAS", state == "VIC", state == "WA"],
             [0.32, 0.32, 0.32, 0.32, 0.32, 0.7, 0.32, 0.32]
             )
 
@@ -157,7 +172,8 @@ class SGEoil (Variable):
     def formula(buildings, period, parameters):
         state = buildings('building_state_location', period)
         return select(
-            [state == "ACT", state == "NSW", state == "NT", state == "QLD", state == 'SA', state == "TAS", state == "VIC", state == "WA"],
+            [state == "ACT", state == "NSW", state == "NT", state == "QLD",
+             state == 'SA', state == "TAS", state == "VIC", state == "WA"],
             [0.27, 0.27, 0.27, 0.27, 0.27, 0.75, 0.27, 0.27]
             )
 
