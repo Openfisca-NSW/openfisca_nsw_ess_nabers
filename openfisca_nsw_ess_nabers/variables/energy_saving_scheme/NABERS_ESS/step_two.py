@@ -48,6 +48,7 @@ class method_two(Variable):
         annual_rating_adj = parameters(period).energy_saving_scheme.table_a21.building_category[building_type][adjustment_year_string]
         return hist_rating + annual_rating_adj * (cur_year - hist_year)
 
+
 class first_nabers_rating(Variable):
     value_type = bool
     entity = Building
@@ -241,6 +242,23 @@ class cur_his_diff_as_months(Variable):
         return cur.astype('datetime64[M]') - hist.astype('datetime64[M]')
 
 
+class ESC_cur_diff_as_months(Variable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Calculates the difference in months between the ESC creation date' \
+            ' the current NABERS rating period, for testing' \
+            ' against time_between_historical_and_current_ratings_within_range.'
+
+    def formula(buildings, period, parameters):
+        cur = buildings(
+            'end_date_of_current_nabers_rating_period', period)
+        ESC = buildings(
+            'ESC_creation_date', period
+            )
+        return ESC.astype('datetime64[M]') - cur.astype('datetime64[M]')
+
+
 class time_between_current_ratings_and_ESC_date_within_range(Variable):
     value_type = bool
     entity = Building
@@ -251,10 +269,7 @@ class time_between_current_ratings_and_ESC_date_within_range(Variable):
             ' In accordance with clause 8.8.8.'
 
     def formula(buildings, period, parameters):
-        return (
-            buildings('cur_ESC_diff_as_months', period) <=
-            parameters(period).energy_saving_scheme.preconditions.distance_rating_end_ESCs
-        )
+        return buildings('ESC_cur_diff_as_months', period) <= parameters(period).energy_saving_scheme.preconditions.distance_rating_end_ESCs
 
 
 class today_date(Variable):
@@ -284,23 +299,6 @@ class age_of_historical_rating(Variable):
         return age_in_days.astype('datetime64[Y]')
 
 
-class cur_ESC_diff_as_months(Variable):
-    value_type = int
-    entity = Building
-    definition_period = ETERNITY
-    label = 'Calculates the difference in months between the current NABERS' \
-            ' period and the ESC creation date, for testing against' \
-            ' time_between_current_ratings_and_ESC_date_within_range. '
-
-    def formula(buildings, period, parameters):
-        cur = buildings(
-            'end_date_of_current_nabers_rating_period', period)
-        ESC = buildings(
-            'ESC_creation_date', period
-            )
-        return cur.astype('datetime64[M]') - ESC.astype('datetime64[M]')
-
-
 class benchmark_nabers_rating(Variable):
     value_type = float
     entity = Building
@@ -308,5 +306,7 @@ class benchmark_nabers_rating(Variable):
     label = "Benchmark NABERS rating calculated using Method 1 or Method 2"
 
     def formula(buildings, period, parameters):
-        return select([buildings('method_one_can_be_used', period)],
-        [buildings('method_one', period)])
+        method_one = buildings('method_one', period)
+        method_two = buildings('method_two', period)
+        condition_method_one = buildings('method_one_can_be_used', period) == True
+        return where (condition_method_one, method_one, method_two)

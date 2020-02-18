@@ -1,8 +1,0 @@
-- name: Difference between current nabers rating period and ESC creation date
-    is within range.
-  period: 2020
-  input:
-    end_date_of_current_nabers_rating_period: 2019-10-05
-    ESC_creation_date: 2020-06-05
-  output:
-    time_between_current_ratings_and_ESC_date_within_range: True

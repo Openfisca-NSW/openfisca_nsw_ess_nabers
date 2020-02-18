@@ -65,6 +65,7 @@ class benchmark_star_rating(Variable):
         condition_method_one = buildings('method_one_can_be_used', period) == True
         return where (condition_method_one, method_one, method_two)
 
+
 class building_state_location(Variable):
     value_type = str
     entity = Building

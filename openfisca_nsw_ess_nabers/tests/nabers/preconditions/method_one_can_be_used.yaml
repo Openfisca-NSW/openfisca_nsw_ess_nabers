@@ -1,0 +1,32 @@
+- name: Rating is first NABERS rating and is not obtained for legal
+    requirement - can use method one
+  period: 2020
+  input:
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+  output:
+    method_one_can_be_used: True
+- name: Rating is not first NABERS rating and is not obtained for legal
+    requirement - cannot use method one
+  period: 2020
+  input:
+    first_nabers_rating: False
+    rating_not_obt_for_legal_requirement: True
+  output:
+    method_one_can_be_used: False
+- name: Rating is first NABERS rating and is obtained for legal requirement -
+    cannot use method one
+  period: 2020
+  input:
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: False
+  output:
+    method_one_can_be_used: False
+- name: Rating is not first NABERS rating and is obtained for legal requirement -
+    cannot use method one
+  period: 2020
+  input:
+    first_nabers_rating: False
+    rating_not_obt_for_legal_requirement: False
+  output:
+    method_one_can_be_used: False

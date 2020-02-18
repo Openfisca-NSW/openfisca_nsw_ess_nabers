@@ -14,6 +14,28 @@
     elec_kWh: 100473.0
     gas_in_MJ: 4353.0
     diesel_in_litres: 27
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    is_apartment_building: True
+  output:
+    apartments_benchmark: 3.5
+- name: test of apartments reverse calculator w. rating AB1100 - total kWh usage
+  period: 2020
+  absolute_error_margin: 0.001
+  input:
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    pool_input: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 21
+    number_of_mechanically_ventilated_parking_spaces: 68
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
   output:
     apartments_total_kWh_usage: 101682.167
 - name: test of apartments reverse calculator w. rating AB1100 - MJ to kWh conversion
@@ -189,6 +211,9 @@
     elec_kWh: 100473.0
     gas_in_MJ: 4353.0
     diesel_in_litres: 27
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
   output:
     emissions_ratio: 92.75
 - name: test of apartments reverse calculator w. rating AB1100 - actual_GHG_per_apartment
@@ -208,6 +233,9 @@
     elec_kWh: 100473.0
     gas_in_MJ: 4353.0
     diesel_in_litres: 27
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
   output:
     actual_GHG_per_apartment: 4385.848799
 - name: test of apartments reverse calculator w. rating AB1100 - actual_GHG_KG_CO2
@@ -227,6 +255,9 @@
     elec_kWh: 100473.0
     gas_in_MJ: 4353.0
     diesel_in_litres: 27
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
   output:
     actual_GHG_KG_CO2: 144733.0104
 - name: test of apartments reverse calculator w. rating AB1100 - actual_GHG_KG_CO2_elec
@@ -246,6 +277,9 @@
     elec_kWh: 100473.0
     gas_in_MJ: 4353.0
     diesel_in_litres: 27
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
   output:
     actual_GHG_KG_CO2_elec: 143285.6803
 - name: test of apartments reverse calculator w. rating AB1100 - actual_GHG_KG_CO2_gas
@@ -265,6 +299,9 @@
     elec_kWh: 100473.0
     gas_in_MJ: 4353.0
     diesel_in_litres: 27
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
   output:
     actual_GHG_KG_CO2_gas: 1447.3301
 - name: test of apartments reverse calculator w. rating AB1100 - predicted electricity kWh
@@ -284,6 +321,9 @@
     elec_kWh: 100473.0
     gas_in_MJ: 4353.0
     diesel_in_litres: 27
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
   output:
     predicted_electricity_kWh: 150827
 - name: test of apartments reverse calculator w. rating AB1100 - predicted electricity kWh
@@ -304,6 +344,9 @@
     elec_kWh: 100473.0
     gas_in_MJ: 4353.0
     diesel_in_litres: 27
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
   output:
     predicted_gas_MJ: 22654
 - name: test of apartments reverse calculator w. rating AB1100 - predicted electricity kWh
@@ -324,5 +367,8 @@
     elec_kWh: 100473.0
     gas_in_MJ: 4353.0
     diesel_in_litres: 27
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
   output:
     benchmark_gas_consumption: 22654

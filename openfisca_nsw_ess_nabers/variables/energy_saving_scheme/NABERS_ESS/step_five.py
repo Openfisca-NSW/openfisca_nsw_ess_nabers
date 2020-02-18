@@ -42,6 +42,7 @@ class historical_rating_previously_used(Variable):
         condition_hist_rating_previously_used = buildings('historical_rating_previously_used_for_forward_creation', period) == True
         return where (condition_hist_rating_previously_used, False, True)
 
+
 class historical_rating_previously_used_for_forward_creation(Variable):
     value_type = bool
     entity = Building
@@ -140,8 +141,14 @@ class total_forward_created_electricity_savings(Variable):
 
     def formula(buildings, period, parameters):
         return select(
-            [years_of_forward_creation == 1, years_of_forward_creation == 2, years_of_forward_creation == 3],
-            [year_one_forward_created_electricity_savings, year_one_forward_created_electricity_savings + year_two_forward_created_electricity_savings, year_one_forward_created_electricity_savings + year_two_forward_created_electricity_savings + year_three_forward_created_electricity_savings]
+            [years_of_forward_creation == 1, years_of_forward_creation == 2
+            , years_of_forward_creation == 3],
+            [year_one_forward_created_electricity_savings,
+            year_one_forward_created_electricity_savings +
+            year_two_forward_created_electricity_savings
+            , year_one_forward_created_electricity_savings +
+            year_two_forward_created_electricity_savings +
+            year_three_forward_created_electricity_savings]
             )
 
 
@@ -153,6 +160,13 @@ class total_forward_created_gas_savings(Variable):
 
     def formula(buildings, period, parameters):
         return select(
-            [years_of_forward_creation == 1, years_of_forward_creation == 2, years_of_forward_creation == 3],
-            [year_one_forward_created_gas_savings, year_one_forward_created_gas_savings + year_two_forward_created_gas_savings, year_one_forward_created_gas_savings + year_two_forward_created_gas_savings + year_three_forward_created_gas_savings]
+            [years_of_forward_creation == 1
+            , years_of_forward_creation == 2
+            , years_of_forward_creation == 3],
+            [year_one_forward_created_gas_savings
+            , year_one_forward_created_gas_savings +
+            year_two_forward_created_gas_savings
+            , year_one_forward_created_gas_savings +
+            year_two_forward_created_gas_savings +
+            year_three_forward_created_gas_savings]
             )

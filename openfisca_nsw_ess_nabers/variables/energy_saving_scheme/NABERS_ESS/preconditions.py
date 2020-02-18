@@ -2,6 +2,7 @@
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
+from datetime import datetime
 
 
 class current_NABERS_star_rating(Variable):
@@ -81,13 +82,12 @@ class historical_baseline_no_more_than_7_years_before_current_rating(Variable):
         " in accordance with clause 8.8.4 (a)"
 
     def formula(buildings, period, parameters):
-        current = buildings(
-            'end_date_of_current_nabers_rating_period', period)
+        cur = buildings(
+            'current_rating_year', period)
         hist = buildings(
-            'end_date_of_historical_nabers_rating_period', period
+            'baseline_rating_year', period
             )
-        distance_in_years = (current - hist)
-        return distance_in_years <= 7
+        return cur - hist <= 7
 
 
 class calculation_used_for_additional_savings(Variable):

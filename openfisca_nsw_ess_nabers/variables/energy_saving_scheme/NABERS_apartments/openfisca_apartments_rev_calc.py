@@ -47,14 +47,17 @@ class apartments_benchmark(Variable):
             ' building.' # need to write in condition for method one
 
     def formula (buildings, period, parameters):
-        method_one_benchmark = buildings('method_one', period)
-        return method_one_benchmark
+        return buildings('benchmark_nabers_rating', period)
+
 
 class apartments_postcode(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'Postcode for the relevant NABERS rated apartment building.' # col C
+
+    def formula(buildings, period, parameters):
+        return buildings('postcode', period)
 
 
 class number_of_apartments(Variable):

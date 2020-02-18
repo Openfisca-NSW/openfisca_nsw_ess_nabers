@@ -152,6 +152,9 @@
     elec_kWh: 270605.0
     gas_in_MJ: 0.0
     diesel_in_litres: 36.0
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
   output:
     emissions_ratio: 92.75
 - name: test of apartments reverse calculator w. rating AB1173 - actual_GHG_per_apartment
@@ -171,6 +174,9 @@
     elec_kWh: 270605.0
     gas_in_MJ: 0.0
     diesel_in_litres: 36.0
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
   output:
     actual_GHG_per_apartment: 3652.02372705
 - name: test of apartments reverse calculator w. rating AB1173 - actual_GHG_KG_CO2
@@ -190,6 +196,9 @@
     elec_kWh: 270605.0
     gas_in_MJ: 0.0
     diesel_in_litres: 36.0
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
   output:
     actual_GHG_KG_CO2: 398070.5862
 - name: test of apartments reverse calculator w. rating AB1173 - actual_GHG_KG_CO2_elec
@@ -209,6 +218,9 @@
     elec_kWh: 270605.0
     gas_in_MJ: 0.0
     diesel_in_litres: 36.0
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
   output:
     actual_GHG_KG_CO2_elec: 398070.5862
 - name: test of apartments reverse calculator w. rating AB1173 - predicted electricity kWh
@@ -228,6 +240,9 @@
     elec_kWh: 270605.0
     gas_in_MJ: 0.0
     diesel_in_litres: 36.0
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
   output:
     predicted_electricity_kWh: 419021
 - name: test of apartments reverse calculator w. rating AB1173 - predicted electricity kWh
@@ -247,6 +262,9 @@
     elec_kWh: 270605.0
     gas_in_MJ: 0.0
     diesel_in_litres: 36.0
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
   output:
     electricity_savings: 148.416
 - name: test of apartments reverse calculator w. rating AB1173 - predicted electricity kWh
@@ -266,6 +284,9 @@
     elec_kWh: 270605.0
     gas_in_MJ: 0.0
     diesel_in_litres: 36.0
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
   output:
     gas_savings: 0
 - name: test of apartments reverse calculator w. rating AB1173 - predicted electricity kWh
@@ -285,5 +306,8 @@
     elec_kWh: 270605.0
     gas_in_MJ: 0.0
     diesel_in_litres: 36.0
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
   output:
     number_of_certificates: 157
