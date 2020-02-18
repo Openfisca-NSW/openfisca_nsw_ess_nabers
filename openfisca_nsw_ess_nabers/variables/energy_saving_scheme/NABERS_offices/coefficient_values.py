@@ -3,8 +3,6 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 import numpy as np
-float_formatter = "{:.9f}".format
-np.set_printoptions(formatter={'float_kind':float_formatter})
 
 # measured_electricity_consumption input at Step 1
 # measured_gas_consumption input at Step 1
@@ -30,8 +28,8 @@ SGE_coefficients = {
                     "ACT_SGE_gas": 0.23,
                     "NSW_SGE_gas": 0.23,
                     "NT_SGE_gas": 0.20,
-                    "QLD_SGE_gas": 0.21,
-                    "SA_SGE_gas": 0.20,
+                    "QLD_SGE_gas": 0.20,
+                    "SA_SGE_gas": 0.21,
                     "TAS_SGE_gas": 0.75,
                     "VIC_SGE_gas": 0.21,
                     "WA_SGE_gas": 0.22
@@ -42,9 +40,5 @@ CDD_coefficients = {
                     "Climate_zone_64_value": 80,
                     }
 
-
-
-
-
 def has_real_values():
-    return True
+    return False

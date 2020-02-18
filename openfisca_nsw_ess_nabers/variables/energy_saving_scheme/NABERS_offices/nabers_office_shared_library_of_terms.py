@@ -3,7 +3,12 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 import numpy as np
-from openfisca_nsw_ess_nabers.variables.energy_saving_scheme.NABERS_offices import coefficient_values as c
+
+private = "True"
+if private == "True":
+    from openfisca_nsw_ess_nabers.variables.energy_saving_scheme.NABERS_offices import coefficient_values as c
+else:
+    from openfisca_nsw_ess_nabers.variables.energy_saving_scheme.NABERS_offices import public_coefficient_values as c
 float_formatter = "{:.9f}".format
 np.set_printoptions(formatter={'float_kind':float_formatter})
 
@@ -130,7 +135,8 @@ class SGEgas(Variable):
         return select(
             [state == "ACT", state == "NSW", state == "NT", state == 'QLD',
              state == "SA", state == "TAS", state == "VIC", state == "WA"],
-            [ACT_SGE_gas, 0.23, 0.20, 0.20, 0.21, 0.75, 0.21, 0.22]  # need to check these numbers, don't think they're right
+            [ACT_SGE_gas, NSW_SGE_gas, NT_SGE_gas, QLD_SGE_gas
+            , SA_SGE_gas, TAS_SGE_gas, VIC_SGE_gas, WA_SGE_gas]
             )
 
 class SGEelec(Variable):
