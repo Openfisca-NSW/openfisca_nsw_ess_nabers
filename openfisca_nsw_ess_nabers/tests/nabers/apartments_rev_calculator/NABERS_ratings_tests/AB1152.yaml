@@ -6,7 +6,7 @@
     number_of_apartments: 265
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 0
-    pool_input: heated_pool
+    pool_status: heated_pool
     apartment_has_gym: has_gym
     number_of_naturally_ventilated_parking_spaces: 12
     number_of_mechanically_ventilated_parking_spaces: 317
@@ -23,7 +23,7 @@
     number_of_apartments: 265
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 0
-    pool_input: heated_pool
+    pool_status: heated_pool
     apartment_has_gym: has_gym
     number_of_naturally_ventilated_parking_spaces: 12
     number_of_mechanically_ventilated_parking_spaces: 317
@@ -40,7 +40,7 @@
     number_of_apartments: 265
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 0
-    pool_input: heated_pool
+    pool_status: heated_pool
     apartment_has_gym: has_gym
     number_of_naturally_ventilated_parking_spaces: 12
     number_of_mechanically_ventilated_parking_spaces: 317
@@ -57,7 +57,7 @@
     number_of_apartments: 265
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 0
-    pool_input: heated_pool
+    pool_status: heated_pool
     apartment_has_gym: has_gym
     number_of_naturally_ventilated_parking_spaces: 12
     number_of_mechanically_ventilated_parking_spaces: 317
@@ -74,7 +74,7 @@
     number_of_apartments: 265
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 0
-    pool_input: heated_pool
+    pool_status: heated_pool
     apartment_has_gym: has_gym
     number_of_naturally_ventilated_parking_spaces: 12
     number_of_mechanically_ventilated_parking_spaces: 317
@@ -91,7 +91,7 @@
     number_of_apartments: 265
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 0
-    pool_input: heated_pool
+    pool_status: heated_pool
     apartment_has_gym: has_gym
     number_of_naturally_ventilated_parking_spaces: 12
     number_of_mechanically_ventilated_parking_spaces: 317
@@ -108,7 +108,7 @@
     number_of_apartments: 265
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 0
-    pool_input: heated_pool
+    pool_status: heated_pool
     apartment_has_gym: has_gym
     number_of_naturally_ventilated_parking_spaces: 12
     number_of_mechanically_ventilated_parking_spaces: 317
@@ -125,7 +125,7 @@
     number_of_apartments: 265
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 0
-    pool_input: heated_pool
+    pool_status: heated_pool
     apartment_has_gym: has_gym
     number_of_naturally_ventilated_parking_spaces: 12
     number_of_mechanically_ventilated_parking_spaces: 317
@@ -142,7 +142,7 @@
     number_of_apartments: 265
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 0
-    pool_input: heated_pool
+    pool_status: heated_pool
     apartment_has_gym: has_gym
     number_of_naturally_ventilated_parking_spaces: 12
     number_of_mechanically_ventilated_parking_spaces: 317
@@ -159,7 +159,7 @@
     number_of_apartments: 265
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 0
-    pool_input: heated_pool
+    pool_status: heated_pool
     apartment_has_gym: has_gym
     number_of_naturally_ventilated_parking_spaces: 12
     number_of_mechanically_ventilated_parking_spaces: 317
@@ -177,7 +177,7 @@
     number_of_apartments: 265
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 0
-    pool_input: heated_pool
+    pool_status: heated_pool
     apartment_has_gym: has_gym
     number_of_naturally_ventilated_parking_spaces: 12
     number_of_mechanically_ventilated_parking_spaces: 317
@@ -198,7 +198,7 @@
     number_of_apartments: 265
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 0
-    pool_input: heated_pool
+    pool_status: heated_pool
     apartment_has_gym: has_gym
     number_of_naturally_ventilated_parking_spaces: 12
     number_of_mechanically_ventilated_parking_spaces: 317
@@ -219,7 +219,7 @@
     number_of_apartments: 265
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 0
-    pool_input: heated_pool
+    pool_status: heated_pool
     apartment_has_gym: has_gym
     number_of_naturally_ventilated_parking_spaces: 12
     number_of_mechanically_ventilated_parking_spaces: 317
@@ -240,7 +240,7 @@
     number_of_apartments: 265
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 0
-    pool_input: heated_pool
+    pool_status: heated_pool
     apartment_has_gym: has_gym
     number_of_naturally_ventilated_parking_spaces: 12
     number_of_mechanically_ventilated_parking_spaces: 317
@@ -261,7 +261,7 @@
     number_of_apartments: 265
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 0
-    pool_input: heated_pool
+    pool_status: heated_pool
     apartment_has_gym: has_gym
     number_of_naturally_ventilated_parking_spaces: 12
     number_of_mechanically_ventilated_parking_spaces: 317

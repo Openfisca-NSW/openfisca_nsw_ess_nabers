@@ -7,7 +7,7 @@
     number_of_apartments: 33
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 33
-    pool_input: no_pool
+    pool_status: no_pool
     apartment_has_gym: no_gym
     number_of_naturally_ventilated_parking_spaces: 21
     number_of_mechanically_ventilated_parking_spaces: 68
@@ -29,7 +29,7 @@
     number_of_apartments: 33
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 33
-    pool_input: no_pool
+    pool_status: no_pool
     apartment_has_gym: no_gym
     number_of_naturally_ventilated_parking_spaces: 21
     number_of_mechanically_ventilated_parking_spaces: 68
@@ -47,7 +47,7 @@
     number_of_apartments: 33
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 33
-    pool_input: no_pool
+    pool_status: no_pool
     apartment_has_gym: no_gym
     number_of_naturally_ventilated_parking_spaces: 21
     number_of_mechanically_ventilated_parking_spaces: 68
@@ -65,7 +65,7 @@
     number_of_apartments: 33
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 33
-    pool_input: no_pool
+    pool_status: no_pool
     apartment_has_gym: no_gym
     number_of_naturally_ventilated_parking_spaces: 21
     number_of_mechanically_ventilated_parking_spaces: 68
@@ -83,7 +83,7 @@
     number_of_apartments: 33
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 33
-    pool_input: no_pool
+    pool_status: no_pool
     apartment_has_gym: no_gym
     number_of_naturally_ventilated_parking_spaces: 21
     number_of_mechanically_ventilated_parking_spaces: 68
@@ -101,7 +101,7 @@
     number_of_apartments: 33
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 33
-    pool_input: no_pool
+    pool_status: no_pool
     apartment_has_gym: no_gym
     number_of_naturally_ventilated_parking_spaces: 21
     number_of_mechanically_ventilated_parking_spaces: 68
@@ -118,7 +118,7 @@
     number_of_apartments: 33
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 33
-    pool_input: no_pool
+    pool_status: no_pool
     apartment_has_gym: no_gym
     number_of_naturally_ventilated_parking_spaces: 21
     number_of_mechanically_ventilated_parking_spaces: 68
@@ -135,7 +135,7 @@
     number_of_apartments: 33
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 33
-    pool_input: no_pool
+    pool_status: no_pool
     apartment_has_gym: no_gym
     number_of_naturally_ventilated_parking_spaces: 21
     number_of_mechanically_ventilated_parking_spaces: 68
@@ -152,7 +152,7 @@
     number_of_apartments: 33
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 33
-    pool_input: no_pool
+    pool_status: no_pool
     apartment_has_gym: no_gym
     number_of_naturally_ventilated_parking_spaces: 21
     number_of_mechanically_ventilated_parking_spaces: 68
@@ -169,7 +169,7 @@
     number_of_apartments: 33
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 33
-    pool_input: no_pool
+    pool_status: no_pool
     apartment_has_gym: no_gym
     number_of_naturally_ventilated_parking_spaces: 0
     number_of_mechanically_ventilated_parking_spaces: 66
@@ -186,7 +186,7 @@
     number_of_apartments: 33
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 33
-    pool_input: no_pool
+    pool_status: no_pool
     apartment_has_gym: no_gym
     number_of_naturally_ventilated_parking_spaces: 0
     number_of_mechanically_ventilated_parking_spaces: 66
@@ -204,7 +204,7 @@
     number_of_apartments: 33
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 33
-    pool_input: no_pool
+    pool_status: no_pool
     apartment_has_gym: no_gym
     number_of_naturally_ventilated_parking_spaces: 0
     number_of_mechanically_ventilated_parking_spaces: 66
@@ -226,7 +226,7 @@
     number_of_apartments: 33
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 33
-    pool_input: no_pool
+    pool_status: no_pool
     apartment_has_gym: no_gym
     number_of_naturally_ventilated_parking_spaces: 0
     number_of_mechanically_ventilated_parking_spaces: 66
@@ -248,7 +248,7 @@
     number_of_apartments: 33
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 33
-    pool_input: no_pool
+    pool_status: no_pool
     apartment_has_gym: no_gym
     number_of_naturally_ventilated_parking_spaces: 0
     number_of_mechanically_ventilated_parking_spaces: 66
@@ -270,7 +270,7 @@
     number_of_apartments: 33
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 33
-    pool_input: no_pool
+    pool_status: no_pool
     apartment_has_gym: no_gym
     number_of_naturally_ventilated_parking_spaces: 0
     number_of_mechanically_ventilated_parking_spaces: 66
@@ -292,7 +292,7 @@
     number_of_apartments: 33
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 33
-    pool_input: no_pool
+    pool_status: no_pool
     apartment_has_gym: no_gym
     number_of_naturally_ventilated_parking_spaces: 0
     number_of_mechanically_ventilated_parking_spaces: 66
@@ -314,7 +314,7 @@
     number_of_apartments: 33
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 33
-    pool_input: no_pool
+    pool_status: no_pool
     apartment_has_gym: no_gym
     number_of_naturally_ventilated_parking_spaces: 0
     number_of_mechanically_ventilated_parking_spaces: 66
@@ -337,7 +337,7 @@
     number_of_apartments: 33
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 33
-    pool_input: no_pool
+    pool_status: no_pool
     apartment_has_gym: no_gym
     number_of_naturally_ventilated_parking_spaces: 0
     number_of_mechanically_ventilated_parking_spaces: 66
@@ -360,7 +360,7 @@
     number_of_apartments: 33
     number_of_central_ac_apartments: 0
     number_of_condenser_water_serviced_apartments: 33
-    pool_input: no_pool
+    pool_status: no_pool
     apartment_has_gym: no_gym
     number_of_naturally_ventilated_parking_spaces: 0
     number_of_mechanically_ventilated_parking_spaces: 66

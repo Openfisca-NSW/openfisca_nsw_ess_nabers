@@ -95,12 +95,31 @@ class number_of_lift_serviced_apartments(Variable):
         return buildings('number_of_apartments', period)
 
 
-class pool_input(Variable):
-    value_type = str
+class pool_input(Enum):
+    no_pool = u'Apartment building does not have a pool.'
+    unheated_pool = u'Apartment building has an unheated pool.'
+    heated_pool = u'Apartment building has a heated pool.'
+
+
+class pool_input_status(Variable):
+    value_type = Enum
+    possible_values = pool_input
+    default_value = pool_input.no_pool
     entity = Building
     definition_period = ETERNITY
     label = 'notes whether the complex has no pool, heated pool or unheated' \
             ' pool.' # col H
+
+
+class pool_status(Variable):
+    value_type = str
+    entity = Building
+    definition_period = ETERNITY
+    label = 'pulls through the pool status.'
+
+    def formula(buildings, period, parameters):
+        pool_status = buildings('pool_input_status', period)
+        return pool_status
 
 
 class apartment_has_gym(Variable):
@@ -236,8 +255,8 @@ class pool_parameter_coefficient(Variable):
     label = 'returns coefficient based on whether complex has pool, as parameter' # col AE and col AF
 
     def formula(buildings, period, parameters):
-        pool_input = buildings('pool_input', period)
-        return parameters(period).energy_saving_scheme.NABERS_apartments.pool_coeff[pool_input]
+        pool_status = buildings('pool_status', period)
+        return parameters(period).energy_saving_scheme.NABERS_apartments.pool_coeff[pool_status]
 
 
 class interceptor(Variable):
@@ -296,17 +315,6 @@ class lifts(Variable):
         number_of_apart = buildings('number_of_apartments', period)
         lifts = (number_of_lift_apart * lift_coeff / number_of_apart)
         return lifts
-
-
-class pool_parameter_coefficient(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    label = 'returns coefficient based on whether complex has pool, as parameter' # col AE, col AF, col AS and AT
-
-    def formula(buildings, period, parameters):
-        pool_input = buildings('pool_input', period)
-        return parameters(period).energy_saving_scheme.NABERS_apartments.pool_coeff[pool_input]
 
 
 class car_park(Variable):
