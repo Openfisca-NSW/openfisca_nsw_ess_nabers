@@ -6,9 +6,9 @@ import numpy as np
 import math
 private = True
 if private:
-    from openfisca_nsw_ess_nabers.variables.energy_saving_scheme.NABERS_offices import coefficient_values as c
+    from openfisca_nsw_ess_nabers.variables.energy_savings_scheme.NABERS_offices import coefficient_values as c
 else:
-    from openfisca_nsw_ess_nabers.variables.energy_saving_scheme.NABERS_offices import public_coefficient_values as c
+    from openfisca_nsw_ess_nabers.variables.energy_savings_scheme.NABERS_offices import public_coefficient_values as c
 
 if not(c.has_real_values):
     error = ("real coefficients aren't used, and return values will be incorrect")
@@ -67,7 +67,7 @@ class climate_zone(Variable):
 
     def formula(buildings, period, parameters):
         postcode = buildings('postcode', period)
-        return parameters(period).energy_saving_scheme.NABERS_offices.climate_zones[postcode]  # This is a built in OpenFisca function that is used to calculate a single value for regional network factor based on a zipcode provided
+        return parameters(period).energy_savings_scheme.NABERS_offices.climate_zones[postcode]  # This is a built in OpenFisca function that is used to calculate a single value for regional network factor based on a zipcode provided
 
 
 class HDD_18(Variable):
@@ -79,7 +79,7 @@ class HDD_18(Variable):
 
     def formula(buildings, period, parameters):
         postcode = buildings('postcode', period)
-        return parameters(period).energy_saving_scheme.NABERS_offices.hdd[postcode]  # This is a built in OpenFisca function that is used to calculate a single value for regional network factor based on a zipcode provided
+        return parameters(period).energy_savings_scheme.NABERS_offices.hdd[postcode]  # This is a built in OpenFisca function that is used to calculate a single value for regional network factor based on a zipcode provided
 
 
 class CDD_15(Variable):
@@ -90,7 +90,7 @@ class CDD_15(Variable):
 
     def formula(buildings, period, parameters):
         postcode = buildings('postcode', period)
-        return parameters(period).energy_saving_scheme.NABERS_offices.cdd[postcode]  # This is a built in OpenFisca function that is used to calculate a single value for regional network factor based on a zipcode provided
+        return parameters(period).energy_savings_scheme.NABERS_offices.cdd[postcode]  # This is a built in OpenFisca function that is used to calculate a single value for regional network factor based on a zipcode provided
 
 
 class f_base_building(Variable):

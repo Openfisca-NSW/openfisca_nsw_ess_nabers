@@ -406,7 +406,7 @@
     base_building_GEmax: 105.0930416
 - name: test end formula for N56407 - base building, electricity and gas - maximum energy consumption
   period: 2020
-  absolute_error_margin: 0.01
+  absolute_error_margin: 1
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -426,7 +426,7 @@
     office_maximum_electricity_consumption: 1467742
 - name: test end formula for N56407 - base building, electricity and gas - maximum gas consumption
   period: 2020
-  absolute_error_margin: 0.01
+  absolute_error_margin: 1
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True

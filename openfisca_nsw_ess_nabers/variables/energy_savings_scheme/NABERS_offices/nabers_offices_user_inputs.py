@@ -61,7 +61,8 @@ class benchmark_star_rating(Variable):
     definition_period = ETERNITY  # need to check whether these inputs, on the NABERS reports, should all be year
     label = 'The star rating for which the benchmark electricity and gas' \
             'consumption is calculated against - what NABERS rating the' \
-            ' building aims to achieve.'
+            ' building aims to achieve. Prior to rounding - Offices requires' \
+            ' star ratings in 0.5 intervals.'
 
     def formula(buildings, period, parameters):
         method_one = buildings('method_one', period)

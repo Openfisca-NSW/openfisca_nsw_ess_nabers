@@ -16,7 +16,7 @@ class number_of_certificates(Variable):
 
     def formula(buildings, period, parameters):
         elec_savings = buildings('electricity_savings', period)
-        elec_cert_conversion_factor = parameters(period).energy_saving_scheme.electricity_certificate_conversion_factor
+        elec_cert_conversion_factor = parameters(period).energy_savings_scheme.electricity_certificate_conversion_factor
         gas_savings = buildings('gas_savings', period)
-        gas_cert_conversion_factor = parameters(period).energy_saving_scheme.gas_certificate_conversion_factor
+        gas_cert_conversion_factor = parameters(period).energy_savings_scheme.gas_certificate_conversion_factor
         return math.floor(np.round((elec_savings * elec_cert_conversion_factor) + (gas_savings * gas_cert_conversion_factor), 1))

@@ -25,7 +25,7 @@ class within_maximum_years_of_forward_creation(Variable):
     def formula(buildings, period, parameters):
         return (
             buildings('years_of_forward_creation', period) <=
-            parameters(period).energy_saving_scheme.preconditions.maximum_time_period_of_forward_creation
+            parameters(period).energy_savings_scheme.preconditions.maximum_time_period_of_forward_creation
             )
 
 

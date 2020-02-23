@@ -41,7 +41,7 @@ class regional_network_factor(Variable):
 
     def formula(buildings, period, parameters):
         postcode = buildings('postcode', period)
-        rnf = parameters(period).energy_saving_scheme.table_a24.regional_network_factor
+        rnf = parameters(period).energy_savings_scheme.table_a24.regional_network_factor
         return rnf.calc(postcode)  # This is a built in OpenFisca function that is used to calculate a single value for regional network factor based on a zipcode provided
 
 

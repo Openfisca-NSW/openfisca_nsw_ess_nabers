@@ -6,7 +6,7 @@ from datetime import datetime
 
 
 class current_NABERS_star_rating(Variable):
-    value_type = int
+    value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'The star rating associated with the current NABERS rating' \
@@ -41,7 +41,7 @@ class uses_NABERS_ratings_tool(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Determines whether the NABERS Rating was calculated using one' \
-            ' of the NABERS Rating Tools, as prescribed in Clause 8.8.1.'
+            ' of the NABERS Rating Tools, as prescribed in Clause 8.8.1 (a).'
 
     def formula(buildings, period, parameters):
         is_apartment_building = buildings('is_apartment_building', period)
@@ -50,9 +50,25 @@ class uses_NABERS_ratings_tool(Variable):
         is_hotel = buildings('is_hotel', period)
         is_office = buildings('is_office', period)
         is_shopping_centre = buildings('is_shopping_centre', period)
-        uses_NABERS_ratings_tool = is_apartment_building + is_data_centre
-        + is_hospital + is_hotel + is_office + is_shopping_centre
-        return uses_NABERS_rating_tool
+        uses_NABERS_ratings_tool = is_apartment_building + is_data_centre + is_hospital + is_hotel + is_office + is_shopping_centre
+        return uses_NABERS_ratings_tool
+
+
+class meets_minimum_star_rating_requirement(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Checks whether the Current NABERS Rating meets the eligibility' \
+            ' criteria as prescribed in Clause 8.8.1(c).'
+
+    def formula(buildings, period, parameters):
+        clause_8_8_3_a_i = buildings('star_rating_exceeds_method_one_benchmark_rating', period)
+        clause_8_8_3_a_ii = buildings('first_nabers_rating', period)
+        clause_8_8_3_a_iii = buildings('rating_not_obt_for_legal_requirement', period)
+        clause_8_8_3_b = buildings('star_rating_exceeds_method_two_benchmark_rating', period)
+        condition_method_one = clause_8_8_3_a_i * clause_8_8_3_a_ii * clause_8_8_3_a_iii
+        condition_method_two = clause_8_8_3_b
+        return condition_method_one + condition_method_two
 
 
 class is_current_NABERS_rating(Variable):
@@ -75,6 +91,15 @@ class star_rating_exceeds_method_one_benchmark_rating(Variable):
         current = buildings('current_NABERS_star_rating', period)
         benchmark = buildings('method_one', period)
         return where(current - benchmark >= 0.5, True, False)
+
+
+class first_nabers_rating(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = "Tests whether the NABERS rating used in Calculation Method 1" \
+        ' is the first NABERS Rating for the building.' \
+        ' in accordance with clause 8.8.3 (a) (ii).' # is there a way to match this against previous ratings, i.e.
 
 
 class star_rating_exceeds_method_two_benchmark_rating(Variable):
@@ -106,7 +131,9 @@ class historical_baseline_no_more_than_7_years_before_current_rating(Variable):
         hist = buildings(
             'baseline_rating_year', period
             )
-        return cur - hist <= 7
+        condition_method_one_is_used = buildings('method_one_can_be_used', period)
+        return where (condition_method_one_is_used, True,
+        cur - hist <= 7)
 
 
 class calculation_used_for_additional_savings(Variable):
@@ -128,7 +155,7 @@ class historical_baseline_rating_meets_similar_configuration_criteria(Variable):
     label = "the Historical Baseline NABERS Rating must meet the ‘similar" \
             " configuration criteria that has been determined by the Scheme " \
             ' Administrator which is listed in the NABERS Baseline Method Guide.' \
-            ' In accordance with Clause 8.8.4 (c).'
+            ' In accordance with Clause 8.8.4 (c).' # Note to Andrew - should we include IPART's similar configuration criteria? It is not strictly part of the rule.
 
 
 class implementation_date(Variable):
@@ -172,6 +199,19 @@ class energy_savings_date(Variable):
         return buildings('end_date_of_current_nabers_rating_period', period)
 
 
+class time_between_current_ratings_and_ESC_date_within_range(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Tests the distance between the end of the current rating period' \
+            ' and the date of Energy Savings Certificates against the maximum' \
+            ' allowable distance between end of rating and ESC creation date.' \
+            ' In accordance with clause 8.8.8.'
+
+    def formula(buildings, period, parameters):
+        return buildings('ESC_cur_diff_as_months', period) <= parameters(period).energy_savings_scheme.preconditions.distance_rating_end_ESCs
+
+
 class nabers_value_previously_used_to_set_historical_NABERS_rating(Variable):
     value_type = bool
     entity = Building
@@ -198,19 +238,25 @@ class NABERS_eligible_to_create_ESCs(Variable):
             ' precondition requirements defined in Clause 8.8.'
 
     def formula(buildings, period, parameters):
-        881_a = buildings()# rating_tool
-        8_8_1_b = # excludes GreenPower
-        8_8_1_c =  # meets criteria of 8.8.3
-        8_8_1_d =  # all sources of on site electricity generation identified
-        8_8_1_e =  # all elec generated from on-site sources have been metered and recorded
-        8_8_2_b =  # Historical Baseline NABERS Rating is previous method for same NABERS building as measured in Current rating
-        8_8_3_a_i =  # if Calc Method 1, NABERS Rating exceeds number in Table A20 by min. 0.5 stars
-        8_8_3_a_ii = # if Calc Method 1, NABERS Rating must be first NABERS rating for relevant building
-        8_8_3_a_iii = # if Calc Method 1, cannot be obtained to comply with mandatory legal requirements
-        8_8_3_b = #  if Calc Method 2, must exceed Historical Baseline NABERS Rating by min. 0.5 stars
-        8_8_4_a = # Benchmark NABERS Rating can only be calculated with a fixed Historical Baseline NABERS Rating calculated no more than 7 years before the end date of the current rating years
-        8_8_4_b = # if the
-        8_8_8 = # ESCs cannot be created for a NABERS Rating more than twelve monghx z
-        8_8_10_a = #maximum time period for forward creation is 3 years
-        8_8_10_b = # Historical Baseline NABERS Rating end date must be no more than 15 months before end date of the Current NABERS Rating
-        8_8_10_c
+        clause_8_8_1_a = buildings('uses_NABERS_ratings_tool', period)
+        clause_8_8_1_b = not_(buildings('includes_GreenPower', period))
+        clause_8_8_1_c = buildings('meets_minimum_star_rating_requirement', period)
+        clause_8_8_1_d = buildings('all_on_site_sources_identified', period)
+        clause_8_8_1_e = buildings('unaccounted_elec_metered_and_recorded', period)
+        clause_8_8_1 = (clause_8_8_1_a * clause_8_8_1_b * clause_8_8_1_c *
+        clause_8_8_1_d * clause_8_8_1_e)
+        clause_8_8_3_a_i = buildings('star_rating_exceeds_method_one_benchmark_rating', period)
+        clause_8_8_3_a_ii = buildings('first_nabers_rating', period)
+        clause_8_8_3_a_iii = buildings('rating_not_obt_for_legal_requirement', period)
+        clause_8_8_3_b = buildings('star_rating_exceeds_method_two_benchmark_rating', period)
+        clause_8_8_3 = (clause_8_8_3_a_i * clause_8_8_3_a_ii * clause_8_8_3_a_iii +
+        clause_8_8_3_b)
+        clause_8_8_4_a = buildings('historical_baseline_no_more_than_7_years_before_current_rating', period)
+        clause_8_8_4_c = buildings('historical_baseline_rating_meets_similar_configuration_criteria', period)
+        clause_8_8_4 = (clause_8_8_4_a * clause_8_8_4_c)
+        clause_8_8_8 = buildings('time_between_current_ratings_and_ESC_date_within_range', period)
+        clause_8_8_10_b = buildings('time_between_historical_and_current_ratings_within_range', period)
+        clause_8_8_10_c_i = not_(buildings('nabers_value_previously_used_to_set_historical_NABERS_rating', period))
+        clause_8_8_10_c_ii = not_(buildings('nabers_value_lower_than_previous_historical_NABERS_value', period))
+        clause_8_8_10 = clause_8_8_10_b * clause_8_8_10_c_i * clause_8_8_10_c_ii
+        return clause_8_8_1 * clause_8_8_3 * clause_8_8_4 * clause_8_8_8 * clause_8_8_10

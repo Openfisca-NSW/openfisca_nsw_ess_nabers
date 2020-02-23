@@ -1,6 +1,0 @@
-description: Maximum number of months between the end of the Current NABERS Rating Period
-  and the creation of Energy Savings Certificates for that Current NABERS Rating Period.
-reference: Clause 8.8.8 of the ESS Rule 2020
-values:
-  2020-01-01:
-    value: 12

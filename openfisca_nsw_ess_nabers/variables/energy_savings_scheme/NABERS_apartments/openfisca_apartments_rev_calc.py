@@ -256,7 +256,7 @@ class pool_parameter_coefficient(Variable):
 
     def formula(buildings, period, parameters):
         pool_status = buildings('pool_status', period)
-        return parameters(period).energy_saving_scheme.NABERS_apartments.pool_coeff[pool_status]
+        return parameters(period).energy_savings_scheme.NABERS_apartments.pool_coeff[pool_status]
 
 
 class interceptor(Variable):
@@ -266,7 +266,7 @@ class interceptor(Variable):
     label = 'returns interceptor coefficient' # col AN
 
     def formula(buildings, period, parameters):
-        return parameters(period).energy_saving_scheme.NABERS_apartments.intercept
+        return parameters(period).energy_savings_scheme.NABERS_apartments.intercept
 
 
 class central_AC(Variable):
@@ -278,7 +278,7 @@ class central_AC(Variable):
             ' apartments.' # col AO
 
     def formula(buildings, period, parameters):
-        AC_coeff = parameters(period).energy_saving_scheme.NABERS_apartments.AC_coeff
+        AC_coeff = parameters(period).energy_savings_scheme.NABERS_apartments.AC_coeff
         number_of_AC_apart = buildings('number_of_central_ac_apartments', period)
         number_of_apart = buildings('number_of_apartments', period)
         central_AC = ((number_of_AC_apart * AC_coeff) / number_of_apart)
@@ -295,7 +295,7 @@ class condenser_water(Variable):
             ' of apartments.' # col AP. Claudia's sheet has this value to 5dp.
 
     def formula(buildings, period, parameters):
-        CW_coeff = parameters(period).energy_saving_scheme.NABERS_apartments.condenser_water_coeff
+        CW_coeff = parameters(period).energy_savings_scheme.NABERS_apartments.condenser_water_coeff
         number_of_CW_apart = buildings('number_of_condenser_water_serviced_apartments', period)
         number_of_apart = buildings('number_of_apartments', period)
         condenser_water = (number_of_CW_apart * CW_coeff / number_of_apart)
@@ -310,7 +310,7 @@ class lifts(Variable):
             ' in the relevant NABERS rated building.' # col AR
 
     def formula(buildings, period, parameters):
-        lift_coeff = parameters(period).energy_saving_scheme.NABERS_apartments.lift_coeff
+        lift_coeff = parameters(period).energy_savings_scheme.NABERS_apartments.lift_coeff
         number_of_lift_apart = buildings('number_of_lift_serviced_apartments', period)
         number_of_apart = buildings('number_of_apartments', period)
         lifts = (number_of_lift_apart * lift_coeff / number_of_apart)
@@ -328,8 +328,8 @@ class car_park(Variable):
             ' number of apartments.' # AV
 
     def formula(buildings, period, parameters):
-        mvcp_coeff = parameters(period).energy_saving_scheme.NABERS_apartments.mech_ventilated_carpark_coeff
-        nvcp_coeff = parameters(period).energy_saving_scheme.NABERS_apartments.natural_ventilated_carpark_coeff
+        mvcp_coeff = parameters(period).energy_savings_scheme.NABERS_apartments.mech_ventilated_carpark_coeff
+        nvcp_coeff = parameters(period).energy_savings_scheme.NABERS_apartments.natural_ventilated_carpark_coeff
         no_mech_vent_parking_spaces = buildings('number_of_mechanically_ventilated_parking_spaces', period)
         no_nat_vent_parking_spaces = buildings('number_of_naturally_ventilated_parking_spaces', period)
         number_of_apart = buildings('number_of_apartments', period)
@@ -352,7 +352,7 @@ class predicted_energy_emissions(Variable):
         central_AC = buildings('central_AC', period)
         condenser_water = buildings('condenser_water', period)
         lifts = buildings('lifts', period)
-        gyms = parameters(period).energy_saving_scheme.NABERS_apartments.gym_coeff[has_gym]
+        gyms = parameters(period).energy_savings_scheme.NABERS_apartments.gym_coeff[has_gym]
         car_park = buildings('car_park', period)
         predicted_emissions = intercept + pool + central_AC + condenser_water + lifts + gyms + car_park
         return predicted_emissions
@@ -457,7 +457,7 @@ class predicted_electricity_kWh(Variable):
 
     def formula(buildings, period, parameters):
         actual_GHG_KG_CO2_elec = buildings('actual_GHG_KG_CO2_elec', period)
-        apartment_elec_GHG_coeff = parameters(period).energy_saving_scheme.NABERS_apartments.elec_ghg_coeff
+        apartment_elec_GHG_coeff = parameters(period).energy_savings_scheme.NABERS_apartments.elec_ghg_coeff
         return actual_GHG_KG_CO2_elec / apartment_elec_GHG_coeff
 
 
@@ -471,5 +471,5 @@ class predicted_gas_MJ(Variable):
 
     def formula(buildings, period, parameters):
         actual_GHG_KG_CO2_gas = buildings('actual_GHG_KG_CO2_gas', period)
-        apartment_gas_GHG_coeff = parameters(period).energy_saving_scheme.NABERS_apartments.gas_ghg_coeff
+        apartment_gas_GHG_coeff = parameters(period).energy_savings_scheme.NABERS_apartments.gas_ghg_coeff
         return (actual_GHG_KG_CO2_gas / (apartment_gas_GHG_coeff / 3.6))

@@ -1,0 +1,26 @@
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - is apartment and does not include
+    GreenPower
+  period: 2020
+  input:
+    is_apartment_building: True
+    is_data_centre: False
+    is_hotel: False
+    is_hospital: False
+    is_office: False
+    is_shopping_centre: False
+    includes_GreenPower: False
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    ESC_creation_date: 2020-02-15
+    current_NABERS_star_rating: 5.5
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+  output:
+    NABERS_eligible_to_create_ESCs: True

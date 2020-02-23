@@ -20,14 +20,14 @@ class method_one(Variable):
 
     def formula(buildings, period, parameters):
         current_rating_year = buildings('current_rating_year', period)
-        rating_year_string = where(current_rating_year > parameters(period).energy_saving_scheme.table_a20.max_year, parameters(period).energy_saving_scheme.table_a20.max_year, buildings('current_rating_year', period).astype('str'))
+        rating_year_string = where(current_rating_year > parameters(period).energy_savings_scheme.table_a20.max_year, parameters(period).energy_savings_scheme.table_a20.max_year, buildings('current_rating_year', period).astype('str'))
         building_type = buildings("building_type", period)
         built_before_or_after_nov_2006 = where(buildings('built_after_nov_2006', period), "built_after_nov_2006", "built_before_nov_2006")
-        if (current_rating_year >= parameters(period).energy_saving_scheme.table_a20.min_year):
-            year_count = parameters(period).energy_saving_scheme.table_a20.min_year - 1
+        if (current_rating_year >= parameters(period).energy_savings_scheme.table_a20.min_year):
+            year_count = parameters(period).energy_savings_scheme.table_a20.min_year - 1
             while (year_count < current_rating_year):
                 year_count += 1
-                return parameters(period).energy_saving_scheme.table_a20.ratings.by_year[rating_year_string][building_type][built_before_or_after_nov_2006]
+                return parameters(period).energy_savings_scheme.table_a20.ratings.by_year[rating_year_string][building_type][built_before_or_after_nov_2006]
 
 
 class method_two(Variable):
@@ -45,17 +45,8 @@ class method_two(Variable):
         building_type = buildings("building_type", period)
         hist_rating_age = buildings('age_of_historical_rating', period)
         adjustment_year_string = where(hist_rating_age > 1, "two_to_seven_year_old", "one_year_old")
-        annual_rating_adj = parameters(period).energy_saving_scheme.table_a21.building_category[building_type][adjustment_year_string]
+        annual_rating_adj = parameters(period).energy_savings_scheme.table_a21.building_category[building_type][adjustment_year_string]
         return hist_rating + annual_rating_adj * (cur_year - hist_year)
-
-
-class first_nabers_rating(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-    label = "Tests whether the NABERS rating used in Calculation Method 1" \
-        ' is the first NABERS Rating for the building.' \
-        ' in accordance with clause 8.8.3 (a) (ii).' # is there a way to match this against previous ratings, i.e.
 
 
 class rating_not_obt_for_legal_requirement(Variable):
@@ -219,9 +210,10 @@ class time_between_historical_and_current_ratings_within_range(Variable):
             ' Method 2. In accordance with Clause 8.8.10 (b).'
 
     def formula(buildings, period, parameters):
-        return (
+        condition_method_one_is_used = buildings('method_one_can_be_used', period)
+        return where(condition_method_one_is_used, 1,
             buildings('cur_his_diff_as_months', period) <=
-            parameters(period).energy_saving_scheme.preconditions.historical_benchmark_age
+            parameters(period).energy_savings_scheme.preconditions.historical_benchmark_age
             )
 
 
@@ -257,19 +249,6 @@ class ESC_cur_diff_as_months(Variable):
             'ESC_creation_date', period
             )
         return ESC.astype('datetime64[M]') - cur.astype('datetime64[M]')
-
-
-class time_between_current_ratings_and_ESC_date_within_range(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-    label = 'Tests the distance between the end of the current rating period' \
-            ' and the date of Energy Savings Certificates against the maximum' \
-            ' allowable distance between end of rating and ESC creation date.' \
-            ' In accordance with clause 8.8.8.'
-
-    def formula(buildings, period, parameters):
-        return buildings('ESC_cur_diff_as_months', period) <= parameters(period).energy_saving_scheme.preconditions.distance_rating_end_ESCs
 
 
 class today_date(Variable):
