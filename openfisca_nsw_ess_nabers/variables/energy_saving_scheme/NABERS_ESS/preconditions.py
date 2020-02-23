@@ -36,6 +36,25 @@ class includes_GreenPower(Variable):
         " Accreditation Program Rules. "
 
 
+class uses_NABERS_ratings_tool(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Determines whether the NABERS Rating was calculated using one' \
+            ' of the NABERS Rating Tools, as prescribed in Clause 8.8.1.'
+
+    def formula(buildings, period, parameters):
+        is_apartment_building = buildings('is_apartment_building', period)
+        is_data_centre = buildings('is_data_centre', period)
+        is_hospital = buildings('is_hospital', period)
+        is_hotel = buildings('is_hotel', period)
+        is_office = buildings('is_office', period)
+        is_shopping_centre = buildings('is_shopping_centre', period)
+        uses_NABERS_ratings_tool = is_apartment_building + is_data_centre
+        + is_hospital + is_hotel + is_office + is_shopping_centre
+        return uses_NABERS_rating_tool
+
+
 class is_current_NABERS_rating(Variable):
     value_type = bool
     entity = Building
@@ -153,7 +172,7 @@ class energy_savings_date(Variable):
         return buildings('end_date_of_current_nabers_rating_period', period)
 
 
-class nabers_value_previously_used__to_set_historical_NABERS_rating(Variable):
+class nabers_value_previously_used_to_set_historical_NABERS_rating(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -169,3 +188,29 @@ class nabers_value_lower_than_previous_historical_NABERS_value(Variable):
     label = 'A NABERS rating cannot be lower than a previous NABERS rating used' \
             ' to create a historical NABERS rating.'\
             ' according to clause 8.8.10 (c).'
+
+
+class NABERS_eligible_to_create_ESCs(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Determines whether the relevant NABERS rating(s) pass all of the' \
+            ' precondition requirements defined in Clause 8.8.'
+
+    def formula(buildings, period, parameters):
+        881_a = buildings()# rating_tool
+        8_8_1_b = # excludes GreenPower
+        8_8_1_c =  # meets criteria of 8.8.3
+        8_8_1_d =  # all sources of on site electricity generation identified
+        8_8_1_e =  # all elec generated from on-site sources have been metered and recorded
+        8_8_2_b =  # Historical Baseline NABERS Rating is previous method for same NABERS building as measured in Current rating
+        8_8_3_a_i =  # if Calc Method 1, NABERS Rating exceeds number in Table A20 by min. 0.5 stars
+        8_8_3_a_ii = # if Calc Method 1, NABERS Rating must be first NABERS rating for relevant building
+        8_8_3_a_iii = # if Calc Method 1, cannot be obtained to comply with mandatory legal requirements
+        8_8_3_b = #  if Calc Method 2, must exceed Historical Baseline NABERS Rating by min. 0.5 stars
+        8_8_4_a = # Benchmark NABERS Rating can only be calculated with a fixed Historical Baseline NABERS Rating calculated no more than 7 years before the end date of the current rating years
+        8_8_4_b = # if the
+        8_8_8 = # ESCs cannot be created for a NABERS Rating more than twelve monghx z
+        8_8_10_a = #maximum time period for forward creation is 3 years
+        8_8_10_b = # Historical Baseline NABERS Rating end date must be no more than 15 months before end date of the Current NABERS Rating
+        8_8_10_c

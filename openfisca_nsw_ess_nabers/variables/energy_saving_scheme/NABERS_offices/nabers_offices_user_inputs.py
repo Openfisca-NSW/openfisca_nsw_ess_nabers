@@ -27,7 +27,8 @@ np.set_printoptions(formatter={'float_kind':float_formatter})
 
 # note that this file is used to store variables which are input by the user
 # from their NABERS inputs, and the relevant calculations required within these
-# public values. This is to be kept PUBLIC. 
+# public values. This is to be kept PUBLIC.
+
 
 class offices_postcode:
     value_type = float
