@@ -367,7 +367,7 @@
     GEwholemax: 154.0822546
 - name: test end formula for N56121 - whole building, electricity only - benchmark rating
   period: 2020
-  absolute_error_margin: 0.01
+  absolute_error_margin: 1
   input:
     end_date_of_current_nabers_rating_period: 2019-08-30
     is_office: True

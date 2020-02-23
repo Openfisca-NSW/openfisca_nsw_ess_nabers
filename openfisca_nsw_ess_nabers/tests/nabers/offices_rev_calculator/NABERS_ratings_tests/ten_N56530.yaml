@@ -227,7 +227,7 @@
     tenancy_GEmax: 95.15698396
 - name: test end formula for N56530 - tenancy, only electricity - office_maximum_electricity_consumption
   period: 2020
-  absolute_error_margin: 0.01
+  absolute_error_margin: 1
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True
@@ -247,7 +247,7 @@
     office_maximum_electricity_consumption: 1247721
 - name: test end formula for N56530 - tenancy, only electricity - office_maximum_gas_consumption
   period: 2020
-  absolute_error_margin: 0.01
+  absolute_error_margin: 1
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
     is_office: True

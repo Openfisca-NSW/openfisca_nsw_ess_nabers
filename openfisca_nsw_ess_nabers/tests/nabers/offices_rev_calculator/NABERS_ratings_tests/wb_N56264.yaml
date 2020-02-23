@@ -447,7 +447,7 @@
     GEwholemax: 145.0714133
 - name: test end formula for N56264 - whole building, electricity only - benchmark rating
   period: 2020
-  absolute_error_margin: 0.01
+  absolute_error_margin: 1
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
@@ -467,7 +467,7 @@
     office_maximum_electricity_consumption: 792121
 - name: test end formula for N56264 - whole building, electricity only - benchmark rating
   period: 2020
-  absolute_error_margin: 0.01
+  absolute_error_margin: 2
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
     is_office: True
