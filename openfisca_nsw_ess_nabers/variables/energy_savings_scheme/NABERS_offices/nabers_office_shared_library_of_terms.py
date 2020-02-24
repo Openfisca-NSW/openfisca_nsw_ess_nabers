@@ -425,8 +425,7 @@ class GEwholemax (Variable):
     def formula(buildings, period, parameters):
         condition_GEwholemax_star_rating = buildings('benchmark_star_rating', period) > 5
 
-        return where
-            (condition_GEwholemax_star_rating, 0, 
+        return where(condition_GEwholemax_star_rating, 0, 
                     (buildings('NGEmax', period) - 
                      buildings('f_base_building', period) * 
                      buildings('GEclimcorr', period) - 
