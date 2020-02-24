@@ -114,7 +114,8 @@ class star_rating_exceeds_method_two_benchmark_rating(Variable):
     def formula(buildings, period, parameters):
         current = buildings('current_NABERS_star_rating', period)
         benchmark = buildings('method_two', period)
-        return where(current - benchmark >= 0.5, True, False)
+        method_one_can_be_used = buildings('method_one_can_be_used', period)
+        return where(method_one_can_be_used, False, current - benchmark >= 0.5)
 
 
 class historical_baseline_no_more_than_7_years_before_current_rating(Variable):
