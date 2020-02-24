@@ -50,7 +50,8 @@ class uses_NABERS_ratings_tool(Variable):
         is_hotel = buildings('is_hotel', period)
         is_office = buildings('is_office', period)
         is_shopping_centre = buildings('is_shopping_centre', period)
-        uses_NABERS_ratings_tool = is_apartment_building + is_data_centre + is_hospital + is_hotel + is_office + is_shopping_centre
+        uses_NABERS_ratings_tool = (is_apartment_building + is_data_centre
+        + is_hospital + is_hotel + is_office + is_shopping_centre)
         return uses_NABERS_ratings_tool
 
 
@@ -66,7 +67,8 @@ class meets_minimum_star_rating_requirement(Variable):
         clause_8_8_3_a_ii = buildings('first_nabers_rating', period)
         clause_8_8_3_a_iii = buildings('rating_not_obt_for_legal_requirement', period)
         clause_8_8_3_b = buildings('star_rating_exceeds_method_two_benchmark_rating', period)
-        condition_method_one = clause_8_8_3_a_i * clause_8_8_3_a_ii * clause_8_8_3_a_iii
+        condition_method_one = (clause_8_8_3_a_i * clause_8_8_3_a_ii
+        * clause_8_8_3_a_iii)
         condition_method_two = clause_8_8_3_b
         return condition_method_one + condition_method_two
 
@@ -210,7 +212,8 @@ class time_between_current_ratings_and_ESC_date_within_range(Variable):
             ' In accordance with clause 8.8.8.'
 
     def formula(buildings, period, parameters):
-        return buildings('ESC_cur_diff_as_months', period) <= parameters(period).energy_savings_scheme.preconditions.distance_rating_end_ESCs
+        return (buildings('ESC_cur_diff_as_months', period)
+        <= parameters(period).energy_savings_scheme.preconditions.distance_rating_end_ESCs)
 
 
 class nabers_value_previously_used_to_set_historical_NABERS_rating(Variable):

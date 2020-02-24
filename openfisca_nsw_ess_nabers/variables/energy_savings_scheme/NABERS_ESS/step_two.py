@@ -20,14 +20,20 @@ class method_one(Variable):
 
     def formula(buildings, period, parameters):
         current_rating_year = buildings('current_rating_year', period)
-        rating_year_string = where(current_rating_year > parameters(period).energy_savings_scheme.table_a20.max_year, parameters(period).energy_savings_scheme.table_a20.max_year, buildings('current_rating_year', period).astype('str'))
+        rating_year_string = where(current_rating_year
+        > parameters(period).energy_savings_scheme.table_a20.max_year,
+        parameters(period).energy_savings_scheme.table_a20.max_year,
+        buildings('current_rating_year', period).astype('str'))
         building_type = buildings("building_type", period)
-        built_before_or_after_nov_2006 = where(buildings('built_after_nov_2006', period), "built_after_nov_2006", "built_before_nov_2006")
+        built_before_or_after_nov_2006 = where(buildings('built_after_nov_2006', period),
+        "built_after_nov_2006",
+        "built_before_nov_2006")
         if (current_rating_year >= parameters(period).energy_savings_scheme.table_a20.min_year):
             year_count = parameters(period).energy_savings_scheme.table_a20.min_year - 1
             while (year_count < current_rating_year):
                 year_count += 1
-                return parameters(period).energy_savings_scheme.table_a20.ratings.by_year[rating_year_string][building_type][built_before_or_after_nov_2006]
+                return (parameters(period).energy_savings_scheme.table_a20.ratings.by_year
+                [rating_year_string][building_type][built_before_or_after_nov_2006])
 
 
 class method_two(Variable):
@@ -44,8 +50,11 @@ class method_two(Variable):
         hist_year = buildings('baseline_rating_year', period)
         building_type = buildings("building_type", period)
         hist_rating_age = buildings('age_of_historical_rating', period)
-        adjustment_year_string = where(hist_rating_age > 1, "two_to_seven_year_old", "one_year_old")
-        annual_rating_adj = parameters(period).energy_savings_scheme.table_a21.building_category[building_type][adjustment_year_string]
+        adjustment_year_string = where(hist_rating_age > 1,
+        "two_to_seven_year_old",
+        "one_year_old")
+        annual_rating_adj = (parameters(period).energy_savings_scheme.table_a21.building_category
+        [building_type][adjustment_year_string])
         return hist_rating + annual_rating_adj * (cur_year - hist_year)
 
 
@@ -67,7 +76,8 @@ class method_one_can_be_used(Variable):
     label = "Can Method 1 be used to calculate the NABERS Benchmark Rating for the buildings?"
 
     def formula(buildings, period, parameters):
-        return (buildings('first_nabers_rating', period) * (buildings('rating_not_obt_for_legal_requirement', period)))
+        return (buildings('first_nabers_rating', period)
+        * (buildings('rating_not_obt_for_legal_requirement', period)))
 
 
 class built_after_nov_2006(Variable):
@@ -152,7 +162,8 @@ class current_rating_period_length(Variable):
         start = buildings(
             'start_date_of_current_nabers_rating_period', period
             )
-        return end.astype('datetime64[M]') - start.astype('datetime64[M]')  #should this be days or years?
+        return (end.astype('datetime64[M]')
+        - start.astype('datetime64[M]'))  #should this be days or years?
 
 
 class historical_rating_period_length(Variable):
@@ -274,7 +285,8 @@ class age_of_historical_rating(Variable):
         hist = buildings(
             'end_date_of_historical_nabers_rating_period', period
             )
-        age_in_days = (today.astype('datetime64[D]') - hist.astype('datetime64[D]')).astype('datetime64[D]')
+        age_in_days = (today.astype('datetime64[D]')
+        - hist.astype('datetime64[D]')).astype('datetime64[D]')
         return age_in_days.astype('datetime64[Y]')
 
 

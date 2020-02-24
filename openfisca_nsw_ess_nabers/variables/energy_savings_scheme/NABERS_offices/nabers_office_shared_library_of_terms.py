@@ -431,7 +431,12 @@ class GEwholemax (Variable):
     def formula(buildings, period, parameters):
         condition_GEwholemax_star_rating = buildings('benchmark_star_rating', period) > 5
         return where(condition_GEwholemax_star_rating, 0
-        , (buildings('NGEmax', period) - buildings('f_base_building', period) * buildings('GEclimcorr', period) - buildings('f_tenancy', period) * buildings('GEClimcorr_tenancy', period)) * 2 / (buildings('f_base_building', period) + buildings('f_tenancy', period)))
+        , (buildings('NGEmax', period) -
+        buildings('f_base_building', period) *
+        buildings('GEclimcorr', period) -
+        buildings('f_tenancy', period) *
+        buildings('GEClimcorr_tenancy', period)) * 2 /
+        (buildings('f_base_building', period) + buildings('f_tenancy', period)))
 
 
 class NGE_5star_original_rating (Variable):
@@ -518,7 +523,10 @@ class office_maximum_electricity_consumption(Variable):
         rating_type = buildings('rating_type', period)
 
         def consumption(numerator):
-            return np.round((numerator * nla) / (SGEelec + perc_gas / perc_elec * SGEgas + perc_coal / perc_elec * SGEcoal + perc_diesel / perc_elec * SGEoil), 9)
+            return np.round((numerator * nla) / (SGEelec +
+            perc_gas / perc_elec * SGEgas +
+            perc_coal / perc_elec * SGEcoal +
+            perc_diesel / perc_elec * SGEoil), 9)
 
         return select(
             [benchmark <= 5 and rating_type == "base_building"
@@ -548,4 +556,6 @@ class office_maximum_gas_consumption(Variable):
     label = "output of the NABERS whole building reverse calculator - the maximum electricity consumption allowable for the relevant NABERS rated building"
 
     def formula(buildings, period, parameters):
-        return (buildings('perc_gas_kwh', period) / buildings('perc_elec_kwh', period) * buildings('office_maximum_electricity_consumption', period) * 3.6)
+        return (buildings('perc_gas_kwh', period) /
+        buildings('perc_elec_kwh', period) *
+        buildings('office_maximum_electricity_consumption', period) * 3.6)

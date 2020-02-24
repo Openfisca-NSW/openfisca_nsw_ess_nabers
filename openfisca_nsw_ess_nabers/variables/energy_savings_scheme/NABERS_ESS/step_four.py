@@ -15,7 +15,9 @@ class electricity_savings(Variable):
         measured_electricity_consumption = buildings('measured_electricity_consumption', period)
         counted_elec_savings = buildings('counted_elec_savings', period)
         regional_network_factor = buildings('regional_network_factor', period)
-        electricity_savings = (benchmark_elec_consumption - measured_electricity_consumption - counted_elec_savings) * regional_network_factor
+        electricity_savings = ((benchmark_elec_consumption
+        - measured_electricity_consumption - counted_elec_savings)
+        * regional_network_factor)
         return electricity_savings  # Year based calculations are missing from this formula. Need to be added
 
 
@@ -29,7 +31,8 @@ class gas_savings(Variable):
         benchmark_gas_consumption = buildings('benchmark_gas_consumption', period)
         measured_gas_consumption = buildings('measured_gas_consumption', period)
         counted_gas_savings = buildings('counted_gas_savings', period)
-        gas_savings = benchmark_gas_consumption - measured_gas_consumption - counted_gas_savings
+        gas_savings = (benchmark_gas_consumption - measured_gas_consumption
+        - counted_gas_savings)
         return gas_savings  # Year based calculations are missing from this formula. Need to be added
 
 
@@ -37,7 +40,9 @@ class regional_network_factor(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = "Regional Network Factor is the value from Table A24 of Schedule A corresponding to the postcode of the Address of the Site or Sites where the Implementation(s) took place."
+    label = 'Regional Network Factor is the value from Table A24 of Schedule' \
+            ' A corresponding to the postcode of the Address of the Site or' \
+            ' Sites where the Implementation(s) took place.'
 
     def formula(buildings, period, parameters):
         postcode = buildings('postcode', period)

@@ -15,4 +15,6 @@ class unaccounted_elec_metered_and_recorded(Variable):
     value_type = bool
     entity = Building
     definition_period = YEAR
-    label = "Has all electricity generated from sources of On-site Unaccounted Electricity (as referred to in Method 4) been metered and recorded over the Rating Period?"
+    label = 'Has all electricity generated from sources of On-site Unaccounted' \
+            ' Electricity (as referred to in Method 4) been metered and' \
+            ' recorded over the Rating Period?'
