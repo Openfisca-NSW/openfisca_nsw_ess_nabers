@@ -4,6 +4,8 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 import numpy as np
 import math
+
+
 private = True
 if private:
     from openfisca_nsw_ess_nabers.variables.energy_savings_scheme.NABERS_offices import coefficient_values as c
@@ -123,21 +125,9 @@ class SGEgas(Variable):
 
     def formula(buildings, period, parameters):
         state = buildings('building_state_location', period)
-        ACT_SGE_gas = c.SGE_coefficients["ACT_SGE_gas"]
-        NSW_SGE_gas = c.SGE_coefficients["NSW_SGE_gas"]
-        NT_SGE_gas = c.SGE_coefficients["NT_SGE_gas"]
-        QLD_SGE_gas = c.SGE_coefficients["QLD_SGE_gas"]
-        SA_SGE_gas = c.SGE_coefficients["SA_SGE_gas"]
-        TAS_SGE_gas = c.SGE_coefficients["TAS_SGE_gas"]
-        VIC_SGE_gas = c.SGE_coefficients["VIC_SGE_gas"]
-        WA_SGE_gas = c.SGE_coefficients["WA_SGE_gas"]
-        return select(
-            [state == "ACT", state == "NSW", state == "NT", state == 'QLD',
-             state == "SA", state == "TAS", state == "VIC", state == "WA"],
-            [ACT_SGE_gas, NSW_SGE_gas, NT_SGE_gas, QLD_SGE_gas
-            , SA_SGE_gas, TAS_SGE_gas, VIC_SGE_gas, WA_SGE_gas]
-            )
+        return c.SGE_coefficients[state++"_SGE_gas"]
 
+       
 class SGEelec(Variable):
     value_type = float
     entity = Building
@@ -161,12 +151,16 @@ class SGEcoal (Variable):
 
     def formula(buildings, period, parameters):
         state = buildings('building_state_location', period)
-        return select(
-            [state == "ACT", state == "NSW", state == "NT", state == "QLD",
-             state == "SA", state == "TAS", state == "VIC", state == "WA"],
-            [0.32, 0.32, 0.32, 0.32, 0.32, 0.7, 0.32, 0.32]
-            )
-
+        emissionsValue = {
+                "ACT": 0.32,
+                "NSW": 0.32,
+                "NT" : 0.32,
+                "QLD": 0.32,
+                "TAS": 0.7,
+                "VIC": 0.32,
+                "WA" : 0.32
+                }
+        return emissionsValue[state]
 
 class SGEoil (Variable):
     value_type = float
@@ -430,8 +424,16 @@ class GEwholemax (Variable):
 
     def formula(buildings, period, parameters):
         condition_GEwholemax_star_rating = buildings('benchmark_star_rating', period) > 5
-        return where(condition_GEwholemax_star_rating, 0
-        , (buildings('NGEmax', period) - buildings('f_base_building', period) * buildings('GEclimcorr', period) - buildings('f_tenancy', period) * buildings('GEClimcorr_tenancy', period)) * 2 / (buildings('f_base_building', period) + buildings('f_tenancy', period)))
+
+        return where
+            (condition_GEwholemax_star_rating, 0, 
+                    (buildings('NGEmax', period) - 
+                     buildings('f_base_building', period) * 
+                     buildings('GEclimcorr', period) - 
+                     buildings('f_tenancy', period) * 
+                     buildings('GEClimcorr_tenancy', period)) * 2 /
+                    (buildings('f_base_building', period) + 
+                        buildings('f_tenancy', period)))
 
 
 class NGE_5star_original_rating (Variable):
