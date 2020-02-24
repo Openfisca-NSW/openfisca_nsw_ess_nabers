@@ -127,7 +127,7 @@ class SGEgas(Variable):
 
     def formula(buildings, period, parameters):
         state = buildings('building_state_location', period)
-        return c.SGE_coefficients[state + "_SGE_gas"]
+        return np.vectorize(c.SGE_coefficients.get)(state + "_SGE_gas")
 
 
 class SGEelec(Variable):
@@ -162,7 +162,7 @@ class SGEcoal (Variable):
             "VIC": 0.32,
             "WA": 0.32
             }
-        return emissionsValue[state]
+        return np.vectorize(emissionsValue.get)(state)
 
 
 class SGEoil (Variable):
@@ -337,9 +337,12 @@ class coefficient_A(Variable):
                 "WA": {"whole_building": 7.2857,
                         "tenancy": 6.85,
                         "base_building": 7.6818
-                        }
+                      }
                 }
-        return coeff[state][rating_type]
+
+        def double_get(d, x, y):
+            return d[x][y]
+        return np.vectorize(double_get)(coeff, state, rating_type)
 
 class coefficient_B(Variable):
     value_type = float
