@@ -3,7 +3,7 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 import numpy as np
-import math
+from openfisca_nsw_ess_nabers.variables.energy_savings_scheme.general_ESS.hidden_figures import get_parameters
 
 
 private = True
@@ -16,7 +16,7 @@ if not(c.has_real_values):
     error = ("real coefficients aren't used, and return values will be incorrect")
 
 float_formatter = "{:.9f}".format
-np.set_printoptions(formatter={'float_kind':float_formatter})
+np.set_printoptions(formatter={'float_kind': float_formatter})
 
 # measured_electricity_consumption input at Step 1
 # measured_gas_consumption input at Step 1
@@ -37,6 +37,7 @@ np.set_printoptions(formatter={'float_kind':float_formatter})
 
 # note that this file is used to store variables which are IDENTICAL across
 # NABERS office reverse calculators. This file is to be made PRIVATE.
+
 
 class nabers_adjusted_hours(Variable):
     value_type = float
@@ -69,7 +70,8 @@ class climate_zone(Variable):
 
     def formula(buildings, period, parameters):
         postcode = buildings('postcode', period)
-        return parameters(period).energy_savings_scheme.NABERS_offices.climate_zones[postcode]  # This is a built in OpenFisca function that is used to calculate a single value for regional network factor based on a zipcode provided
+        return get_parameters(private, parameters(period).energy_savings_scheme,
+                "climate_zones")[postcode]
 
 
 class HDD_18(Variable):
@@ -125,9 +127,9 @@ class SGEgas(Variable):
 
     def formula(buildings, period, parameters):
         state = buildings('building_state_location', period)
-        return c.SGE_coefficients[state++"_SGE_gas"]
+        return c.SGE_coefficients[state + "_SGE_gas"]
 
-       
+
 class SGEelec(Variable):
     value_type = float
     entity = Building
@@ -152,15 +154,16 @@ class SGEcoal (Variable):
     def formula(buildings, period, parameters):
         state = buildings('building_state_location', period)
         emissionsValue = {
-                "ACT": 0.32,
-                "NSW": 0.32,
-                "NT" : 0.32,
-                "QLD": 0.32,
-                "TAS": 0.7,
-                "VIC": 0.32,
-                "WA" : 0.32
-                }
+            "ACT": 0.32,
+            "NSW": 0.32,
+            "NT": 0.32,
+            "QLD": 0.32,
+            "TAS": 0.7,
+            "VIC": 0.32,
+            "WA": 0.32
+            }
         return emissionsValue[state]
+
 
 class SGEoil (Variable):
     value_type = float
@@ -302,38 +305,41 @@ class coefficient_A(Variable):
     def formula(buildings, period, parameters):
         state = buildings('building_state_location', period)
         rating_type = buildings('rating_type', period)
-        return select(
-            [state == "ACT" and rating_type == "whole_building"
-            , state == "ACT" and rating_type == "tenancy"
-            , state == "ACT" and rating_type == "base_building"
-            , state == "NSW" and rating_type == "whole_building"
-            , state == "NSW" and rating_type == "tenancy"
-            , state == "NSW" and rating_type == "base_building"
-            , state == "NT" and rating_type == "whole_building"
-            , state == "NT" and rating_type == "tenancy"
-            , state == "NT" and rating_type == "base_building"
-            , state == "QLD" and rating_type == "whole_building"
-            , state == "QLD" and rating_type == "tenancy"
-            , state == "QLD" and rating_type == "base_building"
-            , state == "SA" and rating_type == "whole_building"
-            , state == "SA" and rating_type == "tenancy"
-            , state == "SA" and rating_type == "base_building"
-            , state == "TAS" and rating_type == "whole_building"
-            , state == "TAS" and rating_type == "tenancy"
-            , state == "TAS" and rating_type == "base_building"
-            , state == "VIC" and rating_type == "whole_building"
-            , state == "VIC" and rating_type == "tenancy"
-            , state == "VIC" and rating_type == "base_building"
-            , state == "WA" and rating_type == "whole_building"
-            , state == "WA" and rating_type == "tenancy"
-            , state == "WA" and rating_type == "base_building"
-            ],
-            [6.7605, 6.7727, 6.75, 6.7605, 6.7727, 6.75,
-			 6.422206, 6.413814, 6.42932, 7.1, 6.2667, 8.35,
-			 6.5247, 6.2636, 6.75, 6.5351, 6.2636, 6.75,
-			 7.0114, 7.5889, 6.7544, 7.2857, 6.85, 7.6818]
-            )
-
+        coeff = {
+                "ACT": {"whole_building": 6.7605,
+                        "tenancy": 6.7727,
+                        "base_building": 6.75
+                        },
+                "NSW": {"whole_building": 6.760,
+                        "tenancy": 6.7727,
+                        "base_building": 6.75 
+                        },
+                "NT": {"whole_building": 6.422206,
+                        "tenancy": 6.413814,
+                        "base_building": 6.42932
+                        },
+                "QLD": {"whole_building": 7.1,
+                        "tenancy": 6.2667,
+                        "base_building": 8.35
+                        },
+                "SA": {"whole_building": 6.5247,
+                        "tenancy": 6.2636,
+                        "base_building": 6.75 
+                        },
+                "TAS": {"whole_building": 6.5351,
+                        "tenancy": 6.2636,
+                        "base_building": 6.75
+                        },
+                "VIC": {"whole_building": 7.0114,
+                        "tenancy": 7.5889,
+                        "base_building":6.7544
+                        },
+                "WA": {"whole_building": 7.2857,
+                        "tenancy": 6.85,
+                        "base_building": 7.6818
+                        }
+                }
+        return coeff[state][rating_type]
 
 class coefficient_B(Variable):
     value_type = float
