@@ -70,7 +70,7 @@ class climate_zone(Variable):
 
     def formula(buildings, period, parameters):
         postcode = buildings('postcode', period)
-        return get_parameters(private, parameters(period).energy_savings_scheme,
+        return get_parameters(private, parameters(period).energy_savings_scheme.NABERS_offices,
                 "climate_zones")[postcode]
 
 
