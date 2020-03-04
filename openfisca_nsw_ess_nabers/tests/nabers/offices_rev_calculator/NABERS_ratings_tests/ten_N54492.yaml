@@ -1,0 +1,347 @@
+- name: test end formula for N54492 - tenancy, only electricity - benchmark rating
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-06-30
+    is_office: True
+    rating_type: tenancy
+    postcode: 2067
+    hours_per_week_with_20_percent_occupancy: 50.1
+    building_state_location: NSW
+    net_lettable_area: 9393.8
+    number_of_computers: 752
+    method_one_can_be_used: True
+    elec_kWh: 771112.5
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    method_one: 4.5
+    benchmark_star_rating: 4.5
+- name: test end formula for N54492 - tenancy, only electricity - nabers_adjusted_hours
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-06-30
+    is_office: True
+    rating_type: tenancy
+    postcode: 2067
+    hours_per_week_with_20_percent_occupancy: 50.1
+    building_state_location: NSW
+    net_lettable_area: 9393.8
+    number_of_computers: 752
+    method_one_can_be_used: True
+    elec_kWh: 771112.5
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    nabers_adjusted_hours: 60.1
+- name: test end formula for N56396 - base building, electricity and gas - f_base_building
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-06-30
+    is_office: True
+    rating_type: tenancy
+    postcode: 2067
+    hours_per_week_with_20_percent_occupancy: 50.1
+    building_state_location: NSW
+    net_lettable_area: 9393.8
+    number_of_computers: 752
+    method_one_can_be_used: True
+    elec_kWh: 771112.5
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    perc_elec_kwh: 100.0
+- name: test end formula for N56396 - base building, electricity and gas - f_base_building
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-06-30
+    is_office: True
+    rating_type: tenancy
+    postcode: 2067
+    hours_per_week_with_20_percent_occupancy: 50.1
+    building_state_location: NSW
+    net_lettable_area: 9393.8
+    number_of_computers: 752
+    method_one_can_be_used: True
+    elec_kWh: 771112.5
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    perc_gas_kwh: 0.0
+- name: test end formula for N56396 - base building, electricity and gas - f_base_building
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-06-30
+    is_office: True
+    rating_type: tenancy
+    postcode: 2067
+    hours_per_week_with_20_percent_occupancy: 50.1
+    building_state_location: NSW
+    net_lettable_area: 9393.8
+    number_of_computers: 752
+    method_one_can_be_used: True
+    elec_kWh: 771112.5
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    perc_coal_kwh: 0
+- name: test end formula for N56396 - base building, electricity and gas - f_base_building
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-06-30
+    is_office: True
+    rating_type: tenancy
+    postcode: 2067
+    hours_per_week_with_20_percent_occupancy: 50.1
+    building_state_location: NSW
+    net_lettable_area: 9393.8
+    number_of_computers: 752
+    method_one_can_be_used: True
+    elec_kWh: 771112.5
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    perc_diesel_kwh: 0
+- name: test end formula for N54492 - tenancy, only electricity - f_tenancy
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-06-30
+    is_office: True
+    rating_type: tenancy
+    postcode: 2067
+    hours_per_week_with_20_percent_occupancy: 50.1
+    building_state_location: NSW
+    net_lettable_area: 9393.8
+    number_of_computers: 752
+    method_one_can_be_used: True
+    elec_kWh: 771112.5
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    f_tenancy: 0.989070768
+- name: test end formula for N54492 - tenancy, only electricity - climate_zone
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-06-30
+    is_office: True
+    rating_type: tenancy
+    postcode: 2067
+    hours_per_week_with_20_percent_occupancy: 50.1
+    building_state_location: NSW
+    net_lettable_area: 9393.8
+    number_of_computers: 752
+    method_one_can_be_used: True
+    elec_kWh: 771112.5
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    climate_zone: 63
+- name: test end formula for N54492 - tenancy, only electricity - SGE values
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-06-30
+    is_office: True
+    rating_type: tenancy
+    postcode: 2067
+    hours_per_week_with_20_percent_occupancy: 50.1
+    building_state_location: NSW
+    net_lettable_area: 9393.8
+    number_of_computers: 752
+    method_one_can_be_used: True
+    elec_kWh: 771112.5
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    SGEgas: 0.23
+    SGEelec: 0.94
+    SGEcoal: 0.32
+    SGEoil: 0.27
+    SGEtenancy: 0.94
+- name: test end formula for N54492 - tenancy, only electricity - HDD and CDD
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-06-30
+    is_office: True
+    rating_type: tenancy
+    postcode: 2067
+    hours_per_week_with_20_percent_occupancy: 50.1
+    building_state_location: NSW
+    net_lettable_area: 9393.8
+    number_of_computers: 752
+    method_one_can_be_used: True
+    elec_kWh: 771112.5
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    HDD_18: 642
+    CDD_15: 541
+- name: test end formula for N54492 - tenancy, only electricity - Dequip
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-06-30
+    is_office: True
+    rating_type: tenancy
+    postcode: 2067
+    hours_per_week_with_20_percent_occupancy: 50.1
+    building_state_location: NSW
+    net_lettable_area: 9393.8
+    number_of_computers: 752
+    method_one_can_be_used: True
+    elec_kWh: 771112.5
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    Dequip: 0.01601056
+- name: test end formula for N54492 - tenancy, only electricity - GEclimcorr tenancy
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-06-30
+    is_office: True
+    rating_type: tenancy
+    postcode: 2067
+    hours_per_week_with_20_percent_occupancy: 50.1
+    building_state_location: NSW
+    net_lettable_area: 9393.8
+    number_of_computers: 752
+    method_one_can_be_used: True
+    elec_kWh: 771112.5
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    GEClimcorr_tenancy: -30.11970619
+- name: test end formula for N54492 - tenancy, only electricity - coefficient_A and coefficient_B
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-06-30
+    is_office: True
+    rating_type: tenancy
+    postcode: 2067
+    hours_per_week_with_20_percent_occupancy: 50.1
+    building_state_location: NSW
+    net_lettable_area: 9393.8
+    number_of_computers: 752
+    method_one_can_be_used: True
+    elec_kWh: 771112.5
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    coefficient_A: 6.7727
+    coefficient_B: -0.036364
+- name: test end formula for N54492 - tenancy, only electricity - NGEmax
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-06-30
+    is_office: True
+    rating_type: tenancy
+    postcode: 2067
+    hours_per_week_with_20_percent_occupancy: 50.1
+    building_state_location: NSW
+    net_lettable_area: 9393.8
+    number_of_computers: 752
+    method_one_can_be_used: True
+    elec_kWh: 771112.5
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    NGEmax: 76.24846002
+- name: test end formula for N54492 - tenancy, only electricity - tenancy_GEmax
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-06-30
+    is_office: True
+    rating_type: tenancy
+    postcode: 2067
+    hours_per_week_with_20_percent_occupancy: 50.1
+    building_state_location: NSW
+    net_lettable_area: 9393.8
+    number_of_computers: 752
+    method_one_can_be_used: True
+    elec_kWh: 771112.5
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    tenancy_GEmax: 107.2107117
+- name: test end formula for N54492 - tenancy, only electricity - office_maximum_electricity_consumption
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-06-30
+    is_office: True
+    rating_type: tenancy
+    postcode: 2067
+    hours_per_week_with_20_percent_occupancy: 50.1
+    building_state_location: NSW
+    net_lettable_area: 9393.8
+    number_of_computers: 752
+    method_one_can_be_used: True
+    elec_kWh: 771112.5
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    office_maximum_electricity_consumption: 1071400
+- name: test end formula for N54492 - tenancy, only electricity - office_maximum_gas_consumption
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-06-30
+    is_office: True
+    rating_type: tenancy
+    postcode: 2067
+    hours_per_week_with_20_percent_occupancy: 50.1
+    building_state_location: NSW
+    net_lettable_area: 9393.8
+    number_of_computers: 752
+    method_one_can_be_used: True
+    elec_kWh: 771112.5
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    office_maximum_gas_consumption: 0

@@ -1,0 +1,487 @@
+- name: test end formula for N56264 - whole building, electricity only - benchmark rating
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    method_one: 4.5
+    benchmark_star_rating: 4.5
+- name: test end formula for N56264 - whole building, electricity only - nabers adjusted hours
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    nabers_adjusted_hours: 60.6
+- name: test end formula for N56396 - base building, electricity and gas - f_base_building
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    perc_elec_kwh: 98.32
+- name: test end formula for N56396 - base building, electricity and gas - f_base_building
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    perc_gas_kwh: 1.68
+- name: test end formula for N56396 - base building, electricity and gas - f_base_building
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    perc_coal_kwh: 0
+- name: test end formula for N56396 - base building, electricity and gas - f_base_building
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    perc_diesel_kwh: 0
+- name: test end formula for N56264 - whole building, electricity only - f_base_building
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    f_base_building: 0.923395139
+- name: test end formula for N56264 - whole building, electricity only - f_tenancy
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    f_tenancy: 0.983961429
+- name: test end formula for N56264 - whole building, electricity only - climate_zone
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    climate_zone: 33
+- name: test end formula for N56264 - whole building, electricity only - SGE values
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    SGEgas: 0.21
+    SGEelec: 0.95
+    SGEcoal: 0.32
+    SGEoil: 0.27
+    SGEtenancy: 0.95
+- name: test end formula for N56264 - whole building, electricity only - HDD and CDD
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    HDD_18: 1554
+    CDD_15: 132
+- name: test end formula for N56264 - whole building, electricity only - term 1
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    term_1: 0.8652
+- name: test end formula for N56264 - whole building, electricity only - term 2
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    term_2: 41.42
+- name: test end formula for N56264 - whole building, electricity only - term 3
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    term_3: 2.270191304
+- name: test end formula for N56264 - whole building, electricity only - term 4
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    term_4: 12.13978723
+- name: test end formula for N56264 - whole building, electricity only - term 5
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    term_5: 0
+- name: test end formula for N56264 - whole building, electricity only - Dequip
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    Dequip: 0.011369747
+- name: test end formula for N56264 - whole building, electricity only - GEclimcorr tenancy
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    GEclimcorr: 27.87522146
+- name: test end formula for N56264 - whole building, electricity only - GEclimcorr tenancy
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    GEClimcorr_tenancy: -12.80503956
+- name: test end formula for N56264 - whole building, electricity only - coefficients A and B
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    coefficient_A: 6.5247
+    coefficient_B: -0.0166656
+- name: test end formula for N56264 - whole building, electricity only - benchmark rating
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    NGEmax: 151.4916355
+- name: test end formula for N56264 - whole building, electricity only - benchmark rating
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    GEwholemax: 145.0714133
+- name: test end formula for N56264 - whole building, electricity only - benchmark rating
+  period: 2020
+  absolute_error_margin: 1
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    office_maximum_electricity_consumption: 792121
+- name: test end formula for N56264 - whole building, electricity only - benchmark rating
+  period: 2020
+  absolute_error_margin: 2
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 5063
+    hours_per_week_with_20_percent_occupancy: 50.6
+    building_state_location: SA
+    net_lettable_area: 5206.8
+    number_of_computers: 296
+    method_one_can_be_used: True
+    elec_kWh: 789146.2
+    gas_in_MJ: 48585.4
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    office_maximum_gas_consumption: 48726

@@ -1,0 +1,407 @@
+- name: test end formula for N56121 - whole building, electricity only - benchmark rating
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-08-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 4405
+    hours_per_week_with_20_percent_occupancy: 45.2
+    building_state_location: QLD
+    net_lettable_area: 682.8
+    number_of_computers: 20
+    method_one_can_be_used: True
+    elec_kWh: 83583.9
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    method_one: 4.5
+    benchmark_star_rating: 4.5
+- name: test end formula for N56121 - whole building, electricity only - nabers adjusted hours
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-08-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 4405
+    hours_per_week_with_20_percent_occupancy: 45.2
+    building_state_location: QLD
+    net_lettable_area: 682.8
+    number_of_computers: 20
+    method_one_can_be_used: True
+    elec_kWh: 83583.9
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    nabers_adjusted_hours: 55.2
+- name: test end formula for N56121 - whole building, electricity only - f_base_building
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-08-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 4405
+    hours_per_week_with_20_percent_occupancy: 45.2
+    building_state_location: QLD
+    net_lettable_area: 682.8
+    number_of_computers: 20
+    method_one_can_be_used: True
+    elec_kWh: 83583.9
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    f_base_building: 0.980084679
+- name: test end formula for N56121 - whole building, electricity only - f_tenancy
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-08-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 4405
+    hours_per_week_with_20_percent_occupancy: 45.2
+    building_state_location: QLD
+    net_lettable_area: 682.8
+    number_of_computers: 20
+    method_one_can_be_used: True
+    elec_kWh: 83583.9
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    f_tenancy: 1.042100875
+- name: test end formula for N56121 - whole building, electricity only - climate_zone
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-08-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 4405
+    hours_per_week_with_20_percent_occupancy: 45.2
+    building_state_location: QLD
+    net_lettable_area: 682.8
+    number_of_computers: 20
+    method_one_can_be_used: True
+    elec_kWh: 83583.9
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    climate_zone: 49
+- name: test end formula for N56121 - whole building, electricity only - SGE values
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-08-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 4405
+    hours_per_week_with_20_percent_occupancy: 45.2
+    building_state_location: QLD
+    net_lettable_area: 682.8
+    number_of_computers: 20
+    method_one_can_be_used: True
+    elec_kWh: 83583.9
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    SGEgas: 0.2
+    SGEelec: 1.02
+    SGEcoal: 0.32
+    SGEoil: 0.27
+    SGEtenancy: 1.02
+- name: test end formula for N56121 - whole building, electricity only - HDD and CDD
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-08-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 4405
+    hours_per_week_with_20_percent_occupancy: 45.2
+    building_state_location: QLD
+    net_lettable_area: 682.8
+    number_of_computers: 20
+    method_one_can_be_used: True
+    elec_kWh: 83583.9
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    HDD_18: 660
+    CDD_15: 876
+- name: test end formula for N56121 - whole building, electricity only - term 1
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-08-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 4405
+    hours_per_week_with_20_percent_occupancy: 45.2
+    building_state_location: QLD
+    net_lettable_area: 682.8
+    number_of_computers: 20
+    method_one_can_be_used: True
+    elec_kWh: 83583.9
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    term_1: 0.824
+- name: test end formula for N56121 - whole building, electricity only - term 2
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-08-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 4405
+    hours_per_week_with_20_percent_occupancy: 45.2
+    building_state_location: QLD
+    net_lettable_area: 682.8
+    number_of_computers: 20
+    method_one_can_be_used: True
+    elec_kWh: 83583.9
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    term_2: 44.472
+- name: test end formula for N56121 - whole building, electricity only - term 3
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-08-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 4405
+    hours_per_week_with_20_percent_occupancy: 45.2
+    building_state_location: QLD
+    net_lettable_area: 682.8
+    number_of_computers: 20
+    method_one_can_be_used: True
+    elec_kWh: 83583.9
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    term_3: 0.91826087
+- name: test end formula for N56121 - whole building, electricity only - term 4
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-08-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 4405
+    hours_per_week_with_20_percent_occupancy: 45.2
+    building_state_location: QLD
+    net_lettable_area: 682.8
+    number_of_computers: 20
+    method_one_can_be_used: True
+    elec_kWh: 83583.9
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    term_4: 86.50034043
+- name: test end formula for N56121 - whole building, electricity only - term 5
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-08-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 4405
+    hours_per_week_with_20_percent_occupancy: 45.2
+    building_state_location: QLD
+    net_lettable_area: 682.8
+    number_of_computers: 20
+    method_one_can_be_used: True
+    elec_kWh: 83583.9
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    term_5: 32.02365957
+- name: test end formula for N56121 - whole building, electricity only - Dequip
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-08-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 4405
+    hours_per_week_with_20_percent_occupancy: 45.2
+    building_state_location: QLD
+    net_lettable_area: 682.8
+    number_of_computers: 20
+    method_one_can_be_used: True
+    elec_kWh: 83583.9
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    Dequip: 0.005858231
+- name: test end formula for N56121 - whole building, electricity only - GEclimcorr tenancy
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-08-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 4405
+    hours_per_week_with_20_percent_occupancy: 45.2
+    building_state_location: QLD
+    net_lettable_area: 682.8
+    number_of_computers: 20
+    method_one_can_be_used: True
+    elec_kWh: 83583.9
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    GEclimcorr: -10.09894172
+- name: test end formula for N56121 - whole building, electricity only - GEclimcorr tenancy
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-08-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 4405
+    hours_per_week_with_20_percent_occupancy: 45.2
+    building_state_location: QLD
+    net_lettable_area: 682.8
+    number_of_computers: 20
+    method_one_can_be_used: True
+    elec_kWh: 83583.9
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    GEClimcorr_tenancy: 8.738418278
+- name: test end formula for N56121 - whole building, electricity only - coefficients A and B
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-08-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 4405
+    hours_per_week_with_20_percent_occupancy: 45.2
+    building_state_location: QLD
+    net_lettable_area: 682.8
+    number_of_computers: 20
+    method_one_can_be_used: True
+    elec_kWh: 83583.9
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    coefficient_A: 7.1
+    coefficient_B: -0.02
+- name: test end formula for N56121 - whole building, electricity only - benchmark rating
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-08-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 4405
+    hours_per_week_with_20_percent_occupancy: 45.2
+    building_state_location: QLD
+    net_lettable_area: 682.8
+    number_of_computers: 20
+    method_one_can_be_used: True
+    elec_kWh: 83583.9
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    NGEmax: 154.99995
+- name: test end formula for N56121 - whole building, electricity only - benchmark rating
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-08-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 4405
+    hours_per_week_with_20_percent_occupancy: 45.2
+    building_state_location: QLD
+    net_lettable_area: 682.8
+    number_of_computers: 20
+    method_one_can_be_used: True
+    elec_kWh: 83583.9
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    GEwholemax: 154.0822546
+- name: test end formula for N56121 - whole building, electricity only - benchmark rating
+  period: 2020
+  absolute_error_margin: 1
+  input:
+    end_date_of_current_nabers_rating_period: 2019-08-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 4405
+    hours_per_week_with_20_percent_occupancy: 45.2
+    building_state_location: QLD
+    net_lettable_area: 682.8
+    number_of_computers: 20
+    method_one_can_be_used: True
+    elec_kWh: 83583.9
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    office_maximum_electricity_consumption: 103144
+- name: test end formula for N56121 - whole building, electricity only - benchmark rating
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-08-30
+    is_office: True
+    rating_type: whole_building
+    postcode: 4405
+    hours_per_week_with_20_percent_occupancy: 45.2
+    building_state_location: QLD
+    net_lettable_area: 682.8
+    number_of_computers: 20
+    method_one_can_be_used: True
+    elec_kWh: 83583.9
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    office_maximum_gas_consumption: 0

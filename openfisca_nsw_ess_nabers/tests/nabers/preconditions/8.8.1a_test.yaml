@@ -1,0 +1,96 @@
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - is apartment
+  period: 2020
+  input:
+    is_apartment_building: True
+    is_data_centre: False
+    is_hotel: False
+    is_hospital: False
+    is_office: False
+    is_shopping_centre: False
+  output:
+    uses_NABERS_ratings_tool: True
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - is apartment and data centre
+  period: 2020
+  input:
+    is_apartment_building: True
+    is_data_centre: True
+    is_hotel: False
+    is_hospital: False
+    is_office: False
+    is_shopping_centre: False
+  output:
+    uses_NABERS_ratings_tool: True
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - is data centre
+  period: 2020
+  input:
+    is_apartment_building: False
+    is_data_centre: True
+    is_hotel: False
+    is_hospital: False
+    is_office: False
+    is_shopping_centre: False
+  output:
+    uses_NABERS_ratings_tool: True
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - is hotel
+  period: 2020
+  input:
+    is_apartment_building: False
+    is_data_centre: False
+    is_hotel: True
+    is_hospital: False
+    is_office: False
+    is_shopping_centre: False
+  output:
+    uses_NABERS_ratings_tool: True
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - is hospital
+  period: 2020
+  input:
+    is_apartment_building: False
+    is_data_centre: False
+    is_hotel: False
+    is_hospital: True
+    is_office: False
+    is_shopping_centre: False
+  output:
+    uses_NABERS_ratings_tool: True
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - is office
+  period: 2020
+  input:
+    is_apartment_building: False
+    is_data_centre: False
+    is_hotel: False
+    is_hospital: False
+    is_office: True
+    is_shopping_centre: False
+  output:
+    uses_NABERS_ratings_tool: True
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - is shopping centre
+  period: 2020
+  input:
+    is_apartment_building: False
+    is_data_centre: False
+    is_hotel: False
+    is_hospital: False
+    is_office: False
+    is_shopping_centre: True
+  output:
+    uses_NABERS_ratings_tool: True
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - doesn't use any NABERS rating tools
+  period: 2020
+  input:
+    is_apartment_building: False
+    is_data_centre: False
+    is_hotel: False
+    is_hospital: False
+    is_office: False
+    is_shopping_centre: False
+  output:
+    uses_NABERS_ratings_tool: False

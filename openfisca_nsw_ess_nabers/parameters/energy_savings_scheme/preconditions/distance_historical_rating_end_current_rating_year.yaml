@@ -1,0 +1,6 @@
+description: Maximum number of years between the end year of the Historical
+  NABERS Rating and the Current Rating Year.
+reference: Clause 8.8.8 of the ESS Rule 2020
+values:
+  2020-01-01:
+    value: 7

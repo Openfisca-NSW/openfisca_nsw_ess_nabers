@@ -1,0 +1,20 @@
+0:
+  description: coefficient introduced if apartment complex has no pool
+  values:
+    2020-01-01:
+      value: 0
+no_pool:
+  description: coefficient introduced if apartment complex has no pool
+  values:
+    2020-01-01:
+      value: 0
+unheated_pool:
+  description: coefficient introduced if apartment complex has unheated pool
+  values:
+    2020-01-01:
+      value: 662.303
+heated_pool:
+  description: coefficient introduced if apartment complex has heated pool
+  values:
+    2020-01-01:
+      value: 1040.58055956421

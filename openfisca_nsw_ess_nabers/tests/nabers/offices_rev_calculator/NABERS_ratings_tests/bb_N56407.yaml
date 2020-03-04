@@ -1,0 +1,446 @@
+- name: test end formula for N56407 - base building, electricity and gas - benchmark rating
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    is_office: True
+    rating_type: base_building
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 60.6
+    building_state_location: NSW
+    net_lettable_area: 13561.8
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 792246.9
+    gas_in_MJ: 374413.9
+    diesel_in_litres: 238
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    method_one: 4.5
+    benchmark_star_rating: 4.5
+- name: test end formula for N56407 - base building, electricity and gas - perc_gas_kwh
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    is_office: True
+    rating_type: base_building
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 60.6
+    building_state_location: NSW
+    net_lettable_area: 13561.8
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 792246.9
+    gas_in_MJ: 374413.9
+    diesel_in_litres: 238
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    perc_gas_kwh: 11.57
+- name: test end formula for N56407 - base building, electricity and gas - nabers adjusted hours
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    is_office: True
+    rating_type: base_building
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 60.6
+    building_state_location: NSW
+    net_lettable_area: 13561.8
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 792246.9
+    gas_in_MJ: 374413.9
+    diesel_in_litres: 238
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    nabers_adjusted_hours: 70.6
+- name: test end formula for N56407 - base building, electricity and gas - f_base_building
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    is_office: True
+    rating_type: base_building
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 60.6
+    building_state_location: NSW
+    net_lettable_area: 13561.8
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 792246.9
+    gas_in_MJ: 374413.9
+    diesel_in_litres: 238
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    f_base_building: 0.834056182
+- name: test end formula for N56407 - base building, electricity and gas - f_base_building
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    is_office: True
+    rating_type: base_building
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 60.6
+    building_state_location: NSW
+    net_lettable_area: 13561.8
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 792246.9
+    gas_in_MJ: 374413.9
+    diesel_in_litres: 238
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    perc_elec_kwh: 88.14
+- name: test end formula for N56407 - base building, electricity and gas - f_base_building
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    is_office: True
+    rating_type: base_building
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 60.6
+    building_state_location: NSW
+    net_lettable_area: 13561.8
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 792246.9
+    gas_in_MJ: 374413.9
+    diesel_in_litres: 238
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    perc_gas_kwh: 11.57
+- name: test end formula for N56407 - base building, electricity and gas - f_base_building
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    is_office: True
+    rating_type: base_building
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 60.6
+    building_state_location: NSW
+    net_lettable_area: 13561.8
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 792246.9
+    gas_in_MJ: 374413.9
+    diesel_in_litres: 238
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    perc_coal_kwh: 0
+- name: test end formula for N56407 - base building, electricity and gas - f_base_building
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    is_office: True
+    rating_type: base_building
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 60.6
+    building_state_location: NSW
+    net_lettable_area: 13561.8
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 792246.9
+    gas_in_MJ: 374413.9
+    diesel_in_litres: 238
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    perc_diesel_kwh: 0.28
+- name: test end formula for N56407 - base building, electricity and gas - climate zone
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    is_office: True
+    rating_type: base_building
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 60.6
+    building_state_location: NSW
+    net_lettable_area: 13561.8
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 792246.9
+    gas_in_MJ: 374413.9
+    diesel_in_litres: 238
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    climate_zone: 63
+- name: test end formula for N56407 - base building, electricity and gas - SGE values
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    is_office: True
+    rating_type: base_building
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 60.6
+    building_state_location: NSW
+    net_lettable_area: 13561.8
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 792246.9
+    gas_in_MJ: 374413.9
+    diesel_in_litres: 238
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    SGEgas: 0.23
+    SGEelec: 0.94
+    SGEcoal: 0.32
+    SGEoil: 0.27
+- name: test end formula for N56407 - base building, electricity and gas - HDD and CDD
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    is_office: True
+    rating_type: base_building
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 60.6
+    building_state_location: NSW
+    net_lettable_area: 13561.8
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 792246.9
+    gas_in_MJ: 374413.9
+    diesel_in_litres: 238
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    HDD_18: 642
+    CDD_15: 541
+- name: test end formula for N56407 - base building, electricity and gas - term 1
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    is_office: True
+    rating_type: base_building
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 60.6
+    building_state_location: NSW
+    net_lettable_area: 13561.8
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 792246.9
+    gas_in_MJ: 374413.9
+    diesel_in_litres: 238
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    term_1: 0.9476
+- name: test end formula for N56407 - base building, electricity and gas - term 2
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    is_office: True
+    rating_type: base_building
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 60.6
+    building_state_location: NSW
+    net_lettable_area: 13561.8
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 792246.9
+    gas_in_MJ: 374413.9
+    diesel_in_litres: 238
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    term_2: 40.984
+- name: test end formula for N56407 - base building, electricity and gas - term 3
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    is_office: True
+    rating_type: base_building
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 60.6
+    building_state_location: NSW
+    net_lettable_area: 13561.8
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 792246.9
+    gas_in_MJ: 374413.9
+    diesel_in_litres: 238
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    term_3: 1.0272
+- name: test end formula for N56407 - base building, electricity and gas - term 4
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    is_office: True
+    rating_type: base_building
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 60.6
+    building_state_location: NSW
+    net_lettable_area: 13561.8
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 792246.9
+    gas_in_MJ: 374413.9
+    diesel_in_litres: 238
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    term_4: 49.231
+- name: test end formula for N56407 - base building, electricity and gas - term 5
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    is_office: True
+    rating_type: base_building
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 60.6
+    building_state_location: NSW
+    net_lettable_area: 13561.8
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 792246.9
+    gas_in_MJ: 374413.9
+    diesel_in_litres: 238
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    term_5: 8.742
+- name: test end formula for N56407 - base building, electricity and gas - GEclimcorr
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    is_office: True
+    rating_type: base_building
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 60.6
+    building_state_location: NSW
+    net_lettable_area: 13561.8
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 792246.9
+    gas_in_MJ: 374413.9
+    diesel_in_litres: 238
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    GEclimcorr: 0.4154
+- name: test end formula for N56407 - base building, electricity and gas - coefficient A and B
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    is_office: True
+    rating_type: base_building
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 60.6
+    building_state_location: NSW
+    net_lettable_area: 13561.8
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 792246.9
+    gas_in_MJ: 374413.9
+    diesel_in_litres: 238
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    coefficient_A: 6.75
+    coefficient_B: -0.03125
+- name: test end formula for N56407 - base building, electricity and gas - NGEmax
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    is_office: True
+    rating_type: base_building
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 60.6
+    building_state_location: NSW
+    net_lettable_area: 13561.8
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 792246.9
+    gas_in_MJ: 374413.9
+    diesel_in_litres: 238
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    NGEmax: 87.999968
+- name: test end formula for N56407 - base building, electricity and gas - GEmax
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    is_office: True
+    rating_type: base_building
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 60.6
+    building_state_location: NSW
+    net_lettable_area: 13561.8
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 792246.9
+    gas_in_MJ: 374413.9
+    diesel_in_litres: 238
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    base_building_GEmax: 105.0930416
+- name: test end formula for N56407 - base building, electricity and gas - maximum energy consumption
+  period: 2020
+  absolute_error_margin: 1
+  input:
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    is_office: True
+    rating_type: base_building
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 60.6
+    building_state_location: NSW
+    net_lettable_area: 13561.8
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 792246.9
+    gas_in_MJ: 374413.9
+    diesel_in_litres: 238
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    office_maximum_electricity_consumption: 1467742
+- name: test end formula for N56407 - base building, electricity and gas - maximum gas consumption
+  period: 2020
+  absolute_error_margin: 1
+  input:
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    is_office: True
+    rating_type: base_building
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 60.6
+    building_state_location: NSW
+    net_lettable_area: 13561.8
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 792246.9
+    gas_in_MJ: 374413.9
+    diesel_in_litres: 238
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    office_maximum_gas_consumption: 693605

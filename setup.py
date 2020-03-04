@@ -2,10 +2,10 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="openfisca-nsw-rules-kids-vouchers",
+    name="openfisca-nsw-ess-nabers",
     version="1.3.2",
     author="OpenFisca Team",
-    author_email = 'contact@openfisca.org',
+    author_email = 'sara.falamaki@customerservice.nsw.gov.au',
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "License :: OSI Approved :: GNU Affero General Public License v3",
@@ -16,14 +16,14 @@ setup(
     description="An OpenFisca extension that adds some variables to an already-existing tax and benefit system",
     keywords = 'benefit microsimulation social tax',
     license="http://www.fsf.org/licensing/licenses/agpl-3.0.html",
-    url = "https://github.com/digitalnsw/openfisca-nsw-rules-kids-vouchers",
+    url = "https://github.com/Openfisca-NSW/openfisca_nsw_ess_nabers",
     include_package_data = True,  # Will read MANIFEST.in
     data_files = [
-        ("share/openfisca/openfisca-nsw-rules-kids-vouchers", ["CHANGELOG.md", "LICENSE", "README.md"]),
+        ("share/openfisca/openfisca-nsw-ess-nabers", ["CHANGELOG.md", "LICENSE", "README.md"]),
         ],
     install_requires = [
         'OpenFisca-Core >= 25.3, < 35',
-        'OpenFisca-France >= 34.8.0, < 49'
+        'OpenFisca_nsw_base'
 
         ],
     extras_require = {

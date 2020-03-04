@@ -1,0 +1,15 @@
+- name: test end formula for N56121 - whole building, electricity only - benchmark rating
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    postcode: 200
+  output:
+    CDD_15: 80
+- name: test end formula for N56121 - whole building, electricity only - benchmark rating 2
+  period: 2020
+  absolute_error_margin: 0.01
+
+  input:
+    postcode: 0
+  output:
+    CDD_15: 0

@@ -1,0 +1,374 @@
+- name: test of apartments reverse calculator w. rating AB1100 - total kWh usage
+  period: 2020
+  absolute_error_margin: 0.001
+  input:
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    pool_status: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 21
+    number_of_mechanically_ventilated_parking_spaces: 68
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    is_apartment_building: True
+  output:
+    apartments_benchmark: 3.5
+- name: test of apartments reverse calculator w. rating AB1100 - total kWh usage
+  period: 2020
+  absolute_error_margin: 0.001
+  input:
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    pool_status: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 21
+    number_of_mechanically_ventilated_parking_spaces: 68
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
+  output:
+    apartments_total_kWh_usage: 101682.167
+- name: test of apartments reverse calculator w. rating AB1100 - MJ to kWh conversion
+  period: 2020
+  absolute_error_margin: 0.001
+  input:
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    pool_status: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 21
+    number_of_mechanically_ventilated_parking_spaces: 68
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
+  output:
+    gas_MJ_to_KWh: 1209.16667
+- name: test of apartments reverse calculator w. rating AB1100 - MJ to kWh conversion
+  period: 2020
+  absolute_error_margin: 0.001
+  input:
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    pool_status: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 21
+    number_of_mechanically_ventilated_parking_spaces: 68
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
+  output:
+    elec_perc_kWh_usage: 0.99
+- name: test of apartments reverse calculator w. rating AB1100 - number of apartments not air con serviced
+  period: 2020
+  absolute_error_margin: 0.001
+  input:
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    pool_status: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 21
+    number_of_mechanically_ventilated_parking_spaces: 68
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
+  output:
+    apartments_not_air_con_serviced: 0
+- name: test of apartments reverse calculator w. rating AB1100 - pool coefficient
+  period: 2020
+  absolute_error_margin: 0.001
+  input:
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    pool_status: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 21
+    number_of_mechanically_ventilated_parking_spaces: 68
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
+  output:
+    pool_parameter_coefficient: 0
+- name: test of apartments reverse calculator w. rating AB1100 - central AC value
+  period: 2020
+  input:
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    pool_status: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 21
+    number_of_mechanically_ventilated_parking_spaces: 68
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
+  output:
+    central_AC: 0
+- name: test of apartments reverse calculator w. rating AB1100 - condenser water value
+  period: 2020
+  input:
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    pool_status: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 21
+    number_of_mechanically_ventilated_parking_spaces: 68
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
+  output:
+    condenser_water: 2669.20407
+- name: test of apartments reverse calculator w. rating AB1100 - lifts
+  period: 2020
+  input:
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    pool_status: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 21
+    number_of_mechanically_ventilated_parking_spaces: 68
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
+  output:
+    lifts: 714.8346
+- name: test of apartments reverse calculator w. rating AB1100 - car park
+  period: 2020
+  input:
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    pool_status: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 0
+    number_of_mechanically_ventilated_parking_spaces: 66
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
+  output:
+    car_park: 1305.312589
+- name: test of apartments reverse calculator w. rating AB1100 - predicted energy emissions
+  period: 2020
+  input:
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    pool_status: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 0
+    number_of_mechanically_ventilated_parking_spaces: 66
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
+  output:
+    predicted_energy_emissions: 4728.677951
+- name: test of apartments reverse calculator w. rating AB1100 - emissions ratio
+  period: 2020
+  input:
+    is_apartment_building: True
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    pool_status: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 0
+    number_of_mechanically_ventilated_parking_spaces: 66
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+  output:
+    emissions_ratio: 92.75
+- name: test of apartments reverse calculator w. rating AB1100 - actual_GHG_per_apartment
+  period: 2020
+  absolute_error_margin: 0.1
+  input:
+    is_apartment_building: True
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    pool_status: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 0
+    number_of_mechanically_ventilated_parking_spaces: 66
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+  output:
+    actual_GHG_per_apartment: 4385.848799
+- name: test of apartments reverse calculator w. rating AB1100 - actual_GHG_KG_CO2
+  period: 2020
+  absolute_error_margin: 0.1
+  input:
+    is_apartment_building: True
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    pool_status: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 0
+    number_of_mechanically_ventilated_parking_spaces: 66
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+  output:
+    actual_GHG_KG_CO2: 144733.0104
+- name: test of apartments reverse calculator w. rating AB1100 - actual_GHG_KG_CO2_elec
+  period: 2020
+  absolute_error_margin: 0.1
+  input:
+    is_apartment_building: True
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    pool_status: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 0
+    number_of_mechanically_ventilated_parking_spaces: 66
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+  output:
+    actual_GHG_KG_CO2_elec: 143285.6803
+- name: test of apartments reverse calculator w. rating AB1100 - actual_GHG_KG_CO2_gas
+  period: 2020
+  absolute_error_margin: 0.1
+  input:
+    is_apartment_building: True
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    pool_status: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 0
+    number_of_mechanically_ventilated_parking_spaces: 66
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+  output:
+    actual_GHG_KG_CO2_gas: 1447.3301
+- name: test of apartments reverse calculator w. rating AB1100 - predicted electricity kWh
+  period: 2020
+  absolute_error_margin: 0.1
+  input:
+    is_apartment_building: True
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    pool_status: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 0
+    number_of_mechanically_ventilated_parking_spaces: 66
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+  output:
+    predicted_electricity_kWh: 150827
+- name: test of apartments reverse calculator w. rating AB1100 - predicted electricity kWh
+  period: 2020
+  absolute_error_margin: 1
+  input:
+    is_apartment_building: True
+    is_office: False
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    pool_status: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 0
+    number_of_mechanically_ventilated_parking_spaces: 66
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+  output:
+    predicted_gas_MJ: 22654
+- name: test of apartments reverse calculator w. rating AB1100 - predicted electricity kWh
+  period: 2020
+  absolute_error_margin: 1
+  input:
+    is_apartment_building: True
+    is_office: False
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    pool_status: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 0
+    number_of_mechanically_ventilated_parking_spaces: 66
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+  output:
+    benchmark_gas_consumption: 22654

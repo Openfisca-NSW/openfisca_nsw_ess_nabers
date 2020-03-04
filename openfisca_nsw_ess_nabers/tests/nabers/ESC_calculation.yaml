@@ -1,0 +1,8 @@
+- name: Calculate the number of ESCs generated from 100 MWh of electricity
+    savings and 0MWh of gas savings.
+  period: 2020
+  input:
+    electricity_savings: 1000
+    gas_savings: 0
+  output:
+    number_of_certificates: 1060

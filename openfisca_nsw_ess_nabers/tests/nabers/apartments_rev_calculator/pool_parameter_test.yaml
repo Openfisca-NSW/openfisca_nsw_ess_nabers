@@ -1,0 +1,18 @@
+- name: test of pool coefficient value - no pool
+  period: 2020
+  input:
+    pool_status: no_pool
+  output:
+    pool_parameter_coefficient: 0
+- name: test of pool coefficient value - unheated_pool
+  period: 2020
+  input:
+    pool_status: unheated_pool
+  output:
+    pool_parameter_coefficient: 662.303
+- name: test of pool coefficient value - no pool
+  period: 2020
+  input:
+    pool_status: heated_pool
+  output:
+    pool_parameter_coefficient: 1040.58055956421
