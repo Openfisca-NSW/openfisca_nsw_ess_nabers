@@ -4,8 +4,8 @@
     NABERS rating AB1174. Calculates
   period: 2020
   input:
-    is_apartment_building: True
-    is_data_centre: False
+    is_apartment_building: False
+    is_data_centre: True
     is_hotel: False
     is_hospital: False
     is_office: False

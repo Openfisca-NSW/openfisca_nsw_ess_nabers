@@ -4,6 +4,8 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 import numpy as np
 import math
+
+
 private = True
 if private:
     from openfisca_nsw_ess_nabers.variables.energy_savings_scheme.NABERS_offices import coefficient_values as c

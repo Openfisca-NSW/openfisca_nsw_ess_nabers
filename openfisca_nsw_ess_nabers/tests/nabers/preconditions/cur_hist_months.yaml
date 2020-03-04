@@ -6,3 +6,27 @@
     end_date_of_historical_nabers_rating_period: 2019-05-30
   output:
     cur_his_diff_as_months: 5
+- name: tests difference in months between current NABERS rating and
+    historical NABERS rating - 5 months
+  period: 2020
+  input:
+    end_date_of_current_nabers_rating_period: 2019-10-01
+    end_date_of_historical_nabers_rating_period: 2019-04-30
+  output:
+    cur_his_diff_as_months: 6
+- name: tests difference in months between current NABERS rating and
+    historical NABERS rating - 5 months
+  period: 2020
+  input:
+    end_date_of_current_nabers_rating_period: 2019-04-02
+    end_date_of_historical_nabers_rating_period: 2019-02-03
+  output:
+    cur_his_diff_as_months: 2
+- name: tests difference in months between current NABERS rating and
+    historical NABERS rating - 5 months
+  period: 2020
+  input:
+    end_date_of_current_nabers_rating_period: 2019-05-01
+    end_date_of_historical_nabers_rating_period: 2019-02-03
+  output:
+    cur_his_diff_as_months: 3

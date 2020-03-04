@@ -50,7 +50,7 @@ class building_type(Variable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
-    label = "Building is an apartment building"
+    label = "Determines building type."
 
     def formula(buildings, period):
         return select([buildings('is_office', period)
