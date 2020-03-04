@@ -12,7 +12,7 @@ class current_NABERS_star_rating(Variable):
     label = 'The star rating associated with the current NABERS rating' \
             ' for which ESCs are registered and created, following review' \
             ' of the evidence of the created Energy Savings.' \
-            ' need to find prescription date for this.'
+            ' as defined in clause 8.8.2 (a)'
 
 
 class ESC_creation_date(Variable):
@@ -50,7 +50,8 @@ class uses_NABERS_ratings_tool(Variable):
         is_hotel = buildings('is_hotel', period)
         is_office = buildings('is_office', period)
         is_shopping_centre = buildings('is_shopping_centre', period)
-        uses_NABERS_ratings_tool = is_apartment_building + is_data_centre + is_hospital + is_hotel + is_office + is_shopping_centre
+        uses_NABERS_ratings_tool = (is_apartment_building + is_data_centre
+        + is_hospital + is_hotel + is_office + is_shopping_centre)
         return uses_NABERS_ratings_tool
 
 
@@ -66,7 +67,8 @@ class meets_minimum_star_rating_requirement(Variable):
         clause_8_8_3_a_ii = buildings('first_nabers_rating', period)
         clause_8_8_3_a_iii = buildings('rating_not_obt_for_legal_requirement', period)
         clause_8_8_3_b = buildings('star_rating_exceeds_method_two_benchmark_rating', period)
-        condition_method_one = clause_8_8_3_a_i * clause_8_8_3_a_ii * clause_8_8_3_a_iii
+        condition_method_one = (clause_8_8_3_a_i * clause_8_8_3_a_ii
+        * clause_8_8_3_a_iii)
         condition_method_two = clause_8_8_3_b
         return condition_method_one + condition_method_two
 
@@ -114,7 +116,8 @@ class star_rating_exceeds_method_two_benchmark_rating(Variable):
     def formula(buildings, period, parameters):
         current = buildings('current_NABERS_star_rating', period)
         benchmark = buildings('method_two', period)
-        return where(current - benchmark >= 0.5, True, False)
+        method_one_can_be_used = buildings('method_one_can_be_used', period)
+        return where(method_one_can_be_used, False, current - benchmark >= 0.5)
 
 
 class historical_baseline_no_more_than_7_years_before_current_rating(Variable):
@@ -136,7 +139,7 @@ class historical_baseline_no_more_than_7_years_before_current_rating(Variable):
         cur - hist <= 7)
 
 
-class calculation_used_for_additional_savings(Variable):
+class historical_baseline_more_than_7_years(Variable):
     value_type = bool
     entity = Building
     definition_period = YEAR
@@ -147,6 +150,11 @@ class calculation_used_for_additional_savings(Variable):
         " the end date of the previous fixed Historical baseline NABERS rating" \
         " in accordance with clause 8.8.4 (b)" \
 
+    def formula(buildings, period, parameters):
+        condition_method_one_is_used = buildings('method_one_can_be_used', period)
+        return where (condition_method_one_is_used, False,
+        cur - hist <= 7) # code in recalculation historical baseline based off previous historical rating - needs to be current_historical_rating - previous_historical_rating >= 7
+
 
 class historical_baseline_rating_meets_similar_configuration_criteria(Variable):
     value_type = bool
@@ -155,7 +163,8 @@ class historical_baseline_rating_meets_similar_configuration_criteria(Variable):
     label = "the Historical Baseline NABERS Rating must meet the ‘similar" \
             " configuration criteria that has been determined by the Scheme " \
             ' Administrator which is listed in the NABERS Baseline Method Guide.' \
-            ' In accordance with Clause 8.8.4 (c).' # Note to Andrew - should we include IPART's similar configuration criteria? It is not strictly part of the rule.
+            ' In accordance with Clause 8.8.4 (c). Similar configuration' \
+            ' requirements' # Note to Andrew - should we include IPART's similar configuration criteria? It is not strictly part of the rule.
 
 
 class implementation_date(Variable):
@@ -184,19 +193,23 @@ class energy_saver(Variable):
             ' Administrator, in respect of the NABERS Rating.' \
             ' In accordance with Clause 8.8.6.'
 
+    def formula(buildings, period, parameters):
+        NABERS_certificate_name = buildings('NABERS_certificate_name', period)
+        building_owner_manager_name = buildings('building_owner_or_manager_name', period)
+        condition_NABERS_cert_name
+
 
 class energy_savings_date(Variable):
     value_type = float
     entity = Building
     definition_period = YEAR
-    label = 'Note identical to end date of Current NABERS Period.' \
-            ' For the purposes of section 131 of the Act, Energy Savings are' \
+    label = ' For the purposes of section 131 of the Act, Energy Savings are' \
             ' taken to occur on the date that the Scheme Administrator ' \
             ' determines that the relevant NABERS Rating was completed. ' \
             ' In accordance with Clause 8.8.7.'  # need to read guidance material.
 
     def formula(buildings, period, parameters):
-        return buildings('end_date_of_current_nabers_rating_period', period)
+        return buildings('NABERS_rating_completed_date', period)
 
 
 class time_between_current_ratings_and_ESC_date_within_range(Variable):
@@ -209,7 +222,8 @@ class time_between_current_ratings_and_ESC_date_within_range(Variable):
             ' In accordance with clause 8.8.8.'
 
     def formula(buildings, period, parameters):
-        return buildings('ESC_cur_diff_as_months', period) <= parameters(period).energy_savings_scheme.preconditions.distance_rating_end_ESCs
+        return (buildings('ESC_cur_diff_as_months', period)
+        <= parameters(period).energy_savings_scheme.preconditions.distance_rating_end_ESCs)
 
 
 class nabers_value_previously_used_to_set_historical_NABERS_rating(Variable):
@@ -228,6 +242,13 @@ class nabers_value_lower_than_previous_historical_NABERS_value(Variable):
     label = 'A NABERS rating cannot be lower than a previous NABERS rating used' \
             ' to create a historical NABERS rating.'\
             ' according to clause 8.8.10 (c).'
+
+
+class previous_annual_creation_occured(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'copy in 8.8.11(a)'
 
 
 class NABERS_eligible_to_create_ESCs(Variable):
@@ -253,7 +274,8 @@ class NABERS_eligible_to_create_ESCs(Variable):
         clause_8_8_3_b)
         clause_8_8_4_a = buildings('historical_baseline_no_more_than_7_years_before_current_rating', period)
         clause_8_8_4_c = buildings('historical_baseline_rating_meets_similar_configuration_criteria', period)
-        clause_8_8_4 = (clause_8_8_4_a * clause_8_8_4_c)
+        clause_8_8_4 = (clause_8_8_4_a
+* clause_8_8_4_c)
         clause_8_8_8 = buildings('time_between_current_ratings_and_ESC_date_within_range', period)
         clause_8_8_10_b = buildings('time_between_historical_and_current_ratings_within_range', period)
         clause_8_8_10_c_i = not_(buildings('nabers_value_previously_used_to_set_historical_NABERS_rating', period))

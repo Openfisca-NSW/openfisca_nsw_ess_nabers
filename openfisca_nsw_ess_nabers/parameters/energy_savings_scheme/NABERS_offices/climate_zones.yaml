@@ -18219,7 +18219,7 @@ description: Climate zone values as called by buildings(postcode). Sourced from 
   values:
     2020-01-01:
       value: 25
-metadata: 
+metadata:
   type: single_amount
   threshold unit: postcode
   amount_unit: 1

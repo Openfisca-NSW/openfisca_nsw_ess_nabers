@@ -62,7 +62,8 @@ class year_one_forward_created_electricity_savings(Variable):
         benchmark_elec_consumption = buildings('benchmark_elec_consumption', period)
         measured_electricity_consumption = buildings('measured_electricity_consumption', period)
         regional_network_factor = buildings('regional_network_factor', period)
-        forward_created_electricity_savings = (benchmark_elec_consumption - measured_electricity_consumption) * regional_network_factor
+        forward_created_electricity_savings = (benchmark_elec_consumption
+        - measured_electricity_consumption) * regional_network_factor
         return forward_created_electricity_savings
 
 
@@ -76,7 +77,8 @@ class year_two_forward_created_electricity_savings(Variable):
         benchmark_elec_consumption = buildings('benchmark_elec_consumption', period)
         measured_electricity_consumption = buildings('measured_electricity_consumption', period)
         regional_network_factor = buildings('regional_network_factor', period)
-        forward_created_electricity_savings = (benchmark_elec_consumption - measured_electricity_consumption) * regional_network_factor
+        forward_created_electricity_savings = (benchmark_elec_consumption
+        - measured_electricity_consumption) * regional_network_factor
         return forward_created_electricity_savings
 
 
@@ -90,7 +92,8 @@ class year_three_forward_created_electricity_savings(Variable):
         benchmark_elec_consumption = buildings('benchmark_elec_consumption', period)
         measured_electricity_consumption = buildings('measured_electricity_consumption', period)
         regional_network_factor = buildings('regional_network_factor', period)
-        forward_created_electricity_savings = (benchmark_elec_consumption - measured_electricity_consumption) * regional_network_factor
+        forward_created_electricity_savings = (benchmark_elec_consumption
+        - measured_electricity_consumption) * regional_network_factor
         return forward_created_electricity_savings
 
 
@@ -104,7 +107,7 @@ class year_one_forward_created_gas_savings(Variable):
         benchmark_gas_consumption = buildings('benchmark_gas_consumption', period)
         measured_gas_consumption = buildings('measured_gas_consumption', period)
         gas_savings = benchmark_gas_consumption - measured_gas_consumption
-        return gas_savings  # Year based calculations are missing from this formula. Need to be added
+        return gas_savings
 
 
 class year_two_forward_created_gas_savings(Variable):
@@ -117,8 +120,7 @@ class year_two_forward_created_gas_savings(Variable):
         benchmark_gas_consumption = buildings('benchmark_gas_consumption', period)
         measured_gas_consumption = buildings('measured_gas_consumption', period)
         gas_savings = benchmark_gas_consumption - measured_gas_consumption
-        return gas_savings  # Year based calculations are missing from this formula. Need to be added
-
+        return gas_savings
 
 class year_three_forward_created_gas_savings(Variable):
     value_type = float
@@ -130,8 +132,7 @@ class year_three_forward_created_gas_savings(Variable):
         benchmark_gas_consumption = buildings('benchmark_gas_consumption', period)
         measured_gas_consumption = buildings('measured_gas_consumption', period)
         gas_savings = benchmark_gas_consumption - measured_gas_consumption
-        return gas_savings  # Year based calculations are missing from this formula. Need to be added
-
+        return gas_savings
 
 class total_forward_created_electricity_savings(Variable):
     value_type = float
@@ -141,7 +142,8 @@ class total_forward_created_electricity_savings(Variable):
 
     def formula(buildings, period, parameters):
         return select(
-            [years_of_forward_creation == 1, years_of_forward_creation == 2
+            [years_of_forward_creation == 1
+            , years_of_forward_creation == 2
             , years_of_forward_creation == 3],
             [year_one_forward_created_electricity_savings,
             year_one_forward_created_electricity_savings +
