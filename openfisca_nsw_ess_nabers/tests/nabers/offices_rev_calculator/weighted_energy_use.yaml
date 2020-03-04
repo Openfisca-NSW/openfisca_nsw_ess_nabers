@@ -1,0 +1,63 @@
+- name: test end formula for BASE BUILDING report - modelled, 10000 NLA, 10000 kWh, no gas, 10000L diesel
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: base_building
+    postcode: 4000
+    hours_per_week_with_20_percent_occupancy: 50
+    building_state_location: QLD
+    net_lettable_area: 10000
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 10000
+    gas_in_MJ: 0
+    diesel_in_litres: 10000
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    weighted_energy: 3.9152989449
+    office_maximum_electricity_consumption: 277118
+- name: test end formula for BASE BUILDING report - modelled, 10000 NLA, 10000 kWh, 10000MJ gas, no diesel
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: base_building
+    postcode: 4000
+    hours_per_week_with_20_percent_occupancy: 50
+    building_state_location: QLD
+    net_lettable_area: 10000
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 10000
+    gas_in_MJ: 10000
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    weighted_energy: 1.0755583951
+    office_maximum_electricity_consumption: 1008778
+- name: test end formula for BASE BUILDING report - modelled, 10000 NLA, 10000 kWh, 10000kg coal, no diesel
+  period: 2020
+  absolute_error_margin: 0.01
+  input:
+    end_date_of_current_nabers_rating_period: 2019-09-30
+    is_office: True
+    rating_type: base_building
+    postcode: 4000
+    hours_per_week_with_20_percent_occupancy: 50
+    building_state_location: QLD
+    net_lettable_area: 10000
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 10000
+    gas_in_MJ: 0
+    diesel_in_litres: 0
+    coal_in_KG: 10000
+    built_after_nov_2006: False
+  output:
+    weighted_energy: 2.984082798
+    office_maximum_electricity_consumption: 363595
