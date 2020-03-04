@@ -353,6 +353,7 @@
     end_date_of_current_nabers_rating_period: 2020-01-04
     end_date_of_historical_nabers_rating_period: 2019-01-01
     is_hospital: True
+    first_nabers_rating: False
   output:
     method_two: 4
 - name: Building is hospital, with a historical NABERS rating of 4 stars concluding 1st
@@ -363,6 +364,7 @@
     end_date_of_current_nabers_rating_period: 2020-01-04
     end_date_of_historical_nabers_rating_period: 2018-06-30
     is_hospital: True
+    first_nabers_rating: False
   output:
     method_two: 4
 - name: Building is hospital, with a historical NABERS rating of 4 stars concluding 1st
@@ -373,6 +375,7 @@
     end_date_of_current_nabers_rating_period: 2020-01-04
     end_date_of_historical_nabers_rating_period: 2018-01-01
     is_hospital: True
+    first_nabers_rating: False
   output:
     method_two: 4.08
 - name: Building is hospital, with a historical NABERS rating of 4 stars concluding 30 June 2017
@@ -382,6 +385,7 @@
     end_date_of_current_nabers_rating_period: 2020-01-04
     end_date_of_historical_nabers_rating_period: 2017-06-30
     is_hospital: True
+    first_nabers_rating: False
   output:
     method_two: 4.12
 - name: Building is hospital, with a historical NABERS rating of 4 stars concluding 1st
@@ -392,6 +396,7 @@
     end_date_of_current_nabers_rating_period: 2020-01-04
     end_date_of_historical_nabers_rating_period: 2017-01-01
     is_hospital: True
+    first_nabers_rating: False
   output:
     method_two: 4.12
 - name: Building is hospital, with a historical NABERS rating of 4 stars concluding 30 June 2016
@@ -401,6 +406,7 @@
     end_date_of_current_nabers_rating_period: 2020-01-04
     end_date_of_historical_nabers_rating_period: 2016-06-30
     is_hospital: True
+    first_nabers_rating: False
   output:
     method_two: 4.16
 - name: Building is hospital, with a historical NABERS rating of 4 stars concluding 1st
@@ -411,6 +417,7 @@
     end_date_of_current_nabers_rating_period: 2020-01-04
     end_date_of_historical_nabers_rating_period: 2016-01-01
     is_hospital: True
+    first_nabers_rating: False
   output:
     method_two: 4.16
 - name: Building is hospital, with a historical NABERS rating of 4 stars concluding 30 June 2015
@@ -420,6 +427,7 @@
     end_date_of_current_nabers_rating_period: 2020-01-04
     end_date_of_historical_nabers_rating_period: 2015-06-30
     is_hospital: True
+    first_nabers_rating: False
   output:
     method_two: 4.20
 - name: Building is hospital, with a historical NABERS rating of 4 stars concluding 1st
@@ -430,6 +438,7 @@
     end_date_of_current_nabers_rating_period: 2020-01-04
     end_date_of_historical_nabers_rating_period: 2015-01-01
     is_hospital: True
+    first_nabers_rating: False
   output:
     method_two: 4.20
 - name: Building is apartment, with a historical NABERS rating of 4 stars concluding 1st
@@ -440,6 +449,7 @@
     end_date_of_current_nabers_rating_period: 2020-01-04
     end_date_of_historical_nabers_rating_period: 2019-01-01
     is_apartment_building: True
+    first_nabers_rating: False
   output:
     method_two: 4
 - name: Building is apartment, with a historical NABERS rating of 4 stars concluding 1st
@@ -450,6 +460,7 @@
     end_date_of_current_nabers_rating_period: 2020-01-04
     end_date_of_historical_nabers_rating_period: 2018-06-30
     is_apartment_building: True
+    first_nabers_rating: False
   output:
     method_two: 4
 - name: Building is apartment building, with a historical NABERS rating of 4 stars concluding 1st
@@ -460,6 +471,7 @@
     end_date_of_current_nabers_rating_period: 2020-01-04
     end_date_of_historical_nabers_rating_period: 2018-01-01
     is_apartment_building: True
+    first_nabers_rating: False
   output:
     method_two: 4
 - name: Building is apartment building, with a historical NABERS rating of 4 stars concluding 30 June 2017
@@ -469,6 +481,7 @@
     end_date_of_current_nabers_rating_period: 2020-01-04
     end_date_of_historical_nabers_rating_period: 2017-06-30
     is_apartment_building: True
+    first_nabers_rating: False
   output:
     method_two: 4
 - name: Building is apartment building, with a historical NABERS rating of 4 stars concluding 1st
@@ -479,6 +492,7 @@
     end_date_of_current_nabers_rating_period: 2020-01-04
     end_date_of_historical_nabers_rating_period: 2017-01-01
     is_apartment_building: True
+    first_nabers_rating: False
   output:
     method_two: 4
 - name: Building is apartment building, with a historical NABERS rating of 4 stars concluding 30 June 2016
@@ -488,6 +502,7 @@
     end_date_of_current_nabers_rating_period: 2020-01-04
     end_date_of_historical_nabers_rating_period: 2016-06-30
     is_apartment_building: True
+    first_nabers_rating: False
   output:
     method_two: 4
 - name: Building is apartment building, with a historical NABERS rating of 4 stars concluding 1st
@@ -498,6 +513,7 @@
     end_date_of_current_nabers_rating_period: 2020-01-04
     end_date_of_historical_nabers_rating_period: 2016-01-01
     is_apartment_building: True
+    first_nabers_rating: False
   output:
     method_two: 4
 - name: Building is apartment building, with a historical NABERS rating of 4 stars concluding 30 June 2015
@@ -507,6 +523,7 @@
     end_date_of_current_nabers_rating_period: 2020-01-04
     end_date_of_historical_nabers_rating_period: 2015-06-30
     is_apartment_building: True
+    first_nabers_rating: False
   output:
     method_two: 4
 - name: Building is apartment building, with a historical NABERS rating of 4 stars concluding 1st
@@ -517,5 +534,6 @@
     end_date_of_current_nabers_rating_period: 2020-01-04
     end_date_of_historical_nabers_rating_period: 2015-01-01
     is_apartment_building: True
+    first_nabers_rating: False
   output:
     method_two: 4

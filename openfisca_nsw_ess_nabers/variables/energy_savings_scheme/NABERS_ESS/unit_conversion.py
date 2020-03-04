@@ -8,7 +8,9 @@ class coal_in_KG(Variable):
     value_type = float
     entity = Building
     definition_period = YEAR
-    label = "The amount of coal consumed at the site throughout the NABERS rating period, as indicated on the NABERS Rating Report, in kg per annum"
+    label = 'The amount of coal consumed at the site throughout the NABERS' \
+            ' rating period, as indicated on the NABERS Rating Report, in' \
+            ' kg per annum'
 
 
 class coal_KG_to_KWh(Variable):
@@ -25,7 +27,9 @@ class diesel_in_litres(Variable):
     value_type = float
     entity = Building
     definition_period = YEAR
-    label = "The amount of diesel comnsumed at the site throughout the NABERS rating period, as indicated on the NABERS Rating Report, in Litres per annum"
+    label = 'The amount of diesel comnsumed at the site throughout the NABERS' \
+            ' rating period, as indicated on the NABERS Rating Report, in' \
+            ' Litres per annum'
 
 
 class diesel_litres_to_KWh(Variable):
@@ -42,7 +46,9 @@ class gas_in_MJ(Variable):
     value_type = float
     entity = Building
     definition_period = YEAR
-    label = "The amount of gas consumed at the site throughout the NABERS rating period, as indicated on the NABERS Rating Report, in MJ per annum"
+    label = 'The amount of gas consumed at the site throughout the NABERS' \
+            ' rating period, as indicated on the NABERS Rating Report, in' \
+            ' MJ per annum'
 
 
 class gas_MJ_to_KWh(Variable):

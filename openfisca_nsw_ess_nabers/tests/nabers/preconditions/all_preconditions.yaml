@@ -1,6 +1,6 @@
 - name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
     using one of the following NABERS tools - is apartment and does not include
-    GreenPower
+    GreenPower. Uses Method 1. Is eligible for creating ESCs.
   period: 2020
   input:
     is_apartment_building: True
@@ -24,7 +24,37 @@
     nabers_value_lower_than_previous_historical_NABERS_value: False
   output:
     NABERS_eligible_to_create_ESCs: True
-- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+- name: Test eligibility requirements for Clause 8.8 - checks whether the NABERS
+    Rating is calculated using one of the following NABERS tools - is apartment
+    and does not include GreenPower. Uses Method 2. Current rating exceeds
+    benchmark by more than 0.5 stars. Distance between current and historical
+    rating is 15 months. Distance between current rating date and ESC creation
+    date is 2 months. Built before November 2006. Is eligible for creating ESCs.
+  period: 2020
+  input:
+    is_apartment_building: True
+    is_data_centre: False
+    is_hotel: False
+    is_hospital: False
+    is_office: False
+    is_shopping_centre: False
+    includes_GreenPower: False
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    end_date_of_historical_nabers_rating_period: 2019-09-30
+    ESC_creation_date: 2020-02-15
+    current_NABERS_star_rating: 5.5
+    built_after_nov_2006: False
+    first_nabers_rating: False
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+  output:
+    NABERS_eligible_to_create_ESCs: True
+- name: Test Clause 8.8 - checks whether the NABERS Rating is calculated
     using one of the following NABERS tools - is apartment and includes
     Greenpower thus not eligible for ESC creation
   period: 2020
@@ -153,6 +183,62 @@
     historical_baseline_no_more_than_7_years_before_current_rating: True
     historical_baseline_rating_meets_similar_configuration_criteria: True
     nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+  output:
+    NABERS_eligible_to_create_ESCs: False
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - distance between historical
+    baseline and current rating is more than 7 years, therefore not eligible
+    for creation
+  period: 2020
+  input:
+    is_apartment_building: True
+    is_data_centre: False
+    is_hotel: False
+    is_hospital: False
+    is_office: False
+    is_shopping_centre: False
+    includes_GreenPower: False
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    end_date_of_historical_nabers_rating_period: 2008-12-31
+    ESC_creation_date: 2020-02-15
+    current_NABERS_star_rating: 5.5
+    built_after_nov_2006: False
+    first_nabers_rating: False
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: False
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+  output:
+    NABERS_eligible_to_create_ESCs: False
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - historical NABERS rating does not
+    meet similar configuration criteria, therefore not eligible to generate
+    ESCs.
+  period: 2020
+  input:
+    is_apartment_building: True
+    is_data_centre: False
+    is_hotel: False
+    is_hospital: False
+    is_office: False
+    is_shopping_centre: False
+    includes_GreenPower: False
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    end_date_of_historical_nabers_rating_period: 2017-12-31
+    ESC_creation_date: 2020-02-15
+    current_NABERS_star_rating: 5.5
+    built_after_nov_2006: False
+    first_nabers_rating: False
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: False
+    nabers_value_previously_used_to_set_historical_NABERS_rating: True
     nabers_value_lower_than_previous_historical_NABERS_value: False
   output:
     NABERS_eligible_to_create_ESCs: False
