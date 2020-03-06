@@ -5,8 +5,6 @@ from openfisca_nsw_base.entities import *
 import numpy as np
 from openfisca_nsw_ess_nabers.variables.energy_savings_scheme.general_ESS.hidden_figures import get_parameters
 
-
-
 private = True
 if private:
     from openfisca_nsw_ess_nabers.variables.energy_savings_scheme.NABERS_offices import coefficient_values as c
@@ -139,11 +137,7 @@ class SGEelec(Variable):
 
     def formula(buildings, period, parameters):
         state = buildings('building_state_location', period)
-        return select(
-            [state == "ACT", state == "NSW", state == "NT", state == "QLD",
-             state == "SA", state == "TAS", state == "VIC", state == "WA"],
-            [0.94, 0.94, 0.69, 1.02, 0.95, 1, 1.34, 0.92]
-            )
+        return np.vectorize(c.SGE_coefficients.get)(state + "_SGE_elec")
 
 
 class SGEcoal (Variable):
@@ -154,16 +148,7 @@ class SGEcoal (Variable):
 
     def formula(buildings, period, parameters):
         state = buildings('building_state_location', period)
-        emissionsValue = {
-            "ACT": 0.32,
-            "NSW": 0.32,
-            "NT": 0.32,
-            "QLD": 0.32,
-            "TAS": 0.7,
-            "VIC": 0.32,
-            "WA": 0.32
-            }
-        return np.vectorize(emissionsValue.get)(state)
+        return np.vectorize(c.SGE_coefficients.get)(state + "_SGE_coal")
 
 
 class SGEoil (Variable):
@@ -174,11 +159,7 @@ class SGEoil (Variable):
 
     def formula(buildings, period, parameters):
         state = buildings('building_state_location', period)
-        return select(
-            [state == "ACT", state == "NSW", state == "NT", state == "QLD",
-             state == 'SA', state == "TAS", state == "VIC", state == "WA"],
-            [0.27, 0.27, 0.27, 0.27, 0.27, 0.75, 0.27, 0.27]
-            )
+        return np.vectorize(c.SGE_coefficients.get)(state + "_SGE_oil")
 
 
 class SGEtenancy (Variable):
@@ -313,7 +294,7 @@ class coefficient_A(Variable):
                         },
                 "NSW": {"whole_building": 6.760,
                         "tenancy": 6.7727,
-                        "base_building": 6.75 
+                        "base_building": 6.75
                         },
                 "NT": {"whole_building": 6.422206,
                         "tenancy": 6.413814,
@@ -325,7 +306,7 @@ class coefficient_A(Variable):
                         },
                 "SA": {"whole_building": 6.5247,
                         "tenancy": 6.2636,
-                        "base_building": 6.75 
+                        "base_building": 6.75
                         },
                 "TAS": {"whole_building": 6.5351,
                         "tenancy": 6.2636,
@@ -342,7 +323,7 @@ class coefficient_A(Variable):
                 }
 
         def double_get(d, x, y):
-            return d[x][y]
+            return (d[x][y])
         return np.vectorize(double_get)(coeff, state, rating_type)
 
 class coefficient_B(Variable):
@@ -434,13 +415,13 @@ class GEwholemax (Variable):
 
     def formula(buildings, period, parameters):
         condition_GEwholemax_star_rating = buildings('benchmark_star_rating', period) > 5
-        return where(condition_GEwholemax_star_rating, 0, 
-                    (buildings('NGEmax', period) - 
-                     buildings('f_base_building', period) * 
-                     buildings('GEclimcorr', period) - 
-                     buildings('f_tenancy', period) * 
+        return where(condition_GEwholemax_star_rating, 0,
+                    (buildings('NGEmax', period) -
+                     buildings('f_base_building', period) *
+                     buildings('GEclimcorr', period) -
+                     buildings('f_tenancy', period) *
                      buildings('GEClimcorr_tenancy', period)) * 2 /
-                    (buildings('f_base_building', period) + 
+                    (buildings('f_base_building', period) +
                         buildings('f_tenancy', period)))
 
 

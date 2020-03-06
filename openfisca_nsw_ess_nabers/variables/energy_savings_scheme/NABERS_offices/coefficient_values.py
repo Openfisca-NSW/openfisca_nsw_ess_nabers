@@ -33,7 +33,31 @@ SGE_coefficients = {
                     "SA_SGE_gas": 0.21,
                     "TAS_SGE_gas": 0.75,
                     "VIC_SGE_gas": 0.21,
-                    "WA_SGE_gas": 0.22
+                    "WA_SGE_gas": 0.22,
+                    "ACT_SGE_elec": 0.94,
+                    "NSW_SGE_elec": 0.94,
+                    "NT_SGE_elec": 0.69,
+                    "QLD_SGE_elec": 1.02,
+                    "SA_SGE_elec": 0.95,
+                    "TAS_SGE_elec": 1,
+                    "VIC_SGE_elec": 1.34,
+                    "WA_SGE_elec": 0.92,
+                    "ACT_SGE_coal": 0.32,
+                    "NSW_SGE_coal": 0.32,
+                    "NT_SGE_coal": 0.32,
+                    "QLD_SGE_coal": 0.32,
+                    "SA_SGE_coal": 0.32,
+                    "TAS_SGE_coal": 0.7,
+                    "VIC_SGE_coal": 0.32,
+                    "WA_SGE_coal": 0.32,
+                    "ACT_SGE_oil": 0.27,
+                    "NSW_SGE_oil": 0.27,
+                    "NT_SGE_oil": 0.27,
+                    "QLD_SGE_oil": 0.27,
+                    "SA_SGE_oil": 0.27,
+                    "TAS_SGE_oil": 0.75,
+                    "VIC_SGE_oil": 0.27,
+                    "WA_SGE_oil": 0.27
                     }
 
 
