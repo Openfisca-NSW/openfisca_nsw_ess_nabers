@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="openfisca-nsw-ess-nabers",
+    name="openfisca_nsw_ess_nabers",
     version="1.3.2",
     author="OpenFisca Team",
     author_email = 'sara.falamaki@customerservice.nsw.gov.au',
@@ -19,7 +19,7 @@ setup(
     url = "https://github.com/Openfisca-NSW/openfisca_nsw_ess_nabers",
     include_package_data = True,  # Will read MANIFEST.in
     data_files = [
-        ("share/openfisca/openfisca-nsw-ess-nabers", ["CHANGELOG.md", "LICENSE", "README.md"]),
+        ("share/openfisca/openfisca_nsw_ess_nabers", ["CHANGELOG.md", "LICENSE", "README.md"]),
         ],
     install_requires = [
         'OpenFisca-Core >= 25.3, < 35',
