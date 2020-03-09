@@ -257,7 +257,8 @@ class GEclimcorr (Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = "climate corrected greenhouse emissions for the relevant NABERS whole building"  # check this
+    label = 'climate corrected greenhouse emissions for the relevant' \
+            ' NABERS whole building.'
 
     def formula(buildings, period, parameters):
         Term1 = buildings('term_1', period)
@@ -272,7 +273,8 @@ class GEClimcorr_tenancy (Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = "weighted tenancy climate correct greenhouse emissions for the relevant NABERS building"
+    label = 'weighted tenancy climate correct greenhouse emissions for the' \
+            ' relevant NABERS building.'
 
     def formula(buildings, period, parameters):
         return (4000 * buildings('SGE_tenancy', period) * (0.008 - buildings('Dequip', period)))
@@ -282,90 +284,26 @@ class coefficient_A(Variable):
     value_type = float
     entity = Building
     definition_period = YEAR
-    label = "Rating equation coefficient_A used to calculate NABERS whole building ratings"
+    label = 'Rating equation coefficient_A used to calculate NABERS whole' \
+            ' building ratings.'
 
     def formula(buildings, period, parameters):
         state = buildings('building_state_location', period)
         rating_type = buildings('rating_type', period)
-        coeff = {
-                "ACT": {"whole_building": 6.7605,
-                        "tenancy": 6.7727,
-                        "base_building": 6.75
-                        },
-                "NSW": {"whole_building": 6.760,
-                        "tenancy": 6.7727,
-                        "base_building": 6.75
-                        },
-                "NT": {"whole_building": 6.422206,
-                        "tenancy": 6.413814,
-                        "base_building": 6.42932
-                        },
-                "QLD": {"whole_building": 7.1,
-                        "tenancy": 6.2667,
-                        "base_building": 8.35
-                        },
-                "SA": {"whole_building": 6.5247,
-                        "tenancy": 6.2636,
-                        "base_building": 6.75
-                        },
-                "TAS": {"whole_building": 6.5351,
-                        "tenancy": 6.2636,
-                        "base_building": 6.75
-                        },
-                "VIC": {"whole_building": 7.0114,
-                        "tenancy": 7.5889,
-                        "base_building":6.7544
-                        },
-                "WA": {"whole_building": 7.2857,
-                        "tenancy": 6.85,
-                        "base_building": 7.6818
-                      }
-                }
+        return np.vectorize(c.coefficient_A.get)(state + "_" + rating_type)
 
-        def double_get(d, x, y):
-            return (d[x][y])
-        return np.vectorize(double_get)(coeff, state, rating_type)
 
 class coefficient_B(Variable):
     value_type = float
     entity = Building
     definition_period = YEAR
-    label = "Rating equation coefficient_B used to calculate NABERS whole building ratings"
+    label = 'Rating equation coefficient_B used to calculate NABERS whole' \
+            ' building ratings.'
 
     def formula(buildings, period, parameters):
         state = buildings('building_state_location', period)
         rating_type = buildings('rating_type', period)
-        return select(
-            [state == "ACT" and rating_type == "whole_building"
-            , state == "ACT" and rating_type == "tenancy"
-            , state == "ACT" and rating_type == "base_building"
-            , state == "NSW" and rating_type == "whole_building"
-            , state == "NSW" and rating_type == "tenancy"
-            , state == "NSW" and rating_type == "base_building"
-            , state == "NT" and rating_type == "whole_building"
-            , state == "NT" and rating_type == "tenancy"
-            , state == "NT" and rating_type == "base_building"
-            , state == "QLD" and rating_type == "whole_building"
-            , state == "QLD" and rating_type == "tenancy"
-            , state == "QLD" and rating_type == "base_building"
-            , state == "SA" and rating_type == "whole_building"
-            , state == "SA" and rating_type == "tenancy"
-            , state == "SA" and rating_type == "base_building"
-            , state == "TAS" and rating_type == "whole_building"
-            , state == "TAS" and rating_type == "tenancy"
-            , state == "TAS" and rating_type == "base_building"
-            , state == "VIC" and rating_type == "whole_building"
-            , state == "VIC" and rating_type == "tenancy"
-            , state == "VIC" and rating_type == "base_building"
-            , state == "WA" and rating_type == "whole_building"
-            , state == "WA" and rating_type == "tenancy"
-            , state == "WA" and rating_type == "base_building"
-            ],
-            [-0.0168067, -0.036364, -0.03125, -0.0168067, -0.036364, -0.03125,
-			 -0.03323, -0.07242, -0.0614, -0.02, -0.0333, -0.05,
-			 -0.0166656, -0.0359809, -0.0310451, -0.0151039, -0.0341818, -0.0270617,
-			 -0.0148, -0.0444444, -0.0223, -0.02381, -0.05, -0.04545]
-            )
+        return np.vectorize(c.coefficient_B.get)(state + "_" + rating_type)
 
 
 class NGEmax (Variable):
@@ -411,7 +349,8 @@ class GEwholemax (Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = "Greenhouse emissions for relevant NABERS whole building - applicable above 5 stars"
+    label = 'Greenhouse emissions for relevant NABERS whole building' \
+            ' - applicable above 5 stars.'
 
     def formula(buildings, period, parameters):
         condition_GEwholemax_star_rating = buildings('benchmark_star_rating', period) > 5

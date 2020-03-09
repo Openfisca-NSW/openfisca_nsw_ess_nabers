@@ -371,4 +371,4 @@
     first_nabers_rating: True
     rating_not_obt_for_legal_requirement: True
   output:
-    benchmark_gas_consumption: 22654
+    benchmark_gas_consumption_mWh: 6292.7

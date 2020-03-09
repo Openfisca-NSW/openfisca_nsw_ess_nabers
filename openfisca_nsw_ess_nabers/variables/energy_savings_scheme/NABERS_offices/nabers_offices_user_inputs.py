@@ -8,6 +8,7 @@ import math
 float_formatter = "{:.9f}".format
 np.set_printoptions(formatter={'float_kind':float_formatter})
 
+
 # measured_electricity_consumption input at Step 1
 # measured_gas_consumption input at Step 1
 # onsite_unaccounted_electricity input at Step 1

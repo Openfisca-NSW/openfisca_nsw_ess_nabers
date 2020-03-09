@@ -21,10 +21,10 @@
   input:
     end_date_of_historical_nabers_rating_period: 2017-03-03
   output:
-    age_of_historical_rating: 2
+    age_of_historical_rating: 3
 - name: historical_rating_is_two_years_old
   period: 2020
   input:
     end_date_of_historical_nabers_rating_period: 2017-03-03
   output:
-    age_of_historical_rating: 2
+    age_of_historical_rating: 3

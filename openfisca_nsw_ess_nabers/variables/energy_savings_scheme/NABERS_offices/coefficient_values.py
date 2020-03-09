@@ -65,5 +65,60 @@ CDD_coefficients = {
                     "Climate_zone_64_value": 80,
                     }
 
+coefficient_A = {
+                    "ACT_whole_building": 6.7605,
+                    "ACT_base_building": 6.75,
+                    "ACT_tenancy": 6.7727,
+                    "NSW_whole_building": 6.760,
+                    "NSW_base_building": 6.75,
+                    "NSW_tenancy": 6.7727,
+                    "NT_whole_building": 6.422206,
+                    "NT_base_building": 6.42932,
+                    "NT_tenancy": 6.413814,
+                    "QLD_whole_building": 7.1,
+                    "QLD_base_building": 8.35,
+                    "QLD_tenancy": 6.2667,
+                    "SA_whole_building": 6.5247,
+                    "SA_base_building": 6.75,
+                    "SA_tenancy": 6.2636,
+                    "TAS_whole_building": 6.5351,
+                    "TAS_base_building": 6.75,
+                    "TAS_tenancy": 6.2636,
+                    "VIC_whole_building": 7.0114,
+                    "VIC_base_building": 6.7544,
+                    "VIC_tenancy": 7.5889,
+                    "WA_whole_building": 7.2857,
+                    "WA_base_building": 7.6818,
+                    "WA_tenancy": 6.85,
+                    }
+
+coefficient_B = {
+                    "ACT_whole_building": -0.0168067,
+                    "ACT_base_building": -0.03125,
+                    "ACT_tenancy": -0.036364,
+                    "NSW_whole_building": -0.0168067,
+                    "NSW_base_building": -0.03125,
+                    "NSW_tenancy": -0.036364,
+                    "NT_whole_building": -0.03323,
+                    "NT_base_building": -0.0614,
+                    "NT_tenancy": -0.07242,
+                    "QLD_whole_building": -0.02,
+                    "QLD_base_building": -0.05,
+                    "QLD_tenancy": -0.0333,
+                    "SA_whole_building": -0.0166656,
+                    "SA_base_building": -0.0310451,
+                    "SA_tenancy": -0.0359809,
+                    "TAS_whole_building": -0.0151039,
+                    "TAS_base_building": -0.0270617,
+                    "TAS_tenancy": -0.0341818,
+                    "VIC_whole_building": -0.0148,
+                    "VIC_base_building": -0.0223,
+                    "VIC_tenancy": -0.0444444,
+                    "WA_whole_building": -0.02381,
+                    "WA_base_building": -0.04545,
+                    "WA_tenancy": -0.05,
+                    }
+
+
 def has_real_values():
     return True

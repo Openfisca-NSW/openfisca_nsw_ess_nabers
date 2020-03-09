@@ -244,8 +244,8 @@
     first_nabers_rating: True
     rating_not_obt_for_legal_requirement: True
   output:
-    predicted_electricity_kWh: 419021
-- name: test of apartments reverse calculator w. rating AB1173 - predicted electricity kWh
+    predicted_electricity_kWh: 419021-
+  name: test of apartments reverse calculator w. rating AB1173 - predicted electricity kWh
   period: 2020
   absolute_error_margin: 0.1
   input:

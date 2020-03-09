@@ -41,7 +41,7 @@ class apartments_benchmark_elec_consumption(Variable):
         buildings('predicted_electricity_kWh', period), 0)
 
 
-class apartments_benchmark_gas_consumption(Variable):
+class apartments_benchmark_gas_consumption_MJ(Variable):
     value_type = float
     entity = Building
     definition_period = YEAR
@@ -67,7 +67,7 @@ class offices_benchmark_elec_consumption(Variable):
         buildings('office_maximum_electricity_consumption', period), 0)
 
 
-class offices_benchmark_gas_consumption(Variable):
+class offices_benchmark_gas_consumption_MJ(Variable):
     value_type = float
     entity = Building
     definition_period = YEAR
@@ -104,15 +104,25 @@ class benchmark_elec_consumption_mWh(Variable):
         return buildings('benchmark_elec_consumption', period) / 1000
 
 
-class benchmark_gas_consumption(Variable):
+class benchmark_gas_consumption_MJ(Variable):
     value_type = float
     entity = Building
     definition_period = YEAR
     label = "Benchmark gas consumption amount obtained from NABERS reverse calculator"
 
     def formula(buildings, period, parameters):
-        return select([buildings('is_office', period),
-        buildings('is_apartment_building', period)],
-        [buildings('office_maximum_gas_consumption', period),
-        buildings('apartments_benchmark_gas_consumption', period)]
+        return select([buildings('is_apartment_building', period),
+        buildings('is_office', period)],
+        [buildings('apartments_benchmark_gas_consumption_MJ', period),
+        buildings('office_maximum_gas_consumption', period)]
             )
+
+class benchmark_gas_consumption_mWh(Variable):
+    value_type = float
+    entity = Building
+    definition_period = YEAR
+    label = "Benchmark gas consumption amount obtained from NABERS reverse calculator"
+
+    def formula(buildings, period, parameters):
+        gas_MJ = buildings('benchmark_gas_consumption_MJ', period)
+        return gas_MJ / 3.6
