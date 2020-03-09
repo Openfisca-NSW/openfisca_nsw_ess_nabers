@@ -22,9 +22,9 @@ setup(
         ("share/openfisca/openfisca_nsw_ess_nabers", ["CHANGELOG.md", "LICENSE", "README.md"]),
         ],
     install_requires = [
-        'OpenFisca-Core >= 25.3, < 35',
-        'OpenFisca_nsw_base'
-
+        'OpenFisca_nsw_base',
+        'pandas',
+        'xlrd'
         ],
     extras_require = {
         "dev": [
