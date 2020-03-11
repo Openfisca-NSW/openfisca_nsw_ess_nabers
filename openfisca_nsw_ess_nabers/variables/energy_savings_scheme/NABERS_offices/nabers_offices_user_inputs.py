@@ -48,12 +48,41 @@ class number_of_computers(Variable):
     label = "The number of computers registered as used within the NABERS rating"
 
 
+class RatingTypeStatus(Enum):
+    whole_building = u"NABERS Office rating scope is for whole building"
+    base_building = u"NABERS Office rating scope is for base building"
+    tenancy = u"NABERS Office rating scope is for tenancy"
+
+
+class rating_type_status(Variable):
+    value_type = Enum
+    possible_values = RatingTypeStatus
+    default_value = RatingTypeStatus.whole_building
+    entity = Building
+    definition_period = ETERNITY
+    label = u'The rating type for the NABERS rated office, as entered by' \
+            ' the user.'
+
+
 class rating_type(Variable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
     label = 'The type of building rated within the NABERS Office suite. Also' \
             ' used to determine which reverse calculator is used.'
+
+    def formula(buildings, period, parameters):
+        rating_type = buildings('rating_type_status', period)
+        is_whole_building = (rating_type == RatingTypeStatus.whole_building)
+        is_base_building = (rating_type == RatingTypeStatus.base_building)
+        is_tenancy = (rating_type == RatingTypeStatus.tenancy)
+        return select([is_whole_building
+        , is_base_building
+        , is_tenancy],
+            ['whole_building'
+            , 'base_building'
+            , 'tenancy'])
+
 
 
 class benchmark_star_rating(Variable):
