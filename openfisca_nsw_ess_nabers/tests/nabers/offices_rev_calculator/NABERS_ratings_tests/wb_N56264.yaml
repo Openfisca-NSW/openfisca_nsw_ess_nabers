@@ -3,7 +3,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6
@@ -24,7 +24,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6
@@ -44,7 +44,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6
@@ -64,7 +64,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6
@@ -84,7 +84,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6
@@ -104,7 +104,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6
@@ -124,7 +124,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6
@@ -144,7 +144,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6
@@ -164,7 +164,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6
@@ -184,7 +184,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6
@@ -208,7 +208,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6
@@ -229,7 +229,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6
@@ -249,7 +249,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6
@@ -269,7 +269,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6
@@ -289,7 +289,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6
@@ -309,7 +309,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6
@@ -329,7 +329,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6
@@ -349,7 +349,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6
@@ -369,7 +369,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6
@@ -389,7 +389,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6
@@ -410,7 +410,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6
@@ -430,7 +430,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6
@@ -450,7 +450,7 @@
   absolute_error_margin: 1
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6
@@ -470,7 +470,7 @@
   absolute_error_margin: 2
   input:
     end_date_of_current_nabers_rating_period: 2019-09-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 5063
     hours_per_week_with_20_percent_occupancy: 50.6

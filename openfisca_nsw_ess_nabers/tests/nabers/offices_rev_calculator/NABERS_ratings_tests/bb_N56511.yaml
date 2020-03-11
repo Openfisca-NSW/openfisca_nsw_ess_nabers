@@ -3,7 +3,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
-    is_office: True
+    building_type_status: office
     rating_type: base_building
     postcode: 6000
     hours_per_week_with_20_percent_occupancy: 50.1
@@ -24,7 +24,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
-    is_office: True
+    building_type_status: office
     rating_type: base_building
     postcode: 6000
     hours_per_week_with_20_percent_occupancy: 50.1
@@ -44,7 +44,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
-    is_office: True
+    building_type_status: office
     rating_type: base_building
     postcode: 6000
     hours_per_week_with_20_percent_occupancy: 50.1
@@ -64,7 +64,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
-    is_office: True
+    building_type_status: office
     rating_type: base_building
     postcode: 6000
     hours_per_week_with_20_percent_occupancy: 50.1
@@ -84,7 +84,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
-    is_office: True
+    building_type_status: office
     rating_type: base_building
     postcode: 6000
     hours_per_week_with_20_percent_occupancy: 50.1
@@ -107,7 +107,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
-    is_office: True
+    building_type_status: office
     rating_type: base_building
     postcode: 6000
     hours_per_week_with_20_percent_occupancy: 50.1
@@ -128,7 +128,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
-    is_office: True
+    building_type_status: office
     rating_type: base_building
     postcode: 6000
     hours_per_week_with_20_percent_occupancy: 50.1
@@ -148,7 +148,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
-    is_office: True
+    building_type_status: office
     rating_type: base_building
     postcode: 6000
     hours_per_week_with_20_percent_occupancy: 50.1
@@ -168,7 +168,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
-    is_office: True
+    building_type_status: office
     rating_type: base_building
     postcode: 6000
     hours_per_week_with_20_percent_occupancy: 50.1
@@ -188,7 +188,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
-    is_office: True
+    building_type_status: office
     rating_type: base_building
     postcode: 6000
     hours_per_week_with_20_percent_occupancy: 50.1
@@ -208,7 +208,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
-    is_office: True
+    building_type_status: office
     rating_type: base_building
     postcode: 6000
     hours_per_week_with_20_percent_occupancy: 50.1
@@ -228,7 +228,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
-    is_office: True
+    building_type_status: office
     rating_type: base_building
     postcode: 6000
     hours_per_week_with_20_percent_occupancy: 50.1
@@ -248,7 +248,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
-    is_office: True
+    building_type_status: office
     rating_type: base_building
     postcode: 6000
     hours_per_week_with_20_percent_occupancy: 50.1
@@ -269,7 +269,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
-    is_office: True
+    building_type_status: office
     rating_type: base_building
     postcode: 6000
     hours_per_week_with_20_percent_occupancy: 50.1
@@ -289,7 +289,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
-    is_office: True
+    building_type_status: office
     rating_type: base_building
     postcode: 6000
     hours_per_week_with_20_percent_occupancy: 50.1
@@ -309,7 +309,7 @@
   absolute_error_margin: 1
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
-    is_office: True
+    building_type_status: office
     rating_type: base_building
     postcode: 6000
     hours_per_week_with_20_percent_occupancy: 50.1
@@ -329,7 +329,7 @@
   absolute_error_margin: 1
   input:
     end_date_of_current_nabers_rating_period: 2019-11-30
-    is_office: True
+    building_type_status: office
     rating_type: base_building
     postcode: 6000
     hours_per_week_with_20_percent_occupancy: 50.1

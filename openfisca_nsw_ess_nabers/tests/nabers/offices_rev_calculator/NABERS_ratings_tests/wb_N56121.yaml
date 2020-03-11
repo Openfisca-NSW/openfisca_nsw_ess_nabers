@@ -3,7 +3,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-08-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 4405
     hours_per_week_with_20_percent_occupancy: 45.2
@@ -24,7 +24,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-08-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 4405
     hours_per_week_with_20_percent_occupancy: 45.2
@@ -44,7 +44,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-08-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 4405
     hours_per_week_with_20_percent_occupancy: 45.2
@@ -64,7 +64,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-08-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 4405
     hours_per_week_with_20_percent_occupancy: 45.2
@@ -84,7 +84,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-08-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 4405
     hours_per_week_with_20_percent_occupancy: 45.2
@@ -104,7 +104,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-08-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 4405
     hours_per_week_with_20_percent_occupancy: 45.2
@@ -128,7 +128,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-08-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 4405
     hours_per_week_with_20_percent_occupancy: 45.2
@@ -149,7 +149,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-08-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 4405
     hours_per_week_with_20_percent_occupancy: 45.2
@@ -169,7 +169,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-08-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 4405
     hours_per_week_with_20_percent_occupancy: 45.2
@@ -189,7 +189,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-08-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 4405
     hours_per_week_with_20_percent_occupancy: 45.2
@@ -209,7 +209,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-08-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 4405
     hours_per_week_with_20_percent_occupancy: 45.2
@@ -229,7 +229,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-08-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 4405
     hours_per_week_with_20_percent_occupancy: 45.2
@@ -249,7 +249,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-08-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 4405
     hours_per_week_with_20_percent_occupancy: 45.2
@@ -269,7 +269,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-08-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 4405
     hours_per_week_with_20_percent_occupancy: 45.2
@@ -289,7 +289,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-08-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 4405
     hours_per_week_with_20_percent_occupancy: 45.2
@@ -309,7 +309,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-08-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 4405
     hours_per_week_with_20_percent_occupancy: 45.2
@@ -330,7 +330,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-08-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 4405
     hours_per_week_with_20_percent_occupancy: 45.2
@@ -350,7 +350,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-08-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 4405
     hours_per_week_with_20_percent_occupancy: 45.2
@@ -370,7 +370,7 @@
   absolute_error_margin: 1
   input:
     end_date_of_current_nabers_rating_period: 2019-08-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 4405
     hours_per_week_with_20_percent_occupancy: 45.2
@@ -390,7 +390,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-08-30
-    is_office: True
+    building_type_status: office
     rating_type: whole_building
     postcode: 4405
     hours_per_week_with_20_percent_occupancy: 45.2

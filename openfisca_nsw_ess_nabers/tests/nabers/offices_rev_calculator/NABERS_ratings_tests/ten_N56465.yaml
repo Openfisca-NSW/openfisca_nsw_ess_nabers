@@ -3,7 +3,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
-    is_office: True
+    building_type_status: office
     rating_type: tenancy
     postcode: 2016
     hours_per_week_with_20_percent_occupancy: 45.8
@@ -24,7 +24,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
-    is_office: True
+    building_type_status: office
     rating_type: tenancy
     postcode: 2016
     hours_per_week_with_20_percent_occupancy: 45.8
@@ -44,7 +44,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
-    is_office: True
+    building_type_status: office
     rating_type: tenancy
     postcode: 2016
     hours_per_week_with_20_percent_occupancy: 45.8
@@ -64,7 +64,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
-    is_office: True
+    building_type_status: office
     rating_type: tenancy
     postcode: 2016
     hours_per_week_with_20_percent_occupancy: 45.8
@@ -84,7 +84,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
-    is_office: True
+    building_type_status: office
     rating_type: tenancy
     postcode: 2016
     hours_per_week_with_20_percent_occupancy: 45.8
@@ -108,7 +108,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
-    is_office: True
+    building_type_status: office
     rating_type: tenancy
     postcode: 2016
     hours_per_week_with_20_percent_occupancy: 45.8
@@ -129,7 +129,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
-    is_office: True
+    building_type_status: office
     rating_type: tenancy
     postcode: 2016
     hours_per_week_with_20_percent_occupancy: 45.8
@@ -149,7 +149,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
-    is_office: True
+    building_type_status: office
     rating_type: tenancy
     postcode: 2016
     hours_per_week_with_20_percent_occupancy: 45.8
@@ -169,7 +169,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
-    is_office: True
+    building_type_status: office
     rating_type: tenancy
     postcode: 2016
     hours_per_week_with_20_percent_occupancy: 45.8
@@ -190,7 +190,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
-    is_office: True
+    building_type_status: office
     rating_type: tenancy
     postcode: 2016
     hours_per_week_with_20_percent_occupancy: 45.8
@@ -210,7 +210,7 @@
   absolute_error_margin: 0.01
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
-    is_office: True
+    building_type_status: office
     rating_type: tenancy
     postcode: 2016
     hours_per_week_with_20_percent_occupancy: 45.8
@@ -230,7 +230,7 @@
   absolute_error_margin: 1
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
-    is_office: True
+    building_type_status: office
     rating_type: tenancy
     postcode: 2016
     hours_per_week_with_20_percent_occupancy: 45.8
@@ -250,7 +250,7 @@
   absolute_error_margin: 1
   input:
     end_date_of_current_nabers_rating_period: 2019-12-31
-    is_office: True
+    building_type_status: office
     rating_type: tenancy
     postcode: 2016
     hours_per_week_with_20_percent_occupancy: 45.8

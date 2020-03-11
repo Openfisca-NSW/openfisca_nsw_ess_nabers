@@ -1,7 +1,7 @@
 - name: Building is office, built before Nov 2006, Rating year - 2015
   period: 2020
   input:
-    is_office: True
+    building_type_status: office
     built_after_nov_2006: False
     current_rating_year: 2015
   output:
@@ -9,7 +9,7 @@
 - name: Building is office, built after Nov 2006, Rating year - 2015
   period: 2020
   input:
-    is_office: True
+    building_type_status: office
     built_after_nov_2006: True
     current_rating_year: 2015
   output:
@@ -17,7 +17,7 @@
 - name: Building is hotel, built before Nov 2006, Rating year - 2015
   period: 2020
   input:
-    is_hotel: True
+    building_type_status: hotel
     built_after_nov_2006: False
     current_rating_year: 2015
   output:
@@ -25,7 +25,7 @@
 - name: Building is hotel, built after Nov 2006, Rating year - 2015
   period: 2020
   input:
-    is_hotel: True
+    building_type_status: hotel
     built_after_nov_2006: True
     current_rating_year: 2015
   output:
@@ -33,7 +33,7 @@
 - name: Building is shopping centre, built before Nov 2006, Rating year - 2015
   period: 2020
   input:
-    is_shopping_centre: True
+    building_type_status: shopping_centre
     built_after_nov_2006: False
     current_rating_year: 2015
   output:
@@ -41,7 +41,7 @@
 - name: Building is shopping centre, built after Nov 2006, Rating year - 2015
   period: 2020
   input:
-    is_shopping_centre: True
+    building_type_status: shopping_centre
     built_after_nov_2006: True
     current_rating_year: 2015
   output:
@@ -49,7 +49,7 @@
 - name: Building is data centre, built before Nov 2006, Rating year - 2015
   period: 2020
   input:
-    is_data_centre: True
+    building_type_status: data_centre
     built_after_nov_2006: False
     current_rating_year: 2015
   output:
@@ -57,7 +57,7 @@
 - name: Building is data centre, built after Nov 2006, Rating year - 2015
   period: 2020
   input:
-    is_data_centre: True
+    building_type_status: data_centre
     built_after_nov_2006: True
     current_rating_year: 2015
   output:
@@ -65,7 +65,7 @@
 - name: Building is hospital, built before Nov 2006, Rating year - 2015
   period: 2020
   input:
-    is_hospital: True
+    building_type_status: hospital
     built_after_nov_2006: False
     current_rating_year: 2015
   output:
@@ -73,7 +73,7 @@
 - name: Building is hospital, built after Nov 2006, Rating year - 2015
   period: 2020
   input:
-    is_hospital: True
+    building_type_status: hospital
     built_after_nov_2006: True
     current_rating_year: 2015
   output:
@@ -81,7 +81,7 @@
 - name: Building is apartment building, built before Nov 2006, Rating year - 2015
   period: 2020
   input:
-    is_apartment_building: True
+    building_type_status: apartment_building
     built_after_nov_2006: False
     current_rating_year: 2015
   output:
@@ -89,7 +89,7 @@
 - name: Building is apartment building, built after Nov 2006, Rating year - 2015
   period: 2020
   input:
-    is_apartment_building: True
+    building_type_status: apartment_building
     built_after_nov_2006: True
     current_rating_year: 2015
   output:
@@ -97,7 +97,7 @@
 - name: Building is office, built before Nov 2006, Rating year - 2016
   period: 2020
   input:
-    is_office: True
+    building_type_status: office
     built_after_nov_2006: False
     current_rating_year: 2016
   output:
@@ -105,7 +105,7 @@
 - name: Building is office, built after Nov 2006, Rating year - 2016
   period: 2020
   input:
-    is_office: True
+    building_type_status: office
     built_after_nov_2006: True
     current_rating_year: 2016
   output:
@@ -113,7 +113,7 @@
 - name: Building is hotel, built before Nov 2006, Rating year - 2016
   period: 2020
   input:
-    is_hotel: True
+    building_type_status: hotel
     built_after_nov_2006: False
     current_rating_year: 2016
   output:
@@ -121,7 +121,7 @@
 - name: Building is hotel, built after Nov 2006, Rating year - 2016
   period: 2020
   input:
-    is_hotel: True
+    building_type_status: hotel
     built_after_nov_2006: True
     current_rating_year: 2016
   output:
@@ -129,7 +129,7 @@
 - name: Building is shopping centre, built before Nov 2006, Rating year - 2016
   period: 2020
   input:
-    is_shopping_centre: True
+    building_type_status: shopping_centre
     built_after_nov_2006: False
     current_rating_year: 2016
   output:
@@ -137,7 +137,7 @@
 - name: Building is shopping centre, built after Nov 2006, Rating year - 2016
   period: 2020
   input:
-    is_shopping_centre: True
+    building_type_status: shopping_centre
     built_after_nov_2006: True
     current_rating_year: 2016
   output:
@@ -145,7 +145,7 @@
 - name: Building is data centre, built before Nov 2006, Rating year - 2016
   period: 2020
   input:
-    is_data_centre: True
+    building_type_status: data_centre
     built_after_nov_2006: False
     current_rating_year: 2016
   output:
@@ -153,7 +153,7 @@
 - name: Building is data centre, built after Nov 2006, Rating year - 2016
   period: 2020
   input:
-    is_data_centre: True
+    building_type_status: data_centre
     built_after_nov_2006: True
     current_rating_year: 2016
   output:
@@ -161,7 +161,7 @@
 - name: Building is hospital, built before Nov 2006, Rating year - 2016
   period: 2020
   input:
-    is_hospital: True
+    building_type_status: hospital
     built_after_nov_2006: False
     current_rating_year: 2016
   output:
@@ -169,7 +169,7 @@
 - name: Building is hospital, built after Nov 2006, Rating year - 2016
   period: 2020
   input:
-    is_hospital: True
+    building_type_status: hospital
     built_after_nov_2006: True
     current_rating_year: 2016
   output:
@@ -177,7 +177,7 @@
 - name: Building is apartment building, built before Nov 2006, Rating year - 2016
   period: 2020
   input:
-    is_apartment_building: True
+    building_type_status: apartment_building
     built_after_nov_2006: False
     current_rating_year: 2016
   output:
@@ -185,7 +185,7 @@
 - name: Building is apartment building, built after Nov 2006, Rating year - 2016
   period: 2020
   input:
-    is_apartment_building: True
+    building_type_status: apartment_building
     built_after_nov_2006: True
     current_rating_year: 2016
   output:
@@ -193,7 +193,7 @@
 - name: Building is office, built before Nov 2006, Rating year - 2017
   period: 2020
   input:
-    is_office: True
+    building_type_status: office
     built_after_nov_2006: False
     current_rating_year: 2017
   output:
@@ -201,7 +201,7 @@
 - name: Building is office, built after Nov 2006, Rating year - 2017
   period: 2020
   input:
-    is_office: True
+    building_type_status: office
     built_after_nov_2006: True
     current_rating_year: 2017
   output:
@@ -209,7 +209,7 @@
 - name: Building is hotel, built before Nov 2006, Rating year - 2017
   period: 2020
   input:
-    is_hotel: True
+    building_type_status: hotel
     built_after_nov_2006: False
     current_rating_year: 2017
   output:
@@ -217,7 +217,7 @@
 - name: Building is hotel, built after Nov 2006, Rating year - 2017
   period: 2020
   input:
-    is_hotel: True
+    building_type_status: hotel
     built_after_nov_2006: True
     current_rating_year: 2017
   output:
@@ -225,7 +225,7 @@
 - name: Building is shopping centre, built before Nov 2006, Rating year - 2017
   period: 2020
   input:
-    is_shopping_centre: True
+    building_type_status: shopping_centre
     built_after_nov_2006: False
     current_rating_year: 2017
   output:
@@ -233,7 +233,7 @@
 - name: Building is shopping centre, built after Nov 2006, Rating year - 2017
   period: 2020
   input:
-    is_shopping_centre: True
+    building_type_status: shopping_centre
     built_after_nov_2006: True
     current_rating_year: 2017
   output:
@@ -241,7 +241,7 @@
 - name: Building is data centre, built before Nov 2006, Rating year - 2017
   period: 2020
   input:
-    is_data_centre: True
+    building_type_status: data_centre
     built_after_nov_2006: False
     current_rating_year: 2017
   output:
@@ -249,7 +249,7 @@
 - name: Building is data centre, built after Nov 2006, Rating year - 2017
   period: 2020
   input:
-    is_data_centre: True
+    building_type_status: data_centre
     built_after_nov_2006: True
     current_rating_year: 2017
   output:
@@ -257,7 +257,7 @@
 - name: Building is hospital, built before Nov 2006, Rating year - 2017
   period: 2020
   input:
-    is_hospital: True
+    building_type_status: hospital
     built_after_nov_2006: False
     current_rating_year: 2017
   output:
@@ -265,7 +265,7 @@
 - name: Building is hospital, built after Nov 2006, Rating year - 2017
   period: 2020
   input:
-    is_hospital: True
+    building_type_status: hospital
     built_after_nov_2006: True
     current_rating_year: 2017
   output:
@@ -273,7 +273,7 @@
 - name: Building is apartment building, built before Nov 2006, Rating year - 2017
   period: 2020
   input:
-    is_apartment_building: True
+    building_type_status: apartment_building
     built_after_nov_2006: False
     current_rating_year: 2017
   output:
@@ -281,7 +281,7 @@
 - name: Building is apartment building, built after Nov 2006, Rating year - 2017
   period: 2020
   input:
-    is_apartment_building: True
+    building_type_status: apartment_building
     built_after_nov_2006: True
     current_rating_year: 2017
   output:
@@ -289,7 +289,7 @@
 - name: Building is office, built before Nov 2006, Rating year - 2018
   period: 2020
   input:
-    is_office: True
+    building_type_status: office
     built_after_nov_2006: False
     current_rating_year: 2018
   output:
@@ -297,7 +297,7 @@
 - name: Building is office, built after Nov 2006, Rating year - 2018
   period: 2020
   input:
-    is_office: True
+    building_type_status: office
     built_after_nov_2006: True
     current_rating_year: 2018
   output:
@@ -305,7 +305,7 @@
 - name: Building is hotel, built before Nov 2006, Rating year - 2018
   period: 2020
   input:
-    is_hotel: True
+    building_type_status: hotel
     built_after_nov_2006: False
     current_rating_year: 2018
   output:
@@ -313,7 +313,7 @@
 - name: Building is hotel, built after Nov 2006, Rating year - 2018
   period: 2020
   input:
-    is_hotel: True
+    building_type_status: hotel
     built_after_nov_2006: True
     current_rating_year: 2018
   output:
@@ -321,7 +321,7 @@
 - name: Building is shopping centre, built before Nov 2006, Rating year - 2018
   period: 2020
   input:
-    is_shopping_centre: True
+    building_type_status: shopping_centre
     built_after_nov_2006: False
     current_rating_year: 2018
   output:
@@ -329,7 +329,7 @@
 - name: Building is shopping centre, built after Nov 2006, Rating year - 2018
   period: 2020
   input:
-    is_shopping_centre: True
+    building_type_status: shopping_centre
     built_after_nov_2006: True
     current_rating_year: 2018
   output:
@@ -337,7 +337,7 @@
 - name: Building is data centre, built before Nov 2006, Rating year - 2018
   period: 2020
   input:
-    is_data_centre: True
+    building_type_status: data_centre
     built_after_nov_2006: False
     current_rating_year: 2018
   output:
@@ -345,7 +345,7 @@
 - name: Building is data centre, built after Nov 2006, Rating year - 2018
   period: 2020
   input:
-    is_data_centre: True
+    building_type_status: data_centre
     built_after_nov_2006: True
     current_rating_year: 2018
   output:
@@ -353,7 +353,7 @@
 - name: Building is hospital, built before Nov 2006, Rating year - 2018
   period: 2020
   input:
-    is_hospital: True
+    building_type_status: hospital
     built_after_nov_2006: False
     current_rating_year: 2018
   output:
@@ -361,7 +361,7 @@
 - name: Building is hospital, built after Nov 2006, Rating year - 2018
   period: 2020
   input:
-    is_hospital: True
+    building_type_status: hospital
     built_after_nov_2006: True
     current_rating_year: 2018
   output:
@@ -369,7 +369,7 @@
 - name: Building is apartment building, built before Nov 2006, Rating year - 2018
   period: 2020
   input:
-    is_apartment_building: True
+    building_type_status: apartment_building
     built_after_nov_2006: False
     current_rating_year: 2018
   output:
@@ -377,7 +377,7 @@
 - name: Building is apartment building, built after Nov 2006, Rating year - 2018
   period: 2020
   input:
-    is_apartment_building: True
+    building_type_status: apartment_building
     built_after_nov_2006: True
     current_rating_year: 2018
   output:
@@ -385,7 +385,7 @@
 - name: Building is office, built before Nov 2006, Rating year - 2019
   period: 2020
   input:
-    is_office: True
+    building_type_status: office
     built_after_nov_2006: False
     current_rating_year: 2019
   output:
@@ -393,7 +393,7 @@
 - name: Building is office, built after Nov 2006, Rating year - 2019
   period: 2020
   input:
-    is_office: True
+    building_type_status: office
     built_after_nov_2006: True
     current_rating_year: 2019
   output:
@@ -401,7 +401,7 @@
 - name: Building is hotel, built before Nov 2006, Rating year - 2019
   period: 2020
   input:
-    is_hotel: True
+    building_type_status: hotel
     built_after_nov_2006: False
     current_rating_year: 2019
   output:
@@ -409,7 +409,7 @@
 - name: Building is hotel, built after Nov 2006, Rating year - 2019
   period: 2020
   input:
-    is_hotel: True
+    building_type_status: hotel
     built_after_nov_2006: True
     current_rating_year: 2019
   output:
@@ -417,7 +417,7 @@
 - name: Building is shopping centre, built before Nov 2006, Rating year - 2019
   period: 2020
   input:
-    is_shopping_centre: True
+    building_type_status: shopping_centre
     built_after_nov_2006: False
     current_rating_year: 2019
   output:
@@ -425,7 +425,7 @@
 - name: Building is shopping centre, built after Nov 2006, Rating year - 2019
   period: 2020
   input:
-    is_shopping_centre: True
+    building_type_status: shopping_centre
     built_after_nov_2006: True
     current_rating_year: 2019
   output:
@@ -433,7 +433,7 @@
 - name: Building is data centre, built before Nov 2006, Rating year - 2019
   period: 2020
   input:
-    is_data_centre: True
+    building_type_status: data_centre
     built_after_nov_2006: False
     current_rating_year: 2019
   output:
@@ -441,7 +441,7 @@
 - name: Building is data centre, built after Nov 2006, Rating year - 2019
   period: 2020
   input:
-    is_data_centre: True
+    building_type_status: data_centre
     built_after_nov_2006: True
     current_rating_year: 2019
   output:
@@ -449,7 +449,7 @@
 - name: Building is hospital, built before Nov 2006, Rating year - 2019
   period: 2020
   input:
-    is_hospital: True
+    building_type_status: hospital
     built_after_nov_2006: False
     current_rating_year: 2019
   output:
@@ -457,7 +457,7 @@
 - name: Building is hospital, built after Nov 2006, Rating year - 2019
   period: 2020
   input:
-    is_hospital: True
+    building_type_status: hospital
     built_after_nov_2006: True
     current_rating_year: 2019
   output:
@@ -465,7 +465,7 @@
 - name: Building is apartment building, built before Nov 2006, Rating year - 2019
   period: 2020
   input:
-    is_apartment_building: True
+    building_type_status: apartment_building
     built_after_nov_2006: False
     current_rating_year: 2019
   output:
@@ -473,7 +473,7 @@
 - name: Building is apartment building, built after Nov 2006, Rating year - 2019
   period: 2020
   input:
-    is_apartment_building: True
+    building_type_status: apartment_building
     built_after_nov_2006: True
     current_rating_year: 2019
   output:
@@ -481,7 +481,7 @@
 - name: Building is office, built before Nov 2006, Rating year - 2020
   period: 2020
   input:
-    is_office: True
+    building_type_status: office
     built_after_nov_2006: False
     current_rating_year: 2020
   output:
@@ -489,7 +489,7 @@
 - name: Building is office, built after Nov 2006, Rating year - 2020
   period: 2020
   input:
-    is_office: True
+    building_type_status: office
     built_after_nov_2006: True
     current_rating_year: 2020
   output:
@@ -497,7 +497,7 @@
 - name: Building is hotel, built before Nov 2006, Rating year - 2020
   period: 2020
   input:
-    is_hotel: True
+    building_type_status: hotel
     built_after_nov_2006: False
     current_rating_year: 2020
   output:
@@ -505,7 +505,7 @@
 - name: Building is hotel, built after Nov 2006, Rating year - 2020
   period: 2020
   input:
-    is_hotel: True
+    building_type_status: hotel
     built_after_nov_2006: True
     current_rating_year: 2020
   output:
@@ -513,7 +513,7 @@
 - name: Building is shopping centre, built before Nov 2006, Rating year - 2020
   period: 2020
   input:
-    is_shopping_centre: True
+    building_type_status: shopping_centre
     built_after_nov_2006: False
     current_rating_year: 2020
   output:
@@ -521,7 +521,7 @@
 - name: Building is shopping centre, built after Nov 2006, Rating year - 2020
   period: 2020
   input:
-    is_shopping_centre: True
+    building_type_status: shopping_centre
     built_after_nov_2006: True
     current_rating_year: 2020
   output:
@@ -529,7 +529,7 @@
 - name: Building is data centre, built before Nov 2006, Rating year - 2020
   period: 2020
   input:
-    is_data_centre: True
+    building_type_status: data_centre
     built_after_nov_2006: False
     current_rating_year: 2020
   output:
@@ -537,7 +537,7 @@
 - name: Building is data centre, built after Nov 2006, Rating year - 2020
   period: 2020
   input:
-    is_data_centre: True
+    building_type_status: data_centre
     built_after_nov_2006: True
     current_rating_year: 2020
   output:
@@ -545,7 +545,7 @@
 - name: Building is hospital, built before Nov 2006, Rating year - 2020
   period: 2020
   input:
-    is_hospital: True
+    building_type_status: hospital
     built_after_nov_2006: False
     current_rating_year: 2020
   output:
@@ -553,7 +553,7 @@
 - name: Building is hospital, built after Nov 2006, Rating year - 2020
   period: 2020
   input:
-    is_hospital: True
+    building_type_status: hospital
     built_after_nov_2006: True
     current_rating_year: 2020
   output:
@@ -561,7 +561,7 @@
 - name: Building is apartment building, built before Nov 2006, Rating year - 2020
   period: 2020
   input:
-    is_apartment_building: True
+    building_type_status: apartment_building
     built_after_nov_2006: False
     current_rating_year: 2020
   output:
@@ -569,7 +569,7 @@
 - name: Building is apartment building, built after Nov 2006, Rating year - 2020
   period: 2020
   input:
-    is_apartment_building: True
+    building_type_status: apartment_building
     built_after_nov_2006: True
     current_rating_year: 2020
   output:
@@ -577,7 +577,7 @@
 - name: Building is office, built before Nov 2006, Rating year - 2022
   period: 2020
   input:
-    is_office: True
+    building_type_status: office
     built_after_nov_2006: False
     current_rating_year: 2022
   output:
@@ -585,7 +585,7 @@
 - name: Building is office, built after Nov 2006, Rating year - 2022
   period: 2020
   input:
-    is_office: True
+    building_type_status: office
     built_after_nov_2006: True
     current_rating_year: 2022
   output:
@@ -593,7 +593,7 @@
 - name: Building is hotel, built before Nov 2006, Rating year - 2022
   period: 2020
   input:
-    is_hotel: True
+    building_type_status: hotel
     built_after_nov_2006: False
     current_rating_year: 2022
   output:
@@ -601,7 +601,7 @@
 - name: Building is hotel, built after Nov 2006, Rating year - 2022
   period: 2020
   input:
-    is_hotel: True
+    building_type_status: hotel
     built_after_nov_2006: True
     current_rating_year: 2022
   output:
@@ -609,7 +609,7 @@
 - name: Building is shopping centre, built before Nov 2006, Rating year - 2022
   period: 2020
   input:
-    is_shopping_centre: True
+    building_type_status: shopping_centre
     built_after_nov_2006: False
     current_rating_year: 2022
   output:
@@ -617,7 +617,7 @@
 - name: Building is shopping centre, built after Nov 2006, Rating year - 2022
   period: 2020
   input:
-    is_shopping_centre: True
+    building_type_status: shopping_centre
     built_after_nov_2006: True
     current_rating_year: 2022
   output:
@@ -625,7 +625,7 @@
 - name: Building is data centre, built before Nov 2006, Rating year - 2022
   period: 2020
   input:
-    is_data_centre: True
+    building_type_status: data_centre
     built_after_nov_2006: False
     current_rating_year: 2022
   output:
@@ -633,7 +633,7 @@
 - name: Building is data centre, built after Nov 2006, Rating year - 2022
   period: 2020
   input:
-    is_data_centre: True
+    building_type_status: data_centre
     built_after_nov_2006: True
     current_rating_year: 2022
   output:
@@ -641,7 +641,7 @@
 - name: Building is hospital, built before Nov 2006, Rating year - 2022
   period: 2020
   input:
-    is_hospital: True
+    building_type_status: hospital
     built_after_nov_2006: False
     current_rating_year: 2022
   output:
@@ -649,7 +649,7 @@
 - name: Building is hospital, built after Nov 2006, Rating year - 2022
   period: 2020
   input:
-    is_hospital: True
+    building_type_status: hospital
     built_after_nov_2006: True
     current_rating_year: 2020
   output:
@@ -657,7 +657,7 @@
 - name: Building is apartment building, built before Nov 2006, Rating year - 2022
   period: 2020
   input:
-    is_apartment_building: True
+    building_type_status: apartment_building
     built_after_nov_2006: False
     current_rating_year: 2022
   output:
@@ -665,7 +665,7 @@
 - name: Building is apartment building, built after Nov 2006, Rating year - 2022
   period: 2020
   input:
-    is_apartment_building: True
+    building_type_status: apartment_building
     built_after_nov_2006: True
     current_rating_year: 2022
   output:

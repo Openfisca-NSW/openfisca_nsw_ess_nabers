@@ -17,7 +17,7 @@
     built_after_nov_2006: False
     first_nabers_rating: True
     rating_not_obt_for_legal_requirement: True
-    is_apartment_building: True
+    building_type_status: is_apartment_building
   output:
     apartments_benchmark: 3.5
 - name: test of apartments reverse calculator w. rating AB1100 - total kWh usage

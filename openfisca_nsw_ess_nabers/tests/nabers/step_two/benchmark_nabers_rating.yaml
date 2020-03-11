@@ -4,7 +4,7 @@
   input:
     first_nabers_rating: True
     rating_not_obt_for_legal_requirement: True
-    is_apartment_building: True
+    building_type_status: apartment_building
     built_after_nov_2006: True
     end_date_of_current_nabers_rating_period: 2019-10-31
   output:
@@ -15,7 +15,7 @@
   input:
     first_nabers_rating: True
     rating_not_obt_for_legal_requirement: True
-    is_apartment_building: True
+    building_type_status: apartment_building
     built_after_nov_2006: False
     end_date_of_current_nabers_rating_period: 2019-10-31
   output:
@@ -27,7 +27,7 @@
   input:
     first_nabers_rating: False
     rating_not_obt_for_legal_requirement: True
-    is_apartment_building: True
+    building_type_status: apartment_building
     built_after_nov_2006: False
     end_date_of_current_nabers_rating_period: 2019-10-31
     end_date_of_historical_nabers_rating_period: 2015-03-02
@@ -42,7 +42,7 @@
   input:
     first_nabers_rating: False
     rating_not_obt_for_legal_requirement: True
-    is_office: True
+    building_type_status: office
     built_after_nov_2006: False
     end_date_of_current_nabers_rating_period: 2019-10-31
     end_date_of_historical_nabers_rating_period: 2015-03-02
@@ -59,7 +59,7 @@
   input:
     first_nabers_rating: False
     rating_not_obt_for_legal_requirement: True
-    is_office: True
+    building_type_status: office
     built_after_nov_2006: False
     end_date_of_current_nabers_rating_period: 2019-10-31
     end_date_of_historical_nabers_rating_period: 2015-03-02

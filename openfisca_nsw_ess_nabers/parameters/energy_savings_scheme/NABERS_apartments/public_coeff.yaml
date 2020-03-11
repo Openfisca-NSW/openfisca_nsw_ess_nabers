@@ -1,0 +1,5 @@
+description: A central AC coefficient (need to check with NABERS as to what this actually is)
+reference: NABERS Reverse Calculator for Apartments, v. 1.1, October 2019.
+values:
+  2020-01-01:
+    value: -1
