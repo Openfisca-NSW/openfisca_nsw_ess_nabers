@@ -242,7 +242,6 @@
     predicted_electricity_kWh: 843539
 - name: test of apartments reverse calculator w. rating AB1174 - predicted electricity kWh
   period: 2020
-  absolute_error_margin: 0.5
   input:
     is_apartment_building: True
     is_office: False

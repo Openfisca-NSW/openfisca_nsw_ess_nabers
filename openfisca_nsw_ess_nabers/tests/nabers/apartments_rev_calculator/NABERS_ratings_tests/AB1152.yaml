@@ -233,7 +233,6 @@
     actual_GHG_KG_CO2: 750336.8076
 - name: test of apartments reverse calculator w. rating AB1174 - actual_GHG_KG_CO2_elec
   period: 2020
-  absolute_error_margin: 1
   input:
     is_apartment_building: True
     end_date_of_current_nabers_rating_period: 2019-04-30
