@@ -25,22 +25,27 @@ def find_corresponding_date(start_date):
         next_month = 1
         next_year = year+1
     try:
-        new_date = np_datetime(year=next_year, month=next_month, day=day)
+        new_date = py_datetime(year=next_year, month=next_month, day=day)
     except ValueError:
         next_month = next_month + 1
         if next_month == 13:
             next_month = 1
             next_year = next_year+1
-        new_date = np_datetime(year=next_year, month=next_month, day=1)
+        new_date = py_datetime(year=next_year, month=next_month, day=1)
         return new_date
 
     else:
         return new_date
 
 
-def count_months(start_date, end_date):
-    start_date = pd.to_datetime(start_date)
-    end_date = pd.to_datetime(end_date)
+
+def toPyDateTime(numpyDate):
+    return py_datetime.strptime(str(numpyDate), "%Y-%m-%d")
+
+
+def count_months(sdate, edate):
+    start_date = toPyDateTime(sdate)
+    end_date = toPyDateTime(edate) 
     count = 0
     corres_date = start_date
     while(True):
@@ -206,9 +211,9 @@ class current_rating_period_length(Variable):
         start_date = (buildings(
             'start_date_of_current_nabers_rating_period', period
             ).astype('datetime64[D]'))
-        import pdb; pdb.set_trace()
-        rating_period_length = count_months(start_date, end_date)
+        rating_period_length = np.fromiter(map(count_months, start_date, end_date),int)
         return rating_period_length # need to redefine months as defined in Interpretations Act - as period from period between defined day and the corresponding day in the following month
+
 
 
 class historical_rating_period_length(Variable):
