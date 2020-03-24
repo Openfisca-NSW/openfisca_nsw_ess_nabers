@@ -7,7 +7,6 @@ import numpy as np
 import datetime
 from datetime import datetime as py_datetime
 from numpy import datetime64 as np_datetime
-import calendar
 import pandas as pd
 
 epoch = time.gmtime(0).tm_year
@@ -16,7 +15,6 @@ today = today_date_and_time.astype('datetime64[D]')
 
 
 def find_corresponding_date(start_date):
-    start_date = pd.to_datetime(start_date)
     day = start_date.day
     month = start_date.month
     year = start_date.year
@@ -42,7 +40,7 @@ def find_corresponding_date(start_date):
 
 def count_months(start_date, end_date):
     start_date = pd.to_datetime(start_date)
-    start_date = pd.to_datetime(end_date)
+    end_date = pd.to_datetime(end_date)
     count = 0
     corres_date = start_date
     while(True):
@@ -208,6 +206,7 @@ class current_rating_period_length(Variable):
         start_date = (buildings(
             'start_date_of_current_nabers_rating_period', period
             ).astype('datetime64[D]'))
+        import pdb; pdb.set_trace()
         rating_period_length = count_months(start_date, end_date)
         return rating_period_length # need to redefine months as defined in Interpretations Act - as period from period between defined day and the corresponding day in the following month
 

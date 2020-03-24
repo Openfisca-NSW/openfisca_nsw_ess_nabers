@@ -3,7 +3,6 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 from datetime import datetime
-import calendar
 
 
 def find_corresponding_date(start_date):
@@ -36,6 +35,7 @@ def count_months(start_date, end_date):
     corres_date = start_date
     while(True):
         corres_date = find_corresponding_date(corres_date)
+        print(corres_date)
         if(corres_date > end_date):
             return count
         else:

@@ -244,7 +244,7 @@
     rating_not_obt_for_legal_requirement: True
   output:
     predicted_electricity_kWh: 419021
-  name: test of apartments reverse calculator w. rating AB1173 - predicted electricity savings
+- name: test of apartments reverse calculator w. rating AB1173 - predicted electricity savings
   period: 2020
   absolute_error_margin: 0.1
   input:
