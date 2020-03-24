@@ -4,11 +4,50 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 import time
 import numpy as np
-import datetime
+import datetime as datetime
+import calendar
+import pandas as pd
 
 epoch = time.gmtime(0).tm_year
 today_date_and_time = np.datetime64(datetime.datetime.now())
 today = today_date_and_time.astype('datetime64[D]')
+
+
+def find_corresponding_date(start_date):
+    start_date = pd.to_datetime(start_date)
+    day = start_date.day
+    month = start_date.month
+    year = start_date.year
+    next_month = month + 1
+    next_year = year
+
+    if month == 12:
+        next_month = 1
+        next_year = year+1
+    try:
+        new_date = datetime(year=next_year, month=next_month, day=day)
+    except ValueError:
+        next_month = next_month + 1
+        if next_month == 13:
+            next_month = 1
+            next_year = next_year+1
+        new_date = pd.Timestamp(year=next_year, month=next_month, day=1)
+        return new_date.to_datetime64
+
+    else:
+        return new_date.to_datetime64
+
+
+def count_months(start_date, end_date):
+    count = 0
+    corres_date = start_date
+    while(True):
+        corres_date = find_corresponding_date(corres_date)
+        if(corres_date > end_date):
+            return count
+        else:
+            count = count + 1
+
 
 
 class method_one(Variable):
@@ -146,7 +185,7 @@ class historical_NABERS_star_rating(Variable):
 
 
 class current_rating_period_length(Variable):
-    value_type = int
+    value_type = date
     entity = Building
     definition_period = ETERNITY
     label = 'Calculates the length of the current rating period, based on the' \
@@ -158,13 +197,14 @@ class current_rating_period_length(Variable):
             ' In accordance with clause 8.8.2 (c).'
 
     def formula(buildings, period, parameters):
-        end = buildings(
-            'end_date_of_current_nabers_rating_period', period)
-        start = buildings(
+        end_date = (buildings(
+            'end_date_of_current_nabers_rating_period', period
+            ).astype('datetime64[D]'))
+        start_date = (buildings(
             'start_date_of_current_nabers_rating_period', period
-            )
-        return (end.astype('datetime64[M]')
-        - start.astype('datetime64[M]'))  # need to redefine months as defined in Interpretations Act - as period from period between defined day and the corresponding day in the following month
+            ).astype('datetime64[D]'))
+        distance_in_months = find_corresponding_date(start_date)
+        return distance_in_months # need to redefine months as defined in Interpretations Act - as period from period between defined day and the corresponding day in the following month
 
 
 class historical_rating_period_length(Variable):

@@ -3,7 +3,43 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 from datetime import datetime
+import calendar
 
+
+def find_corresponding_date(start_date):
+    day = start_date.day
+    month = start_date.month
+    year = start_date.year
+    next_month = month + 1
+    next_year = year
+
+    if month == 12:
+        next_month = 1
+        next_year = year+1
+
+    try:
+        new_date = datetime(year=next_year, month=next_month, day=day)
+    except ValueError:
+        next_month = next_month + 1
+        if next_month == 13:
+            next_month = 1
+            next_year = next_year+1
+        new_date = datetime(year=next_year, month=next_month, day=1)
+        return new_date
+
+    else:
+        return new_date
+
+
+def count_months(start_date, end_date):
+    count = 0
+    corres_date = start_date
+    while(True):
+        corres_date = find_corresponding_date(corres_date)
+        if(corres_date > end_date):
+            return count
+        else:
+            count = count + 1
 
 class current_NABERS_star_rating(Variable):
     value_type = float
