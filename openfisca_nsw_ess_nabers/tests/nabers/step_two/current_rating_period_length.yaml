@@ -4,4 +4,4 @@
     start_date_of_current_nabers_rating_period: 2017-01-01
     end_date_of_current_nabers_rating_period: 2018-01-01
   output:
-    current_rating_period_length: 1
+    current_rating_period_length: 12
