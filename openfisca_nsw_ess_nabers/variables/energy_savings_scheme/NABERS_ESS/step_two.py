@@ -4,7 +4,9 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 import time
 import numpy as np
-import datetime as datetime
+import datetime
+from datetime import datetime as py_datetime
+from numpy import datetime64 as np_datetime
 import calendar
 import pandas as pd
 
@@ -25,26 +27,29 @@ def find_corresponding_date(start_date):
         next_month = 1
         next_year = year+1
     try:
-        new_date = datetime(year=next_year, month=next_month, day=day)
+        new_date = np_datetime(year=next_year, month=next_month, day=day)
     except ValueError:
         next_month = next_month + 1
         if next_month == 13:
             next_month = 1
             next_year = next_year+1
-        new_date = pd.Timestamp(year=next_year, month=next_month, day=1)
-        return new_date.to_datetime64
+        new_date = np_datetime(year=next_year, month=next_month, day=1)
+        return new_date
 
     else:
-        return new_date.to_datetime64
+        return new_date
 
 
 def count_months(start_date, end_date):
+    start_date = pd.to_datetime(start_date)
+    start_date = pd.to_datetime(end_date)
     count = 0
     corres_date = start_date
     while(True):
         corres_date = find_corresponding_date(corres_date)
         if(corres_date > end_date):
             return count
+            break
         else:
             count = count + 1
 
@@ -185,7 +190,7 @@ class historical_NABERS_star_rating(Variable):
 
 
 class current_rating_period_length(Variable):
-    value_type = date
+    value_type = int
     entity = Building
     definition_period = ETERNITY
     label = 'Calculates the length of the current rating period, based on the' \
@@ -203,8 +208,8 @@ class current_rating_period_length(Variable):
         start_date = (buildings(
             'start_date_of_current_nabers_rating_period', period
             ).astype('datetime64[D]'))
-        distance_in_months = find_corresponding_date(start_date)
-        return distance_in_months # need to redefine months as defined in Interpretations Act - as period from period between defined day and the corresponding day in the following month
+        rating_period_length = count_months(start_date, end_date)
+        return rating_period_length # need to redefine months as defined in Interpretations Act - as period from period between defined day and the corresponding day in the following month
 
 
 class historical_rating_period_length(Variable):
