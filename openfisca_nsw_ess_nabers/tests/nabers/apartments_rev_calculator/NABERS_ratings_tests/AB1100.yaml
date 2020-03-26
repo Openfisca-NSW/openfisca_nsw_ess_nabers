@@ -306,6 +306,7 @@
     actual_GHG_KG_CO2_gas: 1447.3301
 - name: test of apartments reverse calculator w. rating AB1100 - predicted electricity kWh
   period: 2020
+  absolute_error_margin: 1
   input:
     is_apartment_building: True
     end_date_of_current_nabers_rating_period: 2019-04-30
@@ -327,6 +328,7 @@
     predicted_electricity_kWh: 150827
 - name: test of apartments reverse calculator w. rating AB1100 - predicted electricity kWh
   period: 2020
+  absolute_error_margin: 1
   input:
     is_apartment_building: True
     is_office: False
@@ -349,6 +351,7 @@
     predicted_gas_MJ: 22654
 - name: test of apartments reverse calculator w. rating AB1100 - predicted electricity kWh
   period: 2020
+  absolute_error_margin: 1
   input:
     is_apartment_building: True
     is_office: False

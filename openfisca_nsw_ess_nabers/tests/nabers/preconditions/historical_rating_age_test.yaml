@@ -1,3 +1,9 @@
+- name: historical_rating_is_zero_years_old
+  period: 2020
+  input:
+    end_date_of_historical_nabers_rating_period: 2019-06-01
+  output:
+    age_of_historical_rating: 0
 - name: historical_rating_is_one_year_old
   period: 2020
   input:
@@ -8,6 +14,12 @@
   period: 2020
   input:
     end_date_of_historical_nabers_rating_period: 2019-01-01
+  output:
+    age_of_historical_rating: 1
+- name: historical_rating_is_one_year_old
+  period: 2020
+  input:
+    end_date_of_historical_nabers_rating_period: 2018-06-03
   output:
     age_of_historical_rating: 1
 - name: historical_rating_is_two_years_old
@@ -16,7 +28,13 @@
     end_date_of_historical_nabers_rating_period: 2018-01-01
   output:
     age_of_historical_rating: 2
-- name: historical_rating_is_two_years_old
+- name: historical_rating_is_three_years_old
+  period: 2020
+  input:
+    end_date_of_historical_nabers_rating_period: 2017-02-03
+  output:
+    age_of_historical_rating: 3
+- name: historical_rating_is_three_years_old
   period: 2020
   input:
     end_date_of_historical_nabers_rating_period: 2017-03-03

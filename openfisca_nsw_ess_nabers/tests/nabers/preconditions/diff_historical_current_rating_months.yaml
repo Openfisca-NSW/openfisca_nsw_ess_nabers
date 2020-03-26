@@ -1,3 +1,11 @@
+- name: No historical rating, therefore distance between historical and current
+    rating is within range.
+  period: 2020
+  input:
+    end_date_of_current_nabers_rating_period: 2019-10-05
+    method_one_can_be_used: True
+  output:
+    time_between_historical_and_current_ratings_within_range: True
 - name: Difference between historical rating and current rating is within range
   period: 2020
   input:
@@ -12,3 +20,19 @@
     end_date_of_historical_nabers_rating_period: 2018-06-05
   output:
     time_between_historical_and_current_ratings_within_range: False
+- name: Difference between historical rating end date of 2019-05-29 and current
+    rating end date of 2020-09-29.
+  period: 2020
+  input:
+    end_date_of_current_nabers_rating_period: 2020-09-29
+    end_date_of_historical_nabers_rating_period: 2019-05-29
+  output:
+    time_between_historical_and_current_ratings_within_range: False
+- name: Difference between historical rating end date of 2020-05-29 and current
+    rating end date of 2021-09-29.
+  period: 2020
+  input:
+    end_date_of_current_nabers_rating_period: 2021-09-29
+    end_date_of_historical_nabers_rating_period: 2020-05-29
+  output:
+    time_between_historical_and_current_ratings_within_range: True

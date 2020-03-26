@@ -225,6 +225,7 @@
     actual_GHG_KG_CO2_elec: 398070.5862
 - name: test of apartments reverse calculator w. rating AB1173 - predicted electricity kWh
   period: 2020
+  absolute_error_margin: 1
   input:
     is_apartment_building: True
     end_date_of_current_nabers_rating_period: 2019-10-31
@@ -246,7 +247,7 @@
     predicted_electricity_kWh: 419021
 - name: test of apartments reverse calculator w. rating AB1173 - predicted electricity savings
   period: 2020
-  absolute_error_margin: 0.1
+  absolute_error_margin: 1
   input:
     is_apartment_building: True
     end_date_of_current_nabers_rating_period: 2019-10-31
@@ -264,31 +265,10 @@
     built_after_nov_2006: False
     first_nabers_rating: True
     rating_not_obt_for_legal_requirement: True
+    energy_savings_type: annual_creation
   output:
     electricity_savings: 148.416
 - name: test of apartments reverse calculator w. rating AB1173 - predicted electricity kWh
-  period: 2020
-  absolute_error_margin: 0.1
-  input:
-    is_apartment_building: True
-    end_date_of_current_nabers_rating_period: 2019-10-31
-    apartments_postcode: 2011
-    number_of_apartments: 109
-    number_of_central_ac_apartments: 0
-    number_of_condenser_water_serviced_apartments: 109
-    pool_status: no_pool
-    apartment_has_gym: has_gym
-    number_of_naturally_ventilated_parking_spaces: 30
-    number_of_mechanically_ventilated_parking_spaces: 0
-    elec_kWh: 270605.0
-    gas_in_MJ: 0.0
-    diesel_in_litres: 36.0
-    built_after_nov_2006: False
-    first_nabers_rating: True
-    rating_not_obt_for_legal_requirement: True
-  output:
-    gas_savings: 0
-- name: test of apartments reverse calculator w. rating AB1173 - predicted ESCs
   period: 2020
   absolute_error_margin: 1
   input:
@@ -308,5 +288,28 @@
     built_after_nov_2006: False
     first_nabers_rating: True
     rating_not_obt_for_legal_requirement: True
+  output:
+    gas_savings: 0
+- name: THIS ONE YOU FUCKER
+  period: 2020
+  absolute_error_margin: 1
+  input:
+    is_apartment_building: True
+    end_date_of_current_nabers_rating_period: 2019-10-31
+    apartments_postcode: 2011
+    number_of_apartments: 109
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 109
+    pool_status: no_pool
+    apartment_has_gym: has_gym
+    number_of_naturally_ventilated_parking_spaces: 30
+    number_of_mechanically_ventilated_parking_spaces: 0
+    elec_kWh: 270605.0
+    gas_in_MJ: 0.0
+    diesel_in_litres: 36.0
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    energy_savings_type: annual_creation
   output:
     number_of_certificates: 157

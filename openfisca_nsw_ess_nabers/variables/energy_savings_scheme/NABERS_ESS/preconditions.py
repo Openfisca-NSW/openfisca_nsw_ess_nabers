@@ -57,7 +57,7 @@ class ESC_creation_date(Variable):
     definition_period = ETERNITY
     label = 'The date on which ESCs are registered and created, following review' \
             ' of the evidence of the created Energy Savings.' \
-            ' need to find prescription date for this.'
+            ' .'
 
 
 class includes_GreenPower(Variable):
@@ -195,7 +195,7 @@ class historical_baseline_more_than_7_years(Variable):
 class historical_baseline_rating_meets_similar_configuration_criteria(Variable):
     value_type = bool
     entity = Building
-    definition_period = YEAR
+    definition_period = ETERNITY
     label = "the Historical Baseline NABERS Rating must meet the ‘similar" \
             " configuration criteria that has been determined by the Scheme " \
             ' Administrator which is listed in the NABERS Baseline Method Guide.' \
@@ -206,7 +206,7 @@ class historical_baseline_rating_meets_similar_configuration_criteria(Variable):
 class implementation_date(Variable):
     value_type = float
     entity = Building
-    definition_period = YEAR
+    definition_period = ETERNITY
     label = 'Implementation Date equals the end date of the Current Rating Period.' \
             ' The Implementation Date is the end date of the first Rating Period' \
             ' for which Energy Savings will be calculated under clause 8.8.7.' \
@@ -221,7 +221,7 @@ class implementation_date(Variable):
 class energy_saver(Variable):
     value_type = str
     entity = Building
-    definition_period = YEAR
+    definition_period = ETERNITY
     label = 'Name of person on NABERS certificate, or building owner or manager' \
             ' of building owner or manager of buildings identified on NABERS' \
             ' Rating certificate if the person’s name is not identified on ' \
@@ -280,11 +280,12 @@ class nabers_value_lower_than_previous_historical_NABERS_value(Variable):
             ' according to clause 8.8.10 (c).'
 
 
-class previous_annual_creation_occured(Variable):
+class previous_annual_creation_occurred(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'copy in 8.8.11(a)'
+    label = 'Asks where previous annual creation for this implementation has' \
+            ' occurred.'
 
 
 class NABERS_eligible_to_create_ESCs(Variable):

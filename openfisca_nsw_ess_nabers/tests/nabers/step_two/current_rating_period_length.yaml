@@ -1,7 +1,56 @@
 - name: quick current rating period length test
   period: 2020
   input:
-    start_date_of_current_nabers_rating_period: 2017-01-01
+    start_date_of_current_nabers_rating_period: 2017-01-03
     end_date_of_current_nabers_rating_period: 2018-01-01
   output:
-    current_rating_period_length: 1
+    current_rating_period_length: 11
+- name: quick current rating period length test
+  period: 2020
+  input:
+    start_date_of_current_nabers_rating_period: 2017-02-28
+    end_date_of_current_nabers_rating_period: 2018-01-01
+  output:
+    current_rating_period_length: 10
+- name: quick current rating period length test
+  period: 2020
+  input:
+    start_date_of_current_nabers_rating_period: 2019-03-29
+    end_date_of_current_nabers_rating_period: 2020-09-29
+  output:
+    current_rating_period_length: 18
+- name: quick current rating period length test
+  period: 2020
+  input:
+    start_date_of_current_nabers_rating_period: 2020-03-29
+    end_date_of_current_nabers_rating_period: 2021-09-29
+  output:
+    current_rating_period_length: 17
+- name: quick current rating period length test
+  period: 2020
+  input:
+    start_date_of_current_nabers_rating_period: 2020-03-29
+    end_date_of_current_nabers_rating_period: 2021-10-29
+  output:
+    current_rating_period_length: 18
+- name: quick current rating period length test
+  period: 2020
+  input:
+    start_date_of_current_nabers_rating_period: 2020-03-29
+    end_date_of_current_nabers_rating_period: 2022-03-29
+  output:
+    current_rating_period_length: 24
+- name: quick current rating period length test
+  period: 2020
+  input:
+    start_date_of_current_nabers_rating_period: 2020-03-29
+    end_date_of_current_nabers_rating_period: 2023-03-29
+  output:
+    current_rating_period_length: 35
+- name: quick current rating period length test
+  period: 2020
+  input:
+    start_date_of_current_nabers_rating_period: 2020-03-29
+    end_date_of_current_nabers_rating_period: 2023-03-29
+  output:
+    current_rating_period_length: 35

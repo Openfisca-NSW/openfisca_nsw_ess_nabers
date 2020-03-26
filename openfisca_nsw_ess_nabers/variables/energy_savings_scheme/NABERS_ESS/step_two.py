@@ -45,7 +45,7 @@ def toPyDateTime(numpyDate):
 
 def count_months(sdate, edate):
     start_date = toPyDateTime(sdate)
-    end_date = toPyDateTime(edate) 
+    end_date = toPyDateTime(edate)
     count = 0
     corres_date = start_date
     while(True):
@@ -229,9 +229,14 @@ class historical_rating_period_length(Variable):
             ' In accordance with clause 8.8.2 (c).'
 
     def formula(buildings, period, parameters):
-        end = buildings('end_date_of_historical_nabers_rating_period', period)
-        start = buildings('start_date_of_historical_nabers_rating_period', period)
-        return end.astype('datetime64[M]') - start.astype('datetime64[M]')
+        end_date = (buildings(
+            'end_date_of_historical_nabers_rating_period', period
+            ).astype('datetime64[D]'))
+        start_date = (buildings(
+            'start_date_of_historical_nabers_rating_period', period
+            ).astype('datetime64[D]'))
+        rating_period_length = np.fromiter(map(count_months, start_date, end_date),int)
+        return rating_period_length # need to redefine months as defined in Interpretations Act - as period from period between defined day and the corresponding day in the following month
 
 
 class current_rating_year(Variable):
@@ -274,20 +279,15 @@ class time_between_historical_and_current_ratings_within_range(Variable):
         current_rating_day = buildings('end_date_of_current_nabers_rating_period', period).astype('datetime64[D]')
         historical_rating_day = buildings('end_date_of_historical_nabers_rating_period', period).astype('datetime64[D]')
         condition_method_one_is_used = buildings('method_one_can_be_used', period)
-        condition_is_past_corresponding_day_in_following_month = current_rating_day >= historical_rating_day
+        current_historical_date_distance
         return select(
             [condition_method_one_is_used == True,
-            condition_method_one_is_used == False and
-            condition_is_past_corresponding_day_in_following_month == True,
-            condition_method_one_is_used == False and
-            condition_is_past_corresponding_day_in_following_month == False], [1,
-            buildings('cur_his_diff_as_months', period) <=
-            parameters(period).energy_savings_scheme.preconditions.historical_benchmark_age,
-            (buildings('cur_his_diff_as_months', period)) - 1 <=
+            condition_method_one_is_used == False], [1,
+            buildings('current_historical_date_distance', period) <=
             parameters(period).energy_savings_scheme.preconditions.historical_benchmark_age])
 
 
-class cur_his_diff_as_months(Variable):
+class current_historical_date_distance(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -296,12 +296,13 @@ class cur_his_diff_as_months(Variable):
             ' against time_between_historical_and_current_ratings_within_range.'
 
     def formula(buildings, period, parameters):
-        cur = buildings(
+        end_date = buildings(
             'end_date_of_current_nabers_rating_period', period)
-        hist = buildings(
+        start_date = buildings(
             'end_date_of_historical_nabers_rating_period', period
             )
-        return cur.astype('datetime64[M]') - hist.astype('datetime64[M]')
+        distance_between_ratings = np.fromiter(map(count_months, start_date, end_date),int)
+        return distance_between_ratings
 
 
 class ESC_cur_diff_as_months(Variable):
@@ -313,12 +314,14 @@ class ESC_cur_diff_as_months(Variable):
             ' against time_between_historical_and_current_ratings_within_range.'
 
     def formula(buildings, period, parameters):
-        cur = buildings(
+        start_date = buildings(
             'end_date_of_current_nabers_rating_period', period)
-        ESC = buildings(
+        end_date = buildings(
             'ESC_creation_date', period
             )
-        return ESC.astype('datetime64[M]') - cur.astype('datetime64[M]')
+        distance_between_rating_and_creation = np.fromiter(map(count_months,
+        start_date, end_date),int)
+        return distance_between_rating_and_creation
 
 
 class today_date(Variable):
@@ -360,3 +363,12 @@ class benchmark_nabers_rating(Variable):
         method_two = buildings('method_two', period)
         condition_method_one = buildings('method_one_can_be_used', period) == True
         return where (condition_method_one, method_one, method_two)
+
+class previous_benchmark_star_rating(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY  # need to check whether these inputs, on the NABERS reports, should all be year
+    label = 'The star rating for which the benchmark electricity and gas' \
+            'consumption is calculated against - what NABERS rating the' \
+            ' building aims to achieve. Prior to rounding - Offices requires' \
+            ' star ratings in 0.5 intervals.'

@@ -284,7 +284,7 @@
     first_nabers_rating: True
     rating_not_obt_for_legal_requirement: True
   output:
-    benchmark_elec_consumption_mWh: 843.539
+    benchmark_elec_consumption_MWh: 843.539
 - name: test of apartments reverse calculator w. rating AB1174 - predicted electricity kWh
   period: 2020
   input:
@@ -351,6 +351,7 @@
     built_after_nov_2006: False
     first_nabers_rating: True
     rating_not_obt_for_legal_requirement: True
+    energy_savings_type: annual_creation
   output:
     electricity_savings: 338.442
 - name: test of apartments reverse calculator w. rating AB1174 - predicted electricity kWh
@@ -374,5 +375,6 @@
     built_after_nov_2006: False
     first_nabers_rating: True
     rating_not_obt_for_legal_requirement: True
+    energy_savings_type: annual_creation
   output:
     number_of_certificates: 358

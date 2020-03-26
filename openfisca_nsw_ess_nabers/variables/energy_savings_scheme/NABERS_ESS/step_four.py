@@ -4,14 +4,14 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 
 
-class electricity_savings(Variable):
+class annually_created_electricity_savings(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     label = "Electricity savings in MWh"
 
     def formula(buildings, period, parameters):
-        benchmark_elec_consumption = buildings('benchmark_elec_consumption_mWh', period)
+        benchmark_elec_consumption = buildings('benchmark_elec_consumption_MWh', period)
         measured_electricity_consumption = buildings('measured_electricity_consumption', period)
         counted_elec_savings = buildings('counted_elec_savings', period)
         regional_network_factor = buildings('regional_network_factor', period)
@@ -21,7 +21,7 @@ class electricity_savings(Variable):
         return electricity_savings  # Year based calculations are missing from this formula. Need to be added
 
 
-class gas_savings(Variable):
+class annually_created_gas_savings(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

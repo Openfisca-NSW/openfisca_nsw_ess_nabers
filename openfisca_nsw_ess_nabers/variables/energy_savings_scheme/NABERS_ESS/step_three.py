@@ -93,7 +93,7 @@ class benchmark_elec_consumption(Variable):
             )
 
 
-class benchmark_elec_consumption_mWh(Variable):
+class benchmark_elec_consumption_MWh(Variable):
     value_type = float
     entity = Building
     definition_period = YEAR
@@ -126,3 +126,50 @@ class benchmark_gas_consumption_mWh(Variable):
     def formula(buildings, period, parameters):
         gas_MJ = buildings('benchmark_gas_consumption_MJ', period)
         return gas_MJ / 3.6
+
+
+class TypeOfEnergySavings(Enum):
+    annual_creation = u'Energy Savings are annually created and uses step 4 to' \
+                      ' calculate Energy Savings'
+    forward_creation = u'Energy Savings are forward created and uses step 5 to' \
+                      ' calculate Energy Savings'
+
+
+class energy_savings_type(Variable):
+    value_type = Enum
+    possible_values = TypeOfEnergySavings
+    default_value = TypeOfEnergySavings.annual_creation
+    entity = Building
+    definition_period = ETERNITY
+    label = u'Determines the type of energy savings created.'
+
+
+class electricity_savings(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Returns electricity savings, for use in calculating the amount' \
+            ' of certificates generated in this implementation.'
+
+    def formula(buildings, period, parameters):
+        type_of_energy_savings = buildings('energy_savings_type', period)
+        annual_creation = (type_of_energy_savings == TypeOfEnergySavings.annual_creation)
+        forward_creation = (type_of_energy_savings == TypeOfEnergySavings.forward_creation)
+        annually_created_electricity_savings = buildings('annually_created_electricity_savings', period)
+        forward_created_electricity_savings = buildings('total_forward_created_electricity_savings', period)
+        return(annually_created_electricity_savings * annual_creation) + (forward_created_electricity_savings * forward_creation)
+
+class gas_savings(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Returns electricity savings, for use in calculating the amount' \
+            ' of certificates generated in this implementation.'
+
+    def formula(buildings, period, parameters):
+        type_of_energy_savings = buildings('energy_savings_type', period)
+        annual_creation = (type_of_energy_savings == TypeOfEnergySavings.annual_creation)
+        forward_creation = (type_of_energy_savings == TypeOfEnergySavings.forward_creation)
+        annually_created_gas_savings = buildings('annually_created_gas_savings', period)
+        forward_created_gas_savings = buildings('total_forward_created_gas_savings', period)
+        return(annually_created_gas_savings * annual_creation) + (forward_created_gas_savings * forward_creation)
