@@ -117,7 +117,7 @@ class benchmark_gas_consumption_MJ(Variable):
         buildings('office_maximum_gas_consumption', period)]
             )
 
-class benchmark_gas_consumption_mWh(Variable):
+class benchmark_gas_consumption_MWh(Variable):
     value_type = float
     entity = Building
     definition_period = YEAR
@@ -125,7 +125,7 @@ class benchmark_gas_consumption_mWh(Variable):
 
     def formula(buildings, period, parameters):
         gas_MJ = buildings('benchmark_gas_consumption_MJ', period)
-        return gas_MJ / 3.6
+        return gas_MJ / 3600
 
 
 class TypeOfEnergySavings(Enum):

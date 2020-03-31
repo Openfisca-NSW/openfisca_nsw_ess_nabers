@@ -57,7 +57,6 @@ class ESC_creation_date(Variable):
     definition_period = ETERNITY
     label = 'The date on which ESCs are registered and created, following review' \
             ' of the evidence of the created Energy Savings.' \
-            ' .'
 
 
 class includes_GreenPower(Variable):
@@ -188,8 +187,18 @@ class historical_baseline_more_than_7_years(Variable):
 
     def formula(buildings, period, parameters):
         condition_method_one_is_used = buildings('method_one_can_be_used', period)
+        additional_energy_savings = buildings('additional_energy_savings_created', period)
         return where (condition_method_one_is_used, False,
         cur - hist <= 7) # code in recalculation historical baseline based off previous historical rating - needs to be current_historical_rating - previous_historical_rating >= 7
+
+
+class additional_energy_savings_created(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'asks whether the Calculation Method is to be used for Additional' \
+            ' Energy Savings, as prescribed by clause 8.8.4 (b).'
+
 
 
 class historical_baseline_rating_meets_similar_configuration_criteria(Variable):
@@ -285,7 +294,7 @@ class previous_annual_creation_occurred(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Asks where previous annual creation for this implementation has' \
-            ' occurred.'
+            ' occurred. As prescribed by Clause 8.8.11 (a).'
 
 
 class NABERS_eligible_to_create_ESCs(Variable):

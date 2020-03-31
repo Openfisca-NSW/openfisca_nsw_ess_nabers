@@ -8,6 +8,8 @@ import datetime
 from datetime import datetime as py_datetime
 from numpy import datetime64 as np_datetime
 import pandas as pd
+from numpy import timedelta64
+
 
 epoch = time.gmtime(0).tm_year
 today_date_and_time = np.datetime64(datetime.datetime.now())
@@ -251,6 +253,19 @@ class current_rating_year(Variable):
         end_date_of_current_nabers_rating_period = buildings('end_date_of_current_nabers_rating_period', period)
         current_rating_year = end_date_of_current_nabers_rating_period.astype('datetime64[Y]') + epoch  # need to check if this works on Windows
         return current_rating_year
+
+
+class end_date_of_current_rating_year(Variable):
+    value_type = date
+    entity = Building
+    definition_period = ETERNITY
+    label = "finds the end date of the current rating year."
+
+    def formula(buildings, period, parameters):
+        current_rating_year = buildings('current_rating_year', period).astype('datetime64[Y]')
+        next_year = current_rating_year + np.timedelta64(1, 'Y')
+        end_date_of_current_rating_year = next_year - np.timedelta64(1, 'D')
+        return end_date_of_current_rating_year
 
 
 class baseline_rating_year(Variable):

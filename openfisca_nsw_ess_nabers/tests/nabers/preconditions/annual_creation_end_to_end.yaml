@@ -1,0 +1,435 @@
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - is apartment and does not include
+    GreenPower. Uses Method 1. Is eligible for creating ESCs. Calculates on
+    NABERS rating AB1174. Calculates eligibility to be true.
+  period: 2020
+  input:
+    is_apartment_building: False
+    is_data_centre: True
+    is_hotel: False
+    is_hospital: False
+    is_office: False
+    is_shopping_centre: False
+    includes_GreenPower: False
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    ESC_creation_date: 2020-02-15
+    current_NABERS_star_rating: 5.5
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+    apartments_postcode: 2010
+    number_of_apartments: 164
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 164
+    pool_status: heated_pool
+    apartment_has_gym: has_gym
+    number_of_naturally_ventilated_parking_spaces: 0
+    number_of_mechanically_ventilated_parking_spaces: 84
+    elec_kWh: 505097.0
+    gas_in_MJ: 0.0
+    diesel_in_litres: 75
+    counted_elec_savings: 0
+  output:
+    NABERS_eligible_to_create_ESCs: True
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - is apartment and does not include
+    GreenPower. Uses Method 1. Is eligible for creating ESCs. Calculates on
+    NABERS rating AB1174. Calculates total number of Electricity Savings to be
+    338.442MWh.
+  period: 2020
+  absolute_error_margin: 0.1
+  input:
+    is_apartment_building: True
+    is_data_centre: False
+    is_hotel: False
+    is_hospital: False
+    is_office: False
+    is_shopping_centre: False
+    includes_GreenPower: False
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    ESC_creation_date: 2020-02-15
+    current_NABERS_star_rating: 5.5
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+    apartments_postcode: 2010
+    number_of_apartments: 164
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 164
+    pool_status: heated_pool
+    apartment_has_gym: has_gym
+    number_of_naturally_ventilated_parking_spaces: 0
+    number_of_mechanically_ventilated_parking_spaces: 84
+    elec_kWh: 505097.0
+    gas_in_MJ: 0.0
+    diesel_in_litres: 75
+    counted_elec_savings: 0
+    energy_savings_type: annual_creation
+  output:
+    electricity_savings: 338.442
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - is apartment and does not include
+    GreenPower. Uses Method 1. Is eligible for creating ESCs. Calculates on
+    NABERS rating AB1174. Calculates total number of Gas Savings to be 0MJ.
+  period: 2020
+  absolute_error_margin: 0.1
+  input:
+    is_apartment_building: True
+    is_data_centre: False
+    is_hotel: False
+    is_hospital: False
+    is_office: False
+    is_shopping_centre: False
+    includes_GreenPower: False
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    ESC_creation_date: 2020-02-15
+    current_NABERS_star_rating: 5.5
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+    apartments_postcode: 2010
+    number_of_apartments: 164
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 164
+    pool_status: heated_pool
+    apartment_has_gym: has_gym
+    number_of_naturally_ventilated_parking_spaces: 0
+    number_of_mechanically_ventilated_parking_spaces: 84
+    elec_kWh: 505097.0
+    gas_in_MJ: 0.0
+    diesel_in_litres: 75
+    counted_elec_savings: 0
+    energy_savings_type: annual_creation
+  output:
+    gas_savings: 0
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - is apartment and does not include
+    GreenPower. Uses Method 1. Is eligible for creating ESCs. Calculates on
+    NABERS rating AB1174. Calculates total number of certificates to be 358.
+  period: 2020
+  absolute_error_margin: 0.1
+  input:
+    building_type_status: apartment_building
+    includes_GreenPower: False
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    ESC_creation_date: 2020-02-15
+    current_NABERS_star_rating: 5.5
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+    apartments_postcode: 2010
+    number_of_apartments: 164
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 164
+    pool_status: heated_pool
+    apartment_has_gym: has_gym
+    number_of_naturally_ventilated_parking_spaces: 0
+    number_of_mechanically_ventilated_parking_spaces: 84
+    elec_kWh: 505097.0
+    gas_in_MJ: 0.0
+    diesel_in_litres: 75
+    counted_elec_savings: 0
+    energy_savings_type: annual_creation
+  output:
+    number_of_certificates: 358
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - is apartment and does not include
+    GreenPower. Uses Method 1. Is eligible for creating ESCs. Calculates on
+    NABERS rating AB1100. Calculates eligibility to be true.
+  period: 2020
+  absolute_error_margin: 0.1
+  input:
+    building_type_status: is_apartment_building
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    ESC_creation_date: 2020-02-15
+    current_NABERS_star_rating: 5.5
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    pool_status: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 0
+    number_of_mechanically_ventilated_parking_spaces: 66
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
+  output:
+    NABERS_eligible_to_create_ESCs: True
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - is apartment and does not include
+    GreenPower. Uses Method 1. Is eligible for creating ESCs. Calculates on
+    NABERS rating AB1100. Calculates eligibility to be true.
+  period: 2020
+  absolute_error_margin: 0.1
+  input:
+    building_type_status: is_apartment_building
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    ESC_creation_date: 2020-02-15
+    current_NABERS_star_rating: 5.5
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    pool_status: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 0
+    number_of_mechanically_ventilated_parking_spaces: 66
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
+  output:
+    electricity_savings: 50.354
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - is apartment and does not include
+    GreenPower. Uses Method 1. Is eligible for creating ESCs. Calculates on
+    NABERS rating AB1100. Calculates eligibility to be true.
+  period: 2020
+  absolute_error_margin: 0.1
+  input:
+    building_type_status: is_apartment_building
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    ESC_creation_date: 2020-02-15
+    current_NABERS_star_rating: 5.5
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    number_of_lift_serviced_apartments: 33
+    pool_status: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 0
+    number_of_mechanically_ventilated_parking_spaces: 66
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
+  output:
+    gas_savings: 5.0835
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - is apartment and does not include
+    GreenPower. Uses Method 1. Is eligible for creating ESCs. Calculates on
+    NABERS rating AB1100. Calculates eligibility to be true.
+  period: 2020
+  absolute_error_margin: 0.1
+  input:
+    building_type_status: is_apartment_building
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    ESC_creation_date: 2020-02-15
+    current_NABERS_star_rating: 5.5
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2061
+    number_of_apartments: 33
+    number_of_central_ac_apartments: 0
+    number_of_condenser_water_serviced_apartments: 33
+    pool_status: no_pool
+    apartment_has_gym: no_gym
+    number_of_naturally_ventilated_parking_spaces: 0
+    number_of_mechanically_ventilated_parking_spaces: 66
+    elec_kWh: 100473.0
+    gas_in_MJ: 4353.0
+    diesel_in_litres: 27
+  output:
+    number_of_certificates: 58
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - is apartment and does not include
+    GreenPower. Uses Method 1. Is eligible for creating ESCs. Calculates on
+    NABERS rating N56396. Calculates eligibility to be true.
+  period: 2020
+  absolute_error_margin: 0.1
+  input:
+    building_type_status: is_office
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    ESC_creation_date: 2020-02-15
+    current_NABERS_star_rating: 5.5
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+    end_date_of_current_nabers_rating_period: 2019-10-11
+    rating_type: base_building
+    postcode: 6000
+    hours_per_week_with_20_percent_occupancy: 44.3
+    building_state_location: WA
+    net_lettable_area: 2637.7
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 180399.1
+    gas_in_MJ: 101377.6
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    NABERS_eligible_to_create_ESCs: True
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - is apartment and does not include
+    GreenPower. Uses Method 1. Is eligible for creating ESCs. Calculates on
+    NABERS rating N56396. Calculates eligibility to be true.
+  period: 2020
+  absolute_error_margin: 0.1
+  input:
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    ESC_creation_date: 2020-02-15
+    current_NABERS_star_rating: 5.5
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+    end_date_of_current_nabers_rating_period: 2019-10-11
+    building_type_status: office
+    rating_type: base_building
+    postcode: 6000
+    hours_per_week_with_20_percent_occupancy: 44.3
+    building_state_location: WA
+    net_lettable_area: 2637.7
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 180399.1
+    gas_in_MJ: 101377.6
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    electricity_savings: 18.91
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - is apartment and does not include
+    GreenPower. Uses Method 1. Is eligible for creating ESCs. Calculates on
+    NABERS rating N56396. Calculates eligibility to be true.
+  period: 2020
+  absolute_error_margin: 0.1
+  input:
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    ESC_creation_date: 2020-02-15
+    current_NABERS_star_rating: 5.5
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+    end_date_of_current_nabers_rating_period: 2019-10-11
+    building_type_status: office
+    rating_type: base_building
+    postcode: 6000
+    hours_per_week_with_20_percent_occupancy: 44.3
+    building_state_location: WA
+    net_lettable_area: 2637.7
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 180399.1
+    gas_in_MJ: 101377.6
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    gas_savings: 2.94
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - is apartment and does not include
+    GreenPower. Uses Method 1. Is eligible for creating ESCs. Calculates on
+    NABERS rating N56396. Calculates eligibility to be true.
+  period: 2020
+  absolute_error_margin: 0.1
+  input:
+    building_type_status: office
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    ESC_creation_date: 2020-02-15
+    current_NABERS_star_rating: 5.5
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+    end_date_of_current_nabers_rating_period: 2019-10-11
+    rating_type: base_building
+    postcode: 6000
+    hours_per_week_with_20_percent_occupancy: 44.3
+    building_state_location: WA
+    net_lettable_area: 2637.7
+    number_of_computers: 0
+    method_one_can_be_used: True
+    elec_kWh: 180399.1
+    gas_in_MJ: 101377.6
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    built_after_nov_2006: False
+  output:
+    number_of_certificates: 23

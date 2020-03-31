@@ -28,10 +28,10 @@ class annually_created_gas_savings(Variable):
     label = "Gas savings in MWh"
 
     def formula(buildings, period, parameters):
-        benchmark_gas_consumption_MJ = buildings('benchmark_gas_consumption_MJ', period)
+        benchmark_gas_consumption_MWh = buildings('benchmark_gas_consumption_MWh', period)
         measured_gas_consumption = buildings('measured_gas_consumption', period)
         counted_gas_savings = buildings('counted_gas_savings', period)
-        gas_savings = (benchmark_gas_consumption_MJ - measured_gas_consumption
+        gas_savings = (benchmark_gas_consumption_MWh - measured_gas_consumption
         - counted_gas_savings)
         return gas_savings  # Year based calculations are missing from this formula. Need to be added
 
@@ -56,7 +56,7 @@ class counted_gas_savings(Variable):
     definition_period = ETERNITY
     label = 'Total Gas Savings for which Energy Savings Certificates have' \
             'previously been created for the Implementation for the Current' \
-            'Rating Year'
+            'Rating Year in MWh'
 
 
 class counted_elec_savings(Variable):

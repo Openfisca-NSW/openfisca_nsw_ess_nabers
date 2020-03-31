@@ -125,7 +125,7 @@ class year_one_forward_created_gas_savings(Variable):
         benchmark_gas_consumption_MJ = buildings('benchmark_gas_consumption_MJ', period)
         measured_gas_consumption = buildings('measured_gas_consumption', period)
         gas_savings = benchmark_gas_consumption_MJ - measured_gas_consumption
-        return gas_savings
+        return gas_savings / 3.6
 
 
 class year_two_forward_created_gas_savings(Variable):
@@ -138,7 +138,7 @@ class year_two_forward_created_gas_savings(Variable):
         benchmark_gas_consumption_MJ = buildings('benchmark_gas_consumption_MJ', period)
         measured_gas_consumption = buildings('measured_gas_consumption', period)
         gas_savings = benchmark_gas_consumption_MJ - measured_gas_consumption
-        return gas_savings
+        return gas_savings / 3.6
 
 class year_three_forward_created_gas_savings(Variable):
     value_type = float
@@ -150,7 +150,7 @@ class year_three_forward_created_gas_savings(Variable):
         benchmark_gas_consumption_MJ = buildings('benchmark_gas_consumption_MJ', period)
         measured_gas_consumption = buildings('measured_gas_consumption', period)
         gas_savings = benchmark_gas_consumption_MJ - measured_gas_consumption
-        return gas_savings
+        return gas_savings / 3.6
 
 
 class total_forward_created_electricity_savings(Variable):

@@ -122,12 +122,31 @@ class pool_status(Variable):
         return pool_status
 
 
+class gym_input(Enum):
+    no_gym = u'Apartment building does not have a gym.'
+    has_gym = u'Apartment building has a gym.'
+
+
+class gym_input_status(Variable):
+    value_type = Enum
+    possible_values = gym_input
+    default_value = gym_input.no_gym
+    entity = Building
+    definition_period = ETERNITY
+    label = 'notes whether the complex has no pool, heated pool or unheated' \
+            ' pool.' # col H
+
+
 class apartment_has_gym(Variable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
     label = 'gym boolean value used to indicate whether the complex has no' \
             ' gym or a gym.'  # col I
+
+    def formula(buildings, period, parameters):
+        has_gym = buildings('gym_input_status', period)
+        return has_gym
 
 
 class input_number_of_naturally_ventilated_parking_spaces(Variable):
