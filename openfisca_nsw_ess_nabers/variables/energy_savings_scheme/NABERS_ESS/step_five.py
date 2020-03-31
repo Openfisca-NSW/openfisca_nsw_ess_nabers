@@ -123,9 +123,9 @@ class year_one_forward_created_gas_savings(Variable):
 
     def formula(buildings, period, parameters):
         benchmark_gas_consumption_MJ = buildings('benchmark_gas_consumption_MJ', period)
-        measured_gas_consumption = buildings('measured_gas_consumption', period)
+        measured_gas_consumption = buildings('measured_gas_consumption', period) * 3600
         gas_savings = benchmark_gas_consumption_MJ - measured_gas_consumption
-        return gas_savings / 3.6
+        return gas_savings / 3600
 
 
 class year_two_forward_created_gas_savings(Variable):
@@ -136,9 +136,9 @@ class year_two_forward_created_gas_savings(Variable):
 
     def formula(buildings, period, parameters):
         benchmark_gas_consumption_MJ = buildings('benchmark_gas_consumption_MJ', period)
-        measured_gas_consumption = buildings('measured_gas_consumption', period)
+        measured_gas_consumption = buildings('measured_gas_consumption', period) * 3600
         gas_savings = benchmark_gas_consumption_MJ - measured_gas_consumption
-        return gas_savings / 3.6
+        return gas_savings / 3600
 
 class year_three_forward_created_gas_savings(Variable):
     value_type = float
@@ -148,9 +148,9 @@ class year_three_forward_created_gas_savings(Variable):
 
     def formula(buildings, period, parameters):
         benchmark_gas_consumption_MJ = buildings('benchmark_gas_consumption_MJ', period)
-        measured_gas_consumption = buildings('measured_gas_consumption', period)
+        measured_gas_consumption = buildings('measured_gas_consumption', period) * 3600
         gas_savings = benchmark_gas_consumption_MJ - measured_gas_consumption
-        return gas_savings / 3.6
+        return gas_savings / 3600
 
 
 class total_forward_created_electricity_savings(Variable):
@@ -189,9 +189,9 @@ class total_forward_created_gas_savings(Variable):
         year_three_gas_savings = buildings('year_three_forward_created_gas_savings', period)
 
         return select(
-            [years_of_forward_creation == 'one_year'
-            , years_of_forward_creation == 'two_years'
-            , years_of_forward_creation == 'three_years'],
+            [years_of_forward_creation == 1
+            , years_of_forward_creation == 2
+            , years_of_forward_creation == 3],
             [year_one_gas_savings
             ,year_one_gas_savings + year_two_gas_savings
             ,year_one_gas_savings + year_two_gas_savings + year_three_gas_savings

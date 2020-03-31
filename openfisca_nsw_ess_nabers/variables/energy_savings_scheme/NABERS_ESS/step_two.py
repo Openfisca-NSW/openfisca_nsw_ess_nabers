@@ -95,6 +95,7 @@ class method_two(Variable):
 
     def formula(buildings, period, parameters):
         hist_rating = buildings('historical_NABERS_star_rating', period)
+        prev_hist_rating = buildings('previous_historical_baseline_rating', period)
         cur_year = buildings('current_rating_year', period)
         hist_year = buildings('baseline_rating_year', period)
         building_type = buildings("building_type", period)
@@ -104,7 +105,10 @@ class method_two(Variable):
         "one_year_old")
         annual_rating_adj = (parameters(period).energy_savings_scheme.table_a21.building_category
         [building_type][adjustment_year_string])
-        return hist_rating + annual_rating_adj * (cur_year - hist_year)
+        condition_previous_forward_creation = buildings('previous_annual_creation_occurred', period)
+        return where (condition_previous_forward_creation
+        , prev_hist_rating + annual_rating_adj * (cur_year - hist_year)
+        , hist_rating + annual_rating_adj * (cur_year - hist_year))
 
 
 class rating_not_obt_for_legal_requirement(Variable):
@@ -379,7 +383,7 @@ class benchmark_nabers_rating(Variable):
         condition_method_one = buildings('method_one_can_be_used', period) == True
         return where (condition_method_one, method_one, method_two)
 
-class previous_benchmark_star_rating(Variable):
+class previous_historical_baseline_rating(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY  # need to check whether these inputs, on the NABERS reports, should all be year

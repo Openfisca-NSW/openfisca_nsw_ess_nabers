@@ -138,7 +138,7 @@ class TypeOfEnergySavings(Enum):
 class energy_savings_type(Variable):
     value_type = Enum
     possible_values = TypeOfEnergySavings
-    default_value = TypeOfEnergySavings.annual_creation
+    default_value = TypeOfEnergySavings.forward_creation
     entity = Building
     definition_period = ETERNITY
     label = u'Determines the type of energy savings created.'

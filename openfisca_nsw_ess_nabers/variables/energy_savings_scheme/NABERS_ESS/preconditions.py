@@ -321,7 +321,7 @@ class NABERS_eligible_to_create_ESCs(Variable):
         clause_8_8_4_a = buildings('historical_baseline_no_more_than_7_years_before_current_rating', period)
         clause_8_8_4_c = buildings('historical_baseline_rating_meets_similar_configuration_criteria', period)
         clause_8_8_4 = (clause_8_8_4_a
-* clause_8_8_4_c)
+        * clause_8_8_4_c)
         clause_8_8_8 = buildings('time_between_current_ratings_and_ESC_date_within_range', period)
         clause_8_8_10_b = buildings('time_between_historical_and_current_ratings_within_range', period)
         clause_8_8_10_c_i = not_(buildings('nabers_value_previously_used_to_set_historical_NABERS_rating', period))
