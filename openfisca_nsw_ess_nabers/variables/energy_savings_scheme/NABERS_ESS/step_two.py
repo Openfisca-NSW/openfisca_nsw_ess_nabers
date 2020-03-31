@@ -58,7 +58,10 @@ def count_months(sdate, edate):
         else:
             count = count + 1
 
-
+# above is the find_corresponding_date and count_months functions.
+# this is code used to make the definition of "calendar month" as defined
+# in the NSW Interpretations Act (1987) function as legally defined by DPIE
+# Legal.
 
 class method_one(Variable):
     value_type = float
@@ -83,7 +86,9 @@ class method_one(Variable):
                 year_count += 1
                 return (parameters(period).energy_savings_scheme.table_a20.ratings.by_year
                 [rating_year_string][building_type][built_before_or_after_nov_2006])
-
+        # the last line searches Table A20 using the user inputs for 1.
+        # rating year, 2. building_type, 3. the boolean value of "built after
+        # November 2006".
 
 class method_two(Variable):
     value_type = float
@@ -91,7 +96,7 @@ class method_two(Variable):
     definition_period = ETERNITY
     label = 'Benchmark NABERS Star Rating calculated using Calculation Method 2' \
             ' (Step 2) of the NABERS Baseline Method (Method 4)'\
-            ' As prescribed in Method 4 of the ESS Rule 2020.'  # need some help with this one referring to parameters
+            ' As prescribed in Method 4 of the ESS Rule 2020.'
 
     def formula(buildings, period, parameters):
         hist_rating = buildings('historical_NABERS_star_rating', period)
@@ -109,17 +114,8 @@ class method_two(Variable):
         return where (condition_previous_forward_creation
         , prev_hist_rating + annual_rating_adj * (cur_year - hist_year)
         , hist_rating + annual_rating_adj * (cur_year - hist_year))
-
-
-class rating_not_obt_for_legal_requirement(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-    label = 'Is the rating not being obtained in order to comply with any' \
-            ' mandatory legal requirement imposed through a statutory or ' \
-            ' regulatory instrument of any jurisdiction, including, but not' \
-            ' limited to, the Commercial Building Disclosure Program.' \
-            ' In accordance with clause 8.8.3 (a) (iii).'
+        # Condition forward previous annual creation is used to pull the fixed
+        # historical baseline rating, as required by clause 8.8.11 (b).
 
 
 class method_one_can_be_used(Variable):
@@ -218,8 +214,10 @@ class current_rating_period_length(Variable):
             'start_date_of_current_nabers_rating_period', period
             ).astype('datetime64[D]'))
         rating_period_length = np.fromiter(map(count_months, start_date, end_date),int)
-        return rating_period_length # need to redefine months as defined in Interpretations Act - as period from period between defined day and the corresponding day in the following month
-
+        return rating_period_length
+        # fromiter pulls the count_months function, maps the start date and
+        # end date to the function, and then returns the result as an array.
+        # this is required due to OpenFISCA returning results as arrays.
 
 
 class historical_rating_period_length(Variable):
@@ -242,8 +240,10 @@ class historical_rating_period_length(Variable):
             'start_date_of_historical_nabers_rating_period', period
             ).astype('datetime64[D]'))
         rating_period_length = np.fromiter(map(count_months, start_date, end_date),int)
-        return rating_period_length # need to redefine months as defined in Interpretations Act - as period from period between defined day and the corresponding day in the following month
-
+        return rating_period_length
+        # fromiter pulls the count_months function, maps the start date and
+        # end date to the function, and then returns the result as an array.
+        # this is required due to OpenFISCA returning results as arrays.
 
 class current_rating_year(Variable):
     value_type = int
@@ -257,7 +257,8 @@ class current_rating_year(Variable):
         end_date_of_current_nabers_rating_period = buildings('end_date_of_current_nabers_rating_period', period)
         current_rating_year = end_date_of_current_nabers_rating_period.astype('datetime64[Y]') + epoch  # need to check if this works on Windows
         return current_rating_year
-
+        # + epoch is required to ensure that getting the current_rating_year
+        # is consistent across platforms.
 
 class end_date_of_current_rating_year(Variable):
     value_type = date
@@ -295,15 +296,18 @@ class time_between_historical_and_current_ratings_within_range(Variable):
             ' Method 2. In accordance with Clause 8.8.10 (b).'
 
     def formula(buildings, period, parameters):
-        current_rating_day = buildings('end_date_of_current_nabers_rating_period', period).astype('datetime64[D]')
-        historical_rating_day = buildings('end_date_of_historical_nabers_rating_period', period).astype('datetime64[D]')
+        end_date = buildings('end_date_of_current_nabers_rating_period', period).astype('datetime64[D]')
+        start_date = buildings('end_date_of_historical_nabers_rating_period', period).astype('datetime64[D]')
         condition_method_one_is_used = buildings('method_one_can_be_used', period)
-        current_historical_date_distance
+        current_historical_date_distance = np.fromiter(map(count_months, start_date, end_date),int)
         return select(
             [condition_method_one_is_used == True,
             condition_method_one_is_used == False], [1,
             buildings('current_historical_date_distance', period) <=
             parameters(period).energy_savings_scheme.preconditions.historical_benchmark_age])
+            # fromiter pulls the count_months function, maps the start date and
+            # end date to the function, and then returns the result as an array.
+            # this is required due to OpenFISCA returning results as arrays.
 
 
 class current_historical_date_distance(Variable):
@@ -322,6 +326,9 @@ class current_historical_date_distance(Variable):
             )
         distance_between_ratings = np.fromiter(map(count_months, start_date, end_date),int)
         return distance_between_ratings
+        # fromiter pulls the count_months function, maps the start date and
+        # end date to the function, and then returns the result as an array.
+        # this is required due to OpenFISCA returning results as arrays.
 
 
 class ESC_cur_diff_as_months(Variable):
@@ -341,6 +348,9 @@ class ESC_cur_diff_as_months(Variable):
         distance_between_rating_and_creation = np.fromiter(map(count_months,
         start_date, end_date),int)
         return distance_between_rating_and_creation
+        # fromiter pulls the count_months function, maps the start date and
+        # end date to the function, and then returns the result as an array.
+        # this is required due to OpenFISCA returning results as arrays.
 
 
 class today_date(Variable):
@@ -369,6 +379,11 @@ class age_of_historical_rating(Variable):
         age_in_days = (today.astype('datetime64[D]')
         - hist.astype('datetime64[D]')).astype('datetime64[D]')
         return age_in_days.astype('datetime64[Y]')
+        # returns difference between the the historical rating date and today
+        # as a datetime64 year object. You need to review the test cases
+        # associated with this with Andrew. This is not working as intended.
+        # Need to find a definition of 'year' (likely start of day to
+        # immediately before the corresponding day in the following year.)
 
 
 class benchmark_nabers_rating(Variable):
@@ -391,3 +406,7 @@ class previous_historical_baseline_rating(Variable):
             'consumption is calculated against - what NABERS rating the' \
             ' building aims to achieve. Prior to rounding - Offices requires' \
             ' star ratings in 0.5 intervals.'
+            # Ilona my understanding is this is a Historical Baseline Rating"
+            # and not a Benchmark Rating and as such will always be in 0.5
+            # increments (unless NABERS introduces in between 0.5 ratings).
+            # Please confirm.

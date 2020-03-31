@@ -31,7 +31,8 @@ class nabers_electricity(Variable):
     definition_period = YEAR
     label = 'NABERS Electricity, in MWh, is the electricity purchased or' \
             ' imported from the Electricity Network and accounted for in the' \
-            ' NABERS Rating, including electricity purchased as GreenPower'
+            ' NABERS Rating, including electricity purchased as GreenPower.'
+            # Ilona, to how many decimal places should this be? Should there
 
     def formula(buildings, period, parameters):
         nabers_kWh = buildings('elec_kWh', period)
@@ -46,7 +47,7 @@ class onsite_unaccounted_electricity(Variable):
             ' the NABERS Rating, including electricity generated from' \
             ' photovoltaic cells or gas generators fed from on-site biogas' \
             ' sources, but excluding gas generators where the imported gas' \
-            ' has been accounted for in the NABERS Rating'
+            ' has been accounted for in the NABERS Rating.'
 
 
 class nabers_gas(Variable):
@@ -59,3 +60,7 @@ class nabers_gas(Variable):
     def formula(buildings, period, parameters):
         NABERS_gas_MJ = buildings('gas_in_MJ', period)
         return (NABERS_gas_MJ / 3.6) / 1000
+        # Ilona, Andrew - is it better to have an implied MJ > kWh > MWh
+        # conversion string, or simply go MJ > MWh (which would mean this
+        # would be return (NABERS_gas_MJ / 3600)? Please advise (if this is)
+        # important.

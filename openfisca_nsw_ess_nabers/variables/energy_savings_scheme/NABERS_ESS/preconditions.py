@@ -130,6 +130,17 @@ class star_rating_exceeds_method_one_benchmark_rating(Variable):
         return where(current - benchmark >= 0.5, True, False)
 
 
+class rating_not_obt_for_legal_requirement(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Is the rating not being obtained in order to comply with any' \
+            ' mandatory legal requirement imposed through a statutory or ' \
+            ' regulatory instrument of any jurisdiction, including, but not' \
+            ' limited to, the Commercial Building Disclosure Program.' \
+            ' In accordance with clause 8.8.3 (a) (iii).'
+
+
 class first_nabers_rating(Variable):
     value_type = bool
     entity = Building

@@ -18,15 +18,6 @@ class net_lettable_area(Variable):
     label = "The net lettable area of the building"
 
 
-class building_area_type(Variable):
-    value_type = str
-    entity = Building
-    definition_period = ETERNITY
-    label = 'The area/type of the building for which the calculation is being' \
-            ' processed (For example: base building, whole building, tenancy,' \
-            ' etc)'
-
-
 class apartments_benchmark_elec_consumption(Variable):
     value_type = float
     entity = Building
@@ -39,7 +30,11 @@ class apartments_benchmark_elec_consumption(Variable):
         condition_apartment_benchmark = buildings('is_apartment_building', period) == True
         return where (condition_apartment_benchmark,
         buildings('predicted_electricity_kWh', period), 0)
-
+        # for Andrew and Ilona - this pulls the value that's returns from the
+        # NABERS Reverse Calculator specific to apartments. The condition is
+        # required to allow Offices tests to run - Office reports do not have
+        # the inputs required to complete the Apartments calculation and thus
+        # will always fail this and return a ValueError.
 
 class apartments_benchmark_gas_consumption_MJ(Variable):
     value_type = float
@@ -53,6 +48,7 @@ class apartments_benchmark_gas_consumption_MJ(Variable):
         condition_apartment_benchmark = buildings('is_apartment_building', period) == True
         return where (condition_apartment_benchmark,
         buildings('predicted_gas_MJ', period), 0)
+        # for Andrew and Ilona - similar to apartments_benchmark_elec_consumption.
 
 
 class offices_benchmark_elec_consumption(Variable):
@@ -65,6 +61,7 @@ class offices_benchmark_elec_consumption(Variable):
         condition_office_benchmark = buildings('is_office', period) == True
         return where (condition_office_benchmark,
         buildings('office_maximum_electricity_consumption', period), 0)
+        # for Andrew and Ilona - similar to apartments_benchmark_elec_consumption.
 
 
 class offices_benchmark_gas_consumption_MJ(Variable):
@@ -77,6 +74,7 @@ class offices_benchmark_gas_consumption_MJ(Variable):
         condition_office_benchmark = buildings('is_office', period) == True
         return where (condition_office_benchmark,
         buildings('office_maximum_gas_consumption', period), 0)
+        # for Andrew and Ilona - similar to apartments_benchmark_elec_consumption.
 
 
 class benchmark_elec_consumption(Variable):
@@ -91,7 +89,9 @@ class benchmark_elec_consumption(Variable):
         [buildings('offices_benchmark_elec_consumption', period),
         buildings('apartments_benchmark_elec_consumption', period)]
             )
-
+        # condition is required to pull the appropriate benchmark from their
+        # respective calculations, while also allowing the alternate calculator
+        # to return a zero value.
 
 class benchmark_elec_consumption_MWh(Variable):
     value_type = float
@@ -102,7 +102,7 @@ class benchmark_elec_consumption_MWh(Variable):
 
     def formula(buildings, period, parameters):
         return buildings('benchmark_elec_consumption', period) / 1000
-
+        # conversion from kWh to MWh.
 
 class benchmark_gas_consumption_MJ(Variable):
     value_type = float
@@ -126,7 +126,7 @@ class benchmark_gas_consumption_MWh(Variable):
     def formula(buildings, period, parameters):
         gas_MJ = buildings('benchmark_gas_consumption_MJ', period)
         return gas_MJ / 3600
-
+        # straight conversion from MJ to MWh.
 
 class TypeOfEnergySavings(Enum):
     annual_creation = u'Energy Savings are annually created and uses step 4 to' \
@@ -142,7 +142,9 @@ class energy_savings_type(Variable):
     entity = Building
     definition_period = ETERNITY
     label = u'Determines the type of energy savings created.'
-
+    # Ilona's recommendation is to set forward creation as the default value
+    # for the type of energy savings creation method. I don't believe this has
+    # any legal implication, and is a UX decision. Please advise!
 
 class electricity_savings(Variable):
     value_type = float
@@ -158,6 +160,12 @@ class electricity_savings(Variable):
         annually_created_electricity_savings = buildings('annually_created_electricity_savings', period)
         forward_created_electricity_savings = buildings('total_forward_created_electricity_savings', period)
         return(annually_created_electricity_savings * annual_creation) + (forward_created_electricity_savings * forward_creation)
+        # this pulls the requisite annually/forward created energy savings through
+        # to a single value, to be sent to Clause 6.5 to calculate ESCs.
+        # as whether it's annual/forward created is a boolean, multiplying the
+        # savings created by the savings type, and then adding both of these
+        # together is required - otherwise it will always return a ValueError
+        # for the type of energy savings that are not being created.
 
 class gas_savings(Variable):
     value_type = float
@@ -173,3 +181,4 @@ class gas_savings(Variable):
         annually_created_gas_savings = buildings('annually_created_gas_savings', period)
         forward_created_gas_savings = buildings('total_forward_created_gas_savings', period)
         return(annually_created_gas_savings * annual_creation) + (forward_created_gas_savings * forward_creation)
+        # identical to above.

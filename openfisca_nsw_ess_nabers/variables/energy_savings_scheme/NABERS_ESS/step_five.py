@@ -20,7 +20,7 @@ class input_years_of_forward_creation(Variable):
             ' within Step 5 through the enumerable.' \
             ' maximum allowable number of forward created years is 3.' \
             ' In accordance with clause 8.8.10 (a).'
-
+            # strongly suggest this remains defaulted to one year.
 
 class years_of_forward_creation(Variable):
     value_type = int
@@ -47,27 +47,10 @@ class years_of_forward_creation(Variable):
         ,1
         ,2
         ,3])
-
-class historical_rating_previously_used(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-    label = 'Tests if a rating has been used for a previous Historical Baseline' \
-            ' NABERS Rating for a NABERS Building. Clause 8.8.10 (c) prohibits' \
-            ' the use of using a NABERS Rating of the same value more than once' \
-            ' to set a fixed Historical NABERS Baseline Rating.'
-
-    def formula(buildings, period, parameters):
-        condition_hist_rating_previously_used = buildings('historical_rating_previously_used_for_forward_creation', period)
-        return where (condition_hist_rating_previously_used, False, True)
-
-
-class historical_rating_previously_used_for_forward_creation(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-    label = 'Asks if a rating has been previously used to create a Historical' \
-            ' Baseline NABERS Rating for the relevant NABERS building.'
+        # if the user annually creates this is always set to one year. The
+        # forward created energy/gas savings calculation is unused when set to annual
+        # creation, but the calculation still has to be completed due to
+        # OpenFISCA's vectoral calculations.
 
 
 class year_one_forward_created_electricity_savings(Variable):

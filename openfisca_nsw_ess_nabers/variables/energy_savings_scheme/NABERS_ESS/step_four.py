@@ -50,7 +50,8 @@ class regional_network_factor(Variable):
     def formula(buildings, period, parameters):
         postcode = buildings('postcode', period)
         rnf = parameters(period).energy_savings_scheme.table_a24.regional_network_factor
-        return rnf.calc(postcode)  # This is a built in OpenFisca function that is used to calculate a single value for regional network factor based on a zipcode provided
+        return rnf.calc(postcode)  # This is a built in OpenFisca function that \
+        # is used to calculate a single value for regional network factor based on a zipcode provided
 
 
 class NRYi1(Variable):
@@ -58,7 +59,8 @@ class NRYi1(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'the NABERS rating year immediately preceding the NABERS Rating' \
-            ' Year.' #note this only says "NABERS Rating Year in the rule - you need to define this as current rating year."
+            ' Year.' # note this only says "NABERS Rating Year in the rule - 
+                    # you need to define this as current rating year."
 
     def formula(buildings, period, parameters):
         current_rating_year = buildings('current_rating_year', period)
