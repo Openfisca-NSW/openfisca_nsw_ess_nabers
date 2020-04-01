@@ -110,12 +110,20 @@ class method_two(Variable):
         "one_year_old")
         annual_rating_adj = (parameters(period).energy_savings_scheme.table_a21.building_category
         [building_type][adjustment_year_string])
-        condition_previous_forward_creation = buildings('previous_annual_creation_occurred', period)
+        condition_previous_forward_creation = buildings('previous_forward_creation_occurred', period)
         return where (condition_previous_forward_creation
         , prev_hist_rating + annual_rating_adj * (cur_year - hist_year)
         , hist_rating + annual_rating_adj * (cur_year - hist_year))
         # Condition forward previous annual creation is used to pull the fixed
         # historical baseline rating, as required by clause 8.8.11 (b).
+
+
+class previous_forward_creation_occurred(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Asks where the user has calculated Energy Savings using the' \
+            ' forward creation method in the previous six years.'
 
 
 class method_one_can_be_used(Variable):

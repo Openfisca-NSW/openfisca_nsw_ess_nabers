@@ -9,7 +9,7 @@
   input:
     end_date_of_historical_nabers_rating_period: 2019-04-02
   output:
-    age_of_historical_rating: 0
+    age_of_historical_rating: 1
 - name: historical_rating_is_one_year_old - 2019-04-01
   period: 2020
   input:
@@ -27,7 +27,7 @@
   input:
     end_date_of_historical_nabers_rating_period: 2018-04-02
   output:
-    age_of_historical_rating: 1
+    age_of_historical_rating: 2
 - name: historical_rating_is_one_year_old - 2018-04-01
   period: 2020
   input:

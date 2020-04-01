@@ -125,7 +125,7 @@ class benchmark_gas_consumption_MWh(Variable):
 
     def formula(buildings, period, parameters):
         gas_MJ = buildings('benchmark_gas_consumption_MJ', period)
-        return gas_MJ / 3600
+        return (gas_MJ / 3.6) / 1000
         # straight conversion from MJ to MWh.
 
 class TypeOfEnergySavings(Enum):

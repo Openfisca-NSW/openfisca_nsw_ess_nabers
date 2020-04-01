@@ -20,4 +20,4 @@
     end_date_of_historical_nabers_rating_period: 2021-03-29
     end_date_of_current_nabers_rating_period: 2022-09-29
   output:
-    current_historical_date_distance: 18
+    current_historical_date_distance: 17

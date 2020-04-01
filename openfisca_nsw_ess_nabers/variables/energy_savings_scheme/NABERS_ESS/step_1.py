@@ -7,7 +7,7 @@ from openfisca_nsw_base.entities import *
 class measured_electricity_consumption(Variable):
     value_type = float
     entity = Building
-    definition_period = YEAR
+    definition_period = ETERNITY
     label = "Measured Electricity Consumption (MWh)"
 
     def formula(buildings, period, parameters):
@@ -32,7 +32,7 @@ class nabers_electricity(Variable):
     label = 'NABERS Electricity, in MWh, is the electricity purchased or' \
             ' imported from the Electricity Network and accounted for in the' \
             ' NABERS Rating, including electricity purchased as GreenPower.'
-            # Ilona, to how many decimal places should this be? Should there
+            # Ilona, to how many decimal places should this be? No rounding.
 
     def formula(buildings, period, parameters):
         nabers_kWh = buildings('elec_kWh', period)
