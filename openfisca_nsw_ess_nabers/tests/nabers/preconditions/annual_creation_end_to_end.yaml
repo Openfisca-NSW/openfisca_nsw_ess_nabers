@@ -176,7 +176,6 @@
     historical_baseline_rating_meets_similar_configuration_criteria: True
     nabers_value_previously_used_to_set_historical_NABERS_rating: False
     nabers_value_lower_than_previous_historical_NABERS_value: False
-    end_date_of_current_nabers_rating_period: 2019-04-30
     apartments_postcode: 2061
     number_of_apartments: 33
     number_of_central_ac_apartments: 0
