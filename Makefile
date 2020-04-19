@@ -43,7 +43,7 @@ venv:
 	source kids/bin/activate
 
 extension: build
-	python -m pip install ../openfisca_nsw_base/
+	python -m pip install /openfisca_nsw_base/
 	pip install -e .
 	openfisca test openfisca_nsw_ess_nabers/tests --country-package openfisca_nsw_base --extensions openfisca_nsw_ess_nabers
 
