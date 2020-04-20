@@ -232,7 +232,6 @@
     building_type_status: is_apartment_building
     all_on_site_sources_identified: True
     unaccounted_elec_metered_and_recorded: True
-    end_date_of_current_nabers_rating_period: 2019-12-31
     ESC_creation_date: 2020-02-15
     current_NABERS_star_rating: 5.5
     built_after_nov_2006: False
@@ -267,7 +266,6 @@
     building_type_status: is_apartment_building
     all_on_site_sources_identified: True
     unaccounted_elec_metered_and_recorded: True
-    end_date_of_current_nabers_rating_period: 2019-12-31
     ESC_creation_date: 2020-02-15
     current_NABERS_star_rating: 5.5
     built_after_nov_2006: False
@@ -301,7 +299,6 @@
     building_type_status: is_office
     all_on_site_sources_identified: True
     unaccounted_elec_metered_and_recorded: True
-    end_date_of_current_nabers_rating_period: 2019-12-31
     ESC_creation_date: 2020-02-15
     current_NABERS_star_rating: 5.5
     built_after_nov_2006: False
@@ -335,7 +332,6 @@
   input:
     all_on_site_sources_identified: True
     unaccounted_elec_metered_and_recorded: True
-    end_date_of_current_nabers_rating_period: 2019-12-31
     ESC_creation_date: 2020-02-15
     current_NABERS_star_rating: 5.5
     built_after_nov_2006: False
@@ -370,7 +366,6 @@
   input:
     all_on_site_sources_identified: True
     unaccounted_elec_metered_and_recorded: True
-    end_date_of_current_nabers_rating_period: 2019-12-31
     ESC_creation_date: 2020-02-15
     current_NABERS_star_rating: 5.5
     built_after_nov_2006: False
@@ -406,7 +401,6 @@
     building_type_status: office
     all_on_site_sources_identified: True
     unaccounted_elec_metered_and_recorded: True
-    end_date_of_current_nabers_rating_period: 2019-12-31
     ESC_creation_date: 2020-02-15
     current_NABERS_star_rating: 5.5
     built_after_nov_2006: False
