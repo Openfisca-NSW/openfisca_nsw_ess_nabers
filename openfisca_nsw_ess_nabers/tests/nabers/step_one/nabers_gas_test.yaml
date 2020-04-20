@@ -4,3 +4,9 @@
     nabers_gas: 500
   output:
     measured_gas_consumption: 500
+- name: test of NABERS Gas
+  period: 2020
+  input:
+    nabers_gas: 100000
+  output:
+    measured_gas_consumption: 100000
