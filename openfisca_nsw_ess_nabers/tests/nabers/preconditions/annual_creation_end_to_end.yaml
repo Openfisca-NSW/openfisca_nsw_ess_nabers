@@ -320,7 +320,6 @@
     gas_in_MJ: 101377.6
     diesel_in_litres: 0
     coal_in_KG: 0
-    built_after_nov_2006: False
   output:
     NABERS_eligible_to_create_ESCs: True
 - name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
@@ -354,7 +353,6 @@
     gas_in_MJ: 101377.6
     diesel_in_litres: 0
     coal_in_KG: 0
-    built_after_nov_2006: False
   output:
     electricity_savings: 18.91
 - name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
@@ -388,7 +386,6 @@
     gas_in_MJ: 101377.6
     diesel_in_litres: 0
     coal_in_KG: 0
-    built_after_nov_2006: False
   output:
     gas_savings: 2.94
 - name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
@@ -422,6 +419,5 @@
     gas_in_MJ: 101377.6
     diesel_in_litres: 0
     coal_in_KG: 0
-    built_after_nov_2006: False
   output:
     number_of_certificates: 23
