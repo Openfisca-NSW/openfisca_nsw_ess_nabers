@@ -379,4 +379,4 @@
     rating_not_obt_for_legal_requirement: True
     energy_savings_type: annual_creation
   output:
-    number_of_certificates: 358
+    number_of_certificates: 0
