@@ -10,9 +10,7 @@ class number_of_certificates(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'Equation 1 of the ESS Rule 2009, used to calculate the number' \
-            ' of ESCs generated from a Recognised Energy Savings Activity.' \
-            ' As defined in Clause 6.5 of the ESS Rule 2009.'
+    label = 'The total number of certificates generated from this activity.' \
 
     def formula(buildings, period, parameters):
         elec_savings = buildings('electricity_savings', period)

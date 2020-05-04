@@ -67,8 +67,8 @@ class method_one(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'Benchmark NABERS Star Rating calculated using Calculation Method 1' \
-            '(Step 2) of the NABERS Baseline Method (Method 4) in the ESS Rules'
+    label = 'What is the Benchmark NABERS Rating calculated using Method 1' \
+            ' of the NABERS Baseline Method in the ESS?'
 
     def formula(buildings, period, parameters):
         current_rating_year = buildings('current_rating_year', period)
@@ -90,13 +90,13 @@ class method_one(Variable):
         # rating year, 2. building_type, 3. the boolean value of "built after
         # November 2006".
 
+
 class method_two(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'Benchmark NABERS Star Rating calculated using Calculation Method 2' \
-            ' (Step 2) of the NABERS Baseline Method (Method 4)'\
-            ' As prescribed in Method 4 of the ESS Rule 2020.'
+    label = 'What is the Benchmark NABERS Rating calculated using Method 1' \
+            ' of the NABERS Baseline Method in the ESS?'
 
     def formula(buildings, period, parameters):
         hist_rating = buildings('historical_NABERS_star_rating', period)
@@ -122,8 +122,8 @@ class previous_forward_creation_occurred(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Asks where the user has calculated Energy Savings using the' \
-            ' forward creation method in the previous six years.'
+    label = 'Has previous forward creation occurred for this implementation' \
+            ' within the previous 6 years?'
 
 
 class method_one_can_be_used(Variable):
@@ -141,78 +141,54 @@ class built_after_nov_2006(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Determines whether the building was built after November 2006,' \
-            ' in order to determine the appropriate benchmark rating to use' \
-            ' within Calculation Method 1 of the NABERS method.'
+    label = 'Was the building built on or after 1 November 2006?'
 
 
 class start_date_of_current_nabers_rating_period(Variable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
-    label = 'The date on which the current rating period begins. The Rating' \
-            ' Period is the time over which measurements were taken to' \
-            ' establish the NABERS Rating or the Historical Baseline NABERS' \
-            ' Rating for the NABERS Building' \
-            ' As published within the NABERS Rating Report.' \
-            ' As defined in Clause 8.8.2 (a).'
+    label = 'What is the start date of the Current Rating Period as listed on' \
+            ' the Current NABERS Rating Report?'
 
 
 class end_date_of_current_nabers_rating_period(Variable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
-    label = 'The date on which the current rating period ends. The Rating' \
-            ' Period is the time over which measurements were taken to' \
-            ' establish the NABERS Rating or the Historical Baseline NABERS' \
-            ' Rating for the NABERS Building.' \
-            ' As published within the NABERS Report.' \
-            ' As defined in Clause 8.8.2 (a).'
+    label = 'What is the end date of the Current Rating Period as listed on' \
+            ' the Current NABERS Rating Report?'
 
 
 class start_date_of_historical_nabers_rating_period(Variable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
-    label = 'The date on which the historical rating period begins. The Rating' \
-            ' Period is the time over which measurements were taken to' \
-            ' establish the NABERS Rating or the Historical Baseline NABERS' \
-            ' Rating for the NABERS Building' \
-            ' As published within the NABERS Rating Report.' \
-            ' As defined in Clause 8.8.2 (b).'
+    label = 'What is the start date of the Historical Rating Period as listed on' \
+            ' the Historical NABERS Rating Report?' # probably need to put in a default value maybe?
 
 
 class end_date_of_historical_nabers_rating_period(Variable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
-    label = 'The date on which the historical rating period ends. The Rating' \
-            ' Period is the time over which measurements were taken to' \
-            ' establish the NABERS Rating or the Historical Baseline ' \
-            ' NABERS Rating for the NABERS Building.' \
-            ' As defined in Clause 8.8.2 (b).'
+    label = 'What is the end date of the Historical Rating Period as listed on' \
+            ' the Historical NABERS Rating Report?'
 
 
 class historical_NABERS_star_rating(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'The star rating associated with the historical rating used to' \
-            ' calculate Benchmark NABERS Rating within Calculation Method 2.' \
-            ' As defined in clause 8.8.2 (b)'
-
+    label = 'What is the Star Rating of the Historical NABERS Rating, as listed' \
+            ' on the Historical NABERS Rating Report?'
 
 class current_rating_period_length(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
-    label = 'Calculates the length of the current rating period, based on the' \
-            ' difference between the start date of the current rating period' \
-            ' and the end date of the current rating period.' \
-            ' the Rating Period is the time over which measurements were' \
-            ' taken to establish the NABERS Rating or the Historical Baseline' \
-            ' NABERS Rating for the NABERS Building; ' \
-            ' In accordance with clause 8.8.2 (c).'
+    label = 'What is the length of the Current NABERS Rating Period, as' \
+            ' using the current start date and current end date?'
 
     def formula(buildings, period, parameters):
         end_date = (buildings(
@@ -232,13 +208,8 @@ class historical_rating_period_length(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
-    label = 'Calculates the length of the historical rating period, based on the' \
-            ' difference between the start date of the current rating period' \
-            ' and the end date of the historical rating period.' \
-            ' the Rating Period is the time over which measurements were' \
-            ' taken to establish the NABERS Rating or the Historical Baseline' \
-            ' NABERS Rating for the NABERS Building; ' \
-            ' In accordance with clause 8.8.2 (c).'
+    label = 'What is the length of the Historical NABERS Rating Period, as' \
+            ' using the historical start date and historical end date?'
 
     def formula(buildings, period, parameters):
         end_date = (buildings(
@@ -257,9 +228,7 @@ class current_rating_year(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
-    label = 'The year in which the Rating Period ends for the NABERS Rating' \
-    'and is the year for which Energy Savings Certificates will be created' \
-    ' As defined in Clause 8.8.2 (d).'
+    label = 'What is the year for the current rating period?'
 
     def formula(buildings, period, parameters):
         end_date_of_current_nabers_rating_period = buildings('end_date_of_current_nabers_rating_period', period)
@@ -272,7 +241,7 @@ class end_date_of_current_rating_year(Variable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
-    label = "finds the end date of the current rating year."
+    label = "What is the end date of the current rating year?"
 
     def formula(buildings, period, parameters):
         current_rating_year = buildings('current_rating_year', period).astype('datetime64[Y]')
@@ -285,9 +254,7 @@ class baseline_rating_year(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
-    label = 'The year in which the Rating Period ends for the Historical NABERS' \
-            ' Rating, used for defining the Historical NABERS Rating Period' \
-            ' As defined in Clause 8.8.2 (e).'
+    label = 'What is the year for the historical rating period?'
 
     def formula(buildings, period, parameters):
         end_date_of_historical_nabers_rating_period = buildings('end_date_of_historical_nabers_rating_period', period)
@@ -365,7 +332,7 @@ class today_date(Variable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
-    label = 'today date'
+    label = 'What is the date for today?'
 
     def formula(buildings, period, parameters):
         return today
@@ -410,10 +377,8 @@ class previous_historical_baseline_rating(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY  # need to check whether these inputs, on the NABERS reports, should all be year
-    label = 'The star rating for which the benchmark electricity and gas' \
-            'consumption is calculated against - what NABERS rating the' \
-            ' building aims to achieve. Prior to rounding - Offices requires' \
-            ' star ratings in 0.5 intervals.'
+    label = 'If there has been a previous Historical NABERS Baseline Rating' \
+            ' what is the previous Historical NABERS Baseline Rating?'
             # Ilona my understanding is this is a Historical Baseline Rating"
             # and not a Benchmark Rating and as such will always be in 0.5
             # increments (unless NABERS introduces in between 0.5 ratings).

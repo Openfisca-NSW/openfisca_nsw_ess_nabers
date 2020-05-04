@@ -7,16 +7,16 @@ from openfisca_nsw_base.entities import *
 class coal_in_KG(Variable):
     value_type = float
     entity = Building
-    definition_period = YEAR
-    label = 'The amount of coal consumed at the site throughout the NABERS' \
-            ' rating period, as indicated on the NABERS Rating Report, in' \
-            ' kg per annum'
+    definition_period = ETERNITY
+    label = 'What is the amount of coal consumed at the NABERS rated building' \
+            ' through the NABERS Rating Period, as measured in KG and' \
+            ' recorded on the NABERS Rating Report?'
 
 
 class coal_KG_to_KWh(Variable):
     value_type = float
     entity = Building
-    definition_period = YEAR
+    definition_period = ETERNITY
     label = "Formula for converting coal from kg to kwh"
 
     def formula(buildings, period, parameters):
@@ -26,10 +26,10 @@ class coal_KG_to_KWh(Variable):
 class diesel_in_litres(Variable):
     value_type = float
     entity = Building
-    definition_period = YEAR
-    label = 'The amount of diesel comnsumed at the site throughout the NABERS' \
-            ' rating period, as indicated on the NABERS Rating Report, in' \
-            ' Litres per annum'
+    definition_period = ETERNITY
+    label = 'What is the amount of diesel consumed at the NABERS rated building' \
+            ' through the NABERS Rating Period, as measured in L and' \
+            ' recorded on the NABERS Rating Report?'
 
 
 class diesel_litres_to_KWh(Variable):
@@ -46,9 +46,9 @@ class gas_in_MJ(Variable):
     value_type = float
     entity = Building
     definition_period = YEAR
-    label = 'The amount of gas consumed at the site throughout the NABERS' \
-            ' rating period, as indicated on the NABERS Rating Report, in' \
-            ' MJ per annum'
+    label = 'What is the amount of gas consumed at the NABERS rated building' \
+            ' through the NABERS Rating Period, as measured in MJ and' \
+            ' recorded on the NABERS Rating Report?'
 
 
 class gas_MJ_to_KWh(Variable):

@@ -99,8 +99,7 @@ class building_type(Variable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
-    label = 'Determines whether the NABERS Rating was calculated using one' \
-            ' of the NABERS Rating Tools, as prescribed in Clause 8.8.1 (a).'
+    label = 'What is the building type for which you are calculating ESCs?' \
 
     def formula(buildings, period, parameters):
         building_type = buildings('building_type_status', period)
@@ -128,4 +127,4 @@ class postcode(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
-    label = "Postcode for the building"
+    label = "What is the postcode for the building you are calculating ESCs for?"

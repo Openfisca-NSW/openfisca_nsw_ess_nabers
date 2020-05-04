@@ -19,7 +19,7 @@ class measured_gas_consumption(Variable):
     value_type = float
     entity = Building
     definition_period = YEAR
-    label = "Measured Electricity Consumption (MWh)"
+    label = "Measured Gas Consumption (MWh)"
 
     def formula(buildings, period, parameters):
         return buildings('nabers_gas', period)
@@ -38,16 +38,13 @@ class nabers_electricity(Variable):
         nabers_kWh = buildings('elec_kWh', period)
         return nabers_kWh / 1000
 
+
 class onsite_unaccounted_electricity(Variable):
     value_type = float
     entity = Building
     definition_period = YEAR
-    label = 'On-site Unaccounted Electricity, in MWh, is electricity generated' \
-            ' on-site from energy sources which have not been accounted for in' \
-            ' the NABERS Rating, including electricity generated from' \
-            ' photovoltaic cells or gas generators fed from on-site biogas' \
-            ' sources, but excluding gas generators where the imported gas' \
-            ' has been accounted for in the NABERS Rating.'
+    label = 'What is the onsite unaccounted electricity use, that is not' \
+            ' recorded on the NABERS Rating Report?'
 
 
 class nabers_gas(Variable):

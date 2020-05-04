@@ -31,7 +31,7 @@ np.set_printoptions(formatter={'float_kind':float_formatter})
 # public values. This is to be kept PUBLIC.
 
 
-class offices_postcode:
+class offices_postcode(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
