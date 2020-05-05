@@ -8,14 +8,16 @@ class hours_per_week_with_20_percent_occupancy(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = "Hours each week with occupancy levels of 20% or more (hrs/week)"
+    label = 'What is the number of hours each week with occupancy levels of 20%' \
+            ' or more (hrs/week)"
 
 
 class net_lettable_area(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = "The net lettable area of the building"
+    label = 'What is the net lettable area of the building, as recorded on the' \
+            ' NABERS Rating Report?'
 
 
 class apartments_benchmark_elec_consumption(Variable):
@@ -141,7 +143,8 @@ class energy_savings_type(Variable):
     default_value = TypeOfEnergySavings.forward_creation
     entity = Building
     definition_period = ETERNITY
-    label = u'Determines the type of energy savings created.'
+    label = u'What is the type of energy savings you are creating - annual' \
+            ' creation or forward creation?'
     # Ilona's recommendation is to set forward creation as the default value
     # for the type of energy savings creation method. I don't believe this has
     # any legal implication, and is a UX decision. Please advise!

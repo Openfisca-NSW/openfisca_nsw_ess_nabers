@@ -16,10 +16,7 @@ class input_years_of_forward_creation(Variable):
     default_value = YearsOfForwardCreation.one_year
     entity = Building
     definition_period = ETERNITY
-    label = 'pulls the user input for the amount of years to be forward created' \
-            ' within Step 5 through the enumerable.' \
-            ' maximum allowable number of forward created years is 3.' \
-            ' In accordance with clause 8.8.10 (a).'
+    label = 'What are the total number of years you want to forward create for?'
             # strongly suggest this remains defaulted to one year.
 
 class years_of_forward_creation(Variable):
