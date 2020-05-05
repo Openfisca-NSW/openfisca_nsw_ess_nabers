@@ -9,7 +9,7 @@ class hours_per_week_with_20_percent_occupancy(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'What is the number of hours each week with occupancy levels of 20%' \
-            ' or more (hrs/week)"
+            ' or more (hrs/week)'
 
 
 class net_lettable_area(Variable):
