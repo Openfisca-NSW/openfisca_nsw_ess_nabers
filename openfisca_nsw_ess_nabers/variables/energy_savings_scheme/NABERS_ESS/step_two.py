@@ -80,9 +80,9 @@ class method_one(Variable):
         built_before_or_after_nov_2006 = where(buildings('built_after_nov_2006', period),
         "built_after_nov_2006",
         "built_before_nov_2006")
-        if (current_rating_year >= parameters(period).energy_savings_scheme.table_a20.min_year):
+        if ((current_rating_year >= parameters(period).energy_savings_scheme.table_a20.min_year).any()):
             year_count = parameters(period).energy_savings_scheme.table_a20.min_year - 1
-            while (year_count < current_rating_year):
+            while ((year_count < current_rating_year).any()):
                 year_count += 1
                 return (parameters(period).energy_savings_scheme.table_a20.ratings.by_year
                 [rating_year_string][building_type][built_before_or_after_nov_2006])

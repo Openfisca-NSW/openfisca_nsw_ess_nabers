@@ -454,15 +454,15 @@ class office_maximum_electricity_consumption(Variable):
             perc_diesel / perc_elec * SGEoil), 9)
 
         return select(
-            [benchmark <= 5 and rating_type == "base_building"
-            , benchmark <= 5 and rating_type == "whole_building"
-            , benchmark <= 5 and rating_type == "tenancy"
-            , benchmark == 5.5 and rating_type == "whole_building"
-            , benchmark == 5.5 and rating_type == "base_building"
-            , benchmark == 5.5 and rating_type == "tenancy"
-            , benchmark == 6 and rating_type == "whole_building"
-            , benchmark == 6 and rating_type == "base_building"
-            , benchmark == 6 and rating_type == "tenancy"],
+            [(benchmark <= 5).any() and rating_type == "base_building"
+            , (benchmark <= 5).any() and rating_type == "whole_building"
+            , (benchmark <= 5).any() and rating_type == "tenancy"
+            , (benchmark == 5.5).any() and rating_type == "whole_building"
+            , (benchmark == 5.5).any() and rating_type == "base_building"
+            , (benchmark == 5.5).any() and rating_type == "tenancy"
+            , (benchmark == 6).any() and rating_type == "whole_building"
+            , (benchmark == 6).any() and rating_type == "base_building"
+            , (benchmark == 6).any() and rating_type == "tenancy"],
              [consumption(bb_GEmax)
              , consumption(GEwholemax)
              , consumption(ten_GEmax)
