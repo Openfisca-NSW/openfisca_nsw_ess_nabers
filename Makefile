@@ -8,7 +8,7 @@ clean:
 	find . -name '*.pyc' -exec rm \{\} \;
 
 deps:
-	pip install --upgrade pip twine wheel
+	pip install --upgrade pip twine wheel 
 
 install: deps
 	@# Install OpenFisca-Extension-Template for development.
@@ -42,7 +42,8 @@ venv:
 	python3.7 -m venv kids
 	source kids/bin/activate
 
-extension: build
+extension: check-syntax-errors check-style build
 	python -m pip install ../openfisca_nsw_base/
 	pip install -e .
 	openfisca test openfisca_nsw_ess_nabers/tests --country-package openfisca_nsw_base --extensions openfisca_nsw_ess_nabers
+
