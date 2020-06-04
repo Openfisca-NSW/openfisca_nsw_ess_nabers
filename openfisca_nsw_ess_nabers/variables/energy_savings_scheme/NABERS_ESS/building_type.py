@@ -13,7 +13,7 @@ class is_office(Variable):
     def formula(buildings, period, parameters):
         building_type = buildings('building_type_status', period)
         condition_is_office = (building_type == BuildingTypeStatus.office)
-        return where (condition_is_office, 1, 0)
+        return where(condition_is_office, 1, 0)
 
 
 class is_hotel(Variable):
@@ -25,7 +25,7 @@ class is_hotel(Variable):
     def formula(buildings, period, parameters):
         building_type = buildings('building_type_status', period)
         condition_is_hotel = (building_type == BuildingTypeStatus.hotel)
-        return where (condition_is_hotel, 1, 0)
+        return where(condition_is_hotel, 1, 0)
 
 
 class is_shopping_centre(Variable):
@@ -37,7 +37,7 @@ class is_shopping_centre(Variable):
     def formula(buildings, period, parameters):
         building_type = buildings('building_type_status', period)
         condition_is_shopping_centre = (building_type == BuildingTypeStatus.shopping_centre)
-        return where (condition_is_shopping_centre, 1, 0)
+        return where(condition_is_shopping_centre, 1, 0)
 
 
 class is_data_centre(Variable):
@@ -49,7 +49,7 @@ class is_data_centre(Variable):
     def formula(buildings, period, parameters):
         building_type = buildings('building_type_status', period)
         condition_is_data_centre = (building_type == BuildingTypeStatus.data_centre)
-        return where (condition_is_data_centre, 1, 0)
+        return where(condition_is_data_centre, 1, 0)
 
 
 class is_hospital(Variable):
@@ -61,7 +61,7 @@ class is_hospital(Variable):
     def formula(buildings, period, parameters):
         building_type = buildings('building_type_status', period)
         condition_is_hospital = (building_type == BuildingTypeStatus.hospital)
-        return where (condition_is_hospital, 1, 0)
+        return where(condition_is_hospital, 1, 0)
 
 
 class is_apartment_building(Variable):
@@ -73,7 +73,7 @@ class is_apartment_building(Variable):
     def formula(buildings, period, parameters):
         building_type = buildings('building_type_status', period)
         condition_is_apartment_building = (building_type == BuildingTypeStatus.apartment_building)
-        return where (condition_is_apartment_building, 1, 0)
+        return where(condition_is_apartment_building, 1, 0)
 
 
 class BuildingTypeStatus(Enum):
@@ -101,6 +101,7 @@ class building_type(Variable):
     definition_period = ETERNITY
     label = 'What is the building type for which you are calculating ESCs?' \
 
+
     def formula(buildings, period, parameters):
         building_type = buildings('building_type_status', period)
         is_apartment_building = (building_type == BuildingTypeStatus.apartment_building)
@@ -109,18 +110,8 @@ class building_type(Variable):
         is_hotel = (building_type == BuildingTypeStatus.hotel)
         is_office = (building_type == BuildingTypeStatus.office)
         is_shopping_centre = (building_type == BuildingTypeStatus.shopping_centre)
-        return select([is_apartment_building
-        , is_data_centre
-        , is_hospital
-        , is_hotel
-        , is_office
-        , is_shopping_centre],
-            ['apartment_building'
-            , 'data_centre'
-            , 'hospital'
-            , 'hotel'
-            , 'office'
-            , 'shopping_centre'])
+        return select([is_apartment_building, is_data_centre, is_hospital, is_hotel, is_office, is_shopping_centre],
+            ['apartment_building', 'data_centre', 'hospital', 'hotel', 'office', 'shopping_centre'])
 
 
 class postcode(Variable):

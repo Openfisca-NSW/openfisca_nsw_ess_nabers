@@ -6,7 +6,7 @@ import numpy as np
 import math
 
 float_formatter = "{:.9f}".format
-np.set_printoptions(formatter={'float_kind':float_formatter})
+np.set_printoptions(formatter={'float_kind': float_formatter})
 
 
 # measured_electricity_consumption input at Step 1
@@ -76,13 +76,8 @@ class rating_type(Variable):
         is_whole_building = (rating_type == RatingTypeStatus.whole_building)
         is_base_building = (rating_type == RatingTypeStatus.base_building)
         is_tenancy = (rating_type == RatingTypeStatus.tenancy)
-        return select([is_whole_building
-        , is_base_building
-        , is_tenancy],
-            ['whole_building'
-            , 'base_building'
-            , 'tenancy'])
-
+        return select([is_whole_building, is_base_building, is_tenancy],
+            ['whole_building', 'base_building', 'tenancy'])
 
 
 class benchmark_star_rating(Variable):
@@ -98,7 +93,7 @@ class benchmark_star_rating(Variable):
         method_one = buildings('method_one', period)
         method_two = buildings('method_two', period)
         condition_method_one = buildings('method_one_can_be_used', period) == True
-        return where (condition_method_one, method_one, method_two)
+        return where(condition_method_one, method_one, method_two)
 
 
 class building_state_location(Variable):
