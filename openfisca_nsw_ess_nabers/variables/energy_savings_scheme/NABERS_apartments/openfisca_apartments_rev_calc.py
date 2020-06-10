@@ -6,7 +6,7 @@ from openfisca_nsw_base.entities import *
 from pandas import pandas as pd
 import numpy as np
 float_formatter = "{:.9f}".format
-np.set_printoptions(formatter={'float_kind':float_formatter})
+np.set_printoptions(formatter={'float_kind': float_formatter})
 
 # xlsx = r'/Users/liammccann/DPIE/Energy Savings Scheme - 02_Rule as Code/01_ESS/01. 8.8 NABERS/1. Data/climate_zones_postcodes.xlsx'
 # df1 = pd.read_excel(xlsx, "postcodes")
@@ -44,9 +44,9 @@ class apartments_benchmark(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Benchmark star rating for the relevant NABERS rated apartment' \
-            ' building.' # need to write in condition for method one
+            ' building.'  # need to write in condition for method one
 
-    def formula (buildings, period, parameters):
+    def formula(buildings, period, parameters):
         return buildings('benchmark_nabers_rating', period)
 
 
@@ -108,6 +108,7 @@ class pool_input_status(Variable):
     label = 'Does the apartment complex have no pool, an unheated pool, or a' \
             ' heated pool?'
 
+
 class pool_status(Variable):
     value_type = str
     entity = Building
@@ -138,7 +139,7 @@ class apartment_has_gym(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'gym boolean value used to indicate whether the complex has no' \
-            ' gym or a gym.'  #  as with pool_status, could be rewritten
+            ' gym or a gym.'  # as with pool_status, could be rewritten
 
     def formula(buildings, period, parameters):
         has_gym = buildings('gym_input_status', period)
@@ -166,9 +167,9 @@ class number_of_naturally_ventilated_parking_spaces(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Number of mechanically ventilated parking spaces located in the' \
-            ' NABERS rated apartment building.' # col K
+            ' NABERS rated apartment building.'  # col K
 
-    def formula (buildings, period, parameters):
+    def formula(buildings, period, parameters):
         nat_spaces = buildings('input_number_of_naturally_ventilated_parking_spaces', period)
         number_of_apartments = buildings('number_of_apartments', period)
         mech_spaces = buildings('number_of_mechanically_ventilated_parking_spaces', period)
@@ -181,9 +182,9 @@ class number_of_mechanically_ventilated_parking_spaces(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Number of mechanically ventilated parking spaces located in the' \
-            ' NABERS rated apartment building.' # col K
+            ' NABERS rated apartment building.'  # col K
 
-    def formula (buildings, period, parameters):
+    def formula(buildings, period, parameters):
         mech_spaces = buildings('input_number_of_mechanically_ventilated_parking_spaces', period)
         number_of_apartments = buildings('number_of_apartments', period)
         condition_mech_parking = mech_spaces < (number_of_apartments * 2)
@@ -278,7 +279,7 @@ class interceptor(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'returns interceptor coefficient' # should remove and rewrite the relevant formula to be more efficient
+    label = 'returns interceptor coefficient'  # should remove and rewrite the relevant formula to be more efficient
 
     def formula(buildings, period, parameters):
         return parameters(period).energy_savings_scheme.NABERS_apartments.intercept
@@ -290,7 +291,7 @@ class central_AC(Variable):
     definition_period = ETERNITY
     label = 'Weighting of the central AC coefficient against the number of' \
             ' apartments with Central AC divided by the number of total' \
-            ' apartments.' # should remove and rewrite the relevant formula to be more efficient
+            ' apartments.'  # should remove and rewrite the relevant formula to be more efficient
 
     def formula(buildings, period, parameters):
         AC_coeff = parameters(period).energy_savings_scheme.NABERS_apartments.AC_coeff
@@ -307,7 +308,7 @@ class condenser_water(Variable):
     label = 'Value for condenser water serviced apartments, found by' \
             ' multiplying condenser water coefficient by no. of condenser' \
             ' water serviced apartments, then dividing by total number' \
-            ' of apartments.' # should remove and rewrite the relevant formula to be more efficient
+            ' of apartments.'  # should remove and rewrite the relevant formula to be more efficient
 
     def formula(buildings, period, parameters):
         CW_coeff = parameters(period).energy_savings_scheme.NABERS_apartments.condenser_water_coeff
@@ -322,7 +323,7 @@ class lifts(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Value used to weight the amount of apartments serviced by lifts' \
-            ' in the relevant NABERS rated building.' # should remove and rewrite the relevant formula to be more efficient
+            ' in the relevant NABERS rated building.'  # should remove and rewrite the relevant formula to be more efficient
 
     def formula(buildings, period, parameters):
         lift_coeff = parameters(period).energy_savings_scheme.NABERS_apartments.lift_coeff
@@ -340,7 +341,7 @@ class car_park(Variable):
             ' against the mechanically ventilated coefficient, plus the' \
             ' number of naturally ventilated carpark spaces weighted against' \
             ' naturally ventilated carpark coefficient, divided by the total' \
-            ' number of apartments.' # should remove and rewrite the relevant formula to be more efficient
+            ' number of apartments.'  # should remove and rewrite the relevant formula to be more efficient
 
     def formula(buildings, period, parameters):
         mvcp_coeff = parameters(period).energy_savings_scheme.NABERS_apartments.mech_ventilated_carpark_coeff
@@ -372,40 +373,18 @@ class predicted_energy_emissions(Variable):
         predicted_emissions = intercept + pool + central_AC + condenser_water + lifts + gyms + car_park
         return predicted_emissions
 
+
 class emissions_ratio(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = "emissions factor weighted by star rating" # col AX via VLOOKUP. need to rewrite as parameter
+    label = "emissions factor weighted by star rating"  # col AX via VLOOKUP. need to rewrite as parameter
 
     def formula(buildings, period, parameters):
         benchmark = buildings('apartments_benchmark', period)
         return select(
-            [benchmark == 0
-            , benchmark == 1
-            , benchmark == 1.5
-            , benchmark == 2
-            , benchmark == 2.5
-            , benchmark == 3
-            , benchmark == 3.5
-            , benchmark == 4
-            , benchmark == 4.5
-            , benchmark == 5
-            , benchmark == 5.5
-            , benchmark == 6]
-            ,
-            [185.5
-            , 159.00
-            , 145.75
-            , 132.50
-            , 119.25
-            , 106.00
-            , 92.75
-            , 79.50
-            , 66.25
-            , 53.00
-            , 39.75
-            , 26.5]
+            [benchmark == 0, benchmark == 1, benchmark == 1.5, benchmark == 2, benchmark == 2.5, benchmark == 3, benchmark == 3.5, benchmark == 4, benchmark == 4.5, benchmark == 5, benchmark == 5.5, benchmark == 6],
+            [185.5, 159.00, 145.75, 132.50, 119.25, 106.00, 92.75, 79.50, 66.25, 53.00, 39.75, 26.5]
             )
 
 
@@ -468,7 +447,7 @@ class predicted_electricity_kWh(Variable):
     definition_period = ETERNITY
     label = 'What is the predicted electricity consumption of the relevant NABERS' \
             ' rated apartment building, in kWh? This is also known as the benchmark' \
-            ' electricity consumption.' # need to code in condition - if less than zero, = 0. Note that this is identical to the benchmark figure, and to the Maximum Energy Consumption within the offices calculator.
+            ' electricity consumption.'  # need to code in condition - if less than zero, = 0. Note that this is identical to the benchmark figure, and to the Maximum Energy Consumption within the offices calculator.
 
     def formula(buildings, period, parameters):
         actual_GHG_KG_CO2_elec = buildings('actual_GHG_KG_CO2_elec', period)
@@ -482,7 +461,7 @@ class predicted_gas_MJ(Variable):
     definition_period = ETERNITY
     label = 'What is the predicted gas consumption of the relevant NABERS' \
             ' rated apartment building, in MJ? This is also known as the benchmark' \
-            ' gas consumption.' # need to code in condition - if less than zero, = 0. Note that this is identical to the benchmark figure, and to the Maximum Energy Consumption within the offices calculator.
+            ' gas consumption.'  # need to code in condition - if less than zero, = 0. Note that this is identical to the benchmark figure, and to the Maximum Energy Consumption within the offices calculator.
 
     def formula(buildings, period, parameters):
         actual_GHG_KG_CO2_gas = buildings('actual_GHG_KG_CO2_gas', period)

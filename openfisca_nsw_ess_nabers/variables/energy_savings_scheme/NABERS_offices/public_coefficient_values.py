@@ -4,7 +4,7 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 import numpy as np
 float_formatter = "{:.9f}".format
-np.set_printoptions(formatter={'float_kind':float_formatter})
+np.set_printoptions(formatter={'float_kind': float_formatter})
 
 # measured_electricity_consumption input at Step 1
 # measured_gas_consumption input at Step 1
@@ -28,15 +28,15 @@ np.set_printoptions(formatter={'float_kind':float_formatter})
 
 
 SGE_coefficients = {
-                    "ACT_SGE_gas": -1,
-                    "NSW_SGE_gas": -1,
-                    "NT_SGE_gas": -1,
-                    "QLD_SGE_gas": -1,
-                    "SA_SGE_gas": -1,
-                    "TAS_SGE_gas": -1,
-                    "VIC_SGE_gas": -1,
-                    "WA_SGE_gas": -1
-                    }
+    "ACT_SGE_gas": -1,
+    "NSW_SGE_gas": -1,
+    "NT_SGE_gas": -1,
+    "QLD_SGE_gas": -1,
+    "SA_SGE_gas": -1,
+    "TAS_SGE_gas": -1,
+    "VIC_SGE_gas": -1,
+    "WA_SGE_gas": -1
+    }
 
 
 def has_real_values():
