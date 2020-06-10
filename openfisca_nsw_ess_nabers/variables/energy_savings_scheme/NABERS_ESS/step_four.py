@@ -59,8 +59,9 @@ class NRYi1(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'the NABERS rating year immediately preceding the NABERS Rating' \
-            ' Year.' # note this only says "NABERS Rating Year in the rule -
-                    # you need to define this as current rating year."
+            ' Year.'
+    # note this only says "NABERS Rating Year in the rule -
+    # you need to define this as current rating year."
 
     def formula(buildings, period, parameters):
         current_rating_year = buildings('current_rating_year', period)
@@ -109,7 +110,9 @@ class counted_energy_savings(Variable):
             ' created for the Implementation for the Current Rating Year.' \
             ' As defined in Clause 8.8.12.'
 
+    """
     def formula(buildings, period, parameters):
         cg_savings = buildings('counted_gas_savings', period)
         ce_savings = buildings('counted_elec_savings', period)
         return count_elec_savings + count_gas_savings
+    """

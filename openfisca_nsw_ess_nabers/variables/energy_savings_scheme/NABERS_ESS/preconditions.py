@@ -14,7 +14,7 @@ def find_corresponding_date(start_date):
 
     if month == 12:
         next_month = 1
-        next_year = year+1
+        next_year = year + 1
 
     try:
         new_date = datetime(year=next_year, month=next_month, day=day)
@@ -22,7 +22,7 @@ def find_corresponding_date(start_date):
         next_month = next_month + 1
         if next_month == 13:
             next_month = 1
-            next_year = next_year+1
+            next_year = next_year + 1
         new_date = datetime(year=next_year, month=next_month, day=1)
         return new_date
 
@@ -35,11 +35,12 @@ def count_months(start_date, end_date):
     corres_date = start_date
     while(True):
         corres_date = find_corresponding_date(corres_date)
-        print(corres_date)
+        # print(corres_date)
         if(corres_date > end_date):
             return count
         else:
             count = count + 1
+
 
 class current_NABERS_star_rating(Variable):
     value_type = float
@@ -56,11 +57,13 @@ class ESC_creation_date(Variable):
     label = 'What is the date on which ESCs are registered and created?'\
 
 
+
 class includes_GreenPower(Variable):
     value_type = bool
     entity = Building
     definition_period = YEAR
     label = "Does the NABERS rating include Greenpower?" \
+
 
 
 class uses_NABERS_ratings_tool(Variable):
@@ -129,11 +132,12 @@ class rating_not_obt_for_legal_requirement(Variable):
             ' mandatory legal requirement? This includes, but is not limited' \
             ' to the Commercial Building Disclosure Program.'
 
+
 class first_nabers_rating(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Is this the first NABERS Rating for the building?' # is there a way to match this against previous ratings, i.e.
+    label = 'Is this the first NABERS Rating for the building?'  # is there a way to match this against previous ratings, i.e.
 
 
 class star_rating_exceeds_method_two_benchmark_rating(Variable):
@@ -164,7 +168,7 @@ class historical_baseline_no_more_than_7_years_before_current_rating(Variable):
             'baseline_rating_year', period
             )
         condition_method_one_is_used = buildings('method_one_can_be_used', period)
-        return where (condition_method_one_is_used, True,
+        return where(condition_method_one_is_used, True,
         cur - hist <= 7)
 
 
@@ -179,11 +183,12 @@ class historical_baseline_more_than_7_years(Variable):
         " the end date of the previous fixed Historical baseline NABERS rating" \
         " in accordance with clause 8.8.4 (b)" \
 
+
     def formula(buildings, period, parameters):
         condition_method_one_is_used = buildings('method_one_can_be_used', period)
-        additional_energy_savings = buildings('additional_energy_savings_created', period)
-        return where (condition_method_one_is_used, False,
-        cur - hist <= 7) # code in recalculation historical baseline based off previous historical rating - needs to be current_historical_rating - previous_historical_rating >= 7
+        # additional_energy_savings = buildings('additional_energy_savings_created', period)
+        return where(condition_method_one_is_used, False,
+        cur - hist <= 7)  # code in recalculation historical baseline based off previous historical rating - needs to be current_historical_rating - previous_historical_rating >= 7
 
 
 class additional_energy_savings_created(Variable):
@@ -219,10 +224,13 @@ class energy_saver(Variable):
     definition_period = ETERNITY
     label = 'Who is the Energy Saver for the Implementation?'
 
+    """
     def formula(buildings, period, parameters):
         NABERS_certificate_name = buildings('NABERS_certificate_name', period)
         building_owner_manager_name = buildings('building_owner_or_manager_name', period)
         condition_NABERS_cert_name
+
+    """
 
 
 class energy_savings_date(Variable):
@@ -288,14 +296,14 @@ class NABERS_eligible_to_create_ESCs(Variable):
         clause_8_8_1_c = buildings('meets_minimum_star_rating_requirement', period)
         clause_8_8_1_d = buildings('all_on_site_sources_identified', period)
         clause_8_8_1_e = buildings('unaccounted_elec_metered_and_recorded', period)
-        clause_8_8_1 = (clause_8_8_1_a * clause_8_8_1_b * clause_8_8_1_c *
-        clause_8_8_1_d * clause_8_8_1_e)
+        clause_8_8_1 = (clause_8_8_1_a * clause_8_8_1_b * clause_8_8_1_c
+        * clause_8_8_1_d * clause_8_8_1_e)
         clause_8_8_3_a_i = buildings('star_rating_exceeds_method_one_benchmark_rating', period)
         clause_8_8_3_a_ii = buildings('first_nabers_rating', period)
         clause_8_8_3_a_iii = buildings('rating_not_obt_for_legal_requirement', period)
         clause_8_8_3_b = buildings('star_rating_exceeds_method_two_benchmark_rating', period)
-        clause_8_8_3 = (clause_8_8_3_a_i * clause_8_8_3_a_ii * clause_8_8_3_a_iii +
-        clause_8_8_3_b)
+        clause_8_8_3 = (clause_8_8_3_a_i * clause_8_8_3_a_ii * clause_8_8_3_a_iii
+        + clause_8_8_3_b)
         clause_8_8_4_a = buildings('historical_baseline_no_more_than_7_years_before_current_rating', period)
         clause_8_8_4_c = buildings('historical_baseline_rating_meets_similar_configuration_criteria', period)
         clause_8_8_4 = (clause_8_8_4_a

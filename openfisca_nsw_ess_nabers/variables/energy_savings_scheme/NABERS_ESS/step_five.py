@@ -17,7 +17,8 @@ class input_years_of_forward_creation(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'What are the total number of years you want to forward create for?'
-            # strongly suggest this remains defaulted to one year.
+    # strongly suggest this remains defaulted to one year.
+
 
 class years_of_forward_creation(Variable):
     value_type = int
@@ -36,14 +37,8 @@ class years_of_forward_creation(Variable):
         one_year_forward_creation = YearsOfForwardCreation.one_year
         two_years_forward_creation = YearsOfForwardCreation.two_years
         three_years_forward_creation = YearsOfForwardCreation.three_years
-        return select([annual_creation
-        , (one_year_forward_creation and forward_creation)
-        , two_years_forward_creation and forward_creation
-        , three_years_forward_creation and forward_creation],
-        [1
-        ,1
-        ,2
-        ,3])
+        return select([annual_creation, (one_year_forward_creation and forward_creation), two_years_forward_creation and forward_creation, three_years_forward_creation and forward_creation],
+            [1, 1, 2, 3])
         # if the user annually creates this is always set to one year. The
         # forward created energy/gas savings calculation is unused when set to annual
         # creation, but the calculation still has to be completed due to
@@ -120,6 +115,7 @@ class year_two_forward_created_gas_savings(Variable):
         gas_savings = benchmark_gas_consumption_MJ - measured_gas_consumption
         return gas_savings
 
+
 class year_three_forward_created_gas_savings(Variable):
     value_type = float
     entity = Building
@@ -146,13 +142,9 @@ class total_forward_created_electricity_savings(Variable):
         year_three_elec_savings = buildings('year_three_forward_created_electricity_savings', period)
 
         return select(
-            [years_of_forward_creation == 1
-            , years_of_forward_creation == 2
-            , years_of_forward_creation == 3],
-            [year_one_elec_savings
-            ,year_one_elec_savings + year_two_elec_savings
-            ,year_one_elec_savings + year_two_elec_savings + year_three_elec_savings
-            ]
+            [years_of_forward_creation == 1, years_of_forward_creation == 2, years_of_forward_creation == 3],
+            [year_one_elec_savings, year_one_elec_savings + year_two_elec_savings, year_one_elec_savings + year_two_elec_savings + year_three_elec_savings
+             ]
             )
 
 
@@ -169,11 +161,7 @@ class total_forward_created_gas_savings(Variable):
         year_three_gas_savings = buildings('year_three_forward_created_gas_savings', period)
 
         return select(
-            [years_of_forward_creation == 1
-            , years_of_forward_creation == 2
-            , years_of_forward_creation == 3],
-            [year_one_gas_savings
-            ,year_one_gas_savings + year_two_gas_savings
-            ,year_one_gas_savings + year_two_gas_savings + year_three_gas_savings
-            ]
+            [years_of_forward_creation == 1, years_of_forward_creation == 2, years_of_forward_creation == 3],
+            [year_one_gas_savings, year_one_gas_savings + year_two_gas_savings, year_one_gas_savings + year_two_gas_savings + year_three_gas_savings
+             ]
             )

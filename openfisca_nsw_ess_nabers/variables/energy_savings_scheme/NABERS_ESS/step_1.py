@@ -32,7 +32,7 @@ class nabers_electricity(Variable):
     label = 'NABERS Electricity, in MWh, is the electricity purchased or' \
             ' imported from the Electricity Network and accounted for in the' \
             ' NABERS Rating, including electricity purchased as GreenPower.'
-            # Ilona, to how many decimal places should this be? No rounding.
+    # Ilona, to how many decimal places should this be? No rounding.
 
     def formula(buildings, period, parameters):
         nabers_kWh = buildings('elec_kWh', period)
