@@ -35,7 +35,7 @@ def count_months(start_date, end_date):
     corres_date = start_date
     while(True):
         corres_date = find_corresponding_date(corres_date)
-        print(corres_date)
+        # print(corres_date)
         if(corres_date > end_date):
             return count
         else:
@@ -186,7 +186,7 @@ class historical_baseline_more_than_7_years(Variable):
 
     def formula(buildings, period, parameters):
         condition_method_one_is_used = buildings('method_one_can_be_used', period)
-        additional_energy_savings = buildings('additional_energy_savings_created', period)
+        # additional_energy_savings = buildings('additional_energy_savings_created', period)
         return where(condition_method_one_is_used, False,
         cur - hist <= 7)  # code in recalculation historical baseline based off previous historical rating - needs to be current_historical_rating - previous_historical_rating >= 7
 
@@ -224,10 +224,13 @@ class energy_saver(Variable):
     definition_period = ETERNITY
     label = 'Who is the Energy Saver for the Implementation?'
 
+    """
     def formula(buildings, period, parameters):
         NABERS_certificate_name = buildings('NABERS_certificate_name', period)
         building_owner_manager_name = buildings('building_owner_or_manager_name', period)
         condition_NABERS_cert_name
+
+    """
 
 
 class energy_savings_date(Variable):

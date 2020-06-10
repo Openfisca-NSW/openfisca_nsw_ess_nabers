@@ -6,9 +6,6 @@ import time
 import numpy as np
 import datetime
 from datetime import datetime as py_datetime
-from numpy import datetime64 as np_datetime
-import pandas as pd
-from numpy import timedelta64
 
 
 epoch = time.gmtime(0).tm_year
@@ -272,13 +269,13 @@ class time_between_historical_and_current_ratings_within_range(Variable):
             ' Method 2. In accordance with Clause 8.8.10 (b).'
 
     def formula(buildings, period, parameters):
-        end_date = buildings('end_date_of_current_nabers_rating_period', period).astype('datetime64[D]')
-        start_date = buildings('end_date_of_historical_nabers_rating_period', period).astype('datetime64[D]')
+        # end_date = buildings('end_date_of_current_nabers_rating_period', period).astype('datetime64[D]')
+        # start_date = buildings('end_date_of_historical_nabers_rating_period', period).astype('datetime64[D]')
         condition_method_one_is_used = buildings('method_one_can_be_used', period)
-        current_historical_date_distance = np.fromiter(map(count_months, start_date, end_date), int)
+        # current_historical_date_distance = np.fromiter(map(count_months, start_date, end_date), int)
         return select(
-            [condition_method_one_is_used == True,
-            condition_method_one_is_used == False], [1,
+            [condition_method_one_is_used,
+            (not condition_method_one_is_used)], [1,
             buildings('current_historical_date_distance', period)
                 <= parameters(period).energy_savings_scheme.preconditions.historical_benchmark_age])
         # fromiter pulls the count_months function, maps the start date and
@@ -371,7 +368,7 @@ class benchmark_nabers_rating(Variable):
     def formula(buildings, period, parameters):
         method_one = buildings('method_one', period)
         method_two = buildings('method_two', period)
-        condition_method_one = buildings('method_one_can_be_used', period) == True
+        condition_method_one = buildings('method_one_can_be_used', period)
         return where(condition_method_one, method_one, method_two)
 
 

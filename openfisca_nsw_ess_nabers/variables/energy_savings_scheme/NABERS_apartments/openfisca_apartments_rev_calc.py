@@ -3,7 +3,6 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 
-from pandas import pandas as pd
 import numpy as np
 float_formatter = "{:.9f}".format
 np.set_printoptions(formatter={'float_kind': float_formatter})

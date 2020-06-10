@@ -2,7 +2,6 @@
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
-import math
 import numpy as np
 
 

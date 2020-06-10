@@ -29,7 +29,7 @@ class apartments_benchmark_elec_consumption(Variable):
             ' Value.'
 
     def formula(buildings, period, parameters):
-        condition_apartment_benchmark = buildings('is_apartment_building', period) == True
+        condition_apartment_benchmark = buildings('is_apartment_building', period)
         return where(condition_apartment_benchmark,
         buildings('predicted_electricity_kWh', period), 0)
         # for Andrew and Ilona - this pulls the value that's returns from the
@@ -48,7 +48,7 @@ class apartments_benchmark_gas_consumption_MJ(Variable):
             ' Value.'
 
     def formula(buildings, period, parameters):
-        condition_apartment_benchmark = buildings('is_apartment_building', period) == True
+        condition_apartment_benchmark = buildings('is_apartment_building', period)
         return where(condition_apartment_benchmark,
         buildings('predicted_gas_MJ', period), 0)
         # for Andrew and Ilona - similar to apartments_benchmark_elec_consumption.
@@ -61,7 +61,7 @@ class offices_benchmark_elec_consumption(Variable):
     label = "Benchmark electricity consumption amount obtained from NABERS reverse calculator"
 
     def formula(buildings, period, parameters):
-        condition_office_benchmark = buildings('is_office', period) == True
+        condition_office_benchmark = buildings('is_office', period)
         return where(condition_office_benchmark,
         buildings('office_maximum_electricity_consumption', period), 0)
         # for Andrew and Ilona - similar to apartments_benchmark_elec_consumption.
@@ -74,7 +74,7 @@ class offices_benchmark_gas_consumption_MJ(Variable):
     label = "Benchmark electricity consumption amount obtained from NABERS reverse calculator"
 
     def formula(buildings, period, parameters):
-        condition_office_benchmark = buildings('is_office', period) == True
+        condition_office_benchmark = buildings('is_office', period)
         return where(condition_office_benchmark,
         buildings('office_maximum_gas_consumption', period), 0)
         # for Andrew and Ilona - similar to apartments_benchmark_elec_consumption.

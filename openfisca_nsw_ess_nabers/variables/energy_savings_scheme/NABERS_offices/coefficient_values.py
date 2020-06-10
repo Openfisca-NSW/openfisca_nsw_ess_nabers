@@ -1,9 +1,6 @@
 # Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
-from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
-from openfisca_nsw_base.entities import *
 # from openfisca_nsw_ess_nabers.variables.energy_savings_scheme.NABERS_offices import nabers_office_shared_library_of_terms
-import numpy as np
 
 # measured_electricity_consumption input at Step 1
 # measured_gas_consumption input at Step 1

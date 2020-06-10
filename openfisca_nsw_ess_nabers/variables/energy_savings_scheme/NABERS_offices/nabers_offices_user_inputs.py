@@ -3,7 +3,6 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 import numpy as np
-import math
 
 float_formatter = "{:.9f}".format
 np.set_printoptions(formatter={'float_kind': float_formatter})
@@ -92,7 +91,7 @@ class benchmark_star_rating(Variable):
     def formula(buildings, period, parameters):
         method_one = buildings('method_one', period)
         method_two = buildings('method_two', period)
-        condition_method_one = buildings('method_one_can_be_used', period) == True
+        condition_method_one = buildings('method_one_can_be_used', period)
         return where(condition_method_one, method_one, method_two)
 
 

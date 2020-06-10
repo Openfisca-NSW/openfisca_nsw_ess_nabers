@@ -360,8 +360,8 @@ class GEwholemax (Variable):
                      * buildings('GEclimcorr', period)
                      - buildings('f_tenancy', period)
                      * buildings('GEClimcorr_tenancy', period)) * 2
-                    / (buildings('f_base_building', period) +
-                        buildings('f_tenancy', period)))
+                     / (buildings('f_base_building', period)
+                     + buildings('f_tenancy', period)))
 
 
 class NGE_5star_original_rating (Variable):
@@ -383,7 +383,7 @@ class GE_5star_original_rating (Variable):
     label = "original required maximum greenhouse emissions at 5 star rating"
 
     def formula(buildings, period, parameters):
-        state = buildings('building_state_location', period)
+        # state = buildings('building_state_location', period)
         NGE_rating = buildings('NGE_5star_original_rating', period)
         f_bb = buildings('f_base_building', period)
         GEclimcorr = buildings('GEclimcorr', period)
