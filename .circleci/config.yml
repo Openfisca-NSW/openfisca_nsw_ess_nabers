@@ -86,11 +86,9 @@ workflows:
   build_and_deploy:
     jobs:
       - build
-      - check_version_and_changelog
       - deploy:
           requires:
             - build
-            - check_version_and_changelog
           filters:
             branches:
               only: master
