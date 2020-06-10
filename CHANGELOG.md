@@ -1,2 +1,3 @@
 # Changelog
 
+Added CircleCI files
