@@ -10,7 +10,7 @@
     building_state_location: WA
     net_lettable_area: 8732.9
     number_of_computers: 0
-    method_one_can_be_used: True
+    method_one_can_be_used: False
     elec_kWh: 746387.6
     gas_in_MJ: 0
     diesel_in_litres: 0

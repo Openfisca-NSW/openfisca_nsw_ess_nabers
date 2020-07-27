@@ -1,0 +1,310 @@
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - is apartment and does not include
+    GreenPower. Uses Method 1. Is eligible for creating ESCs. Calculates on
+    NABERS rating AB1174. Calculates total number of certificates to be 358.
+  period: 2020
+  absolute_error_margin: 0.1
+  input:
+    building_type_status: office
+    includes_GreenPower: False
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    ESC_creation_date: 2020-02-15
+    current_NABERS_star_rating: 4.5
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 50
+    building_state_location: NSW
+    net_lettable_area: 15000
+    number_of_computers: 0
+    elec_kWh: 9000
+    gas_in_MJ: 3600
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    counted_elec_savings: 0
+    energy_savings_type: annual_creation
+  output:
+    perc_elec_kwh: 90
+- name: Test Clause 8.8.1(a) - checks whether the NABERS Rating is calculated
+    using one of the following NABERS tools - is apartment and does not include
+    GreenPower. Uses Method 1. Is eligible for creating ESCs. Calculates on
+    NABERS rating AB1174. Calculates total number of certificates to be 358.
+  period: 2020
+  absolute_error_margin: 0.1
+  input:
+    building_type_status: office
+    includes_GreenPower: False
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    ESC_creation_date: 2020-02-15
+    current_NABERS_star_rating: 4.5
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 50
+    building_state_location: NSW
+    net_lettable_area: 15000
+    number_of_computers: 0
+    elec_kWh: 9000
+    gas_in_MJ: 3600
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    counted_elec_savings: 0
+    energy_savings_type: annual_creation
+  output:
+    perc_gas_kwh: 10
+- name: Check maximum electricity consumption, for Office Base Building w.
+    15000 m2, 0 computers, 50 hours of operation, in Postcode 2000, with a 4
+    star rating
+  period: 2020
+  absolute_error_margin: 1 # Erika, this is to remove the difference in calculating in Excel vs calculating in Python
+  input:
+    building_type_status: office
+    rating_type_status: base_building
+    includes_GreenPower: False
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    ESC_creation_date: 2020-02-15
+    benchmark_star_rating: 4
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 50
+    building_state_location: NSW
+    net_lettable_area: 15000
+    number_of_computers: 0
+    elec_kWh: 9000
+    gas_in_MJ: 3600
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    counted_elec_savings: 0
+    energy_savings_type: annual_creation
+  output:
+    office_maximum_electricity_consumption: 1731985
+- name: Check maximum electricity consumption, for Office Base Building w.
+    15000 m2, 0 computers, 50 hours of operation, in Postcode 2000, with a 4.5
+    star rating
+  period: 2020
+  absolute_error_margin: 1 # Erika, this is to remove the difference in calculating in Excel vs calculating in Python
+  input:
+    building_type_status: office
+    rating_type_status: base_building
+    includes_GreenPower: False
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    ESC_creation_date: 2020-02-15
+    benchmark_star_rating: 4.5
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 50
+    building_state_location: NSW
+    net_lettable_area: 15000
+    number_of_computers: 0
+    elec_kWh: 9000
+    gas_in_MJ: 3600
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    counted_elec_savings: 0
+    energy_savings_type: annual_creation
+  output:
+    office_maximum_electricity_consumption: 1464533
+- name: Check maximum electricity consumption, for Office Base Building w.
+    15000 m2, 0 computers, 50 hours of operation, in Postcode 2000, with a 4
+    star rating
+  period: 2020
+  absolute_error_margin: 1 # Erika, this is to remove the difference in calculating in Excel vs calculating in Python
+  input:
+    building_type_status: office
+    rating_type_status: base_building
+    includes_GreenPower: False
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    ESC_creation_date: 2020-02-15
+    benchmark_star_rating: 4
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 50
+    building_state_location: NSW
+    net_lettable_area: 15000
+    number_of_computers: 0
+    elec_kWh: 9000
+    gas_in_MJ: 3600
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    counted_elec_savings: 0
+    energy_savings_type: annual_creation
+  output:
+    office_maximum_gas_consumption: 692794
+- name: Check maximum electricity consumption, for Office Base Building w.
+    15000 m2, 0 computers, 50 hours of operation, in Postcode 2000, with a 4.5
+    star rating
+  period: 2020
+  absolute_error_margin: 1 # Erika, this is to remove the difference in calculating in Excel vs calculating in Python
+  input:
+    building_type_status: office
+    rating_type_status: base_building
+    includes_GreenPower: False
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    ESC_creation_date: 2020-02-15
+    benchmark_star_rating: 4.5
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 50
+    building_state_location: NSW
+    net_lettable_area: 15000
+    number_of_computers: 0
+    elec_kWh: 9000
+    gas_in_MJ: 3600
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    counted_elec_savings: 0
+    energy_savings_type: annual_creation
+  output:
+    office_maximum_gas_consumption: 585813
+- name: Check maximum electricity consumption, for Office Base Building w.
+    15000 m2, 0 computers, 50 hours of operation, in Postcode 2000, with a 4
+    star rating. test electricity consumption of 1197081 - what are the elec savings?
+  period: 2020
+  absolute_error_margin: 1 # Erika, this is to remove the difference in calculating in Excel vs calculating in Python
+  input:
+    building_type_status: office
+    rating_type_status: base_building
+    includes_GreenPower: False
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    ESC_creation_date: 2020-02-15
+    benchmark_star_rating: 4
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 50
+    building_state_location: NSW
+    net_lettable_area: 15000
+    number_of_computers: 0
+    elec_kWh: 1197081
+    gas_in_MJ: 478832
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    counted_elec_savings: 0
+    energy_savings_type: annual_creation
+    electricity_savings_previous_year: 0
+  output:
+    electricity_savings: 534.904
+- name: Check maximum electricity consumption, for Office Base Building w.
+    15000 m2, 0 computers, 50 hours of operation, in Postcode 2000, with a 4
+    star rating. test electricity consumption of 1197081 - what are the elec savings?
+  period: 2020
+  absolute_error_margin: 1 # Erika, this is to remove the difference in calculating in Excel vs calculating in Python
+  input:
+    building_type_status: office
+    rating_type_status: base_building
+    includes_GreenPower: False
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    ESC_creation_date: 2020-02-15
+    benchmark_star_rating: 4
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 50
+    building_state_location: NSW
+    net_lettable_area: 15000
+    number_of_computers: 0
+    elec_kWh: 1197081
+    gas_in_MJ: 478832
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    counted_elec_savings: 0
+    energy_savings_type: annual_creation
+    electricity_savings_previous_year: 0
+  output:
+    gas_savings: 59.43
+- name: Check maximum electricity consumption, for Office Base Building w.
+    15000 m2, 0 computers, 50 hours of operation, in Postcode 2000, with a 4
+    star rating. test electricity consumption of 1197081 - what are the elec savings?
+  period: 2020
+  absolute_error_margin: 1 # Erika, this is to remove the difference in calculating in Excel vs calculating in Python
+  input:
+    building_type_status: office
+    rating_type_status: base_building
+    includes_GreenPower: False
+    all_on_site_sources_identified: True
+    unaccounted_elec_metered_and_recorded: True
+    end_date_of_current_nabers_rating_period: 2019-12-31
+    ESC_creation_date: 2020-02-15
+    benchmark_star_rating: 4
+    current_NABERS_star_rating: 4.5
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+    historical_baseline_no_more_than_7_years_before_current_rating: True
+    historical_baseline_rating_meets_similar_configuration_criteria: True
+    nabers_value_previously_used_to_set_historical_NABERS_rating: False
+    nabers_value_lower_than_previous_historical_NABERS_value: False
+    postcode: 2000
+    hours_per_week_with_20_percent_occupancy: 50
+    building_state_location: NSW
+    net_lettable_area: 15000
+    number_of_computers: 0
+    elec_kWh: 1197081
+    gas_in_MJ: 478832
+    diesel_in_litres: 0
+    coal_in_KG: 0
+    counted_elec_savings: 0
+    energy_savings_type: annual_creation
+    electricity_savings_previous_year: 0
+  output:
+    number_of_certificates: 590

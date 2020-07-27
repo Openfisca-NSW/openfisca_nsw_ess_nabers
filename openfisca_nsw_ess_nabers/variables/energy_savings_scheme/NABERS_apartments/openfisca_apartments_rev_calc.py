@@ -414,7 +414,7 @@ class actual_GHG_KG_CO2 (Variable):
         return actual_GHG * number_of_apartments
 
 
-class actual_GHG_KG_CO2_elec (Variable):
+class actual_GHG_KG_CO2_elec(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

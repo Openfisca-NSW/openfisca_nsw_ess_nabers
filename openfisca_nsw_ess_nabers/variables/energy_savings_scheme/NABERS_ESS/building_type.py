@@ -78,11 +78,11 @@ class is_apartment_building(Variable):
 
 class BuildingTypeStatus(Enum):
     apartment_building = u"NABERS rated building is an apartment building"
-    data_centre = u"NABERS rated building is a data centre"
-    hospital = u"NABERS rated building is a hospital"
-    hotel = u"NABERS rated building is an hotel"
+    data_centre = u"NABERS rated building is a data centre (coming soon!)"
+    hospital = u"NABERS rated building is a hospital (coming soon!)"
+    hotel = u"NABERS rated building is an hotel (coming soon!)"
     office = u"NABERS rated building is an office"
-    shopping_centre = u"NABERS rated building is a shopping centre"
+    shopping_centre = u"NABERS rated building is a shopping centre (coming soon!)"
 
 
 class building_type_status(Variable):

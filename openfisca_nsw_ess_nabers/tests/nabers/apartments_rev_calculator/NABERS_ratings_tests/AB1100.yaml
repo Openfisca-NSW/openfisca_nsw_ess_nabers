@@ -331,6 +331,28 @@
   absolute_error_margin: 1
   input:
     is_apartment_building: True
+    end_date_of_current_nabers_rating_period: 2019-04-30
+    apartments_postcode: 2000
+    number_of_apartments: 177
+    number_of_central_ac_apartments: 3
+    number_of_condenser_water_serviced_apartments: 57
+    pool_status: heated_pool
+    apartment_has_gym: has_gym
+    number_of_naturally_ventilated_parking_spaces: 70
+    number_of_mechanically_ventilated_parking_spaces: 113
+    elec_kWh: 376128
+    gas_in_MJ: 3728582
+    diesel_in_litres: 0
+    built_after_nov_2006: False
+    first_nabers_rating: True
+    rating_not_obt_for_legal_requirement: True
+  output:
+    predicted_electricity_kWh: 150827
+- name: test of apartments reverse calculator w. rating AB1100 - predicted electricity kWh
+  period: 2020
+  absolute_error_margin: 1
+  input:
+    is_apartment_building: True
     is_office: False
     end_date_of_current_nabers_rating_period: 2019-04-30
     apartments_postcode: 2061

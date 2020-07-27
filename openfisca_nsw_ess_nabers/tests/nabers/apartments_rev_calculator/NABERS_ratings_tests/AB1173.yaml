@@ -299,8 +299,10 @@
     includes_GreenPower: False
     all_on_site_sources_identified: True
     unaccounted_elec_metered_and_recorded: True
+    rating_not_obt_for_legal_requirement: True
     ESC_creation_date: 2020-02-15
     current_NABERS_star_rating: 5.5
+    first_nabers_rating: True
     built_after_nov_2006: False
     historical_baseline_no_more_than_7_years_before_current_rating: True
     historical_baseline_rating_meets_similar_configuration_criteria: True
@@ -317,8 +319,6 @@
     elec_kWh: 270605.0
     gas_in_MJ: 0.0
     diesel_in_litres: 36.0
-    first_nabers_rating: True
-    rating_not_obt_for_legal_requirement: True
     energy_savings_type: annual_creation
   output:
     number_of_certificates: 157
