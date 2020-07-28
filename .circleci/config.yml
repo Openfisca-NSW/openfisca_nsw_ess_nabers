@@ -67,10 +67,6 @@ jobs:
       - restore_cache:
           key: v1-py3-build-{{ .Revision }}
 
-      - add_ssh_keys:
-          fingerprints:
-            - "6e:8b:93:cc:99:61:f6:87:57:ec:af:89:2f:ec:d6:6e"
-
       - run:
           name: Check for functional changes
           command: if ! .circleci/has-functional-changes.sh ; then circleci step halt ; fi
