@@ -73,8 +73,8 @@ class counted_elec_savings(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Total Elec Savings for which Energy Savings Certificates have' \
-            'previously been created for the Implementation for the Current' \
-            'Rating Year in MWh'
+            ' previously been created for the Implementation for the Current' \
+            ' Rating Year in MWh'
 
 
 class electricity_savings_previous_year(Variable):
