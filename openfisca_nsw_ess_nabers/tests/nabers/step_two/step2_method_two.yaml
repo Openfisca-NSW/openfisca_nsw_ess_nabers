@@ -9,16 +9,6 @@
   output:
     method_two: 4
 - name: Building is shopping centre, with a historical NABERS rating of 4 stars concluding 1st
-    January 2019
-  period: 2020
-  input:
-    historical_NABERS_star_rating: 4
-    end_date_of_current_nabers_rating_period: 2020-01-04
-    end_date_of_historical_nabers_rating_period: 2018-06-30
-    building_type_status: shopping_centre
-  output:
-    method_two: 4
-- name: Building is shopping centre, with a historical NABERS rating of 4 stars concluding 1st
     January 2018
   period: 2020
   input:
@@ -66,15 +56,6 @@
     building_type_status: shopping_centre
   output:
     method_two: 4.52
-- name: Building is shopping centre, with a historical NABERS rating of 4 stars concluding 30 June 2015
-  period: 2020
-  input:
-    historical_NABERS_star_rating: 4
-    end_date_of_current_nabers_rating_period: 2020-01-04
-    end_date_of_historical_nabers_rating_period: 2015-06-30
-    building_type_status: shopping_centre
-  output:
-    method_two: 4.65
 - name: Building is shopping centre, with a historical NABERS rating of 4 stars concluding 1st
     January 2015
   period: 2020
@@ -92,15 +73,6 @@
     historical_NABERS_star_rating: 4
     end_date_of_current_nabers_rating_period: 2020-01-04
     end_date_of_historical_nabers_rating_period: 2019-01-01
-    building_type_status: office
-  output:
-    method_two: 4
-- name: Building is office, with a historical NABERS rating of 4 stars concluding 30th June 2018
-  period: 2020
-  input:
-    historical_NABERS_star_rating: 4
-    end_date_of_current_nabers_rating_period: 2020-01-04
-    end_date_of_historical_nabers_rating_period: 2018-06-30
     building_type_status: office
   output:
     method_two: 4
@@ -133,15 +105,6 @@
     building_type_status: office
   output:
     method_two: 4.27
-- name: Building is office, with a historical NABERS rating of 4 stars concluding 30 June 2016
-  period: 2020
-  input:
-    historical_NABERS_star_rating: 4
-    end_date_of_current_nabers_rating_period: 2020-01-04
-    end_date_of_historical_nabers_rating_period: 2016-06-30
-    building_type_status: office
-  output:
-    method_two: 4.36
 - name: Building is office, with a historical NABERS rating of 4 stars concluding 1st
     January 2016
   period: 2020
@@ -152,15 +115,6 @@
     building_type_status: office
   output:
     method_two: 4.36
-- name: Building is office, with a historical NABERS rating of 4 stars concluding 30 June 2015
-  period: 2020
-  input:
-    historical_NABERS_star_rating: 4
-    end_date_of_current_nabers_rating_period: 2020-01-04
-    end_date_of_historical_nabers_rating_period: 2015-06-30
-    building_type_status: office
-  output:
-    method_two: 4.45
 - name: Building is office, with a historical NABERS rating of 4 stars concluding 1st
     January 2015
   period: 2020
@@ -178,16 +132,6 @@
     historical_NABERS_star_rating: 4
     end_date_of_current_nabers_rating_period: 2020-01-04
     end_date_of_historical_nabers_rating_period: 2019-01-01
-    building_type_status: hotel
-  output:
-    method_two: 4
-- name: Building is hotel, with a historical NABERS rating of 4 stars concluding 1st
-    January 2019
-  period: 2020
-  input:
-    historical_NABERS_star_rating: 4
-    end_date_of_current_nabers_rating_period: 2020-01-04
-    end_date_of_historical_nabers_rating_period: 2018-06-30
     building_type_status: hotel
   output:
     method_two: 4
@@ -269,16 +213,6 @@
   output:
     method_two: 4
 - name: Building is data centre, with a historical NABERS rating of 4 stars concluding 1st
-    January 2019
-  period: 2020
-  input:
-    historical_NABERS_star_rating: 4
-    end_date_of_current_nabers_rating_period: 2020-01-04
-    end_date_of_historical_nabers_rating_period: 2018-06-30
-    building_type_status: data_centre
-  output:
-    method_two: 4
-- name: Building is data centre, with a historical NABERS rating of 4 stars concluding 1st
     January 2018
   period: 2020
   input:
@@ -352,17 +286,6 @@
     historical_NABERS_star_rating: 4
     end_date_of_current_nabers_rating_period: 2020-01-04
     end_date_of_historical_nabers_rating_period: 2019-01-01
-    building_type_status: hospital
-    first_nabers_rating: False
-  output:
-    method_two: 4
-- name: Building is hospital, with a historical NABERS rating of 4 stars concluding 1st
-    January 2019
-  period: 2020
-  input:
-    historical_NABERS_star_rating: 4
-    end_date_of_current_nabers_rating_period: 2020-01-04
-    end_date_of_historical_nabers_rating_period: 2018-06-30
     building_type_status: hospital
     first_nabers_rating: False
   output:
