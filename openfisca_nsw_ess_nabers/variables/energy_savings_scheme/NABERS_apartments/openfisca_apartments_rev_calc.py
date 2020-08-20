@@ -66,6 +66,7 @@ class number_of_apartments(Variable):
     definition_period = ETERNITY
     label = 'What is the number of apartments located in the NABERS apartment' \
             ' building you are calculating ESCs for?'
+    default_value = 1
 
 
 class number_of_central_ac_apartments(Variable):
