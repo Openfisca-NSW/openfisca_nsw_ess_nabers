@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="openfisca_nsw_ess_nabers",
-    version="1.3.3",
+    version="2.0.0",
     author="OpenFisca Team",
     author_email = 'sara.falamaki@customerservice.nsw.gov.au',
     classifiers=[
