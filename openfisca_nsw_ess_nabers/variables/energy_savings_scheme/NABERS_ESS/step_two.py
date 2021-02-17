@@ -275,7 +275,7 @@ class time_between_historical_and_current_ratings_within_range(Variable):
         # current_historical_date_distance = np.fromiter(map(count_months, start_date, end_date), int)
         return select(
             [condition_method_one_is_used,
-            (not condition_method_one_is_used)], [1,
+            (not (condition_method_one_is_used))], [1,
             buildings('current_historical_date_distance', period)
                 <= parameters(period).energy_savings_scheme.preconditions.historical_benchmark_age])
         # fromiter pulls the count_months function, maps the start date and

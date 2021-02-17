@@ -74,12 +74,14 @@ class uses_NABERS_ratings_tool(Variable):
             ' Tools?'
 
     def formula(buildings, period, parameters):
-        is_apartment_building = buildings('is_apartment_building', period)
-        is_data_centre = buildings('is_data_centre', period)
-        is_hospital = buildings('is_hospital', period)
-        is_hotel = buildings('is_hotel', period)
-        is_office = buildings('is_office', period)
-        is_shopping_centre = buildings('is_shopping_centre', period)
+        building_type = buildings('NABERS_building_type', period)
+        NABERS_BuildingType = (building_type.possible_values)
+        is_apartment_building = (building_type == NABERS_BuildingType.apartment_building)
+        is_data_centre = (building_type == NABERS_BuildingType.data_centre)
+        is_hospital = (building_type == NABERS_BuildingType.hospital)
+        is_hotel = (building_type == NABERS_BuildingType.hotel)
+        is_office = (building_type == NABERS_BuildingType.office)
+        is_shopping_centre = (building_type == NABERS_BuildingType.shopping_centre)
         uses_NABERS_ratings_tool = (is_apartment_building + is_data_centre
         + is_hospital + is_hotel + is_office + is_shopping_centre)
         return uses_NABERS_ratings_tool

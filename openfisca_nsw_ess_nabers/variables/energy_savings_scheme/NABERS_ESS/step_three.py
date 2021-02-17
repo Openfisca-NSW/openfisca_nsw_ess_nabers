@@ -16,8 +16,8 @@ class net_lettable_area(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'What is the net lettable area of the building, as recorded on the' \
-            ' NABERS Rating Report?'
+    label = 'What is the net lettable area of the building as recorded on the' \
+            ' NABERS Rating Report, in m2?'
 
 
 class apartments_benchmark_elec_consumption(Variable):

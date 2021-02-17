@@ -1,6 +1,0 @@
-description: Coefficient for the presence of lifts within the NABERS rated
-  apartment building.
-reference: NABERS Reverse Calculator for Apartments, v. 1.1, October 2019.
-values:
-  2020-01-01:
-    value: 714.834590600336

@@ -1,0 +1,6 @@
+- name: 'Tests whether the NABERS rated building uses a NABERS rated tool.'
+  period: 2020
+  input:
+    NABERS_building_type: office
+  output:
+    uses_NABERS_ratings_tool: True

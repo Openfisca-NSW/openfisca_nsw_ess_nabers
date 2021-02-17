@@ -1,9 +1,0 @@
-- name: Test Clause 8.8.10 (b) - time between historical and current rating
-    be within range when no historical rating exists
-  period: 2020
-  input:
-    end_date_of_current_nabers_rating_period: 2019-12-31
-    first_nabers_rating: True
-    rating_not_obt_for_legal_requirement: True
-  output:
-    time_between_historical_and_current_ratings_within_range: True
